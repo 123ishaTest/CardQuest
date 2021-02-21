@@ -13,6 +13,7 @@ export class Adventure extends Feature {
     level: Level;
 
     playerHand: PlayableCard[];
+    field: PlayableCard[];
 
 
     constructor(playerDeck: Deck, level: Level) {
@@ -20,6 +21,29 @@ export class Adventure extends Feature {
         this.playerDeck = playerDeck;
         this.level = level;
         this.playerHand = [];
+        this.field = [];
+    }
+
+    play(index: number) {
+        const card = this.playerHand[index];
+        if (!card) {
+            console.warn(`Cannot play card at index ${index}`);
+            return;
+        }
+
+        this.playerHand.splice(index, 1);
+        this.field.push(card);
+        card.play();
+    }
+
+    tap(index: number) {
+        const card = this.field[index];
+        if (!card) {
+            console.warn(`Cannot tap card at index ${index}`);
+            return;
+        }
+
+        card.tap();
     }
 
     draw() {

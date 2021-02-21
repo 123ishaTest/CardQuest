@@ -14,10 +14,13 @@ export class ExampleCard extends PlayableCard {
 
     play(): void {
         // Empty
+        console.log("I've been played");
     }
 
     tap(): void {
         // Empty
+        console.log("I've been tapped");
+
     }
 
 }
