@@ -1,6 +1,5 @@
 <template>
-
-      <div class="w-32 h-64 border-2 bg-blue-400 cursor-pointer">
+      <div class="w-32 h-64 p-2 m-2 border-2 bg-blue-400 cursor-pointer">
         {{ card.description }}
       </div>
 </template>

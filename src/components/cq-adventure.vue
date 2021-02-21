@@ -6,8 +6,7 @@
     <div class="h-128 w-full border-4">
       <div class="text-lg text-center">The field</div>
       <div class="flex flex-row">
-        <cq-card @click.native=tap(index) :card=card :key="card.id + '-' + index" v-for="(card, index) in field">
-        </cq-card>
+        <cq-card @click.native=tap(index) :card=card :key="card.id + '-' + index" v-for="(card, index) in field"/>
         <div v-if="field.length === 0" class="h-64">
           Play some cards!
         </div>
@@ -17,26 +16,29 @@
     <div class="h-128 w-full border-4">
       <div class="text-lg text-center">Your hand</div>
       <div class="flex flex-row">
-        <cq-card @click.native=play(index) :card=card :key="card.id + '-' + index" v-for="(card, index) in hand">
-        </cq-card>
+        <cq-card @click.native=play(index) :card=card :key="card.id + '-' + index" v-for="(card, index) in hand"/>
         <div v-if="hand.length === 0" class="h-64">
           You have no cards
         </div>
       </div>
     </div>
 
-
-    <button class="btn btn-blue" @click="draw">Draw - {{ deckSize }}</button>
+    <cq-adventure-resources :resources="adventure.resources"/>
+    <button class="btn btn-blue" @click="draw" :disabled="!canDraw">
+      <span v-if="canDraw">Draw ({{ deckSize }})</span>
+      <span v-else> No cards </span>
+    </button>
   </div>
 </template>
 
 <script>
 import {App} from "@/App.ts"
 import CqCard from "@/components/cq-card";
+import CqAdventureResources from "@/components/cq-adventure-resources";
 
 export default {
   name: "cq-adventure",
-  components: {CqCard},
+  components: {CqAdventureResources, CqCard},
   data() {
     return {
       adventure: App.game.features.adventure,
@@ -62,7 +64,13 @@ export default {
       return this.adventure.field;
     },
     deckSize() {
-      return this.adventure.playerDeck.getSize();
+      return this.deck.getSize();
+    },
+    deck() {
+      return this.adventure.playerDeck;
+    },
+    canDraw() {
+      return this.adventure.canDraw();
     }
   }
 

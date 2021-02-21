@@ -3,6 +3,7 @@ import {Level} from "@/card-quest/adventure/Level";
 import {PlayableCard} from "@/card-quest/cards/PlayableCard";
 import {Feature} from "@/ig-template/features/Feature";
 import {SaveData} from "@/ig-template/tools/saving/SaveData";
+import {AdventureResources} from "@/card-quest/adventure/AdventureResources";
 
 export class Adventure extends Feature {
 
@@ -14,14 +15,16 @@ export class Adventure extends Feature {
 
     playerHand: PlayableCard[];
     field: PlayableCard[];
+    resources: AdventureResources;
 
 
-    constructor(playerDeck: Deck, level: Level) {
+    constructor(playerDeck: Deck, level: Level, resources = new AdventureResources()) {
         super('adventure');
         this.playerDeck = playerDeck;
         this.level = level;
         this.playerHand = [];
         this.field = [];
+        this.resources = resources;
     }
 
     play(index: number) {
