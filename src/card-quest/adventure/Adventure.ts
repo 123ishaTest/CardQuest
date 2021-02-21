@@ -5,6 +5,7 @@ import {Feature} from "@/ig-template/features/Feature";
 import {SaveData} from "@/ig-template/tools/saving/SaveData";
 import {Wallet} from "@/ig-template/features/wallet/Wallet";
 import {Features} from "@/ig-template/Features";
+import {PlayerStats} from "@/card-quest/adventure/PlayerStats";
 
 export class Adventure extends Feature {
 
@@ -19,10 +20,13 @@ export class Adventure extends Feature {
 
     wallet: Wallet;
 
-    constructor(playerDeck: Deck, level: Level) {
+    playerStats: PlayerStats
+
+    constructor(playerDeck: Deck, level: Level, playerStats: PlayerStats) {
         super('adventure');
         this.playerDeck = playerDeck;
         this.level = level;
+        this.playerStats = playerStats;
         this.playerHand = [];
         this.field = [];
 
@@ -57,6 +61,7 @@ export class Adventure extends Feature {
         }
 
         card.play(this);
+        this.turnHasPassed();
     }
 
     private removeFromField(card: PlayableCard) {
@@ -74,6 +79,8 @@ export class Adventure extends Feature {
         }
 
         card.tap(this);
+
+        this.turnHasPassed();
     }
 
     draw() {
@@ -84,6 +91,14 @@ export class Adventure extends Feature {
         const card = this.playerDeck.draw()
         if (card != undefined) {
             this.playerHand.push(card);
+        }
+
+        this.turnHasPassed();
+    }
+
+    private turnHasPassed() {
+        for(const card of this.field) {
+            card.turnHasPassed(this);
         }
     }
 

@@ -30,6 +30,8 @@
 
     <cq-adventure-resources :wallet="adventure.wallet"/>
 
+    <cq-player-stats :stats="adventure.playerStats"></cq-player-stats>
+
     <button class="btn btn-blue" @click="draw" :disabled="!canDraw">
       <span v-if="canDraw">Draw ({{ deckSize }})</span>
       <span v-else> No cards </span>
@@ -41,10 +43,11 @@
 import {App} from "@/App.ts"
 import CqCard from "@/components/cq-card";
 import CqAdventureResources from "@/components/cq-adventure-resources";
+import CqPlayerStats from "@/components/cq-player-stats";
 
 export default {
   name: "cq-adventure",
-  components: {CqAdventureResources, CqCard},
+  components: {CqPlayerStats, CqAdventureResources, CqCard},
   data() {
     return {
       adventure: App.game.features.adventure,

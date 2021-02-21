@@ -1,6 +1,6 @@
 import {CardId} from "@/card-quest/cards/CardId";
 import {ISimpleEvent, SimpleEventDispatcher} from "strongly-typed-events";
-import {Adventure} from "@/card-quest/Adventure";
+import {Adventure} from "@/card-quest/adventure/Adventure";
 import {Currency} from "@/ig-template/features/wallet/Currency";
 import {Wallet} from "@/ig-template/features/wallet/Wallet";
 
@@ -32,6 +32,8 @@ export abstract class PlayableCard {
     public canAfford(wallet: Wallet): boolean {
         return wallet.hasCurrencies(this.costs);
     }
+
+    abstract turnHasPassed(adventure: Adventure): void;
 
     abstract play(adventure: Adventure): void;
 

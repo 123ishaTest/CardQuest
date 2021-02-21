@@ -1,6 +1,6 @@
 import {CardId} from "@/card-quest/cards/CardId";
 import {HealthCard} from "@/card-quest/cards/HealthCard";
-import {Adventure} from "@/card-quest/Adventure";
+import {Adventure} from "@/card-quest/adventure/Adventure";
 import {CurrencyType} from "@/ig-template/features/wallet/CurrencyType";
 import {Currency} from "@/ig-template/features/wallet/Currency";
 
@@ -28,6 +28,10 @@ export class WoodCard extends HealthCard {
     tap(): void {
         // TODO take tools into account;
         this.takeDamage(1);
+    }
+
+    turnHasPassed(): void {
+        // Empty
     }
 
 }

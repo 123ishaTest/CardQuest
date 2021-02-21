@@ -6,6 +6,11 @@
       Health: {{ card.health }}
     </p>
 
+    <div v-if="!isInHand && card.nextAttack">
+      <p>Attacks in {{ card.nextAttack }} moves</p>
+      <p class="text-lg m-2"> {{ card.attack }}/{{ card.defense }}</p>
+
+    </div>
     <p v-if="card.costs.length" :class="{'text-red-500' : !canAfford && isInHand}">Costs:</p>
     <p :class="{'text-red-500' : !canAfford && isInHand}" :key=cost.toString() v-for="cost in card.costs">
       {{ cost }}

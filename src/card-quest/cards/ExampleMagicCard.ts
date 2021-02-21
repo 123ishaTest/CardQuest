@@ -1,6 +1,6 @@
 import {PlayableCard} from "@/card-quest/cards/PlayableCard";
 import {CardId} from "@/card-quest/cards/CardId";
-import {Adventure} from "@/card-quest/Adventure";
+import {Adventure} from "@/card-quest/adventure/Adventure";
 
 export class ExampleMagicCard extends PlayableCard {
 
@@ -19,6 +19,9 @@ export class ExampleMagicCard extends PlayableCard {
         }
     }
 
+    turnHasPassed(): void {
+        // Empty
+    }
 
     canPlay(): boolean {
         return true;

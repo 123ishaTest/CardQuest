@@ -3,13 +3,15 @@ import {Wallet} from "@/ig-template/features/wallet/Wallet";
 import {CurrencyType} from "@/ig-template/features/wallet/CurrencyType";
 import {Settings} from "@/ig-template/features/settings/Settings";
 import {Statistics} from "@/ig-template/features/statistics/Statistics";
-import {Adventure} from "@/card-quest/Adventure";
+import {Adventure} from "@/card-quest/adventure/Adventure";
 import {Deck} from "@/card-quest/cards/Deck";
 import {Level} from "@/card-quest/adventure/Level";
-import {ExampleCard} from "@/card-quest/cards/ExampleCard";
 import {WoodCard} from "@/card-quest/cards/WoodCard";
 import {Currency} from "@/ig-template/features/wallet/Currency";
 import {ExampleMagicCard} from "@/card-quest/cards/ExampleMagicCard";
+import {PlayerStats} from "@/card-quest/adventure/PlayerStats";
+import {EnemyCard} from "@/card-quest/cards/EnemyCard";
+import {CardId} from "@/card-quest/cards/CardId";
 
 export class App {
 
@@ -38,14 +40,14 @@ export class App {
                 settings: new Settings(),
                 statistics: new Statistics(),
                 adventure: new Adventure(new Deck([
-                    new ExampleCard().setCosts([new Currency(1, CurrencyType.Wood)]),
-                    new ExampleCard().setCosts([new Currency(1, CurrencyType.Wood)]),
-                    new ExampleCard().setCosts([new Currency(1, CurrencyType.Wood)]),
-                    new ExampleMagicCard(),
+                    new ExampleMagicCard().setCosts([new Currency(1, CurrencyType.Souls)]),
+                    new ExampleMagicCard().setCosts([new Currency(2, CurrencyType.Souls)]),
+                    new EnemyCard(CardId.EnemyCard, 'Enemy card', 'enemy.png', 10, 3, 2, 1, 4),
                     new WoodCard(5),
                     new WoodCard(5),
                     new WoodCard(5),
-                ]), new Level([])),
+                ]), new Level([]),
+                    new PlayerStats(20)),
             }
         );
     }

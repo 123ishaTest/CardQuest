@@ -17,6 +17,10 @@ export class ExampleCard extends PlayableCard {
         console.log("I've been played");
     }
 
+    turnHasPassed(): void {
+        // Empty
+    }
+
 
     canPlay(): boolean {
         return true;
