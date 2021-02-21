@@ -12,7 +12,7 @@ export abstract class HealthCard extends PlayableCard {
 
     takeDamage(amount: number) {
         this.health -= amount;
-        if (this.health === 0) {
+        if (this.health <= 0) {
             this.dispatchDefeat();
         }
     }
