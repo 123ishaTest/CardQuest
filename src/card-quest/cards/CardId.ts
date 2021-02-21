@@ -1,3 +1,4 @@
 export enum CardId {
-    CardExample
+    CardExample,
+    WoodCard,
 }

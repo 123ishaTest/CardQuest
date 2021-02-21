@@ -7,6 +7,7 @@ import {Adventure} from "@/card-quest/Adventure";
 import {Deck} from "@/card-quest/cards/Deck";
 import {Level} from "@/card-quest/adventure/Level";
 import {ExampleCard} from "@/card-quest/cards/ExampleCard";
+import {WoodCard} from "@/card-quest/cards/WoodCard";
 
 export class App {
 
@@ -34,6 +35,13 @@ export class App {
                     new ExampleCard(),
                     new ExampleCard(),
                     new ExampleCard(),
+                    new WoodCard(5),
+                    new WoodCard(5),
+                    new WoodCard(5),
+                    new WoodCard(5),
+                    new WoodCard(5),
+                    new WoodCard(5),
+                    new WoodCard(5),
                 ]), new Level([])),
             }
         );

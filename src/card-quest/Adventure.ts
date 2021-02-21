@@ -36,7 +36,7 @@ export class Adventure extends Feature {
 
         this.playerHand.splice(index, 1);
         this.field.push(card);
-        card.play();
+        card.play(this);
     }
 
     tap(index: number) {
@@ -46,7 +46,7 @@ export class Adventure extends Feature {
             return;
         }
 
-        card.tap();
+        card.tap(this);
     }
 
     draw() {
