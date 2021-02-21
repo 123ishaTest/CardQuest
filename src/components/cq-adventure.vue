@@ -3,7 +3,7 @@
     Lets go on an adventure!
 
     <!-- The field -->
-    <div class="h-128 w-full border-4">
+    <div class="h-128 w-full border-4 bg-red-400 p-4">
       <div class="text-lg text-center">The field</div>
       <div class="flex flex-row">
         <cq-card @click.native=tap(index) :card=card :key="card.id + '-' + index" v-for="(card, index) in field"/>
@@ -13,7 +13,7 @@
       </div>
     </div>
 
-    <div class="h-128 w-full border-4">
+    <div class="h-128 w-full border-4 bg-yellow-400 p-4">
       <div class="text-lg text-center">Your hand</div>
       <div class="flex flex-row">
         <cq-card @click.native=play(index) :card=card :key="card.id + '-' + index" v-for="(card, index) in hand"/>
