@@ -63,6 +63,18 @@ export class Wallet extends Feature {
     }
 
     /**
+     * Return true if all currencies are valid and the player has the specified amount.
+     */
+    hasCurrencies(costs: Currency[]) {
+        for (const cost of costs) {
+            if (!this.hasCurrency(cost)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
      * Remove the currency amount from the specified currency.
      * IMPORTANT: This method does not care if amounts go negative
      * @param currency
@@ -73,6 +85,20 @@ export class Wallet extends Feature {
             return;
         }
         this._currencies[currency.type] -= currency.amount;
+    }
+
+    public loseMultipleCurrencies(currencies: Currency[]) {
+        for (const currency of currencies) {
+            this.loseCurrency(currency);
+        }
+    }
+
+    public payMultipleIfPossible(currencies: Currency[]): boolean {
+        if (this.hasCurrencies(currencies)) {
+            this.loseMultipleCurrencies(currencies);
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -114,13 +140,11 @@ export class Wallet extends Feature {
     public save(): WalletSaveData {
         return {
             money: this._currencies[CurrencyType.Money],
-            secondary: this._currencies[CurrencyType.Secondary],
         }
     }
 
     public load(data: WalletSaveData): void {
         this._currencies[CurrencyType.Money] = data.money ?? this._currencies[CurrencyType.Money];
-        this._currencies[CurrencyType.Secondary] = data.secondary ?? this._currencies[CurrencyType.Secondary];
     }
 
     /**

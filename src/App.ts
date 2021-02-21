@@ -25,7 +25,7 @@ export class App {
     public static getDefaultGame(): Game {
         return new Game(
             {
-                wallet: new Wallet([CurrencyType.Money, CurrencyType.Secondary]),
+                wallet: new Wallet([CurrencyType.Money]),
                 settings: new Settings(),
                 statistics: new Statistics(),
                 adventure: new Adventure(new Deck([

@@ -13,7 +13,7 @@ describe('Wallet', () => {
     });
 
     test('example usage', () => {
-        const wallet = new Wallet([CurrencyType.Money, CurrencyType.Secondary]);
+        const wallet = new Wallet([CurrencyType.Money]);
 
         wallet.gainCurrency(new Currency(10, CurrencyType.Money));
 
@@ -28,7 +28,6 @@ describe('Wallet', () => {
         const couldAffordTrue = wallet.payIfPossible(new Currency(25, CurrencyType.Money));
         expect(couldAffordTrue).toBeTruthy();
 
-        expect(wallet.getCurrencyMultiplier(CurrencyType.Secondary)).toBe(1);
         expect(wallet.money).toBe(5);
 
     });
@@ -43,11 +42,9 @@ describe('Wallet', () => {
     test('supported currencies', () => {
         // Act
         const supportsMoney = moneyWallet.supportsCurrencyType(CurrencyType.Money);
-        const supportsSecondary = moneyWallet.supportsCurrencyType(CurrencyType.Secondary);
 
         // Assert
         expect(supportsMoney).toBeTruthy();
-        expect(supportsSecondary).toBeFalsy();
     });
 
 
@@ -145,21 +142,6 @@ describe('Wallet', () => {
         expect(paid).toBeFalsy();
     });
 
-    test('get amount for unsupported currency', () => {
-        // Assert
-        expect(moneyWallet.getAmount(CurrencyType.Secondary)).toBe(0);
-    });
-
-    test('get currency multiplier for unsupported currency', () => {
-        // Assert
-        expect(moneyWallet.getCurrencyMultiplier(CurrencyType.Secondary)).toBe(1);
-    });
-
-    test('has currency for unsupported currency', () => {
-        // Assert
-        expect(moneyWallet.hasCurrency(new Currency(0, CurrencyType.Secondary))).toBeFalsy();
-    });
-
     test('can access', () => {
         // Assert
         expect(moneyWallet.canAccess()).toBeTruthy();
@@ -169,13 +151,11 @@ describe('Wallet', () => {
         // Arrange
         const expectedSaveData: WalletSaveData = {
             money: 10,
-            secondary: 8
         };
-        const wallet = new Wallet([CurrencyType.Money, CurrencyType.Secondary]);
+        const wallet = new Wallet([CurrencyType.Money]);
 
         // Act
         wallet.gainCurrency(new Currency(10, CurrencyType.Money));
-        wallet.gainCurrency(new Currency(8, CurrencyType.Secondary));
         const actualSaveData = wallet.save();
 
 
@@ -187,28 +167,25 @@ describe('Wallet', () => {
         // Arrange
         const saveData: WalletSaveData = {
             money: 10,
-            secondary: 8
         };
-        const wallet = new Wallet([CurrencyType.Money, CurrencyType.Secondary]);
+        const wallet = new Wallet([CurrencyType.Money]);
 
         // Act
         wallet.load(saveData);
 
         // Assert
         expect(wallet.getAmount(CurrencyType.Money)).toEqual(10);
-        expect(wallet.getAmount(CurrencyType.Secondary)).toEqual(8);
     });
 
     test('load empty data', () => {
         // Arrange
-        const wallet = new Wallet([CurrencyType.Money, CurrencyType.Secondary]);
+        const wallet = new Wallet([CurrencyType.Money]);
 
         // Act
         wallet.load({} as WalletSaveData);
 
         // Assert
         expect(wallet.getAmount(CurrencyType.Money)).toEqual(0);
-        expect(wallet.getAmount(CurrencyType.Secondary)).toEqual(0);
     });
 
     test('on currency gain', () => {
