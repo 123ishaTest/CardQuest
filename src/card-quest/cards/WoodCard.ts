@@ -6,11 +6,12 @@ export class WoodCard extends HealthCard {
     reward: number;
 
     constructor(reward: number) {
-        super(CardId.WoodCard, 'Wood card', 'wood.png', 10);
+        super(CardId.WoodCard, 'Wood card', 'wood.png', 3);
         this.reward = reward;
     }
 
     defeated(adventure: Adventure): void {
+        console.log("defeated");
         adventure.resources.wood += this.reward;
     }
 
@@ -19,8 +20,8 @@ export class WoodCard extends HealthCard {
     }
 
     tap(adventure: Adventure): void {
-        // TODO take tools into accoutn
-        this.health--;
+        // TODO take tools into account;
+        this.takeDamage(1);
     }
 
 }

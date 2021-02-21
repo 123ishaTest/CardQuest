@@ -36,7 +36,19 @@ export class Adventure extends Feature {
 
         this.playerHand.splice(index, 1);
         this.field.push(card);
+
+        card.onDefeated.subscribe(() => {
+            card.defeated(this);
+            this.removeFromField(card);
+        })
         card.play(this);
+    }
+
+    private removeFromField(card: PlayableCard) {
+        const index = this.field.indexOf(card, 0);
+        if (index > -1) {
+            this.field.splice(index, 1);
+        }
     }
 
     tap(index: number) {
