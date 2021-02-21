@@ -11,12 +11,14 @@ export abstract class PlayableCard {
     description: string;
     image: string;
     costs: Currency[];
+    goesToField: boolean;
 
-    protected constructor(id: CardId, description: string, image: string, costs: Currency[] = []) {
+    protected constructor(id: CardId, description: string, image: string, costs: Currency[] = [], goesToField: boolean = false) {
         this.id = id;
         this.description = description;
         this.image = image;
         this.costs = costs;
+        this.goesToField = goesToField
     }
 
 

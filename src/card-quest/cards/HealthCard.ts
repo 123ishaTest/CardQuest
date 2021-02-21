@@ -7,6 +7,7 @@ export abstract class HealthCard extends PlayableCard {
     protected constructor(id: CardId, description: string, image: string, health: number) {
         super(id, description, image);
         this.health = health;
+        this.goesToField = true;
     }
 
     takeDamage(amount: number) {
