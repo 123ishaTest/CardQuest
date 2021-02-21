@@ -3,6 +3,10 @@ import {Wallet} from "@/ig-template/features/wallet/Wallet";
 import {CurrencyType} from "@/ig-template/features/wallet/CurrencyType";
 import {Settings} from "@/ig-template/features/settings/Settings";
 import {Statistics} from "@/ig-template/features/statistics/Statistics";
+import {Adventure} from "@/card-quest/Adventure";
+import {Deck} from "@/card-quest/cards/Deck";
+import {Level} from "@/card-quest/adventure/Level";
+import {ExampleCard} from "@/card-quest/cards/ExampleCard";
 
 export class App {
 
@@ -23,6 +27,14 @@ export class App {
                 wallet: new Wallet([CurrencyType.Money, CurrencyType.Secondary]),
                 settings: new Settings(),
                 statistics: new Statistics(),
+                adventure: new Adventure(new Deck([
+                    new ExampleCard(),
+                    new ExampleCard(),
+                    new ExampleCard(),
+                    new ExampleCard(),
+                    new ExampleCard(),
+                    new ExampleCard(),
+                ]), new Level([])),
             }
         );
     }

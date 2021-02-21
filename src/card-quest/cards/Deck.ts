@@ -32,4 +32,8 @@ export class Deck {
         // TODO Implement
         return '';
     }
+
+    public getSize(): number {
+        return this.cards.length;
+    }
 }

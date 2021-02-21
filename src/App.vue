@@ -1,7 +1,8 @@
 <template>
-  <div class="container">
+  <div>
 
-    <igt-wallet></igt-wallet>
+<!--    <igt-wallet></igt-wallet>-->
+    <cq-adventure></cq-adventure>
     <igt-developer-panel></igt-developer-panel>
 
   </div>
@@ -10,11 +11,11 @@
 
 <script>
 import {App} from "@/App.ts"
-import IgtWallet from "@/components/igt-wallet";
 import IgtDeveloperPanel from "@/components/developer-panel/igt-developer-panel";
+import CqAdventure from "@/components/cq-adventure";
 
 export default {
-  components: {IgtDeveloperPanel, IgtWallet},
+  components: {CqAdventure, IgtDeveloperPanel},
   data() {
     return {
       game: App.game
