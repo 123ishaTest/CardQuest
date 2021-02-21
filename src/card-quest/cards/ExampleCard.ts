@@ -17,6 +17,11 @@ export class ExampleCard extends PlayableCard {
         console.log("I've been played");
     }
 
+
+    canPlay(): boolean {
+        return false;
+    }
+
     tap(): void {
         // Empty
         console.log("I've been tapped");

@@ -16,7 +16,8 @@
     <div class="h-128 w-full border-4 bg-yellow-400 p-4">
       <div class="text-lg text-center">Your hand</div>
       <div class="flex flex-row">
-        <cq-card @click.native=play(index) :card=card :key="card.id + '-' + index" v-for="(card, index) in hand"/>
+        <cq-card :is-disabled="!card.canPlay(adventure)" @click.native=play(index) :card=card :key="card.id + '-' + index"
+                 v-for="(card, index) in hand"/>
         <div v-if="hand.length === 0" class="h-64">
           You have no cards
         </div>
@@ -50,6 +51,9 @@ export default {
       this.adventure.draw();
     },
     play(index) {
+      if (!this.adventure.playerHand[index].canPlay(this.adventure)) {
+        return;
+      }
       this.adventure.play(index);
     },
     tap(index) {

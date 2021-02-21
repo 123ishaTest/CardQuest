@@ -29,7 +29,7 @@ export class Adventure extends Feature {
 
     play(index: number) {
         const card = this.playerHand[index];
-        if (!card) {
+        if (!card || !card.canPlay(this)) {
             console.warn(`Cannot play card at index ${index}`);
             return;
         }

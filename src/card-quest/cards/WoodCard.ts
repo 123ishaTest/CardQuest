@@ -15,11 +15,16 @@ export class WoodCard extends HealthCard {
         adventure.resources.wood += this.reward;
     }
 
-    play(adventure: Adventure): void {
+
+    canPlay(): boolean {
+        return true;
+    }
+
+    play(): void {
         // Empty
     }
 
-    tap(adventure: Adventure): void {
+    tap(): void {
         // TODO take tools into account;
         this.takeDamage(1);
     }

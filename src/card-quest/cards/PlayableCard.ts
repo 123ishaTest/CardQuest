@@ -16,6 +16,8 @@ export abstract class PlayableCard {
         this.image = image;
     }
 
+    abstract canPlay(adventure: Adventure): boolean;
+
     abstract play(adventure: Adventure): void;
 
     abstract tap(adventure: Adventure): void;
