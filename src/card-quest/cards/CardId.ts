@@ -3,4 +3,5 @@ export enum CardId {
     WoodCard,
     CardMagicExample,
     EnemyCard,
+    BronzeAxe,
 }

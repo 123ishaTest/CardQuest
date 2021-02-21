@@ -25,9 +25,8 @@ export class WoodCard extends HealthCard {
         // Empty
     }
 
-    tap(): void {
-        // TODO take tools into account;
-        this.takeDamage(1);
+    tap(adventure: Adventure): void {
+        this.takeDamage(adventure.playerStats.getWoodCuttingDamage());
     }
 
     turnHasPassed(): void {
