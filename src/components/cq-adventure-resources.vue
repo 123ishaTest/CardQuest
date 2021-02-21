@@ -8,7 +8,8 @@
 <script>
 
 
-import {AdventureResources} from "@/card-quest/adventure/AdventureResources";
+
+import {Wallet} from "@/ig-template/features/wallet/Wallet";
 
 export default {
   name: "cq-adventure-resources",
@@ -17,18 +18,18 @@ export default {
   },
 
   props: {
-    resources: {
-      type: AdventureResources,
+    wallet: {
+      type: Wallet,
       required: true
     },
   },
 
   computed: {
     wood() {
-      return this.resources.wood;
+      return this.wallet.wood;
     },
     souls() {
-      return this.resources.souls;
+      return this.wallet.souls;
     }
   }
 

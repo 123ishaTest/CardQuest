@@ -6,7 +6,8 @@
     <div class="h-128 w-full border-4 bg-red-400 p-4">
       <div class="text-lg text-center">The field</div>
       <div class="flex flex-row">
-        <cq-card @click.native=tap(index) :card=card :key="card.id + '-' + index" v-for="(card, index) in field"/>
+        <cq-card :is-in-hand="false" @click.native=tap(index) :card=card :key="card.id + '-' + index"
+                 v-for="(card, index) in field"/>
         <div v-if="field.length === 0" class="h-64">
           Play some cards!
         </div>
@@ -16,7 +17,10 @@
     <div class="h-128 w-full border-4 bg-yellow-400 p-4">
       <div class="text-lg text-center">Your hand</div>
       <div class="flex flex-row">
-        <cq-card :is-disabled="!card.canPlay(adventure)" @click.native=play(index) :card=card :key="card.id + '-' + index"
+        <cq-card :is-in-hand="true"
+                 :can-afford="card.canAfford(adventure.wallet)"
+                 :is-disabled="!card.canPlay(adventure)" @click.native=play(index) :card=card
+                 :key="card.id + '-' + index"
                  v-for="(card, index) in hand"/>
         <div v-if="hand.length === 0" class="h-64">
           You have no cards
@@ -24,7 +28,8 @@
       </div>
     </div>
 
-    <cq-adventure-resources :resources="adventure.resources"/>
+    <cq-adventure-resources :wallet="adventure.wallet"/>
+
     <button class="btn btn-blue" @click="draw" :disabled="!canDraw">
       <span v-if="canDraw">Draw ({{ deckSize }})</span>
       <span v-else> No cards </span>

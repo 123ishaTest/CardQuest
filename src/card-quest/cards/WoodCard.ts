@@ -1,6 +1,8 @@
 import {CardId} from "@/card-quest/cards/CardId";
 import {HealthCard} from "@/card-quest/cards/HealthCard";
 import {Adventure} from "@/card-quest/Adventure";
+import {CurrencyType} from "@/ig-template/features/wallet/CurrencyType";
+import {Currency} from "@/ig-template/features/wallet/Currency";
 
 export class WoodCard extends HealthCard {
     reward: number;
@@ -11,8 +13,7 @@ export class WoodCard extends HealthCard {
     }
 
     defeated(adventure: Adventure): void {
-        console.log("defeated");
-        adventure.resources.wood += this.reward;
+        adventure.wallet.gainCurrency(new Currency(this.reward, CurrencyType.Wood));
     }
 
 

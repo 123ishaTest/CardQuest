@@ -23,7 +23,7 @@ export class Currency {
     }
 
     public toString(): string {
-        return `Currency(${this.amount}, ${this.type})`;
+        return `${this.amount} ${this.type}`;
     }
 
     // Math methods as TS does not support operator overloading

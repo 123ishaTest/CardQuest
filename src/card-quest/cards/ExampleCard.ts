@@ -19,7 +19,7 @@ export class ExampleCard extends PlayableCard {
 
 
     canPlay(): boolean {
-        return false;
+        return true;
     }
 
     tap(): void {

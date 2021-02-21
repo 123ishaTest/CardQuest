@@ -19,6 +19,12 @@ export abstract class PlayableCard {
         this.costs = costs;
     }
 
+
+    setCosts(costs: Currency[]): this {
+        this.costs = costs;
+        return this;
+    }
+
     abstract canPlay(adventure: Adventure): boolean;
 
     public canAfford(wallet: Wallet): boolean {

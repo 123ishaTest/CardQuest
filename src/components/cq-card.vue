@@ -6,7 +6,8 @@
       Health: {{ card.health }}
     </p>
 
-    <p :key=cost v-for="cost in card.costs">
+    <p v-if="card.costs.length" :class="{'text-red-500' : !canAfford && isInHand}">Costs:</p>
+    <p :class="{'text-red-500' : !canAfford && isInHand}" :key=cost.toString() v-for="cost in card.costs">
       {{ cost }}
     </p>
   </div>
@@ -28,6 +29,14 @@ export default {
       required: true,
     },
     isDisabled: {
+      type: Boolean,
+      default: false,
+    },
+    isInHand: {
+      type: Boolean,
+      required: true,
+    },
+    canAfford: {
       type: Boolean,
       default: false,
     }

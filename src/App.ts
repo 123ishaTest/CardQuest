@@ -8,6 +8,7 @@ import {Deck} from "@/card-quest/cards/Deck";
 import {Level} from "@/card-quest/adventure/Level";
 import {ExampleCard} from "@/card-quest/cards/ExampleCard";
 import {WoodCard} from "@/card-quest/cards/WoodCard";
+import {Currency} from "@/ig-template/features/wallet/Currency";
 
 export class App {
 
@@ -25,16 +26,23 @@ export class App {
     public static getDefaultGame(): Game {
         return new Game(
             {
-                wallet: new Wallet([CurrencyType.Money]),
+                wallet: new Wallet([
+                    CurrencyType.Money,
+                    CurrencyType.Souls,
+                    CurrencyType.Wood,
+                    CurrencyType.Bronze,
+                    CurrencyType.Silver,
+                    CurrencyType.Gold,
+                ]),
                 settings: new Settings(),
                 statistics: new Statistics(),
                 adventure: new Adventure(new Deck([
-                    new ExampleCard(),
-                    new ExampleCard(),
-                    new ExampleCard(),
-                    new ExampleCard(),
-                    new ExampleCard(),
-                    new ExampleCard(),
+                    new ExampleCard().setCosts([new Currency(1, CurrencyType.Wood)]),
+                    new ExampleCard().setCosts([new Currency(1, CurrencyType.Wood)]),
+                    new ExampleCard().setCosts([new Currency(1, CurrencyType.Wood)]),
+                    new ExampleCard().setCosts([new Currency(1, CurrencyType.Wood)]),
+                    new ExampleCard().setCosts([new Currency(1, CurrencyType.Wood)]),
+                    new ExampleCard().setCosts([new Currency(1, CurrencyType.Wood)]),
                     new WoodCard(5),
                     new WoodCard(5),
                     new WoodCard(5),

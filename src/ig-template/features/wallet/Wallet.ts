@@ -163,6 +163,13 @@ export class Wallet extends Feature {
         this._currencies.Money = value;
     }
 
+    public get wood(): number {
+        return this._currencies.Wood;
+    }
+
+    public get souls(): number {
+        return this._currencies.Souls;
+    }
 
     getDeveloperPanelFields(): AbstractField[] {
         return [

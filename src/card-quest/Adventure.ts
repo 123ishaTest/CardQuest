@@ -3,7 +3,8 @@ import {Level} from "@/card-quest/adventure/Level";
 import {PlayableCard} from "@/card-quest/cards/PlayableCard";
 import {Feature} from "@/ig-template/features/Feature";
 import {SaveData} from "@/ig-template/tools/saving/SaveData";
-import {AdventureResources} from "@/card-quest/adventure/AdventureResources";
+import {Wallet} from "@/ig-template/features/wallet/Wallet";
+import {Features} from "@/ig-template/Features";
 
 export class Adventure extends Feature {
 
@@ -15,22 +16,33 @@ export class Adventure extends Feature {
 
     playerHand: PlayableCard[];
     field: PlayableCard[];
-    resources: AdventureResources;
 
+    wallet: Wallet;
 
-    constructor(playerDeck: Deck, level: Level, resources = new AdventureResources()) {
+    constructor(playerDeck: Deck, level: Level) {
         super('adventure');
         this.playerDeck = playerDeck;
         this.level = level;
         this.playerHand = [];
         this.field = [];
-        this.resources = resources;
+
+        // Dummy wallet, will be overridden in initialize.
+        this.wallet = new Wallet([]);
+    }
+
+
+    initialize(features: Features) {
+        this.wallet = features.wallet;
     }
 
     play(index: number) {
         const card = this.playerHand[index];
         if (!card || !card.canPlay(this)) {
             console.warn(`Cannot play card at index ${index}`);
+            return;
+        }
+
+        if (!card.canAfford(this.wallet)) {
             return;
         }
 
