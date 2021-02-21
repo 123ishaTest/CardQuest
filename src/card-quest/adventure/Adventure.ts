@@ -48,7 +48,7 @@ export class Adventure extends Feature {
             return;
         }
 
-        if (!card.canAfford(this.wallet)) {
+        if (!this.wallet.payMultipleIfPossible(card.costs)) {
             return;
         }
 
