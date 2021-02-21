@@ -42,7 +42,7 @@ export class App {
                 adventure: new Adventure(new Deck([
                     new ExampleMagicCard().setCosts([new Currency(1, CurrencyType.Souls)]),
                     new ExampleMagicCard().setCosts([new Currency(2, CurrencyType.Souls)]),
-                    new EnemyCard(CardId.EnemyCard, 'Enemy card', 'enemy.png', 10, 3, 2, 1, 4),
+                    new EnemyCard(CardId.EnemyCard, 'Enemy card', 'enemy.png', 5, 3, 2, 1, 4),
                     new WoodCard(5),
                     new WoodCard(5),
                     new WoodCard(5),

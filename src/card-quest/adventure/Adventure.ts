@@ -22,6 +22,8 @@ export class Adventure extends Feature {
 
     playerStats: PlayerStats
 
+    deletionQueue: PlayableCard[] = [];
+
     constructor(playerDeck: Deck, level: Level, playerStats: PlayerStats) {
         super('adventure');
         this.playerDeck = playerDeck;
@@ -56,19 +58,12 @@ export class Adventure extends Feature {
             this.field.push(card);
             card.onDefeated.subscribe(() => {
                 card.defeated(this);
-                this.removeFromField(card);
+                this.queueDeletion(card);
             })
         }
 
         card.play(this);
         this.turnHasPassed();
-    }
-
-    private removeFromField(card: PlayableCard) {
-        const index = this.field.indexOf(card, 0);
-        if (index > -1) {
-            this.field.splice(index, 1);
-        }
     }
 
     tap(index: number) {
@@ -97,8 +92,16 @@ export class Adventure extends Feature {
     }
 
     private turnHasPassed() {
-        for(const card of this.field) {
+        for (const card of this.field) {
             card.turnHasPassed(this);
+        }
+
+        // Remove cards queued for deletion
+        for (const card of this.deletionQueue) {
+            const index = this.field.indexOf(card, 0);
+            if (index > -1) {
+                this.field.splice(index, 1);
+            }
         }
     }
 
@@ -114,4 +117,7 @@ export class Adventure extends Feature {
         return [];
     }
 
+    private queueDeletion(card: PlayableCard) {
+        this.deletionQueue.push(card);
+    }
 }
