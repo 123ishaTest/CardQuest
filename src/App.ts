@@ -9,6 +9,7 @@ import {Level} from "@/card-quest/adventure/Level";
 import {ExampleCard} from "@/card-quest/cards/ExampleCard";
 import {WoodCard} from "@/card-quest/cards/WoodCard";
 import {Currency} from "@/ig-template/features/wallet/Currency";
+import {ExampleMagicCard} from "@/card-quest/cards/ExampleMagicCard";
 
 export class App {
 
@@ -40,13 +41,7 @@ export class App {
                     new ExampleCard().setCosts([new Currency(1, CurrencyType.Wood)]),
                     new ExampleCard().setCosts([new Currency(1, CurrencyType.Wood)]),
                     new ExampleCard().setCosts([new Currency(1, CurrencyType.Wood)]),
-                    new ExampleCard().setCosts([new Currency(1, CurrencyType.Wood)]),
-                    new ExampleCard().setCosts([new Currency(1, CurrencyType.Wood)]),
-                    new ExampleCard().setCosts([new Currency(1, CurrencyType.Wood)]),
-                    new WoodCard(5),
-                    new WoodCard(5),
-                    new WoodCard(5),
-                    new WoodCard(5),
+                    new ExampleMagicCard(),
                     new WoodCard(5),
                     new WoodCard(5),
                     new WoodCard(5),
