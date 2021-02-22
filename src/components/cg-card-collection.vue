@@ -1,6 +1,7 @@
 <template>
   <div class="m-4 p-4 bg-blue-700">
     Card collection
+    <button class="btn btn-green" @click="openCardPack(0)">Open pack</button>
     <div class="flex flex-row flex-wrap">
 
       <div :key=card.amount v-for="card in displayableCards" class="flex flex-col">
@@ -38,6 +39,11 @@ export default {
       return this.collection.getCardsWithAmount();
     },
 
+  },
+  methods: {
+    openCardPack(id) {
+      this.collection.openCardPack(id);
+    }
   }
 
 }

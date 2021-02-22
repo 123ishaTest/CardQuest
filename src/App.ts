@@ -9,6 +9,9 @@ import {PlayerStats} from "@/card-quest/adventure/PlayerStats";
 import {CardId} from "@/card-quest/cards/CardId";
 import {CardRepository} from "@/card-quest/cards/CardRepository";
 import {CardCollection} from "@/card-quest/features/card-collection/CardCollection";
+import {CardPack} from "@/card-quest/features/card-collection/CardPack";
+import {CardPackId} from "@/card-quest/features/card-collection/CardPackId";
+import {Outcome} from "@/ig-template/tools/probability/Outcome";
 
 export class App {
 
@@ -49,7 +52,14 @@ export class App {
                         [15, CardRepository.getCard(CardId.EnemyCard)],
                     ]),
                     new PlayerStats(20)),
-                collection: new CardCollection(),
+                collection: new CardCollection([
+                    new CardPack(CardPackId.ExamplePack, [
+                        new Outcome<CardId>(CardId.WoodCard, 1),
+                        new Outcome<CardId>(CardId.MagicTouch, 1),
+                        new Outcome<CardId>(CardId.EnemyCard, 1),
+                        new Outcome<CardId>(CardId.BronzeAxe, 1),
+                    ])
+                ]),
             }
         );
     }
