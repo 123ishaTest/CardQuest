@@ -5,7 +5,7 @@ export class ExampleCard extends PlayableCard {
 
 
     constructor() {
-        super(CardId.CardExample, 'Example Card', 'example.png');
+        super(CardId.CardExample, 'title', 'Example Card', 'example.png');
     }
 
     defeated(): void {

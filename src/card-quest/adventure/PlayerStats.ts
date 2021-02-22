@@ -1,13 +1,17 @@
-import {Axe} from "@/card-quest/adventure/tools/Axe";
+import {ToolTier} from "@/card-quest/adventure/tools/ToolTier";
 
 export class PlayerStats {
     health: number;
 
-    activeAxe: Axe;
+    activeAxe: ToolTier;
+    activePickaxe: ToolTier;
+    activeScythe: ToolTier;
 
-    constructor(health: number, activeAxe: Axe = Axe.Stone) {
+    constructor(health: number, activeAxe: ToolTier = ToolTier.Stone, activePickaxe: ToolTier = ToolTier.Stone, activeScythe: ToolTier = ToolTier.Stone) {
         this.health = health;
         this.activeAxe = activeAxe;
+        this.activePickaxe = activePickaxe;
+        this.activeScythe = activeScythe;
     }
 
     public attackFor(amount: number) {
@@ -17,6 +21,15 @@ export class PlayerStats {
     public getWoodCuttingDamage() {
         return 1 + this.activeAxe;
     }
+
+    public getMiningDamage() {
+        return 1 + this.activePickaxe;
+    }
+
+    public getForagingDamage() {
+        return 1 + this.activeScythe;
+    }
+
 
     public getAttack() {
         // TODO take tools into account

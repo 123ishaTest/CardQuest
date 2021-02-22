@@ -8,13 +8,15 @@ export abstract class PlayableCard {
     private _onDefeated = new SimpleEventDispatcher<PlayableCard>();
 
     id: CardId;
+    title: string;
     description: string;
     image: string;
     costs: Currency[];
     goesToField: boolean;
 
-    protected constructor(id: CardId, description: string, image: string, costs: Currency[] = [], goesToField: boolean = false) {
+    protected constructor(id: CardId, title: string, description: string, image: string, costs: Currency[] = [], goesToField: boolean = false) {
         this.id = id;
+        this.title = title;
         this.description = description;
         this.image = image;
         this.costs = costs;

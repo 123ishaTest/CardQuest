@@ -1,4 +1,4 @@
-export enum Axe {
+export enum ToolTier {
     Stone,
     Bronze,
     Silver,

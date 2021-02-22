@@ -6,7 +6,7 @@ export class ExampleMagicCard extends PlayableCard {
 
 
     constructor() {
-        super(CardId.CardMagicExample, 'Deal 1 damage to all resources', 'example.png');
+        super(CardId.CardMagicExample, 'title', 'Deal 1 damage to all resources', 'example.png');
     }
 
     defeated(): void {
