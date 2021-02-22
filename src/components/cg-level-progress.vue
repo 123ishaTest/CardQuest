@@ -5,7 +5,7 @@
     </p>
     <div class="flex flex-col">
       <div :key=futureCard[0] v-for="futureCard in futureCards">
-        <p>{{ futureCard[0] }} - {{ futureCard[1].description }}</p>
+        <p>{{ futureCard[0] }} - {{ futureCard[1].title }}</p>
       </div>
     </div>
 
