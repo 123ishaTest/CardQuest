@@ -6,6 +6,7 @@ import {PlayableCard} from "@/card-quest/cards/abstract/PlayableCard";
 import {CardPack} from "@/card-quest/features/card-collection/CardPack";
 import {CardPackId} from "@/card-quest/features/card-collection/CardPackId";
 import {IdDeck} from "@/card-quest/cards/IdDeck";
+import {DeckPreset} from "@/card-quest/features/card-collection/DeckPreset";
 
 
 export class CardCollection extends Feature {
@@ -14,6 +15,9 @@ export class CardCollection extends Feature {
     cardPacks: CardPack[];
 
     currentDeck: IdDeck;
+    deckPresets: DeckPreset[] = [];
+
+    readonly MAX_DECK_PRESETS = 10;
 
     constructor(cardPacks: CardPack[]) {
         super('card-collection');
@@ -22,6 +26,11 @@ export class CardCollection extends Feature {
         for (let i = 0; i < ids.length; i++) {
             this.cards.push(0);
         }
+
+        for (let i = 0; i < this.MAX_DECK_PRESETS; i++) {
+            this.deckPresets.push(new DeckPreset('', ''));
+        }
+
 
         this.cardPacks = cardPacks;
 
@@ -58,6 +67,18 @@ export class CardCollection extends Feature {
         return this.cards.map((amount, id) => {
             return [CardRepository.getCard(id as CardId), amount];
         });
+    }
+
+    emptyCurrentDeck(): void {
+        this.currentDeck = new IdDeck();
+    }
+
+    saveToPreset(index: number): void {
+        this.deckPresets[index].deckString = this.currentDeck.toDeckString();
+    }
+
+    loadFromPreset(index: number): void {
+        this.currentDeck = IdDeck.fromDeckString(this.deckPresets[index].deckString);
     }
 
     initialize() {

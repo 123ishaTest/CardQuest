@@ -21,7 +21,6 @@ export class IdDeck {
     public removeCard(id: CardId) {
         const newAmount = Math.max(0, this.cards[id] - 1);
         this.cards.splice(id, 1, newAmount)
-
     }
 
     public getCountForCard(id: CardId): number {
@@ -33,7 +32,17 @@ export class IdDeck {
     }
 
     public toDeckString(): string {
-        return '';
+        let ids: number[] = [];
+        for (let i = 0; i < this.cards.length; i++) {
+            if (this.cards[i] != 0) {
+                ids = ids.concat(Array(this.cards[i]).fill(i));
+            }
+        }
+        return ids.join('.');
+    }
+
+    public static fromDeckString(deckString: string): IdDeck {
+        return CardRepository.getIdDeckFromString(deckString) ?? new IdDeck();
     }
 
     public getSize(): number {

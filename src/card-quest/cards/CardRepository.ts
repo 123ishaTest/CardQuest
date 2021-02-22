@@ -10,6 +10,7 @@ import {EnemyCard} from "@/card-quest/cards/content/monster/EnemyCard";
 import {MagicTouchCard} from "@/card-quest/cards/content/action/MagicTouchCard";
 import {WoodCard} from "@/card-quest/cards/content/resource/WoodCard";
 import {EnumHelpers} from "@/ig-template/tools/EnumHelpers";
+import {IdDeck} from "@/card-quest/cards/IdDeck";
 
 export class CardRepository {
     public static getCard(id: CardId): PlayableCard {
@@ -37,6 +38,21 @@ export class CardRepository {
                 return parseInt(string);
             });
             return this.getDeckFromCardIds(ids);
+        } catch (e) {
+            return null;
+        }
+    }
+
+    public static getIdDeckFromString(deckString: string): IdDeck | null {
+        try {
+            const ids = deckString.split('.').map(string => {
+                return parseInt(string);
+            });
+            const idDeck = new IdDeck();
+            for (const id of ids) {
+                idDeck.addCard(id);
+            }
+            return idDeck;
         } catch (e) {
             return null;
         }
