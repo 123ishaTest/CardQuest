@@ -2,20 +2,36 @@ import {Feature} from "@/ig-template/features/Feature";
 import {CardCollectionSaveData} from "@/card-quest/features/card-collection/CardCollectionSaveData";
 import {CardRepository} from "@/card-quest/cards/CardRepository";
 import {CardId} from "@/card-quest/cards/CardId";
+import {PlayableCard} from "@/card-quest/cards/abstract/PlayableCard";
 
 export class CardCollection extends Feature {
-    cards: Map<CardId, number> = new Map<CardId, number>();
+    cards: number[] = [];
 
 
     constructor() {
         super('card-collection');
         const ids = CardRepository.getAllCardsIds();
 
-        for (const id of ids) {
-            this.cards.set(id, 0);
+        for (let i = 0; i < ids.length; i++) {
+            this.cards.push(0);
         }
     }
 
+    gainCard(id: CardId, amount: number = 1) {
+        const current = this.cards[id];
+        if (current === undefined) {
+            console.warn(`Card with id ${id} does not exist`);
+            return;
+        }
+        const newAmount = this.cards[id] + amount
+        this.cards.splice(id, 1, newAmount)
+    }
+
+    getCardsWithAmount(): [PlayableCard, number][] {
+        return this.cards.map((amount, id) => {
+            return [CardRepository.getCard(id as CardId), amount];
+        });
+    }
 
     initialize() {
         // Empty
@@ -24,7 +40,7 @@ export class CardCollection extends Feature {
     load(data: CardCollectionSaveData): void {
         const cards = data.cards;
         for (const card of cards) {
-            this.cards.set(card.id, card.amount);
+            this.cards[card.id] = card.amount;
         }
     }
 

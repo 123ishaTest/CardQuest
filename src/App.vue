@@ -1,8 +1,9 @@
 <template>
   <div>
 
-<!--    <igt-wallet></igt-wallet>-->
+    <!--    <igt-wallet></igt-wallet>-->
     <cq-adventure></cq-adventure>
+    <cq-card-collection></cq-card-collection>
     <igt-developer-panel></igt-developer-panel>
 
   </div>
@@ -13,9 +14,10 @@
 import {App} from "@/App.ts"
 import IgtDeveloperPanel from "@/components/developer-panel/igt-developer-panel";
 import CqAdventure from "@/components/cq-adventure";
+import CqCardCollection from "@/components/cg-card-collection";
 
 export default {
-  components: {CqAdventure, IgtDeveloperPanel},
+  components: {CqCardCollection, CqAdventure, IgtDeveloperPanel},
   data() {
     return {
       game: App.game
