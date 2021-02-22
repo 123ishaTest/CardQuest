@@ -3,6 +3,8 @@
        :class="{'opacity-50': isDisabled, 'cursor-pointer': !isDisabled}">
     <p>{{ card.title }}</p>
     <hr/>
+    <img :src="require(`@/assets/cards/${card.image}`)">
+
     <p class="text-sm">{{ card.description }}</p>
     <p v-if="card.health">
       Health: {{ card.health }}
@@ -26,8 +28,11 @@ import {PlayableCard} from "@/card-quest/cards/abstract/PlayableCard";
 
 export default {
   name: "cq-card",
-  data() {
-    return {}
+
+  data(){
+    return{
+      defaultImg: "require('@/assets/logo.png')"
+    }
   },
 
   props: {

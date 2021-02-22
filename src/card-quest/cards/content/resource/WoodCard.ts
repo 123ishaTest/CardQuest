@@ -8,7 +8,7 @@ export class WoodCard extends HealthCard {
     reward: number;
 
     constructor(reward: number) {
-        super(CardId.WoodCard, 'Forest', `Get ${reward} wood when cut down`, 'wood.png', 3);
+        super(CardId.WoodCard, 'Forest', `Get ${reward} wood when cut down`, 'default.svg', 3);
         this.reward = reward;
     }
 

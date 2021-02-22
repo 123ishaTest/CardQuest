@@ -5,7 +5,7 @@ import {ActionCard} from "@/card-quest/cards/abstract/ActionCard";
 export class MagicTouchCard extends ActionCard {
 
     constructor() {
-        super(CardId.MagicTouch, 'Magic touch', 'Tap every card in the field once', 'example.png');
+        super(CardId.MagicTouch, 'Magic touch', 'Tap every card in the field once', 'default.svg');
     }
 
     play(adventure: Adventure): void {

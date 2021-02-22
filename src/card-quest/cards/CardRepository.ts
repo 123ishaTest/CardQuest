@@ -18,9 +18,9 @@ export class CardRepository {
             case CardId.MagicTouch:
                 return new MagicTouchCard().setCosts([new Currency(2, CurrencyType.Souls)]);
             case CardId.EnemyCard:
-                return new EnemyCard(CardId.EnemyCard, 'Goblin', '', 'enemy.png', 5, 3, 2, 1, 4);
+                return new EnemyCard(CardId.EnemyCard, 'Goblin', '', 'default.svg', 5, 3, 2, 1, 4);
             case CardId.BronzeAxe:
-                return new ToolCard(CardId.BronzeAxe, 'Bronze axe', '+1 woodcutting damage', 'bronze-axe.png', ToolType.Axe, ToolTier.Bronze).setCosts([new Currency(4, CurrencyType.Wood)]);
+                return new ToolCard(CardId.BronzeAxe, 'Bronze axe', '+1 woodcutting damage', 'hatchet-bronze.svg', ToolType.Axe, ToolTier.Bronze).setCosts([new Currency(4, CurrencyType.Wood)]);
             default:
                 throw new Error(`Card with id ${id} not found.`)
         }
