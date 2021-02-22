@@ -7,7 +7,7 @@
       </div>
 
       <div class="w-11/12">
-        <!-- The resource -->
+        <!-- The field -->
         <div class="h-128 w-full border-4 bg-red-400 p-4">
           <div class="text-lg text-center">The field</div>
           <div class="flex flex-row">

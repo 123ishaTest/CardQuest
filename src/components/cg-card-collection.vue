@@ -30,7 +30,7 @@
         </div>
 
       </div>
-      <div class="w-1/4 flex-initial">
+      <div class="flex-initial">
         <button class="btn btn-red" @click="emptyCurrentDeck">Empty current Deck</button>
 
         <table>
