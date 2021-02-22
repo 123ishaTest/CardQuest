@@ -5,20 +5,42 @@ import {ToolType} from "@/card-quest/adventure/tools/ToolType";
 import {ToolTier} from "@/card-quest/adventure/tools/ToolTier";
 import {Currency} from "@/ig-template/features/wallet/Currency";
 import {CurrencyType} from "@/ig-template/features/wallet/CurrencyType";
+import {Deck} from "@/card-quest/cards/Deck";
+import {EnemyCard} from "@/card-quest/cards/EnemyCard";
+import {ExampleMagicCard} from "@/card-quest/cards/ExampleMagicCard";
+import {WoodCard} from "@/card-quest/cards/WoodCard";
 
 export class CardRepository {
     public static getCard(id: CardId): PlayableCard {
         switch (id) {
-            case CardId.CardExample:
-                break;
             case CardId.WoodCard:
-                break;
+                return new WoodCard(2);
             case CardId.CardMagicExample:
-                break;
+                return new ExampleMagicCard().setCosts([new Currency(2, CurrencyType.Souls)]);
             case CardId.EnemyCard:
-                break;
+                return new EnemyCard(CardId.EnemyCard, 'Enemy card', 'enemy.png', 5, 3, 2, 1, 4);
             case CardId.BronzeAxe:
                 return new ToolCard(CardId.BronzeAxe, 'Bronze axe', '+1 woodcutting damage', 'bronze-axe.png', ToolType.Axe, ToolTier.Bronze).setCosts([new Currency(4, CurrencyType.Wood)]);
+            default:
+                throw new Error(`Card with id ${id} not found.`)
         }
+    }
+
+    public static getDeckFromString(deckString: string): Deck | null {
+        try {
+            const ids = deckString.split('.').map(string => {
+                return parseInt(string);
+            });
+            return this.getDeckFromCardIds(ids);
+        } catch (e) {
+            return null;
+        }
+    }
+
+    public static getDeckFromCardIds(ids: CardId[]): Deck {
+        const cards = ids.map(id => {
+            return this.getCard(id);
+        })
+        return new Deck(cards);
     }
 }

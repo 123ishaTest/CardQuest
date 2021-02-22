@@ -24,11 +24,6 @@ export class Deck {
         return this.cards.length === 0;
     }
 
-    public fromDeckString(deckString: string): Deck {
-        // TODO parse deck string
-        return new Deck();
-    }
-
     public toDeckString(): string {
         // TODO Implement
         return '';

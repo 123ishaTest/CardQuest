@@ -4,17 +4,10 @@ import {CurrencyType} from "@/ig-template/features/wallet/CurrencyType";
 import {Settings} from "@/ig-template/features/settings/Settings";
 import {Statistics} from "@/ig-template/features/statistics/Statistics";
 import {Adventure} from "@/card-quest/adventure/Adventure";
-import {Deck} from "@/card-quest/cards/Deck";
 import {Level} from "@/card-quest/adventure/Level";
-import {WoodCard} from "@/card-quest/cards/WoodCard";
-import {Currency} from "@/ig-template/features/wallet/Currency";
-import {ExampleMagicCard} from "@/card-quest/cards/ExampleMagicCard";
 import {PlayerStats} from "@/card-quest/adventure/PlayerStats";
-import {EnemyCard} from "@/card-quest/cards/EnemyCard";
 import {CardId} from "@/card-quest/cards/CardId";
-import {ToolTier} from "@/card-quest/adventure/tools/ToolTier";
-import {ToolCard} from "@/card-quest/cards/ToolCard";
-import {ToolType} from "@/card-quest/adventure/tools/ToolType";
+import {CardRepository} from "@/card-quest/cards/CardRepository";
 
 export class App {
 
@@ -42,17 +35,17 @@ export class App {
                 ]),
                 settings: new Settings(),
                 statistics: new Statistics(),
-                adventure: new Adventure(new Deck([
-                        new ExampleMagicCard().setCosts([new Currency(1, CurrencyType.Souls)]),
-                        new ExampleMagicCard().setCosts([new Currency(2, CurrencyType.Souls)]),
-                        new ToolCard(CardId.BronzeAxe, 'Bronze axe', '+1 woodcutting damage', 'bronze-axe.png', ToolType.Axe, ToolTier.Bronze).setCosts([new Currency(4, CurrencyType.Wood)]),
-                        new EnemyCard(CardId.EnemyCard, 'Enemy card', 'enemy.png', 5, 3, 2, 1, 4),
-                        new WoodCard(2),
-                        new WoodCard(2),
-                        new WoodCard(2),
+                adventure: new Adventure(CardRepository.getDeckFromCardIds([
+                        CardId.CardMagicExample,
+                        CardId.CardMagicExample,
+                        CardId.BronzeAxe,
+                        CardId.EnemyCard,
+                        CardId.WoodCard,
+                        CardId.WoodCard,
+                        CardId.WoodCard,
                     ]), new Level([
-                        [10, new EnemyCard(CardId.EnemyCard, 'Enemy card', 'enemy.png', 5, 3, 2, 1, 4)],
-                        [15, new EnemyCard(CardId.EnemyCard, 'Enemy card', 'enemy.png', 10, 3, 2, 1, 4)],
+                        [10, CardRepository.getCard(CardId.EnemyCard)],
+                        [15, CardRepository.getCard(CardId.EnemyCard)],
                     ]),
                     new PlayerStats(20)),
             }
