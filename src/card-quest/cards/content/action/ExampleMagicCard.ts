@@ -1,4 +1,4 @@
-import {PlayableCard} from "@/card-quest/cards/PlayableCard";
+import {PlayableCard} from "@/card-quest/cards/abstract/PlayableCard";
 import {CardId} from "@/card-quest/cards/CardId";
 import {Adventure} from "@/card-quest/adventure/Adventure";
 

@@ -20,7 +20,7 @@
 
 <script>
 
-import {PlayableCard} from "@/card-quest/cards/PlayableCard";
+import {PlayableCard} from "@/card-quest/cards/abstract/PlayableCard";
 
 export default {
   name: "cq-card",

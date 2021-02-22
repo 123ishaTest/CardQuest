@@ -1,7 +1,7 @@
 import {Adventure} from "@/card-quest/adventure/Adventure";
 import {ToolTier} from "@/card-quest/adventure/tools/ToolTier";
 import {CardId} from "@/card-quest/cards/CardId";
-import {ActionCard} from "@/card-quest/cards/ActionCard";
+import {ActionCard} from "@/card-quest/cards/abstract/ActionCard";
 import {ToolType} from "@/card-quest/adventure/tools/ToolType";
 
 export class ToolCard extends ActionCard {

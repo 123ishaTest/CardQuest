@@ -1,4 +1,4 @@
-import {PlayableCard} from "@/card-quest/cards/PlayableCard";
+import {PlayableCard} from "@/card-quest/cards/abstract/PlayableCard";
 import {Random} from "@/ig-template/tools/probability/Random";
 
 export class Deck {

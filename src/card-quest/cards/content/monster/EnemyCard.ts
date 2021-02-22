@@ -1,4 +1,4 @@
-import {HealthCard} from "@/card-quest/cards/HealthCard";
+import {HealthCard} from "@/card-quest/cards/abstract/HealthCard";
 import {Adventure} from "@/card-quest/adventure/Adventure";
 import {CurrencyType} from "@/ig-template/features/wallet/CurrencyType";
 import {Currency} from "@/ig-template/features/wallet/Currency";

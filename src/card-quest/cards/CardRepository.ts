@@ -1,14 +1,14 @@
 import {CardId} from "@/card-quest/cards/CardId";
-import {PlayableCard} from "@/card-quest/cards/PlayableCard";
-import {ToolCard} from "@/card-quest/cards/ToolCard";
+import {PlayableCard} from "@/card-quest/cards/abstract/PlayableCard";
+import {ToolCard} from "@/card-quest/cards/content/action/ToolCard";
 import {ToolType} from "@/card-quest/adventure/tools/ToolType";
 import {ToolTier} from "@/card-quest/adventure/tools/ToolTier";
 import {Currency} from "@/ig-template/features/wallet/Currency";
 import {CurrencyType} from "@/ig-template/features/wallet/CurrencyType";
 import {Deck} from "@/card-quest/cards/Deck";
-import {EnemyCard} from "@/card-quest/cards/EnemyCard";
-import {ExampleMagicCard} from "@/card-quest/cards/ExampleMagicCard";
-import {WoodCard} from "@/card-quest/cards/WoodCard";
+import {EnemyCard} from "@/card-quest/cards/content/monster/EnemyCard";
+import {ExampleMagicCard} from "@/card-quest/cards/content/action/ExampleMagicCard";
+import {WoodCard} from "@/card-quest/cards/content/resource/WoodCard";
 
 export class CardRepository {
     public static getCard(id: CardId): PlayableCard {

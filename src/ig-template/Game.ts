@@ -59,7 +59,7 @@ export class Game {
         for (const feature of this.featureList) {
             const fields = feature.getDeveloperPanelFields();
 
-            // Inject the feature into the field.
+            // Inject the feature into the resource.
             for (const field of fields) {
                 field.setObject(feature);
             }

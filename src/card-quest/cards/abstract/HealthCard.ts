@@ -1,4 +1,4 @@
-import {PlayableCard} from "@/card-quest/cards/PlayableCard";
+import {PlayableCard} from "@/card-quest/cards/abstract/PlayableCard";
 import {CardId} from "@/card-quest/cards/CardId";
 
 export abstract class HealthCard extends PlayableCard {

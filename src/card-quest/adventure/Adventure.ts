@@ -1,6 +1,6 @@
 import {Deck} from "@/card-quest/cards/Deck";
 import {Level} from "@/card-quest/adventure/Level";
-import {PlayableCard} from "@/card-quest/cards/PlayableCard";
+import {PlayableCard} from "@/card-quest/cards/abstract/PlayableCard";
 import {Feature} from "@/ig-template/features/Feature";
 import {SaveData} from "@/ig-template/tools/saving/SaveData";
 import {Wallet} from "@/ig-template/features/wallet/Wallet";
