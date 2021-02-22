@@ -10,7 +10,7 @@ import {PlayerStats} from "@/card-quest/adventure/PlayerStats";
 export class Adventure extends Feature {
 
     public readonly MAX_CARDS = 7;
-
+    isActive: boolean;
     playerDeck: Deck;
 
     level: Level;
@@ -33,8 +33,16 @@ export class Adventure extends Feature {
 
         // Dummy wallet, will be overridden in initialize.
         this.wallet = new Wallet([]);
+        this.isActive = false;
     }
 
+    startAdventure() {
+        if (this.isActive) {
+            console.warn("Tried to activate adventure that was already active");
+        }
+        this.isActive = true;
+        console.log(this.isActive);
+    }
 
     initialize(features: Features) {
         this.wallet = features.wallet;

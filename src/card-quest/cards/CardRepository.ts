@@ -43,6 +43,11 @@ export class CardRepository {
         }
     }
 
+    public static getDeckFromIdDeck(idDeck: IdDeck): Deck {
+        // TODO Ugly but it works
+        return this.getDeckFromString(idDeck.toDeckString()) ?? new Deck();
+    }
+
     public static getIdDeckFromString(deckString: string): IdDeck | null {
         try {
             const ids = deckString.split('.').map(string => {

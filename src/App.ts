@@ -3,15 +3,12 @@ import {Wallet} from "@/ig-template/features/wallet/Wallet";
 import {CurrencyType} from "@/ig-template/features/wallet/CurrencyType";
 import {Settings} from "@/ig-template/features/settings/Settings";
 import {Statistics} from "@/ig-template/features/statistics/Statistics";
-import {Adventure} from "@/card-quest/adventure/Adventure";
-import {Level} from "@/card-quest/adventure/Level";
-import {PlayerStats} from "@/card-quest/adventure/PlayerStats";
 import {CardId} from "@/card-quest/cards/CardId";
-import {CardRepository} from "@/card-quest/cards/CardRepository";
 import {CardCollection} from "@/card-quest/features/card-collection/CardCollection";
 import {CardPack} from "@/card-quest/features/card-collection/CardPack";
 import {CardPackId} from "@/card-quest/features/card-collection/CardPackId";
 import {Outcome} from "@/ig-template/tools/probability/Outcome";
+import {EmptyAdventure} from "@/card-quest/adventure/EmptyAdventure";
 
 export class App {
 
@@ -39,19 +36,7 @@ export class App {
                 ]),
                 settings: new Settings(),
                 statistics: new Statistics(),
-                adventure: new Adventure(CardRepository.getDeckFromCardIds([
-                        CardId.MagicTouch,
-                        CardId.MagicTouch,
-                        CardId.BronzeAxe,
-                        CardId.EnemyCard,
-                        CardId.WoodCard,
-                        CardId.WoodCard,
-                        CardId.WoodCard,
-                    ]), new Level([
-                        [10, CardRepository.getCard(CardId.EnemyCard)],
-                        [15, CardRepository.getCard(CardId.EnemyCard)],
-                    ]),
-                    new PlayerStats(20)),
+                adventure: new EmptyAdventure(),
                 collection: new CardCollection([
                     new CardPack(CardPackId.ExamplePack, [
                         new Outcome<CardId>(CardId.WoodCard, 1),

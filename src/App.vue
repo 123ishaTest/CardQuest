@@ -3,6 +3,7 @@
 
     <!--    <igt-wallet></igt-wallet>-->
     <cq-adventure></cq-adventure>
+    <button class="btn btn-blue" @click="goOnAnAdventure()">Lets go on an adventure!</button>
     <cq-card-collection></cq-card-collection>
     <igt-developer-panel></igt-developer-panel>
 
@@ -37,6 +38,9 @@ export default {
     stop() {
       this.game.stop();
     },
+    goOnAnAdventure() {
+      this.game.goOnAnAdventure();
+    }
   },
   computed: {
     state() {

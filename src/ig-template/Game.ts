@@ -8,6 +8,11 @@ import {DeveloperPanelTab} from "@/ig-template/developer-panel/DeveloperPanelTab
 import {FunctionField} from "@/ig-template/developer-panel/fields/FunctionField";
 import {DisplayField} from "@/ig-template/developer-panel/fields/DisplayField";
 import {ChoiceField} from "@/ig-template/developer-panel/fields/ChoiceField";
+import {Adventure} from "@/card-quest/adventure/Adventure";
+import {CardRepository} from "@/card-quest/cards/CardRepository";
+import {Level} from "@/card-quest/adventure/Level";
+import {CardId} from "@/card-quest/cards/CardId";
+import {PlayerStats} from "@/card-quest/adventure/PlayerStats";
 
 export class Game {
     private _tickInterval: number = -1;
@@ -47,10 +52,18 @@ export class Game {
                     ['2x', 2],
                     ['4x', 4],
                 ], 'Game speed').setObject(this),
-                new FunctionField(() => {this.start()}, 'Start').setCssClass('btn-green'),
-                new FunctionField(() => {this.pause()}, 'Pause').setCssClass('btn-blue'),
-                new FunctionField(() => {this.resume()}, 'Resume').setCssClass('btn-green'),
-                new FunctionField(() => {this.stop()}, 'Stop').setCssClass('btn-red'),
+                new FunctionField(() => {
+                    this.start()
+                }, 'Start').setCssClass('btn-green'),
+                new FunctionField(() => {
+                    this.pause()
+                }, 'Pause').setCssClass('btn-blue'),
+                new FunctionField(() => {
+                    this.resume()
+                }, 'Resume').setCssClass('btn-green'),
+                new FunctionField(() => {
+                    this.stop()
+                }, 'Stop').setCssClass('btn-red'),
             ]),
 
         ];
@@ -107,6 +120,21 @@ export class Game {
             feature.initialize(this.features);
         }
     }
+
+    public goOnAnAdventure() {
+        const newAdventure = new Adventure(
+            CardRepository.getDeckFromIdDeck(this.features.collection.currentDeck),
+            this.features.adventure.level = new Level([
+                [10, CardRepository.getCard(CardId.EnemyCard)],
+                [15, CardRepository.getCard(CardId.EnemyCard)],
+            ]),
+            new PlayerStats(20),
+        )
+        this.features.adventure = Object.assign(this.features.adventure, newAdventure);
+
+        this.features.adventure.startAdventure();
+    }
+
 
     /**
      * Start the main update loop

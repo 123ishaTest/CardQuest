@@ -1,5 +1,5 @@
 <template>
-  <div class="m-4 p-4 bg-red-100">
+  <div v-if="isActive" class="m-4 p-4 bg-red-100">
     <div class="flex flex-row">
 
       <div class="w-1/12">
@@ -83,6 +83,9 @@ export default {
   computed: {
     hand() {
       return this.adventure.playerHand;
+    },
+    isActive() {
+      return this.adventure.isActive;
     },
     field() {
       return this.adventure.field;
