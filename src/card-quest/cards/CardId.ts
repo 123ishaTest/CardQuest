@@ -3,7 +3,7 @@
  */
 export enum CardId {
     WoodCard,
-    CardMagicExample,
+    MagicTouch,
     EnemyCard,
     BronzeAxe,
 }

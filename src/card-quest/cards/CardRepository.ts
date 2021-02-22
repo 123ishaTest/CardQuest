@@ -7,7 +7,7 @@ import {Currency} from "@/ig-template/features/wallet/Currency";
 import {CurrencyType} from "@/ig-template/features/wallet/CurrencyType";
 import {Deck} from "@/card-quest/cards/Deck";
 import {EnemyCard} from "@/card-quest/cards/content/monster/EnemyCard";
-import {ExampleMagicCard} from "@/card-quest/cards/content/action/ExampleMagicCard";
+import {MagicTouchCard} from "@/card-quest/cards/content/action/MagicTouchCard";
 import {WoodCard} from "@/card-quest/cards/content/resource/WoodCard";
 
 export class CardRepository {
@@ -15,10 +15,10 @@ export class CardRepository {
         switch (id) {
             case CardId.WoodCard:
                 return new WoodCard(2);
-            case CardId.CardMagicExample:
-                return new ExampleMagicCard().setCosts([new Currency(2, CurrencyType.Souls)]);
+            case CardId.MagicTouch:
+                return new MagicTouchCard().setCosts([new Currency(2, CurrencyType.Souls)]);
             case CardId.EnemyCard:
-                return new EnemyCard(CardId.EnemyCard, 'Enemy card', 'enemy.png', 5, 3, 2, 1, 4);
+                return new EnemyCard(CardId.EnemyCard, 'Goblin', '', 'enemy.png', 5, 3, 2, 1, 4);
             case CardId.BronzeAxe:
                 return new ToolCard(CardId.BronzeAxe, 'Bronze axe', '+1 woodcutting damage', 'bronze-axe.png', ToolType.Axe, ToolTier.Bronze).setCosts([new Currency(4, CurrencyType.Wood)]);
             default:

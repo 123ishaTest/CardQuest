@@ -36,8 +36,8 @@ export class App {
                 settings: new Settings(),
                 statistics: new Statistics(),
                 adventure: new Adventure(CardRepository.getDeckFromCardIds([
-                        CardId.CardMagicExample,
-                        CardId.CardMagicExample,
+                        CardId.MagicTouch,
+                        CardId.MagicTouch,
                         CardId.BronzeAxe,
                         CardId.EnemyCard,
                         CardId.WoodCard,

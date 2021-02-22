@@ -1,7 +1,9 @@
 <template>
   <div class="w-32 h-64 p-2 m-2 border-2 bg-blue-400"
        :class="{'opacity-50': isDisabled, 'cursor-pointer': !isDisabled}">
-    {{ card.description }}
+    <p>{{ card.title }}</p>
+    <hr/>
+    <p class="text-sm">{{ card.description }}</p>
     <p v-if="card.health">
       Health: {{ card.health }}
     </p>

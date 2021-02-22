@@ -14,8 +14,8 @@ export class EnemyCard extends HealthCard {
     nextAttack: number;
 
 
-    constructor(id: CardId, description: string, image: string, health: number, reward: number, attack: number, defense: number, attackInterval: number) {
-        super(id, description, image, health);
+    constructor(id: CardId, title: string, description: string, image: string, health: number, reward: number, attack: number, defense: number, attackInterval: number) {
+        super(id, title, description, image, health);
         this.reward = reward;
         this.attack = attack;
         this.defense = defense;
