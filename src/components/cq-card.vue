@@ -29,8 +29,8 @@ import {PlayableCard} from "@/card-quest/cards/abstract/PlayableCard";
 export default {
   name: "cq-card",
 
-  data(){
-    return{
+  data() {
+    return {
       defaultImg: "require('@/assets/logo.png')"
     }
   },
