@@ -8,6 +8,7 @@ import {Level} from "@/card-quest/adventure/Level";
 import {PlayerStats} from "@/card-quest/adventure/PlayerStats";
 import {CardId} from "@/card-quest/cards/CardId";
 import {CardRepository} from "@/card-quest/cards/CardRepository";
+import {CardCollection} from "@/card-quest/features/card-collection/CardCollection";
 
 export class App {
 
@@ -48,6 +49,7 @@ export class App {
                         [15, CardRepository.getCard(CardId.EnemyCard)],
                     ]),
                     new PlayerStats(20)),
+                collection: new CardCollection(),
             }
         );
     }

@@ -9,6 +9,7 @@ import {Deck} from "@/card-quest/cards/Deck";
 import {EnemyCard} from "@/card-quest/cards/content/monster/EnemyCard";
 import {MagicTouchCard} from "@/card-quest/cards/content/action/MagicTouchCard";
 import {WoodCard} from "@/card-quest/cards/content/resource/WoodCard";
+import {EnumHelpers} from "@/ig-template/tools/EnumHelpers";
 
 export class CardRepository {
     public static getCard(id: CardId): PlayableCard {
@@ -24,6 +25,10 @@ export class CardRepository {
             default:
                 throw new Error(`Card with id ${id} not found.`)
         }
+    }
+
+    public static getAllCardsIds(): CardId[] {
+        return EnumHelpers.getValues(CardId);
     }
 
     public static getDeckFromString(deckString: string): Deck | null {
