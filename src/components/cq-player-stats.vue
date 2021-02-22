@@ -2,6 +2,9 @@
   <div class="flex flex-row p-2 border-2">
     <p class="text-lg m-2"> {{ health }} Health</p>
     <p class="text-lg m-2"> Attack/Defense {{ attack }}/{{ defense }}</p>
+
+    <img :title="ToolTier[stats.activeAxe] + ' Axe'" class="w-12 h-12" :src="require(`@/assets/cards/hatchet-${ToolTier[stats.activeAxe].toLowerCase()}.svg`)">
+
     <p class="text-lg m-2"> {{ ToolTier[stats.activeAxe] }} Axe</p>
     <p class="text-lg m-2"> {{ ToolTier[stats.activePickaxe] }} Pickaxe</p>
     <p class="text-lg m-2"> {{ ToolTier[stats.activeScythe] }} Scythe</p>
