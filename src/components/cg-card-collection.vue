@@ -17,8 +17,11 @@
           </button>
 
         </div>
+        <div @click="addCard(index, currentDeck.getCountForCard(index) >= card[1])"
+             :disabled="currentDeck.getCountForCard(index) >= card[1]">
 
-        <cq-card :show-front="card[1] > 0" :is-in-hand="false" :card="card[0]"></cq-card>
+          <cq-card :show-front="card[1] > 0" :is-in-hand="false" :card="card[0]"></cq-card>
+        </div>
 
       </div>
     </div>
@@ -56,7 +59,10 @@ export default {
     openCardPack(id) {
       this.collection.openCardPack(id);
     },
-    addCard(id) {
+    addCard(id, atMax) {
+      if (atMax) {
+        return;
+      }
       this.collection.currentDeck.addCard(id)
     },
     removeCard(id) {

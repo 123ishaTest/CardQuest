@@ -16,7 +16,6 @@ export class IdDeck {
     public addCard(id: CardId) {
         const newAmount = this.cards[id] + 1;
         this.cards.splice(id, 1, newAmount)
-
     }
 
     public removeCard(id: CardId) {
