@@ -1,41 +1,52 @@
 <template>
   <div class="m-4 p-4 bg-red-100">
-    Lets go on an adventure!
+    <div class="flex flex-row">
 
-    <!-- The field -->
-    <div class="h-128 w-full border-4 bg-red-400 p-4">
-      <div class="text-lg text-center">The field</div>
-      <div class="flex flex-row">
-        <cq-card :is-in-hand="false" @click.native=tap(index) :card=card :key="card.id + '-' + index"
-                 v-for="(card, index) in field"/>
-        <div v-if="field.length === 0" class="h-64">
-          Play some cards!
-        </div>
+      <div class="w-1/12">
+        <cq-level-progress :level="adventure.level" :current-turn="adventure.currentTurn"></cq-level-progress>
       </div>
+
+      <div class="w-11/12">
+        <!-- The field -->
+        <div class="h-128 w-full border-4 bg-red-400 p-4">
+          <div class="text-lg text-center">The field</div>
+          <div class="flex flex-row">
+            <cq-card :is-in-hand="false" @click.native=tap(index) :card=card :key="card.id + '-' + index"
+                     v-for="(card, index) in field"/>
+            <div v-if="field.length === 0" class="h-64">
+              Play some cards!
+            </div>
+          </div>
+        </div>
+
+        <div class="h-128 w-full border-4 bg-yellow-400 p-4">
+          <div class="text-lg text-center">Your hand</div>
+          <div class="flex flex-row">
+            <cq-card :is-in-hand="true"
+                     :can-afford="card.canAfford(adventure.wallet)"
+                     :is-disabled="!card.canPlay(adventure)" @click.native=play(index) :card=card
+                     :key="card.id + '-' + index"
+                     v-for="(card, index) in hand"/>
+            <div v-if="hand.length === 0" class="h-64">
+              You have no cards
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn-blue" @click="draw" :disabled="!canDraw">
+          <span v-if="canDraw">Draw ({{ deckSize }})</span>
+          <span v-else> No cards </span>
+        </button>
+
+        <cq-adventure-resources :wallet="adventure.wallet"/>
+
+        <cq-player-stats :stats="adventure.playerStats"></cq-player-stats>
+
+      </div>
+
+
     </div>
 
-    <div class="h-128 w-full border-4 bg-yellow-400 p-4">
-      <div class="text-lg text-center">Your hand</div>
-      <div class="flex flex-row">
-        <cq-card :is-in-hand="true"
-                 :can-afford="card.canAfford(adventure.wallet)"
-                 :is-disabled="!card.canPlay(adventure)" @click.native=play(index) :card=card
-                 :key="card.id + '-' + index"
-                 v-for="(card, index) in hand"/>
-        <div v-if="hand.length === 0" class="h-64">
-          You have no cards
-        </div>
-      </div>
-    </div>
-
-    <cq-adventure-resources :wallet="adventure.wallet"/>
-
-    <cq-player-stats :stats="adventure.playerStats"></cq-player-stats>
-
-    <button class="btn btn-blue" @click="draw" :disabled="!canDraw">
-      <span v-if="canDraw">Draw ({{ deckSize }})</span>
-      <span v-else> No cards </span>
-    </button>
   </div>
 </template>
 
@@ -44,10 +55,11 @@ import {App} from "@/App.ts"
 import CqCard from "@/components/cq-card";
 import CqAdventureResources from "@/components/cq-adventure-resources";
 import CqPlayerStats from "@/components/cq-player-stats";
+import CqLevelProgress from "@/components/cg-level-progress";
 
 export default {
   name: "cq-adventure",
-  components: {CqPlayerStats, CqAdventureResources, CqCard},
+  components: {CqLevelProgress, CqPlayerStats, CqAdventureResources, CqCard},
   data() {
     return {
       adventure: App.game.features.adventure,

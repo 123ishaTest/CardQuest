@@ -15,22 +15,21 @@ export class Adventure extends Feature {
 
     level: Level;
 
-    playerHand: PlayableCard[];
-    field: PlayableCard[];
+    playerHand: PlayableCard[] = [];
+    field: PlayableCard[] = [];
 
     wallet: Wallet;
-
     playerStats: PlayerStats
 
     deletionQueue: PlayableCard[] = [];
+
+    currentTurn: number = 0;
 
     constructor(playerDeck: Deck, level: Level, playerStats: PlayerStats) {
         super('adventure');
         this.playerDeck = playerDeck;
         this.level = level;
         this.playerStats = playerStats;
-        this.playerHand = [];
-        this.field = [];
 
         // Dummy wallet, will be overridden in initialize.
         this.wallet = new Wallet([]);
@@ -54,6 +53,12 @@ export class Adventure extends Feature {
 
         this.playerHand.splice(index, 1);
 
+        this._play(card);
+
+        this.turnHasPassed();
+    }
+
+    private _play(card: PlayableCard) {
         if (card.goesToField) {
             this.field.push(card);
             card.onDefeated.subscribe(() => {
@@ -63,7 +68,6 @@ export class Adventure extends Feature {
         }
 
         card.play(this);
-        this.turnHasPassed();
     }
 
     tap(index: number) {
@@ -103,6 +107,17 @@ export class Adventure extends Feature {
                 this.field.splice(index, 1);
             }
         }
+
+        this.currentTurn++;
+        this.checkForLevelCard();
+    }
+
+    private checkForLevelCard() {
+        const card = this.level.getCardAtTurn(this.currentTurn);
+        if (!card) {
+            return;
+        }
+        this._play(card);
     }
 
     public canDraw() {
