@@ -5,12 +5,15 @@ import {CardId} from "@/card-quest/cards/CardId";
 import {PlayableCard} from "@/card-quest/cards/abstract/PlayableCard";
 import {CardPack} from "@/card-quest/features/card-collection/CardPack";
 import {CardPackId} from "@/card-quest/features/card-collection/CardPackId";
+import {IdDeck} from "@/card-quest/cards/IdDeck";
 
 
 export class CardCollection extends Feature {
     cards: number[] = [];
 
     cardPacks: CardPack[];
+
+    currentDeck: IdDeck;
 
     constructor(cardPacks: CardPack[]) {
         super('card-collection');
@@ -21,6 +24,8 @@ export class CardCollection extends Feature {
         }
 
         this.cardPacks = cardPacks;
+
+        this.currentDeck = new IdDeck();
     }
 
     openCardPack(id: CardPackId) {

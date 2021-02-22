@@ -25,8 +25,7 @@ export class Deck {
     }
 
     public toDeckString(): string {
-        // TODO Implement
-        return '';
+        return this.cards.join('.');
     }
 
     public getSize(): number {
