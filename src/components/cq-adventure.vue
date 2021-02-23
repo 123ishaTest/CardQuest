@@ -33,11 +33,12 @@
           </div>
         </div>
 
-        <button class="btn btn-blue" @click="draw" :disabled="!canDraw">
+        <button class="btn btn-green" @click="draw" :disabled="!canDraw">
           <span v-if="canDraw">Draw ({{ deckSize }})</span>
           <span v-else> No cards </span>
         </button>
-
+        <button class="btn btn-blue" @click="wait">Wait</button>
+        <button class="btn btn-red" @click="forfeit">Forfeit</button>
         <cq-adventure-resources :wallet="adventure.wallet"/>
 
         <cq-player-stats :stats="adventure.playerStats"></cq-player-stats>
@@ -69,6 +70,12 @@ export default {
   methods: {
     draw() {
       this.adventure.draw();
+    },
+    wait() {
+      this.adventure.wait();
+    },
+    forfeit() {
+      this.adventure.forfeit();
     },
     play(index) {
       if (!this.adventure.playerHand[index].canPlay(this.adventure)) {

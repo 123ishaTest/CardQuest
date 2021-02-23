@@ -132,6 +132,15 @@ export class Adventure extends Feature {
         }
     }
 
+    wait() {
+        this.turnHasPassed();
+    }
+
+    forfeit() {
+        this.playerStats.health = 0;
+        this.turnHasPassed();
+    }
+
     private turnHasPassed() {
         for (const card of this.field) {
             card.turnHasPassed(this);
