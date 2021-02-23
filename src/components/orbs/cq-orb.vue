@@ -1,7 +1,7 @@
 <template>
   <div class="relative text-center text-white w-12">
     <img :src="require(`@/assets/orbs/${svg}`)">
-    <div class="centered w-6">{{ value }}</div>
+    <div class="centered w-6 text-xl">{{ value }}</div>
   </div>
 </template>
 

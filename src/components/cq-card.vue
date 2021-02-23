@@ -1,5 +1,6 @@
 <template>
-  <div class="w-48 h-72 p-2 m-2 border-2 bg-blue-400 flex flex-col"
+  <div class="w-48 h-72 p-2 m-2 border-2 bg-blue-400 flex flex-col
+transition duration-300 ease-out transform hover:-translate-y-1 hover:scale-110"
        :class="{'opacity-50': isDisabled, 'cursor-pointer': !isDisabled}">
 
     <div class="flex-grow">
@@ -17,12 +18,6 @@
 
         <p class="text-sm">{{ card.description }}</p>
 
-
-        <div v-if="!isInHand && card.nextAttack">
-          <p>Attacks in {{ card.nextAttack }} moves</p>
-          <p class="text-lg m-2"> {{ card.attack }}/{{ card.defense }}</p>
-
-        </div>
         <p v-if="card.costs.length" :class="{'text-red-500' : !canAfford && isInHand}">Costs:</p>
         <p :class="{'text-red-500' : !canAfford && isInHand}" :key=cost.toString() v-for="cost in card.costs">
           {{ cost }}
@@ -35,6 +30,8 @@
     <!-- Orbs-->
     <div class="flex flex-row justify-between">
       <cq-orb v-if="card.health" svg="heart.svg" :value="card.health"></cq-orb>
+      <cq-orb v-if="card.nextAttack" svg="clock.svg" :value="card.nextAttack"></cq-orb>
+      <cq-orb v-if="card.attack" svg="sword.svg" :value="card.attack +'/' + card.defense"></cq-orb>
     </div>
   </div>
 
