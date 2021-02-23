@@ -6,6 +6,8 @@ import {SaveData} from "@/ig-template/tools/saving/SaveData";
 import {Wallet} from "@/ig-template/features/wallet/Wallet";
 import {Features} from "@/ig-template/Features";
 import {PlayerStats} from "@/card-quest/adventure/PlayerStats";
+import {EnemyCard} from "@/card-quest/cards/content/monster/EnemyCard";
+import {ISimpleEvent, SimpleEventDispatcher} from "strongly-typed-events";
 
 export class Adventure extends Feature {
 
@@ -24,6 +26,24 @@ export class Adventure extends Feature {
     deletionQueue: PlayableCard[] = [];
 
     currentTurn: number = 0;
+
+    private _onWin = new SimpleEventDispatcher<Level>();
+    private _onLose = new SimpleEventDispatcher<Level>();
+
+    /**
+     * Emitted whenever the game is won
+     */
+    public get onWin(): ISimpleEvent<Level> {
+        return this._onWin.asEvent();
+    }
+
+    /**
+     * Emitted whenever the game is lost
+     */
+    public get onLose(): ISimpleEvent<Level> {
+        return this._onLose.asEvent();
+    }
+
 
     constructor(playerDeck: Deck, level: Level, playerStats: PlayerStats) {
         super('adventure');
@@ -127,6 +147,38 @@ export class Adventure extends Feature {
 
         this.currentTurn++;
         this.checkForLevelCard();
+        this.checkWinLoseConditions();
+    }
+
+    private checkWinLoseConditions() {
+        if (this.isWon()) {
+            this.isActive = false;
+
+            this._onWin.dispatch(this.level);
+        }
+
+        if (this.isLost()) {
+            this.isActive = false;
+
+            this._onLose.dispatch(this.level);
+        }
+    }
+
+
+    private isWon(): boolean {
+        if (this.level.getCardsLeftCount() > 0) {
+            return false;
+        }
+        for (const card of this.field) {
+            if (card instanceof EnemyCard) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private isLost(): boolean {
+        return this.playerStats.health <= 0;
     }
 
     private checkForLevelCard() {
@@ -135,6 +187,7 @@ export class Adventure extends Feature {
             return;
         }
         this._play(card);
+        this.checkWinLoseConditions();
     }
 
     public canDraw() {

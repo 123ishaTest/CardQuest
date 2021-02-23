@@ -29,7 +29,8 @@ export class Game {
     private gameSpeed = 1;
     private _lastUpdate: number = 0;
 
-    readonly MINIMUM_DECK_SIZE = 25;
+    readonly MINIMUM_DECK_SIZE = 5;
+
     /**
      * Make sure this key is unique to your game.
      * Otherwise you might run into loading conflicts when multiple games are hosted on the same domain (such as <username.github.io/game)
@@ -140,6 +141,10 @@ export class Game {
         newAdventure.wallet = this.features.wallet;
 
         this.features.adventure = Object.assign(this.features.adventure, newAdventure);
+
+        this.features.adventure.onWin.subscribe((level) => {
+            this.features.collection.openCardPack(level.rewardPack);
+        })
 
         this.features.adventure.startAdventure();
     }

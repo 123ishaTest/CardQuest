@@ -18,6 +18,10 @@ export class Level {
         this.cards = cards;
     }
 
+    getCardsLeftCount() {
+        return this.cards.length;
+    }
+
     getFutureCards(level: number): [number, PlayableCard][] {
         return this.cards.filter(card => {
             return card[0] > level;
