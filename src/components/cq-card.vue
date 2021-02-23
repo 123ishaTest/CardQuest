@@ -6,7 +6,9 @@
     <hr/>
 
     <div v-if="!showFront">
-      <img class="card-image" :src="require(`@/assets/cards/default.svg`)">
+<!--      <img class="card-image" :src="require(`@/assets/cards/default.svg`)">-->
+      <img class="card-image" :src="require(`@/assets/cards/${card.image}`)">
+
     </div>
     <div v-else>
       <img class="card-image" :src="require(`@/assets/cards/${card.image}`)">

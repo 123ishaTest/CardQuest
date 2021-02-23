@@ -26,7 +26,8 @@
             <div @click="addCard(index, currentDeck.getCountForCard(index) >= card[1])"
                  :disabled="currentDeck.getCountForCard(index) >= card[1]">
 
-              <cq-card :show-front="card[1] > 0" :is-in-hand="false" :card="card[0]"></cq-card>
+              <!-- TODO Fix showing of undiscovered cards-->
+              <cq-card :show-front="true" :is-in-hand="false" :card="card[0]"></cq-card>
             </div>
 
           </div>

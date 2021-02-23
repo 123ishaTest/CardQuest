@@ -11,13 +11,27 @@ import {MagicTouchCard} from "@/card-quest/cards/content/action/MagicTouchCard";
 import {WoodCard} from "@/card-quest/cards/content/resource/WoodCard";
 import {EnumHelpers} from "@/ig-template/tools/EnumHelpers";
 import {IdDeck} from "@/card-quest/cards/IdDeck";
+import {OreCard} from "@/card-quest/cards/content/resource/OreCard";
 
 export class CardRepository {
 
     public static getCard(id: CardId): PlayableCard {
         switch (id) {
-            case CardId.WoodCard:
-                return new WoodCard(2);
+            case CardId.LogCard:
+                return new WoodCard(CardId.LogCard, 'Log', 'Gain 2 wood when cut down', 'log.svg', 3, new Currency(2, CurrencyType.Wood));
+            case CardId.TreeCard:
+                return new WoodCard(CardId.TreeCard, 'Tree', 'Gain 5 wood when cut down', 'tree.svg', 6, new Currency(5, CurrencyType.Wood));
+            case CardId.ForestCard:
+                return new WoodCard(CardId.ForestCard, 'Forest', 'Gain 10 when cut down', 'forest.svg', 15, new Currency(10, CurrencyType.Wood));
+
+            case CardId.BronzeOre:
+                return new OreCard(CardId.BronzeOre, 'Bronze ore', 'Gain 1 bronze ore when mined', 'ore-bronze.svg', 3, new Currency(1, CurrencyType.Bronze));
+            case CardId.SilverOre:
+                return new OreCard(CardId.BronzeOre, 'Silver ore', 'Gain 1 silver ore when mined', 'ore-silver.svg', 6, new Currency(1, CurrencyType.Silver));
+            case CardId.GoldOre:
+                return new OreCard(CardId.BronzeOre, 'Gold ore', 'Gain 1 gold ore when mined', 'ore-gold.svg', 15, new Currency(1, CurrencyType.Gold));
+
+
             case CardId.MagicTouch:
                 return new MagicTouchCard().setCosts([new Currency(2, CurrencyType.Souls)]);
             case CardId.EnemyCard:

@@ -3,7 +3,7 @@ import {Adventure} from "@/card-quest/adventure/Adventure";
 import {Currency} from "@/ig-template/features/wallet/Currency";
 import {CardId} from "@/card-quest/cards/CardId";
 
-export class WoodCard extends HealthCard {
+export class OreCard extends HealthCard {
     reward: Currency;
 
 
@@ -26,7 +26,7 @@ export class WoodCard extends HealthCard {
     }
 
     tap(adventure: Adventure): void {
-        this.takeDamage(adventure.playerStats.getWoodCuttingDamage());
+        this.takeDamage(adventure.playerStats.getMiningDamage());
     }
 
     turnHasPassed(): void {

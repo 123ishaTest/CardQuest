@@ -39,7 +39,7 @@ export class App {
                 adventure: new EmptyAdventure(),
                 collection: new CardCollection([
                     new CardPack(CardPackId.ExamplePack, [
-                        new Outcome<CardId>(CardId.WoodCard, 1),
+                        new Outcome<CardId>(CardId.LogCard, 1),
                         new Outcome<CardId>(CardId.MagicTouch, 1),
                         new Outcome<CardId>(CardId.EnemyCard, 1),
                         new Outcome<CardId>(CardId.BronzeAxe, 1),
