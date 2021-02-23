@@ -10,9 +10,9 @@ import {DisplayField} from "@/ig-template/developer-panel/fields/DisplayField";
 import {ChoiceField} from "@/ig-template/developer-panel/fields/ChoiceField";
 import {Adventure} from "@/card-quest/adventure/Adventure";
 import {CardRepository} from "@/card-quest/cards/CardRepository";
-import {Level} from "@/card-quest/adventure/Level";
-import {CardId} from "@/card-quest/cards/CardId";
 import {PlayerStats} from "@/card-quest/adventure/PlayerStats";
+import {LevelRepository} from "@/card-quest/adventure/LevelRepository";
+import {LevelId} from "@/card-quest/adventure/LevelId";
 
 export class Game {
     private _tickInterval: number = -1;
@@ -29,6 +29,7 @@ export class Game {
     private gameSpeed = 1;
     private _lastUpdate: number = 0;
 
+    readonly MINIMUM_DECK_SIZE = 25;
     /**
      * Make sure this key is unique to your game.
      * Otherwise you might run into loading conflicts when multiple games are hosted on the same domain (such as <username.github.io/game)
@@ -121,13 +122,17 @@ export class Game {
         }
     }
 
-    public goOnAnAdventure() {
+    public canStartAdventure(): boolean {
+        return this.features.collection.currentDeck.getSize() >= this.MINIMUM_DECK_SIZE
+    }
+
+    public goOnAnAdventure(levelId: LevelId) {
+        if (!this.canStartAdventure()) {
+            return;
+        }
         const newAdventure = new Adventure(
             CardRepository.getDeckFromIdDeck(this.features.collection.currentDeck),
-            this.features.adventure.level = new Level([
-                [10, CardRepository.getCard(CardId.EnemyCard)],
-                [15, CardRepository.getCard(CardId.EnemyCard)],
-            ]),
+            LevelRepository.getLevel(levelId),
             new PlayerStats(5, 20),
         )
         this.features.adventure = Object.assign(this.features.adventure, newAdventure);

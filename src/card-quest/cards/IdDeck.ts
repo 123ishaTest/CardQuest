@@ -46,6 +46,6 @@ export class IdDeck {
     }
 
     public getSize(): number {
-        return this.cards.length;
+        return this.cards.reduce((a, b) => a + b, 0);
     }
 }

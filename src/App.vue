@@ -3,7 +3,7 @@
 
     <!--    <igt-wallet></igt-wallet>-->
     <cq-adventure></cq-adventure>
-    <button class="btn btn-blue" @click="goOnAnAdventure()">Lets go on an adventure!</button>
+    <cq-level-selection :levels="allLevels"></cq-level-selection>
     <cq-card-collection></cq-card-collection>
     <igt-developer-panel></igt-developer-panel>
 
@@ -16,12 +16,16 @@ import {App} from "@/App.ts"
 import IgtDeveloperPanel from "@/components/developer-panel/igt-developer-panel";
 import CqAdventure from "@/components/cq-adventure";
 import CqCardCollection from "@/components/cg-card-collection";
+import CqLevelSelection from "@/components/cq-level-selection";
+
+import {LevelRepository} from '@/card-quest/adventure/LevelRepository';
 
 export default {
-  components: {CqCardCollection, CqAdventure, IgtDeveloperPanel},
+  components: {CqLevelSelection, CqCardCollection, CqAdventure, IgtDeveloperPanel},
   data() {
     return {
-      game: App.game
+      game: App.game,
+      LevelRepository: LevelRepository,
     }
   },
 
@@ -38,13 +42,13 @@ export default {
     stop() {
       this.game.stop();
     },
-    goOnAnAdventure() {
-      this.game.goOnAnAdventure();
-    }
   },
   computed: {
     state() {
       return this.game.state;
+    },
+    allLevels() {
+      return LevelRepository.getAllLevels();
     }
   }
 }

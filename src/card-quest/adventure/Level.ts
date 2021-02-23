@@ -1,10 +1,20 @@
 import {PlayableCard} from "@/card-quest/cards/abstract/PlayableCard";
+import {CardPackId} from "@/card-quest/features/card-collection/CardPackId";
+import {LevelId} from "@/card-quest/adventure/LevelId";
 
 export class Level {
+    id: LevelId;
+    name: string;
+    description: string;
+    rewardPack: CardPackId;
     cards: [number, PlayableCard][];
 
 
-    constructor(cards: [number, PlayableCard][]) {
+    constructor(id: LevelId, name: string, description: string, rewardPack: CardPackId, cards: [number, PlayableCard][]) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.rewardPack = rewardPack;
         this.cards = cards;
     }
 
