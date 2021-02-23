@@ -41,7 +41,10 @@ export class Adventure extends Feature {
             console.warn("Tried to activate adventure that was already active");
         }
         this.isActive = true;
-        console.log(this.isActive);
+
+        for (let i = 0; i < this.playerStats.startingCards; i++) {
+            this.draw(true);
+        }
     }
 
     initialize(features: Features) {
@@ -90,7 +93,11 @@ export class Adventure extends Feature {
         this.turnHasPassed();
     }
 
-    draw() {
+    /**
+     * Draw a card
+     * @param free if the card was free, a turn won't pass afterwards.
+     */
+    draw(free: boolean = false) {
         if (!this.canDraw()) {
             console.warn('Cannot draw');
             return;
@@ -100,7 +107,9 @@ export class Adventure extends Feature {
             this.playerHand.push(card);
         }
 
-        this.turnHasPassed();
+        if (!free) {
+            this.turnHasPassed();
+        }
     }
 
     private turnHasPassed() {

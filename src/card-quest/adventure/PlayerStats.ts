@@ -1,13 +1,15 @@
 import {ToolTier} from "@/card-quest/adventure/tools/ToolTier";
 
 export class PlayerStats {
-    health: number;
+    startingCards: number;
 
+    health: number;
     activeAxe: ToolTier;
     activePickaxe: ToolTier;
     activeScythe: ToolTier;
 
-    constructor(health: number, activeAxe: ToolTier = ToolTier.Stone, activePickaxe: ToolTier = ToolTier.Stone, activeScythe: ToolTier = ToolTier.Stone) {
+    constructor(startingCards: number, health: number, activeAxe: ToolTier = ToolTier.Stone, activePickaxe: ToolTier = ToolTier.Stone, activeScythe: ToolTier = ToolTier.Stone) {
+        this.startingCards = startingCards;
         this.health = health;
         this.activeAxe = activeAxe;
         this.activePickaxe = activePickaxe;

@@ -128,7 +128,7 @@ export class Game {
                 [10, CardRepository.getCard(CardId.EnemyCard)],
                 [15, CardRepository.getCard(CardId.EnemyCard)],
             ]),
-            new PlayerStats(20),
+            new PlayerStats(5, 20),
         )
         this.features.adventure = Object.assign(this.features.adventure, newAdventure);
 
