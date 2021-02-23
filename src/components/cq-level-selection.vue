@@ -3,10 +3,20 @@
     Level selection
 
     <div class="flex flex-row flex-wrap">
-      <div :key="level.id" v-for="level in levels">
+      <div :key="level.id" v-for="level in levels" class="flex flex-col m-2 p-2 bg-yellow-100">
+
         <button class="btn btn-blue" @click="goOnAnAdventure(level.id)" :disabled="!canStartAdventure">
           {{ level.name }}
         </button>
+
+        <div class="flex flex-col">
+          <div :key=card[0] v-for="card in level.cards" class="my-2">
+            <div>{{ card[0] }} - {{ card[1].title }}
+              <img :title="card[1].description" class="w-8 h-8 inline"
+                   :src="require(`@/assets/cards/${card[1].image}`)">
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
