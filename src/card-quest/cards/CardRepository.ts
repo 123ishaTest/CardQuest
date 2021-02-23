@@ -22,7 +22,7 @@ export class CardRepository {
             case CardId.TreeCard:
                 return new WoodCard(CardId.TreeCard, 'Tree', 'Gain 5 wood when cut down', 'tree.svg', 6, new Currency(5, CurrencyType.Wood));
             case CardId.ForestCard:
-                return new WoodCard(CardId.ForestCard, 'Forest', 'Gain 10 when cut down', 'forest.svg', 15, new Currency(10, CurrencyType.Wood));
+                return new WoodCard(CardId.ForestCard, 'Forest', 'Gain 10 wood when cut down', 'forest.svg', 15, new Currency(10, CurrencyType.Wood));
 
             case CardId.BronzeOre:
                 return new OreCard(CardId.BronzeOre, 'Bronze ore', 'Gain 1 bronze ore when mined', 'ore-bronze.svg', 3, new Currency(1, CurrencyType.Bronze));
