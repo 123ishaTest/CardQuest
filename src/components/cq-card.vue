@@ -1,15 +1,15 @@
 <template>
-  <div class="w-32 h-64 p-2 m-2 border-2 bg-blue-400"
+  <div class="w-48 h-64 p-2 m-2 border-2 bg-blue-400"
        :class="{'opacity-50': isDisabled, 'cursor-pointer': !isDisabled}">
 
     <p>{{ card.title }}</p>
     <hr/>
 
     <div v-if="!showFront">
-      <img :src="require(`@/assets/cards/default.svg`)">
+      <img class="card-image" :src="require(`@/assets/cards/default.svg`)">
     </div>
     <div v-else>
-      <img :src="require(`@/assets/cards/${card.image}`)">
+      <img class="card-image" :src="require(`@/assets/cards/${card.image}`)">
 
 
       <p class="text-sm">{{ card.description }}</p>

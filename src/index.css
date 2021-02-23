@@ -6,6 +6,9 @@
     @apply m-1 py-2 px-4 font-semibold rounded-lg shadow-md disabled:opacity-50;
 }
 
+.card-image {
+    @apply w-28 h-28 mx-auto m-2;
+}
 .input-primary {
     @apply border border-gray-300 p-2 my-2 rounded-md focus:outline-none focus:ring-2 ring-blue-200;
 }
