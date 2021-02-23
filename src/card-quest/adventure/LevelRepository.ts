@@ -9,12 +9,12 @@ export class LevelRepository {
     public static getLevel(id: LevelId): Level {
         switch (id) {
             case LevelId.FirstLevel:
-                return new Level(LevelId.FirstLevel, 'First level', 'Not too difficult', CardPackId.ExamplePack, [
+                return new Level(LevelId.FirstLevel, 'First level', 'Not too difficult', CardPackId.BronzeToolPack, [
                     [15, CardRepository.getCard(CardId.EnemyCard)],
                     [30, CardRepository.getCard(CardId.EnemyCard)],
                 ]);
             case LevelId.SecondLevel:
-                return new Level(LevelId.SecondLevel, 'Second level', 'More enemies this time', CardPackId.ExamplePack, [
+                return new Level(LevelId.SecondLevel, 'Second level', 'More enemies this time', CardPackId.BronzeToolPack, [
                     [20, CardRepository.getCard(CardId.EnemyCard)],
                     [25, CardRepository.getCard(CardId.EnemyCard)],
                     [30, CardRepository.getCard(CardId.EnemyCard)],

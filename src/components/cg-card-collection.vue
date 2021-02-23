@@ -3,7 +3,10 @@
     Card collection
     <div class="flex flex-row flex-wrap">
       <div class="flex-auto">
-        <button class="btn btn-green" @click="openCardPack(0)">Open card pack</button>
+        <button class="btn btn-green" @click="openCardPack(0)">Open example pack</button>
+        <button class="btn btn-green" @click="openCardPack(1)">Open bronze tool pack</button>
+        <button class="btn btn-green" @click="openCardPack(2)">Open silver tool pack</button>
+        <button class="btn btn-green" @click="openCardPack(3)">Open gold tool pack</button>
         <div class="flex flex-row flex-wrap">
 
           <div :key=card.amount v-for="(card, index) in displayableCards" class="flex flex-col">

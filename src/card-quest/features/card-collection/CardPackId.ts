@@ -1,3 +1,7 @@
 export enum CardPackId {
-    ExamplePack
+    ExamplePack,
+    BronzeToolPack,
+    SilverToolPack,
+    GoldToolPack,
+    AllToolPack,
 }

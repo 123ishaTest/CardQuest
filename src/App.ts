@@ -43,6 +43,32 @@ export class App {
                         new Outcome<CardId>(CardId.MagicTouch, 1),
                         new Outcome<CardId>(CardId.EnemyCard, 1),
                         new Outcome<CardId>(CardId.BronzeAxe, 1),
+                    ]),
+                    new CardPack(CardPackId.BronzeToolPack, [
+                        new Outcome<CardId>(CardId.BronzeAxe, 1),
+                        new Outcome<CardId>(CardId.BronzePickaxe, 1),
+                        new Outcome<CardId>(CardId.BronzeScythe, 1),
+                    ]),
+                    new CardPack(CardPackId.SilverToolPack, [
+                        new Outcome<CardId>(CardId.SilverAxe, 1),
+                        new Outcome<CardId>(CardId.SilverPickaxe, 1),
+                        new Outcome<CardId>(CardId.SilverScythe, 1),
+                    ]),
+                    new CardPack(CardPackId.GoldToolPack, [
+                        new Outcome<CardId>(CardId.GoldAxe, 1),
+                        new Outcome<CardId>(CardId.GoldPickaxe, 1),
+                        new Outcome<CardId>(CardId.GoldScythe, 1),
+                    ]),
+                    new CardPack((CardPackId.AllToolPack), [
+                        new Outcome<CardId>(CardId.BronzeAxe, 1),
+                        new Outcome<CardId>(CardId.BronzePickaxe, 1),
+                        new Outcome<CardId>(CardId.BronzeScythe, 1),
+                        new Outcome<CardId>(CardId.SilverAxe, 1),
+                        new Outcome<CardId>(CardId.SilverPickaxe, 1),
+                        new Outcome<CardId>(CardId.SilverScythe, 1),
+                        new Outcome<CardId>(CardId.GoldAxe, 1),
+                        new Outcome<CardId>(CardId.GoldPickaxe, 1),
+                        new Outcome<CardId>(CardId.GoldScythe, 1),
                     ])
                 ]),
             }

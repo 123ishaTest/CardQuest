@@ -6,4 +6,12 @@ export enum CardId {
     MagicTouch,
     EnemyCard,
     BronzeAxe,
+    SilverAxe,
+    GoldAxe,
+    BronzePickaxe,
+    SilverPickaxe,
+    GoldPickaxe,
+    BronzeScythe,
+    SilverScythe,
+    GoldScythe,
 }
