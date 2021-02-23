@@ -30,6 +30,14 @@ export class Wallet extends Feature {
         }
     }
 
+    public resetTemporaryCurrencies() {
+        this._currencies[CurrencyType.Wood] = 0;
+        this._currencies[CurrencyType.Souls] = 0;
+        this._currencies[CurrencyType.Bronze] = 0;
+        this._currencies[CurrencyType.Silver] = 0;
+        this._currencies[CurrencyType.Gold] = 0;
+    }
+
     public getAmount(type: CurrencyType): number {
         if (!this.supportsCurrencyType(type)) {
             return 0;

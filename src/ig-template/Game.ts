@@ -135,6 +135,10 @@ export class Game {
             LevelRepository.getLevel(levelId),
             new PlayerStats(5, 20),
         )
+
+        this.features.wallet.resetTemporaryCurrencies();
+        newAdventure.wallet = this.features.wallet;
+
         this.features.adventure = Object.assign(this.features.adventure, newAdventure);
 
         this.features.adventure.startAdventure();
