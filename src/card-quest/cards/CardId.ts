@@ -11,7 +11,10 @@ export enum CardId {
     SilverOre,
     GoldOre,
 
+    // Actions
     MagicTouch,
+
+    Draw3Card,
 
     // Weapons
     BasicSword,

@@ -14,6 +14,7 @@ import {IdDeck} from "@/card-quest/cards/IdDeck";
 import {OreCard} from "@/card-quest/cards/content/resource/OreCard";
 import {WeaponCard} from "@/card-quest/cards/content/weapon/WeaponCard";
 import {Weapon} from "@/card-quest/adventure/Weapon";
+import {DrawCardsCard} from "@/card-quest/cards/content/action/DrawCardsCard";
 
 export class CardRepository {
 
@@ -33,10 +34,11 @@ export class CardRepository {
             case CardId.GoldOre:
                 return new OreCard(CardId.BronzeOre, 'Gold ore', 'Gain 1 gold ore when mined', 'ore-gold.svg', 15, new Currency(1, CurrencyType.Gold));
 
-
+            // Actions
             case CardId.MagicTouch:
                 return new MagicTouchCard().setCosts([new Currency(2, CurrencyType.Souls)]);
-
+            case CardId.Draw3Card:
+                return new DrawCardsCard(CardId.Draw3Card, 'draw-card.svg', 3).setCosts([new Currency(1, CurrencyType.Souls)]);
             // Weapons
             case CardId.BasicSword:
                 return new WeaponCard(CardId.BasicSword, 'Basic Sword', "A bit stronger", 'sword.svg', new Weapon('Basic Sword', 2, 0)).setCosts([new Currency(2, CurrencyType.Wood), new Currency(1, CurrencyType.Bronze)])
