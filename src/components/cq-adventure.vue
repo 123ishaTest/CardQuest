@@ -19,15 +19,15 @@
           </div>
         </div>
 
-        <cq-player-stats :stats="adventure.playerStats"></cq-player-stats>
-        <cq-adventure-resources :wallet="adventure.wallet"/>
+        <cq-player-stats :stats="adventure.playerStats" :wallet="adventure.wallet"></cq-player-stats>
 
         <div class="h-128 w-full border-4 bg-yellow-400 p-4">
           <div class="text-lg text-center">Your hand</div>
           <div class="flex flex-row">
             <cq-card :is-in-hand="true"
                      :can-afford="card.canAfford(adventure.wallet)"
-                     :is-disabled="!card.canPlay(adventure) || !card.canAfford(adventure.wallet)" @click.native=play(index) :card=card
+                     :is-disabled="!card.canPlay(adventure) || !card.canAfford(adventure.wallet)"
+                     @click.native=play(index) :card=card
                      :key="card.id + '-' + index"
                      v-for="(card, index) in hand"/>
             <div v-if="hand.length === 0" class="h-64">
@@ -55,13 +55,12 @@
 <script>
 import {App} from "@/App.ts"
 import CqCard from "@/components/cq-card";
-import CqAdventureResources from "@/components/cq-adventure-resources";
 import CqPlayerStats from "@/components/cq-player-stats";
 import CqLevelProgress from "@/components/cg-level-progress";
 
 export default {
   name: "cq-adventure",
-  components: {CqLevelProgress, CqPlayerStats, CqAdventureResources, CqCard},
+  components: {CqLevelProgress, CqPlayerStats, CqCard},
   data() {
     return {
       adventure: App.game.features.adventure,

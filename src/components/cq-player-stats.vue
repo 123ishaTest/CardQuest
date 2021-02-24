@@ -6,6 +6,11 @@
     <img class="m-2 w-12 h-12" :title="ToolTier[stats.activePickaxe] + ' Pickaxe'" :src="require(`@/assets/cards/pickaxe-${ToolTier[stats.activePickaxe].toLowerCase()}.svg`)">
     <img class="m-2 w-12 h-12" :title="ToolTier[stats.activeScythe] + ' Scythe'" :src="require(`@/assets/cards/scythe-${ToolTier[stats.activeScythe].toLowerCase()}.svg`)">
 
+    <cq-orb class="m-2" svg="wood.svg" :value="wallet.wood"></cq-orb>
+    <cq-orb class="m-2" svg="souls.svg" :value="wallet.souls"></cq-orb>
+    <cq-orb class="m-2" svg="bronze.svg" :value="wallet.bronze"></cq-orb>
+    <cq-orb class="m-2" svg="silver.svg" :value="wallet.silver"></cq-orb>
+    <cq-orb class="m-2" svg="gold.svg" :value="wallet.gold"></cq-orb>
   </div>
 </template>
 
@@ -14,6 +19,7 @@ import {ToolTier} from "@/card-quest/adventure/tools/ToolTier";
 
 import {PlayerStats} from "@/card-quest/adventure/PlayerStats";
 import CqOrb from "@/components/orbs/cq-orb";
+import {Wallet} from "@/ig-template/features/wallet/Wallet";
 
 export default {
   name: "cq-player-stats",
@@ -27,6 +33,10 @@ export default {
   props: {
     stats: {
       type: PlayerStats,
+      required: true
+    },
+    wallet: {
+      type: Wallet,
       required: true
     },
   },
