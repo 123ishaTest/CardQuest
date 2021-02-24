@@ -8,7 +8,7 @@
 
       <div class="w-11/12">
         <!-- The field -->
-        <div class="h-128 w-full border-4 bg-red-400 p-4">
+        <div class="h-96 w-full border-4 bg-red-400 p-4">
           <div class="text-lg text-center">The field</div>
           <div class="flex flex-row">
             <cq-card :is-in-hand="false" @click.native=tap(index) :card=card :key="card.id + '-' + index"
@@ -21,7 +21,7 @@
 
         <cq-player-stats :stats="adventure.playerStats" :wallet="adventure.wallet"></cq-player-stats>
 
-        <div class="h-128 w-full border-4 bg-yellow-400 p-4">
+        <div class="h-96 w-full border-4 bg-yellow-400 p-4">
           <div class="text-lg text-center">Your hand</div>
           <div class="flex flex-row">
             <cq-card :is-in-hand="true"
