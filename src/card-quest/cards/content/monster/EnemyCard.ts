@@ -3,6 +3,7 @@ import {Adventure} from "@/card-quest/adventure/Adventure";
 import {CurrencyType} from "@/ig-template/features/wallet/CurrencyType";
 import {Currency} from "@/ig-template/features/wallet/Currency";
 import {CardId} from "@/card-quest/cards/CardId";
+import {ISignal, SignalDispatcher} from "strongly-typed-events";
 
 export class EnemyCard extends HealthCard {
     reward: number
@@ -13,6 +14,7 @@ export class EnemyCard extends HealthCard {
     attackInterval: number;
     nextAttack: number;
 
+    private _onAttack = new SignalDispatcher();
 
     constructor(id: CardId, title: string, description: string, image: string, health: number, reward: number, attack: number, defense: number, attackInterval: number) {
         super(id, title, description, image, health);
@@ -52,6 +54,17 @@ export class EnemyCard extends HealthCard {
     }
 
     private performAttack(adventure: Adventure) {
+        if (this.health <= 0) {
+            return;
+        }
         adventure.playerStats.attackFor(this.attack);
+        this._onAttack.dispatch();
+    }
+
+    /**
+     * Emitted whenever this monster attacks
+     */
+    public get onAttack(): ISignal {
+        return this._onAttack.asEvent();
     }
 }

@@ -11,7 +11,7 @@
         <div class="h-96 w-full border-4 bg-red-400 p-4">
           <div class="text-lg text-center">The field</div>
           <div class="flex flex-row">
-            <cq-card :is-in-hand="false" @click.native=tap(index) :card=card :key="card.id + '-' + index"
+            <cq-card :is-in-hand="false" @click.native=tap(index) :card=card :key="'field-' + card.id + '-' + index"
                      v-for="(card, index) in field"/>
             <div v-if="field.length === 0" class="h-64">
               Play some cards!
@@ -26,9 +26,9 @@
           <div class="flex flex-row">
             <cq-card :is-in-hand="true"
                      :can-afford="card.canAfford(adventure.wallet)"
-                     :is-disabled="!card.canPlay(adventure) || !card.canAfford(adventure.wallet)"
+                       :is-disabled="!card.canPlay(adventure) || !card.canAfford(adventure.wallet)"
                      @click.native=play(index) :card=card
-                     :key="card.id + '-' + index"
+                     :key="'hand-' + card.id + '-' + index"
                      v-for="(card, index) in hand"/>
             <div v-if="hand.length === 0" class="h-64">
               You have no cards
