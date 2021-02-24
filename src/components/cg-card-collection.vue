@@ -1,6 +1,11 @@
 <template>
   <div class="m-4 p-4 bg-blue-700">
     Card collection
+    <button id="show-modal" @click="showModal = true">Show Modal</button>
+
+    <igt-modal v-if="showModal" @close="showModal = false" :cards="gainedCards">
+    </igt-modal>
+
     <igt-boolean-setting :setting="showUnobtainedCardsSetting"></igt-boolean-setting>
 
     <div class="flex flex-row flex-wrap">
@@ -80,12 +85,15 @@ import {App} from "@/App.ts";
 import CqCard from "@/components/cq-card";
 import IgtBooleanSetting from "@/components/settings/igt-boolean-setting";
 import {SettingId} from "@/ig-template/features/settings/SettingId";
+import IgtModal from "@/components/util/igt-card-reveal-modal";
 
 export default {
   name: "cq-card-collection",
-  components: {IgtBooleanSetting, CqCard},
+  components: {IgtModal, IgtBooleanSetting, CqCard},
   data() {
     return {
+      showModal: false,
+      gainedCards: [],
       collection: App.game.features.collection,
       showUnobtainedCardsSetting: App.game.features.settings.getSetting(SettingId.ShowUnobtainedCards),
     }
@@ -108,7 +116,7 @@ export default {
   },
   methods: {
     openCardPack(id) {
-      this.collection.openCardPack(id);
+      this.collection.openCardPack(id, 5);
     },
     addCard(id, atMax) {
       if (atMax) {
@@ -128,8 +136,14 @@ export default {
     loadFromPreset(index) {
       this.collection.loadFromPreset(index);
     }
-  }
+  },
 
+  mounted() {
+    this.collection.onCardsGain.subscribe(cards => {
+      this.gainedCards = cards;
+      this.showModal = true;
+    })
+  }
 }
 </script>
 

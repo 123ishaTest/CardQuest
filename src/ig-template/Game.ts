@@ -143,7 +143,7 @@ export class Game {
         this.features.adventure = Object.assign(this.features.adventure, newAdventure);
 
         this.features.adventure.onWin.subscribe((level) => {
-            this.features.collection.openCardPack(level.rewardPack);
+            this.features.collection.openCardPack(level.rewardPack, 3);
         })
 
         this.features.adventure.startAdventure();

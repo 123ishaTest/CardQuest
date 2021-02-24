@@ -7,6 +7,7 @@ import {CardPack} from "@/card-quest/features/card-collection/CardPack";
 import {CardPackId} from "@/card-quest/features/card-collection/CardPackId";
 import {IdDeck} from "@/card-quest/cards/IdDeck";
 import {DeckPreset} from "@/card-quest/features/card-collection/DeckPreset";
+import {ISimpleEvent, SimpleEventDispatcher} from "strongly-typed-events";
 
 
 export class CardCollection extends Feature {
@@ -18,6 +19,9 @@ export class CardCollection extends Feature {
     deckPresets: DeckPreset[] = [];
 
     readonly MAX_DECK_PRESETS = 10;
+
+    private _onCardsGain = new SimpleEventDispatcher<PlayableCard[]>();
+
 
     constructor(cardPacks: CardPack[]) {
         super('card-collection');
@@ -37,14 +41,17 @@ export class CardCollection extends Feature {
         this.currentDeck = new IdDeck();
     }
 
-    openCardPack(id: CardPackId) {
+    openCardPack(id: CardPackId, amount: number = 1) {
         const cardPack = this.getCardPack(id);
         if (cardPack === undefined) {
             console.warn(`Cannot find card pack with if ${id}`);
             return;
         }
-        const cardId = cardPack.draw();
-        this.gainCard(cardId);
+        const cardIds = [];
+        for(let i =0; i<amount; i++ ){
+            cardIds.push(cardPack.draw());
+        }
+        this.gainCards(cardIds, true);
     }
 
     getCardPack(id: CardPackId) {
@@ -53,7 +60,25 @@ export class CardCollection extends Feature {
         })
     }
 
-    gainCard(id: CardId, amount: number = 1) {
+    public gainCard(id: CardId, amount: number, notify: boolean = false) {
+        const ids = Array(amount).fill(id);
+        this.gainCards(ids, notify)
+    }
+
+    public gainCards(ids: CardId[], notify: boolean = false) {
+        for (const id of ids) {
+            this._gainCard(id)
+        }
+        const cards = ids.map(id => {
+            return CardRepository.getCard(id);
+        })
+
+        if (notify) {
+            this._onCardsGain.dispatch(cards);
+        }
+    }
+
+    private _gainCard(id: CardId, amount: number = 1) {
         const current = this.cards[id];
         if (current === undefined) {
             console.warn(`Card with id ${id} does not exist`);
@@ -83,6 +108,10 @@ export class CardCollection extends Feature {
 
     initialize() {
         // Empty
+    }
+
+    get onCardsGain(): ISimpleEvent<PlayableCard[]> {
+        return this._onCardsGain.asEvent();
     }
 
     load(data: CardCollectionSaveData): void {
