@@ -22,10 +22,14 @@ export class Level {
         return this.cards.length;
     }
 
-    getFutureCards(level: number): [number, PlayableCard][] {
+    getFutureCards(turn: number): [number, PlayableCard][] {
         return this.cards.filter(card => {
-            return card[0] > level;
+            return card[0] > turn;
         })
+    }
+
+    getNextCard(turn: number): PlayableCard {
+        return this.getFutureCards(turn)[0][1];
     }
 
     getCardAtTurn(level: number): PlayableCard | undefined {

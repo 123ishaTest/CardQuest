@@ -1,6 +1,5 @@
 <template>
   <div class="m-4 p-4 border-2 bg-red-600">
-    Level selection
 
     <div class="flex flex-row flex-wrap">
       <div :key="level.id" v-for="level in levels" class="flex flex-col m-2 p-4 bg-yellow-100">
@@ -8,19 +7,7 @@
           {{ level.name }}
         </button>
 
-        <div class="flex flex-col">
-          <div :key="level.id + '-' + card[0]" v-for="card in level.cards" class="my-2">
-            <div class="flex flex-row justify-between">
-
-            <div>{{ card[0] }} - {{ card[1].title }}
-
-            </div>
-            <img :title="card[1].description" class="mx-2 w-8 h-8 inline"
-                 :src="require(`@/assets/cards/${card[1].image}`)">
-            </div>
-
-          </div>
-        </div>
+        <cq-level-progress :show-current-turn=false :current-turn="0" :level="level"></cq-level-progress>
 
       </div>
     </div>
@@ -29,9 +16,11 @@
 
 <script>
 import {App} from "@/App.ts"
+import CqLevelProgress from "@/components/cg-level-progress";
 
 export default {
   name: "cq-level-selection",
+  components: {CqLevelProgress},
   data() {
     return {
       game: App.game,

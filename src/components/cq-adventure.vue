@@ -2,11 +2,11 @@
   <div v-if="isActive" class="m-4 p-4 bg-gray-500">
     <div class="flex flex-row">
 
-      <div class="w-1/12">
-        <cq-level-progress :level="adventure.level" :current-turn="adventure.currentTurn"></cq-level-progress>
+      <div class="flex-initial">
+        <cq-level-progress :level="adventure.level" :current-turn="adventure.currentTurn" :show-current-turn="true"></cq-level-progress>
       </div>
 
-      <div class="w-11/12">
+      <div class="flex-auto">
         <!-- The field -->
         <div class="h-96 w-full border-4 bg-red-400 p-4">
           <div class="text-lg text-center">The field</div>

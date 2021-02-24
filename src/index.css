@@ -4,6 +4,14 @@
 @tailwind components;
 @tailwind utilities;
 
+.tooltip {
+    @apply hidden absolute;
+}
+
+.has-tooltip:hover .tooltip {
+    @apply block z-50 border-4 rounded-md
+}
+
 .btn {
     @apply m-1 py-2 px-4 font-semibold rounded-lg shadow-md disabled:opacity-50;
 }

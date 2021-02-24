@@ -1,7 +1,6 @@
 <template>
-  <div id="playable-card" class="w-48 h-72 p-2 m-2 border-2 flex flex-col
-transition duration-300 ease-out transform hover:-translate-y-1 hover:scale-110"
-       :class="[colorClass, {'opacity-50': isDisabled, 'cursor-pointer': canClick}]">
+  <div id="playable-card" class="w-48 h-72 p-2 m-2 border-2 flex flex-col"
+       :class="[colorClass, {'opacity-50': isDisabled, 'cursor-pointer': canClick, 'transition duration-300 ease-out transform hover:-translate-y-1 hover:scale-110': canHover}]">
 
     <div class="flex-grow">
       <p>{{ card.title }}</p>
@@ -68,6 +67,10 @@ export default {
       default: false,
     },
     canClick: {
+      type: Boolean,
+      default: true,
+    },
+    canHover: {
       type: Boolean,
       default: true,
     },
