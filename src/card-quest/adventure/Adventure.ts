@@ -105,6 +105,11 @@ export class Adventure extends Feature {
                     this.tap(i - 1);
                 }
             }));
+            HotKeys.addKeyBind(new KeyBind(`shift+${i}`, `Discard card ${i}`, () => {
+                if (this.isActive) {
+                    this.discard(i - 1);
+                }
+            }));
         }
         HotKeys.addKeyBind(draw);
         HotKeys.addKeyBind(wait);
@@ -129,6 +134,16 @@ export class Adventure extends Feature {
 
         this.turnHasPassed();
     }
+
+
+    discard(index: number) {
+        const card = this.playerHand[index];
+        if (!card) {
+            return;
+        }
+        this.playerHand.splice(index, 1);
+    }
+
 
     private _play(card: PlayableCard) {
         if (card.goesToField) {
