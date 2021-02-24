@@ -16,6 +16,7 @@ import {WeaponCard} from "@/card-quest/cards/content/weapon/WeaponCard";
 import {Weapon} from "@/card-quest/adventure/Weapon";
 import {DrawCardsCard} from "@/card-quest/cards/content/action/DrawCardsCard";
 import {GrainCard} from "@/card-quest/cards/content/resource/GrainCard";
+import {HealingCard} from "@/card-quest/cards/content/action/HealingCard";
 
 export class CardRepository {
 
@@ -40,6 +41,9 @@ export class CardRepository {
             case CardId.MediumGrain:
                 return new GrainCard(CardId.MediumGrain, 'Straw', 'Gain 5 grain when cut down', 'straw.svg', 6, new Currency(5, CurrencyType.Grain));
 
+
+            case CardId.Bread:
+                return new HealingCard(CardId.Bread, 'Bread', 'Heal 5 hitpoints', 'bread.svg', 5).setCosts([new Currency(3, CurrencyType.Grain)]);
 
             // Actions
             case CardId.MagicTouch:

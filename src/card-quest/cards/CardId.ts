@@ -19,6 +19,9 @@ export enum CardId {
 
     Draw3Card,
 
+    // Healing
+    Bread,
+
     // Weapons
     BasicSword,
 

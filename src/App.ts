@@ -29,6 +29,7 @@ export class App {
                 wallet: new Wallet([
                     CurrencyType.Money,
                     CurrencyType.Souls,
+                    CurrencyType.Grain,
                     CurrencyType.Wood,
                     CurrencyType.Bronze,
                     CurrencyType.Silver,
@@ -70,28 +71,30 @@ export class App {
                         new Outcome<CardId>(CardId.GoldScythe, 1),
                     ]),
                     new CardPack(CardPackId.VarietyPack, [
-                       new Outcome<CardId>(CardId.LogCard, 1),
-                       new Outcome<CardId>(CardId.ForestCard, 1),
-                       new Outcome<CardId>(CardId.SilverOre, 1),
-                       new Outcome<CardId>(CardId.MagicTouch, 1),
-                       new Outcome<CardId>(CardId.Draw3Card, 1),
-                       new Outcome<CardId>(CardId.Pig, 1),
-                       new Outcome<CardId>(CardId.Chicken, 1),
-                       new Outcome<CardId>(CardId.Cow, 1),
+                        new Outcome<CardId>(CardId.LogCard, 1),
+                        new Outcome<CardId>(CardId.ForestCard, 1),
+                        new Outcome<CardId>(CardId.SilverOre, 1),
+                        new Outcome<CardId>(CardId.MagicTouch, 1),
+                        new Outcome<CardId>(CardId.Draw3Card, 1),
+                        new Outcome<CardId>(CardId.Pig, 1),
+                        new Outcome<CardId>(CardId.Chicken, 1),
+                        new Outcome<CardId>(CardId.Cow, 1),
                         new Outcome<CardId>(CardId.BronzeAxe, 1),
-                       new Outcome<CardId>(CardId.SilverScythe, 1),
-                       new Outcome<CardId>(CardId.GoldPickaxe, 1),
+                        new Outcome<CardId>(CardId.SilverScythe, 1),
+                        new Outcome<CardId>(CardId.GoldPickaxe, 1),
                     ])
                 ]),
             }
         );
 
+        game.features.collection.gainCard(CardId.LogCard, 5);
+        game.features.collection.gainCard(CardId.BronzeOre, 5);
+        game.features.collection.gainCard(CardId.SmallGrain, 5);
         game.features.collection.gainCard(CardId.BasicSword, 2);
-        game.features.collection.gainCard(CardId.LogCard, 3);
-        game.features.collection.gainCard(CardId.BronzeOre, 3);
-        game.features.collection.gainCard(CardId.Chicken, 3);
+        game.features.collection.gainCard(CardId.Chicken, 5);
         game.features.collection.gainCard(CardId.Draw3Card, 3);
         game.features.collection.gainCard(CardId.MagicTouch, 3);
+        game.features.collection.gainCard(CardId.Bread, 5);
         return game;
     }
 }
