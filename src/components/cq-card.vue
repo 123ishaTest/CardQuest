@@ -22,6 +22,8 @@ transition duration-300 ease-out transform hover:-translate-y-1 hover:scale-110"
 
     <!-- Orbs-->
     <div class="flex flex-row justify-between">
+      <cq-orb v-if="card.weapon" svg="sword.svg" :value="card.weapon.attack +'/' + card.weapon.defense"></cq-orb>
+
       <cq-orb v-for="cost in card.costs" :key=cost.toString()
               :class="{'text-red-500' : !canAfford && isInHand}"
               :svg="cost.type.toLowerCase() + '.svg'" :value="-cost.amount">
@@ -30,6 +32,7 @@ transition duration-300 ease-out transform hover:-translate-y-1 hover:scale-110"
       <cq-orb v-if="card.health" svg="heart.svg" :value="card.health"></cq-orb>
       <cq-orb v-if="card.nextAttack" svg="clock.svg" :value="card.nextAttack"></cq-orb>
       <cq-orb v-if="card.attack" svg="sword.svg" :value="card.attack +'/' + card.defense"></cq-orb>
+
     </div>
   </div>
 

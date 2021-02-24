@@ -13,6 +13,9 @@ export enum CardId {
 
     MagicTouch,
 
+    // Weapons
+    BasicSword,
+
     // Monsters
     Chicken,
     Cow,

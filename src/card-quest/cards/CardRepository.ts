@@ -12,6 +12,8 @@ import {WoodCard} from "@/card-quest/cards/content/resource/WoodCard";
 import {EnumHelpers} from "@/ig-template/tools/EnumHelpers";
 import {IdDeck} from "@/card-quest/cards/IdDeck";
 import {OreCard} from "@/card-quest/cards/content/resource/OreCard";
+import {WeaponCard} from "@/card-quest/cards/content/weapon/WeaponCard";
+import {Weapon} from "@/card-quest/adventure/Weapon";
 
 export class CardRepository {
 
@@ -34,6 +36,10 @@ export class CardRepository {
 
             case CardId.MagicTouch:
                 return new MagicTouchCard().setCosts([new Currency(2, CurrencyType.Souls)]);
+
+            // Weapons
+            case CardId.BasicSword:
+                return new WeaponCard(CardId.BasicSword, 'Basic Sword', "A bit stronger", 'sword.svg', new Weapon('Basic Sword', 2, 0)).setCosts([new Currency(2, CurrencyType.Wood), new Currency(1, CurrencyType.Bronze)])
 
             // Enemies
             case CardId.Chicken:

@@ -1,6 +1,7 @@
 <template>
   <div class="flex flex-row p-2 border-2">
     <cq-orb class="m-2" svg="heart.svg" :value="health"></cq-orb>
+    <p>{{stats.activeWeapon.name}}</p>
     <cq-orb class="m-2" svg="sword.svg" :value="attack +'/' + defense"></cq-orb>
     <img class="m-2 w-12 h-12" :title="ToolTier[stats.activeAxe] + ' Axe'" :src="require(`@/assets/cards/hatchet-${ToolTier[stats.activeAxe].toLowerCase()}.svg`)">
     <img class="m-2 w-12 h-12" :title="ToolTier[stats.activePickaxe] + ' Pickaxe'" :src="require(`@/assets/cards/pickaxe-${ToolTier[stats.activePickaxe].toLowerCase()}.svg`)">
