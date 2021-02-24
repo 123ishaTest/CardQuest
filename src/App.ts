@@ -73,11 +73,12 @@ export class App {
             }
         );
 
-        game.features.collection.gainCard(CardId.BasicSword, 1);
+        game.features.collection.gainCard(CardId.BasicSword, 2);
         game.features.collection.gainCard(CardId.LogCard, 3);
         game.features.collection.gainCard(CardId.BronzeOre, 3);
         game.features.collection.gainCard(CardId.Chicken, 3);
         game.features.collection.gainCard(CardId.Draw3Card, 3);
+        game.features.collection.gainCard(CardId.MagicTouch, 3);
         return game;
     }
 }

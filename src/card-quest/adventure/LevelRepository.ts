@@ -10,12 +10,12 @@ export class LevelRepository {
         switch (id) {
             case LevelId.TheFarm:
                 return new Level(LevelId.TheFarm, 'The farm', 'Not too difficult', CardPackId.BronzeToolPack, [
-                    [10, CardRepository.getCard(CardId.Chicken)],
                     [15, CardRepository.getCard(CardId.Chicken)],
-                    [20, CardRepository.getCard(CardId.Pig)],
+                    [20, CardRepository.getCard(CardId.Chicken)],
                     [25, CardRepository.getCard(CardId.Pig)],
-                    [30, CardRepository.getCard(CardId.Cow)],
+                    [30, CardRepository.getCard(CardId.Pig)],
                     [35, CardRepository.getCard(CardId.Cow)],
+                    [40, CardRepository.getCard(CardId.Cow)],
                 ]);
 
             default:
