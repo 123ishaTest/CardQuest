@@ -11,8 +11,12 @@
         <div class="h-96 w-full border-4 bg-red-400 p-4">
           <div class="text-lg text-center">The field</div>
           <div class="flex flex-row">
-            <cq-card :is-in-hand="false" @click.native=tap(index) :card=card :key="'field-' + card.id + '-' + index"
-                     v-for="(card, index) in field"/>
+            <div :key="'field-' + card.id + '-' + index"
+                 v-for="(card, index) in field">
+              <cq-card-placeholder v-if="card.id === -1"></cq-card-placeholder>
+              <cq-card v-else :card=card :is-in-hand="false" @click.native="tap(index)"/>
+            </div>
+
             <div v-if="field.length === 0" class="h-64">
               Play some cards!
             </div>
@@ -29,7 +33,8 @@
                      :is-disabled="!card.canPlay(adventure) || !card.canAfford(adventure.wallet)"
                      @click.native="play(index, $event)" :card=card
                      :key="'hand-' + card.id + '-' + index"
-                     v-for="(card, index) in hand"/>
+                     v-for="(card, index) in hand"
+                      :class="{'invisible': card.id === -1}"/>
             <div v-if="hand.length === 0" class="h-64">
               You have no cards
             </div>
@@ -57,10 +62,11 @@ import {App} from "@/App.ts"
 import CqCard from "@/components/cq-card";
 import CqPlayerStats from "@/components/cq-player-stats";
 import CqLevelProgress from "@/components/cg-level-progress";
+import CqCardPlaceholder from "@/components/cq-card-placeholder";
 
 export default {
   name: "cq-adventure",
-  components: {CqLevelProgress, CqPlayerStats, CqCard},
+  components: {CqCardPlaceholder, CqLevelProgress, CqPlayerStats, CqCard},
   data() {
     return {
       adventure: App.game.features.adventure,

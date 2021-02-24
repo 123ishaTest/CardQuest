@@ -10,6 +10,7 @@ import {ISimpleEvent, SimpleEventDispatcher} from "strongly-typed-events";
 import {CardType} from "@/card-quest/cards/CardType";
 import {KeyBind} from "@/ig-template/tools/hotkeys/KeyBind";
 import {HotKeys} from "@/ig-template/tools/hotkeys/HotKeys";
+import {EmptyCard} from "@/card-quest/cards/EmptyCard";
 
 export class Adventure extends Feature {
 
@@ -56,6 +57,9 @@ export class Adventure extends Feature {
         // Dummy wallet, will be overridden in initialize.
         this.wallet = new Wallet([]);
         this.isActive = false;
+
+        this.playerHand = Array(this.MAX_CARDS).fill(new EmptyCard())
+
     }
 
     startAdventure() {
@@ -128,7 +132,8 @@ export class Adventure extends Feature {
             return;
         }
 
-        this.playerHand.splice(index, 1);
+
+        this.playerHand.splice(index, 1, new EmptyCard());
 
         this._play(card);
 
@@ -180,7 +185,12 @@ export class Adventure extends Feature {
         }
         const card = this.playerDeck.draw()
         if (card != undefined) {
-            this.playerHand.push(card);
+            for (let i = 0; i < this.playerHand.length; i++) {
+                if (this.playerHand[i].id === -1) {
+                    this.playerHand.splice(i, 1, card);
+                    break;
+                }
+            }
         }
 
         if (!free) {
