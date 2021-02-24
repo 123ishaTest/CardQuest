@@ -19,6 +19,8 @@
           </div>
         </div>
 
+        <cq-adventure-resources :wallet="adventure.wallet"/>
+
         <div class="h-128 w-full border-4 bg-yellow-400 p-4">
           <div class="text-lg text-center">Your hand</div>
           <div class="flex flex-row">
@@ -39,7 +41,6 @@
         </button>
         <button class="btn btn-blue" @click="wait">Wait</button>
         <button class="btn btn-red" @click="forfeit">Forfeit</button>
-        <cq-adventure-resources :wallet="adventure.wallet"/>
 
         <cq-player-stats :stats="adventure.playerStats"></cq-player-stats>
 

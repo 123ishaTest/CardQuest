@@ -179,6 +179,18 @@ export class Wallet extends Feature {
         return this._currencies.Souls;
     }
 
+    public get bronze(): number {
+        return this._currencies.Bronze;
+    }
+
+    public get silver(): number {
+        return this._currencies.Silver;
+    }
+
+    public get gold(): number {
+        return this._currencies.Gold;
+    }
+
     getDeveloperPanelFields(): AbstractField[] {
         return [
             new NumberField('money', 'Money'),

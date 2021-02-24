@@ -1,7 +1,10 @@
 <template>
   <div class="flex flex-row p-2 border-2">
-    <p class="text-lg m-2"> {{ wood }} Wood</p>
-    <p class="text-lg m-2"> {{ souls }} Souls</p>
+    <cq-orb svg="wood.svg" :value="wallet.wood"></cq-orb>
+    <cq-orb svg="souls.svg" :value="wallet.souls"></cq-orb>
+    <cq-orb svg="bronze.svg" :value="wallet.bronze"></cq-orb>
+    <cq-orb svg="silver.svg" :value="wallet.silver"></cq-orb>
+    <cq-orb svg="gold.svg" :value="wallet.gold"></cq-orb>
   </div>
 </template>
 
@@ -10,9 +13,11 @@
 
 
 import {Wallet} from "@/ig-template/features/wallet/Wallet";
+import CqOrb from "@/components/orbs/cq-orb";
 
 export default {
   name: "cq-adventure-resources",
+  components: {CqOrb},
   data() {
     return {}
   },
@@ -25,12 +30,7 @@ export default {
   },
 
   computed: {
-    wood() {
-      return this.wallet.wood;
-    },
-    souls() {
-      return this.wallet.souls;
-    }
+
   }
 
 

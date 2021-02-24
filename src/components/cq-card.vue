@@ -15,19 +15,17 @@ transition duration-300 ease-out transform hover:-translate-y-1 hover:scale-110"
       <div v-else>
         <img class="card-image" :src="require(`@/assets/cards/${card.image}`)">
 
-
         <p class="text-sm">{{ card.description }}</p>
-
-        <div class="flex flex-row justify-between">
-          <cq-orb :class="{'text-red-500' : !canAfford && isInHand}" :key=cost.toString() v-for="cost in card.costs"
-                  :svg="cost.type" :value="-cost.amount"></cq-orb>
-        </div>
 
       </div>
     </div>
 
     <!-- Orbs-->
     <div class="flex flex-row justify-between">
+      <cq-orb v-for="cost in card.costs" :key=cost.toString()
+              :class="{'text-red-500' : !canAfford && isInHand}"
+              :svg="cost.type.toLowerCase() + '.svg'" :value="-cost.amount">
+      </cq-orb>
 
       <cq-orb v-if="card.health" svg="heart.svg" :value="card.health"></cq-orb>
       <cq-orb v-if="card.nextAttack" svg="clock.svg" :value="card.nextAttack"></cq-orb>
