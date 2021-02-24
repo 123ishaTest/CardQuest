@@ -19,8 +19,10 @@ transition duration-300 ease-out transform hover:-translate-y-1 hover:scale-110"
         <p class="text-sm">{{ card.description }}</p>
 
         <p v-if="card.costs.length" :class="{'text-red-500' : !canAfford && isInHand}">Costs:</p>
+
         <p :class="{'text-red-500' : !canAfford && isInHand}" :key=cost.toString() v-for="cost in card.costs">
-          {{ cost }}
+          <!-- TODO More currencies-->
+          <cq-orb v-if="cost.type === CurrencyType.Souls" svg="soul.svg" :value="-cost.amount"></cq-orb>
         </p>
 
 
@@ -29,6 +31,7 @@ transition duration-300 ease-out transform hover:-translate-y-1 hover:scale-110"
 
     <!-- Orbs-->
     <div class="flex flex-row justify-between">
+
       <cq-orb v-if="card.health" svg="heart.svg" :value="card.health"></cq-orb>
       <cq-orb v-if="card.nextAttack" svg="clock.svg" :value="card.nextAttack"></cq-orb>
       <cq-orb v-if="card.attack" svg="sword.svg" :value="card.attack +'/' + card.defense"></cq-orb>
@@ -41,13 +44,15 @@ transition duration-300 ease-out transform hover:-translate-y-1 hover:scale-110"
 
 import {PlayableCard} from "@/card-quest/cards/abstract/PlayableCard";
 import CqOrb from "@/components/orbs/cq-orb";
+import {CurrencyType} from "@/ig-template/features/wallet/CurrencyType";
 
 export default {
   name: "cq-card",
   components: {CqOrb},
   data() {
     return {
-      defaultImg: "require('@/assets/logo.png')"
+      defaultImg: "require('@/assets/logo.png')",
+      CurrencyType: CurrencyType,
     }
   },
 
