@@ -1,6 +1,8 @@
 <template>
   <div class="m-4 p-4 bg-blue-700">
     Card collection
+    <igt-boolean-setting :setting="showUnobtainedCardsSetting"></igt-boolean-setting>
+
     <div class="flex flex-row flex-wrap">
       <div class="flex-auto">
         <button class="btn btn-green" @click="openCardPack(0)">Open example pack</button>
@@ -11,7 +13,7 @@
 
           <div :key=card.amount v-for="(card, index) in displayableCards" class="flex flex-col">
             <!-- TODO Fix showing of undiscovered cards-->
-            <div v-if="card[1] >= 0">
+            <div v-if="card[1] > 0 || showUnobtainedCardsSetting.value">
               <div class="flex flex-row justify-between items-center m-2">
                 <button class="btn btn-red" @click="removeCard(index)"
                         :disabled="currentDeck.getCountForCard(index) <= 0">
@@ -76,13 +78,16 @@
 
 import {App} from "@/App.ts";
 import CqCard from "@/components/cq-card";
+import IgtBooleanSetting from "@/components/settings/igt-boolean-setting";
+import {SettingId} from "@/ig-template/features/settings/SettingId";
 
 export default {
   name: "cq-card-collection",
-  components: {CqCard},
+  components: {IgtBooleanSetting, CqCard},
   data() {
     return {
-      collection: App.game.features.collection
+      collection: App.game.features.collection,
+      showUnobtainedCardsSetting: App.game.features.settings.getSetting(SettingId.ShowUnobtainedCards),
     }
   },
 
@@ -99,7 +104,6 @@ export default {
     deckPresets() {
       return this.collection.deckPresets;
     },
-
 
   },
   methods: {

@@ -2,11 +2,9 @@ import {Feature} from "@/ig-template/features/Feature";
 import {SettingsSaveData} from "@/ig-template/features/settings/SettingsSaveData";
 import {Setting} from "@/ig-template/features/settings/Setting";
 import {SettingId} from "@/ig-template/features/settings/SettingId";
-import {MultipleChoiceSetting} from "@/ig-template/features/settings/MultipleChoiceSetting";
-import {SettingOption} from "@/ig-template/features/settings/SettingOption";
-import {Features} from "@/ig-template/Features";
 import {AbstractField} from "@/ig-template/developer-panel/fields/AbstractField";
 import {FunctionField} from "@/ig-template/developer-panel/fields/FunctionField";
+import {BooleanSetting} from "@/ig-template/features/settings/BooleanSetting";
 
 export class Settings extends Feature {
     list: Setting<any>[];
@@ -22,13 +20,9 @@ export class Settings extends Feature {
         }
     }
 
-    initialize(features: Features) {
+    initialize() {
         this.add(
-            new MultipleChoiceSetting(SettingId.ExampleSetting, "Example setting", [
-                new SettingOption<number>("Option 1", 1),
-                new SettingOption<number>("Option 2", 2),
-                new SettingOption<number>("Option 3", 3),
-            ], 2)
+            new BooleanSetting(SettingId.ShowUnobtainedCards, "Show unobtained cards", false),
         )
     }
 
