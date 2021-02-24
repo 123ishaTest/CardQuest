@@ -11,6 +11,9 @@ export enum CardId {
     SilverOre,
     GoldOre,
 
+    SmallGrain,
+    MediumGrain,
+
     // Actions
     MagicTouch,
 

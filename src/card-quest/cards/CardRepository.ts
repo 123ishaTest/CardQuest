@@ -15,6 +15,7 @@ import {OreCard} from "@/card-quest/cards/content/resource/OreCard";
 import {WeaponCard} from "@/card-quest/cards/content/weapon/WeaponCard";
 import {Weapon} from "@/card-quest/adventure/Weapon";
 import {DrawCardsCard} from "@/card-quest/cards/content/action/DrawCardsCard";
+import {GrainCard} from "@/card-quest/cards/content/resource/GrainCard";
 
 export class CardRepository {
 
@@ -33,6 +34,12 @@ export class CardRepository {
                 return new OreCard(CardId.BronzeOre, 'Silver ore', 'Gain 1 silver ore when mined', 'ore-silver.svg', 6, new Currency(1, CurrencyType.Silver));
             case CardId.GoldOre:
                 return new OreCard(CardId.BronzeOre, 'Gold ore', 'Gain 1 gold ore when mined', 'ore-gold.svg', 15, new Currency(1, CurrencyType.Gold));
+
+            case CardId.SmallGrain:
+                return new GrainCard(CardId.SmallGrain, 'Grain', 'Gain 2 grain when cut down', 'grain.svg', 3, new Currency(2, CurrencyType.Grain));
+            case CardId.MediumGrain:
+                return new GrainCard(CardId.MediumGrain, 'Straw', 'Gain 5 grain when cut down', 'straw.svg', 6, new Currency(5, CurrencyType.Grain));
+
 
             // Actions
             case CardId.MagicTouch:
