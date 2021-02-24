@@ -19,6 +19,7 @@
           </div>
         </div>
 
+        <cq-player-stats :stats="adventure.playerStats"></cq-player-stats>
         <cq-adventure-resources :wallet="adventure.wallet"/>
 
         <div class="h-128 w-full border-4 bg-yellow-400 p-4">
@@ -42,7 +43,6 @@
         <button class="btn btn-blue" @click="wait">Wait</button>
         <button class="btn btn-red" @click="forfeit">Forfeit</button>
 
-        <cq-player-stats :stats="adventure.playerStats"></cq-player-stats>
 
       </div>
 

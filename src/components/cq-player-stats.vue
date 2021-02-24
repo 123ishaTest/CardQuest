@@ -1,13 +1,11 @@
 <template>
   <div class="flex flex-row p-2 border-2">
-    <p class="text-lg m-2"> {{ health }} Health</p>
-    <p class="text-lg m-2"> Attack/Defense {{ attack }}/{{ defense }}</p>
+    <cq-orb class="m-2" svg="heart.svg" :value="health"></cq-orb>
+    <cq-orb class="m-2" svg="sword.svg" :value="attack +'/' + defense"></cq-orb>
+    <img class="m-2 w-12 h-12" :title="ToolTier[stats.activeAxe] + ' Axe'" :src="require(`@/assets/cards/hatchet-${ToolTier[stats.activeAxe].toLowerCase()}.svg`)">
+    <img class="m-2 w-12 h-12" :title="ToolTier[stats.activePickaxe] + ' Pickaxe'" :src="require(`@/assets/cards/pickaxe-${ToolTier[stats.activePickaxe].toLowerCase()}.svg`)">
+    <img class="m-2 w-12 h-12" :title="ToolTier[stats.activeScythe] + ' Scythe'" :src="require(`@/assets/cards/scythe-${ToolTier[stats.activeScythe].toLowerCase()}.svg`)">
 
-    <img :title="ToolTier[stats.activeAxe] + ' Axe'" class="w-12 h-12" :src="require(`@/assets/cards/hatchet-${ToolTier[stats.activeAxe].toLowerCase()}.svg`)">
-
-    <p class="text-lg m-2"> {{ ToolTier[stats.activeAxe] }} Axe</p>
-    <p class="text-lg m-2"> {{ ToolTier[stats.activePickaxe] }} Pickaxe</p>
-    <p class="text-lg m-2"> {{ ToolTier[stats.activeScythe] }} Scythe</p>
   </div>
 </template>
 
@@ -15,9 +13,11 @@
 import {ToolTier} from "@/card-quest/adventure/tools/ToolTier";
 
 import {PlayerStats} from "@/card-quest/adventure/PlayerStats";
+import CqOrb from "@/components/orbs/cq-orb";
 
 export default {
   name: "cq-player-stats",
+  components: {CqOrb},
   data() {
     return {
       ToolTier: ToolTier,
