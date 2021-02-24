@@ -9,13 +9,16 @@ transition duration-300 ease-out transform hover:-translate-y-1 hover:scale-110"
 
       <div v-if="!showFront">
         <!--      <img class="card-image" :src="require(`@/assets/cards/default.svg`)">-->
-        <img class="card-image" :src="require(`@/assets/cards/${card.image}`)">
+        <img class="card-image" :src="require(`@/assets/cards/${card.image}`)" :alt="card.image">
 
       </div>
       <div v-else>
-        <img class="card-image" :src="require(`@/assets/cards/${card.image}`)">
+        <img class="card-image" :src="require(`@/assets/cards/${card.image}`)" :alt="card.image">
 
-        <p class="text-sm italic">{{ card.description }}</p>
+
+        <p class="text-sm italic whitespace-pre-line">
+          {{ card.description }}
+        </p>
 
       </div>
     </div>

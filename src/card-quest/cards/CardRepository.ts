@@ -45,11 +45,11 @@ export class CardRepository {
 
             // Enemies
             case CardId.Chicken:
-                return new EnemyCard(CardId.Chicken, 'Chicken', 'Cluck cluck.', 'chicken.svg', 3, 1, 1, 0, 3);
+                return new EnemyCard(CardId.Chicken, 'Chicken', 'Cluck cluck.\nGain 1 soul on defeat', 'chicken.svg', 3, 1, 1, 0, 3);
             case CardId.Cow:
-                return new EnemyCard(CardId.Cow, 'Cow', 'Moo?', 'cow.svg', 7, 1, 2, 0, 3);
+                return new EnemyCard(CardId.Cow, 'Cow', 'Moo?\nGain 2 souls on defeat', 'cow.svg', 7, 2, 2, 0, 3);
             case CardId.Pig:
-                return new EnemyCard(CardId.Pig, 'Pig', 'Oink oink', 'pig.svg', 5, 1, 2, 0, 2);
+                return new EnemyCard(CardId.Pig, 'Pig', 'Oink oink\nGain 1 soul on defeat', 'pig.svg', 5, 1, 2, 0, 2);
 
 
             // Tools
