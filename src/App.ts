@@ -24,7 +24,7 @@ export class App {
 
 
     public static getDefaultGame(): Game {
-        return new Game(
+        const game = new Game(
             {
                 wallet: new Wallet([
                     CurrencyType.Money,
@@ -72,5 +72,11 @@ export class App {
                 ]),
             }
         );
+
+        game.features.collection.gainCard(CardId.BasicSword, 1);
+        game.features.collection.gainCard(CardId.LogCard, 3);
+        game.features.collection.gainCard(CardId.BronzeOre, 3);
+        game.features.collection.gainCard(CardId.Chicken, 3);
+        return game;
     }
 }
