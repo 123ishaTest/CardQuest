@@ -34,8 +34,14 @@ export class CardRepository {
 
             case CardId.MagicTouch:
                 return new MagicTouchCard().setCosts([new Currency(2, CurrencyType.Souls)]);
-            case CardId.EnemyCard:
-                return new EnemyCard(CardId.EnemyCard, 'Goblin', '', 'goblin.svg', 5, 3, 2, 1, 4);
+
+            // Enemies
+            case CardId.Chicken:
+                return new EnemyCard(CardId.Chicken, 'Chicken', 'Cluck cluck.', 'chicken.svg', 3, 1, 1, 0, 3);
+            case CardId.Cow:
+                return new EnemyCard(CardId.Cow, 'Cow', 'Moo?', 'cow.svg', 7, 1, 2, 0, 3);
+            case CardId.Pig:
+                return new EnemyCard(CardId.Pig, 'Pig', 'Oink oink', 'pig.svg', 5, 1, 2, 0, 2);
 
 
             // Tools

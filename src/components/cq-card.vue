@@ -15,7 +15,7 @@ transition duration-300 ease-out transform hover:-translate-y-1 hover:scale-110"
       <div v-else>
         <img class="card-image" :src="require(`@/assets/cards/${card.image}`)">
 
-        <p class="text-sm">{{ card.description }}</p>
+        <p class="text-sm italic">{{ card.description }}</p>
 
       </div>
     </div>

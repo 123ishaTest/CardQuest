@@ -8,19 +8,16 @@ import {CardId} from "@/card-quest/cards/CardId";
 export class LevelRepository {
     public static getLevel(id: LevelId): Level {
         switch (id) {
-            case LevelId.FirstLevel:
-                return new Level(LevelId.FirstLevel, 'First level', 'Not too difficult', CardPackId.BronzeToolPack, [
-                    [15, CardRepository.getCard(CardId.EnemyCard)],
-                    [30, CardRepository.getCard(CardId.EnemyCard)],
+            case LevelId.TheFarm:
+                return new Level(LevelId.TheFarm, 'The farm', 'Not too difficult', CardPackId.BronzeToolPack, [
+                    [10, CardRepository.getCard(CardId.Chicken)],
+                    [15, CardRepository.getCard(CardId.Chicken)],
+                    [20, CardRepository.getCard(CardId.Pig)],
+                    [25, CardRepository.getCard(CardId.Pig)],
+                    [30, CardRepository.getCard(CardId.Cow)],
+                    [35, CardRepository.getCard(CardId.Cow)],
                 ]);
-            case LevelId.SecondLevel:
-                return new Level(LevelId.SecondLevel, 'Second level', 'More enemies this time', CardPackId.BronzeToolPack, [
-                    [20, CardRepository.getCard(CardId.EnemyCard)],
-                    [25, CardRepository.getCard(CardId.EnemyCard)],
-                    [30, CardRepository.getCard(CardId.EnemyCard)],
-                    [35, CardRepository.getCard(CardId.EnemyCard)],
-                    [40, CardRepository.getCard(CardId.EnemyCard)],
-                ]);
+
             default:
                 throw new Error(`Level with id ${id} not found.`)
         }

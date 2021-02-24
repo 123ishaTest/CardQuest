@@ -12,7 +12,11 @@ export enum CardId {
     GoldOre,
 
     MagicTouch,
-    EnemyCard,
+
+    // Monsters
+    Chicken,
+    Cow,
+    Pig,
 
     // Tools
     BronzeAxe,

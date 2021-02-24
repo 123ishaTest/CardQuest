@@ -41,7 +41,6 @@ export class App {
                     new CardPack(CardPackId.ExamplePack, [
                         new Outcome<CardId>(CardId.LogCard, 1),
                         new Outcome<CardId>(CardId.MagicTouch, 1),
-                        new Outcome<CardId>(CardId.EnemyCard, 1),
                         new Outcome<CardId>(CardId.BronzeAxe, 1),
                     ]),
                     new CardPack(CardPackId.BronzeToolPack, [
