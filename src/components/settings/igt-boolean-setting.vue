@@ -1,6 +1,11 @@
 <template>
   <div>
-    <button @click="toggle" class="btn btn-green">{{setting.value}} - {{setting.displayName}}</button>
+    <button @click="toggle" class="btn btn-blue">
+      <span class="fa text-lg m-1" :class="classObject"></span>
+      <span>
+        {{ setting.displayName }}
+      </span>
+    </button>
   </div>
 
 
@@ -15,12 +20,23 @@ export default {
     setting: {
       type: BooleanSetting,
       required: true,
-    }
+    },
   },
   methods: {
     toggle() {
       this.setting.toggle();
     },
+  },
+  computed: {
+    classObject() {
+      return {
+        'fa-eye': this.setting.value,
+        'text-green-500': this.setting.value,
+
+        'fa-eye-slash': !this.setting.value,
+        'text-red-500': !this.setting.value,
+      }
+    }
   }
 }
 </script>
