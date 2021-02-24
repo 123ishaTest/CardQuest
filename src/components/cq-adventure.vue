@@ -37,11 +37,11 @@
         </div>
 
         <button class="btn btn-green" @click="draw" :disabled="!canDraw">
-          <span v-if="canDraw">Draw ({{ deckSize }})</span>
+          <span v-if="canDraw">Draw (D) ({{ deckSize }})</span>
           <span v-else> No cards </span>
         </button>
-        <button class="btn btn-blue" @click="wait">Wait</button>
-        <button class="btn btn-red" @click="forfeit">Forfeit</button>
+        <button class="btn btn-blue" @click="wait">Wait (W)</button>
+        <button class="btn btn-red" @click="forfeit">Forfeit (Q)</button>
 
 
       </div>

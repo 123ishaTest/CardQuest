@@ -8,6 +8,8 @@ import {Features} from "@/ig-template/Features";
 import {PlayerStats} from "@/card-quest/adventure/PlayerStats";
 import {ISimpleEvent, SimpleEventDispatcher} from "strongly-typed-events";
 import {CardType} from "@/card-quest/cards/CardType";
+import {KeyBind} from "@/ig-template/tools/hotkeys/KeyBind";
+import {HotKeys} from "@/ig-template/tools/hotkeys/HotKeys";
 
 export class Adventure extends Feature {
 
@@ -69,6 +71,45 @@ export class Adventure extends Feature {
 
     initialize(features: Features) {
         this.wallet = features.wallet;
+
+        const draw = new KeyBind("d",
+            "Draw a card", () => {
+                if (this.isActive) {
+                    this.draw();
+                }
+            },
+        );
+        const wait = new KeyBind("w",
+            "Wait a turn", () => {
+                if (this.isActive) {
+                    this.wait();
+                }
+            },
+        );
+        const forfeit = new KeyBind("q",
+            "Forfeit the adventure", () => {
+                if (this.isActive) {
+                    this.forfeit();
+                }
+            },
+        );
+
+        for (let i = 1; i < 10; i++) {
+            HotKeys.addKeyBind(new KeyBind(i.toString(), `Play card ${i}`, () => {
+                if (this.isActive) {
+                    this.play(i - 1);
+                }
+            }));
+            HotKeys.addKeyBind(new KeyBind(`ctrl+${i}`, `Tap card ${i}`, () => {
+                if (this.isActive) {
+                    this.tap(i - 1);
+                }
+            }));
+        }
+        HotKeys.addKeyBind(draw);
+        HotKeys.addKeyBind(wait);
+        HotKeys.addKeyBind(forfeit);
+
     }
 
     play(index: number) {
