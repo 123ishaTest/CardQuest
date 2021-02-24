@@ -27,7 +27,7 @@
           <div class="flex flex-row">
             <cq-card :is-in-hand="true"
                      :can-afford="card.canAfford(adventure.wallet)"
-                     :is-disabled="!card.canPlay(adventure)" @click.native=play(index) :card=card
+                     :is-disabled="!card.canPlay(adventure) || !card.canAfford(adventure.wallet)" @click.native=play(index) :card=card
                      :key="card.id + '-' + index"
                      v-for="(card, index) in hand"/>
             <div v-if="hand.length === 0" class="h-64">
