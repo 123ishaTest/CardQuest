@@ -1,7 +1,7 @@
 <template>
   <div class="relative text-center text-white w-12">
     <img :src="require(`@/assets/orbs/${svg}`)">
-    <div class="centered w-6 text-xl font-semibold">{{ value }}</div>
+    <div class="centered w-6 text-xl font-semibold stroke">{{ value }}</div>
   </div>
 </template>
 
@@ -23,6 +23,14 @@ export default {
 </script>
 
 <style scoped>
+.stroke {
+  color: white;
+  text-shadow: -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;
+}
+
 .centered {
   position: absolute;
   top: 50%;

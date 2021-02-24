@@ -32,6 +32,7 @@ export class Wallet extends Feature {
 
     public resetTemporaryCurrencies() {
         this._currencies[CurrencyType.Wood] = 0;
+        this._currencies[CurrencyType.Grain] = 0;
         this._currencies[CurrencyType.Souls] = 0;
         this._currencies[CurrencyType.Bronze] = 0;
         this._currencies[CurrencyType.Silver] = 0;
@@ -173,6 +174,10 @@ export class Wallet extends Feature {
 
     public get wood(): number {
         return this._currencies.Wood;
+    }
+
+    public get grain(): number {
+        return this._currencies.Grain;
     }
 
     public get souls(): number {

@@ -1,13 +1,17 @@
 <template>
-  <div class="flex flex-row p-2 border-2">
+  <div class="flex flex-row p-2 border-2 items-center">
     <cq-orb class="m-2" svg="heart.svg" :value="health"></cq-orb>
-    <p>{{stats.activeWeapon.name}}</p>
+    <p>{{ stats.activeWeapon.name }}</p>
     <cq-orb class="m-2" svg="sword.svg" :value="attack +'/' + defense"></cq-orb>
-    <img class="m-2 w-12 h-12" :title="ToolTier[stats.activeAxe] + ' Axe'" :src="require(`@/assets/cards/hatchet-${ToolTier[stats.activeAxe].toLowerCase()}.svg`)">
-    <img class="m-2 w-12 h-12" :title="ToolTier[stats.activePickaxe] + ' Pickaxe'" :src="require(`@/assets/cards/pickaxe-${ToolTier[stats.activePickaxe].toLowerCase()}.svg`)">
-    <img class="m-2 w-12 h-12" :title="ToolTier[stats.activeScythe] + ' Scythe'" :src="require(`@/assets/cards/scythe-${ToolTier[stats.activeScythe].toLowerCase()}.svg`)">
+    <img class="m-2 w-12 h-12" :title="ToolTier[stats.activeAxe] + ' Axe'"
+         :src="require(`@/assets/cards/hatchet-${ToolTier[stats.activeAxe].toLowerCase()}.svg`)">
+    <img class="m-2 w-12 h-12" :title="ToolTier[stats.activePickaxe] + ' Pickaxe'"
+         :src="require(`@/assets/cards/pickaxe-${ToolTier[stats.activePickaxe].toLowerCase()}.svg`)">
+    <img class="m-2 w-12 h-12" :title="ToolTier[stats.activeScythe] + ' Scythe'"
+         :src="require(`@/assets/cards/scythe-${ToolTier[stats.activeScythe].toLowerCase()}.svg`)">
 
     <cq-orb class="m-2" svg="wood.svg" :value="wallet.wood"></cq-orb>
+    <cq-orb class="m-2" svg="grain.svg" :value="wallet.grain"></cq-orb>
     <cq-orb class="m-2" svg="souls.svg" :value="wallet.souls"></cq-orb>
     <cq-orb class="m-2" svg="bronze.svg" :value="wallet.bronze"></cq-orb>
     <cq-orb class="m-2" svg="silver.svg" :value="wallet.silver"></cq-orb>
@@ -48,7 +52,8 @@ export default {
     },
     attack() {
       return this.stats.getAttack();
-    }, defense() {
+    },
+    defense() {
       return this.stats.getDefense();
     }
   }
