@@ -10,7 +10,7 @@
         <div class="flex flex-row flex-wrap">
 
           <div :key=card.amount v-for="(card, index) in displayableCards" class="flex flex-col">
-            <div class="flex flex-row items-center m-2">
+            <div class="flex flex-row justify-between items-center m-2">
               <button class="btn btn-red" @click="removeCard(index)"
                       :disabled="currentDeck.getCountForCard(index) <= 0">
                 -
