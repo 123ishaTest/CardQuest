@@ -1,7 +1,7 @@
 <template>
   <div id="playable-card" class="w-48 h-72 p-2 m-2 border-2 flex flex-col
 transition duration-300 ease-out transform hover:-translate-y-1 hover:scale-110"
-       :class="colorClass">
+       :class="[colorClass, {'opacity-50': isDisabled, 'cursor-pointer': !isDisabled}]">
 
     <div class="flex-grow">
       <p>{{ card.title }}</p>
