@@ -10,26 +10,27 @@
         <div class="flex flex-row flex-wrap">
 
           <div :key=card.amount v-for="(card, index) in displayableCards" class="flex flex-col">
-            <div class="flex flex-row justify-between items-center m-2">
-              <button class="btn btn-red" @click="removeCard(index)"
-                      :disabled="currentDeck.getCountForCard(index) <= 0">
-                -
-              </button>
-              <p class="text-lg text-center">
-                {{ currentDeck.getCountForCard(index) }} / {{ card[1] }}
-              </p>
-              <button class="btn btn-green" @click="addCard(index)"
-                      :disabled="currentDeck.getCountForCard(index) >= card[1]">+
-              </button>
+            <!-- TODO Fix showing of undiscovered cards-->
+            <div v-if="card[1] > 0">
+              <div class="flex flex-row justify-between items-center m-2">
+                <button class="btn btn-red" @click="removeCard(index)"
+                        :disabled="currentDeck.getCountForCard(index) <= 0">
+                  -
+                </button>
+                <p class="text-lg text-center">
+                  {{ currentDeck.getCountForCard(index) }} / {{ card[1] }}
+                </p>
+                <button class="btn btn-green" @click="addCard(index)"
+                        :disabled="currentDeck.getCountForCard(index) >= card[1]">+
+                </button>
 
+              </div>
+              <div @click="addCard(index, currentDeck.getCountForCard(index) >= card[1])"
+                   :disabled="currentDeck.getCountForCard(index) >= card[1]">
+
+                <cq-card :show-front="true" :is-in-hand="false" :card="card[0]"></cq-card>
+              </div>
             </div>
-            <div @click="addCard(index, currentDeck.getCountForCard(index) >= card[1])"
-                 :disabled="currentDeck.getCountForCard(index) >= card[1]">
-
-              <!-- TODO Fix showing of undiscovered cards-->
-              <cq-card :show-front="true" :is-in-hand="false" :card="card[0]"></cq-card>
-            </div>
-
           </div>
         </div>
 
