@@ -1,7 +1,7 @@
 <template>
-  <div id="playable-card" class="w-48 h-72 p-2 m-2 border-2 bg-blue-400 flex flex-col
+  <div id="playable-card" class="w-48 h-72 p-2 m-2 border-2 flex flex-col
 transition duration-300 ease-out transform hover:-translate-y-1 hover:scale-110"
-       :class="{'opacity-50': isDisabled, 'cursor-pointer': !isDisabled}">
+       :class="colorClass">
 
     <div class="flex-grow">
       <p>{{ card.title }}</p>
@@ -46,7 +46,7 @@ transition duration-300 ease-out transform hover:-translate-y-1 hover:scale-110"
 import {PlayableCard} from "@/card-quest/cards/abstract/PlayableCard";
 import CqOrb from "@/components/orbs/cq-orb";
 import {CurrencyType} from "@/ig-template/features/wallet/CurrencyType";
-import {EnemyCard} from "@/card-quest/cards/content/monster/EnemyCard";
+import {CardType} from "@/card-quest/cards/CardType";
 
 export default {
   name: "cq-card",
@@ -81,8 +81,27 @@ export default {
     }
   },
 
+  computed: {
+    colorClass() {
+      switch (this.card.cardType) {
+        case CardType.Tool:
+          return 'bg-gray-400';
+        case CardType.Action:
+          return 'bg-purple-400';
+        case CardType.Resource:
+          return 'bg-green-400';
+        case CardType.Curse:
+          return 'bg-yellow-400';
+        case CardType.Monster:
+          return 'bg-red-400';
+        default:
+          return 'bg-blue-400';
+      }
+    }
+  },
+
   mounted() {
-    if (!this.isInHand && this.card instanceof EnemyCard) {
+    if (!this.isInHand && this.card.cardType === CardType.Monster) {
       this.card.onAttack.subscribe(() => {
         this.$el.classList.add('shake');
         setTimeout(() => {

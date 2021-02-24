@@ -2,13 +2,14 @@ import {HealthCard} from "@/card-quest/cards/abstract/HealthCard";
 import {Adventure} from "@/card-quest/adventure/Adventure";
 import {Currency} from "@/ig-template/features/wallet/Currency";
 import {CardId} from "@/card-quest/cards/CardId";
+import {CardType} from "@/card-quest/cards/CardType";
 
 export class WoodCard extends HealthCard {
     reward: Currency;
 
 
     constructor(id: CardId, title: string, description: string, image: string, health: number, reward: Currency) {
-        super(id, title, description, image, health);
+        super(id, title, description, CardType.Resource, image, health);
         this.reward = reward;
     }
 

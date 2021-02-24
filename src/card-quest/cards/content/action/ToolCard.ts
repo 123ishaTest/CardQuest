@@ -3,6 +3,7 @@ import {ToolTier} from "@/card-quest/adventure/tools/ToolTier";
 import {CardId} from "@/card-quest/cards/CardId";
 import {ActionCard} from "@/card-quest/cards/abstract/ActionCard";
 import {ToolType} from "@/card-quest/adventure/tools/ToolType";
+import {CardType} from "@/card-quest/cards/CardType";
 
 export class ToolCard extends ActionCard {
     type: ToolType;
@@ -10,7 +11,7 @@ export class ToolCard extends ActionCard {
 
 
     constructor(id: CardId, title: string, description: string, image: string, type: ToolType, tier: ToolTier) {
-        super(id, title, description, image);
+        super(id, title, description, CardType.Tool, image);
         this.type = type;
         this.tier = tier;
     }

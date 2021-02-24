@@ -3,6 +3,7 @@ import {ISimpleEvent, SimpleEventDispatcher} from "strongly-typed-events";
 import {Adventure} from "@/card-quest/adventure/Adventure";
 import {Currency} from "@/ig-template/features/wallet/Currency";
 import {Wallet} from "@/ig-template/features/wallet/Wallet";
+import {CardType} from "@/card-quest/cards/CardType";
 
 export abstract class PlayableCard {
     private _onDefeated = new SimpleEventDispatcher<PlayableCard>();
@@ -13,11 +14,13 @@ export abstract class PlayableCard {
     image: string;
     costs: Currency[];
     goesToField: boolean;
+    cardType: CardType;
 
-    protected constructor(id: CardId, title: string, description: string, image: string, costs: Currency[] = [], goesToField: boolean = false) {
+    protected constructor(id: CardId, title: string, description: string, cardType: CardType, image: string, costs: Currency[] = [], goesToField: boolean = false) {
         this.id = id;
         this.title = title;
         this.description = description;
+        this.cardType = cardType;
         this.image = image;
         this.costs = costs;
         this.goesToField = goesToField

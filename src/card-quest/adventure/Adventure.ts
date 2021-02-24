@@ -6,8 +6,8 @@ import {SaveData} from "@/ig-template/tools/saving/SaveData";
 import {Wallet} from "@/ig-template/features/wallet/Wallet";
 import {Features} from "@/ig-template/Features";
 import {PlayerStats} from "@/card-quest/adventure/PlayerStats";
-import {EnemyCard} from "@/card-quest/cards/content/monster/EnemyCard";
 import {ISimpleEvent, SimpleEventDispatcher} from "strongly-typed-events";
+import {CardType} from "@/card-quest/cards/CardType";
 
 export class Adventure extends Feature {
 
@@ -179,7 +179,7 @@ export class Adventure extends Feature {
             return false;
         }
         for (const card of this.field) {
-            if (card instanceof EnemyCard) {
+            if (card.cardType === CardType.Monster) {
                 return false;
             }
         }

@@ -11,7 +11,7 @@
 
           <div :key=card.amount v-for="(card, index) in displayableCards" class="flex flex-col">
             <!-- TODO Fix showing of undiscovered cards-->
-            <div v-if="card[1] >= 1">
+            <div v-if="card[1] >= 0">
               <div class="flex flex-row justify-between items-center m-2">
                 <button class="btn btn-red" @click="removeCard(index)"
                         :disabled="currentDeck.getCountForCard(index) <= 0">

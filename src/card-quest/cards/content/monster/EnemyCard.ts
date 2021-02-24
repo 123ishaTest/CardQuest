@@ -4,6 +4,7 @@ import {CurrencyType} from "@/ig-template/features/wallet/CurrencyType";
 import {Currency} from "@/ig-template/features/wallet/Currency";
 import {CardId} from "@/card-quest/cards/CardId";
 import {ISignal, SignalDispatcher} from "strongly-typed-events";
+import {CardType} from "@/card-quest/cards/CardType";
 
 export class EnemyCard extends HealthCard {
     reward: number
@@ -17,7 +18,7 @@ export class EnemyCard extends HealthCard {
     private _onAttack = new SignalDispatcher();
 
     constructor(id: CardId, title: string, description: string, image: string, health: number, reward: number, attack: number, defense: number, attackInterval: number) {
-        super(id, title, description, image, health);
+        super(id, title, description, CardType.Monster, image, health);
         this.reward = reward;
         this.attack = attack;
         this.defense = defense;
