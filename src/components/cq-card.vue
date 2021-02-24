@@ -18,13 +18,10 @@ transition duration-300 ease-out transform hover:-translate-y-1 hover:scale-110"
 
         <p class="text-sm">{{ card.description }}</p>
 
-        <p v-if="card.costs.length" :class="{'text-red-500' : !canAfford && isInHand}">Costs:</p>
-
-        <p :class="{'text-red-500' : !canAfford && isInHand}" :key=cost.toString() v-for="cost in card.costs">
-          <!-- TODO More currencies-->
-          <cq-orb v-if="cost.type === CurrencyType.Souls" svg="soul.svg" :value="-cost.amount"></cq-orb>
-        </p>
-
+        <div class="flex flex-row justify-between">
+          <cq-orb :class="{'text-red-500' : !canAfford && isInHand}" :key=cost.toString() v-for="cost in card.costs"
+                  :svg="cost.type" :value="-cost.amount"></cq-orb>
+        </div>
 
       </div>
     </div>
