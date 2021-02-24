@@ -58,7 +58,7 @@ export class App {
                         new Outcome<CardId>(CardId.GoldPickaxe, 1),
                         new Outcome<CardId>(CardId.GoldScythe, 1),
                     ]),
-                    new CardPack((CardPackId.AllToolPack), [
+                    new CardPack(CardPackId.AllToolPack, [
                         new Outcome<CardId>(CardId.BronzeAxe, 1),
                         new Outcome<CardId>(CardId.BronzePickaxe, 1),
                         new Outcome<CardId>(CardId.BronzeScythe, 1),
@@ -68,6 +68,19 @@ export class App {
                         new Outcome<CardId>(CardId.GoldAxe, 1),
                         new Outcome<CardId>(CardId.GoldPickaxe, 1),
                         new Outcome<CardId>(CardId.GoldScythe, 1),
+                    ]),
+                    new CardPack(CardPackId.VarietyPack, [
+                       new Outcome<CardId>(CardId.LogCard, 1),
+                       new Outcome<CardId>(CardId.ForestCard, 1),
+                       new Outcome<CardId>(CardId.SilverOre, 1),
+                       new Outcome<CardId>(CardId.MagicTouch, 1),
+                       new Outcome<CardId>(CardId.Draw3Card, 1),
+                       new Outcome<CardId>(CardId.Pig, 1),
+                       new Outcome<CardId>(CardId.Chicken, 1),
+                       new Outcome<CardId>(CardId.Cow, 1),
+                        new Outcome<CardId>(CardId.BronzeAxe, 1),
+                       new Outcome<CardId>(CardId.SilverScythe, 1),
+                       new Outcome<CardId>(CardId.GoldPickaxe, 1),
                     ])
                 ]),
             }

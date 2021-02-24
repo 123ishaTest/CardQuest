@@ -6,7 +6,6 @@
 
           <div class="modal-header">
             <slot name="header">
-              default header
             </slot>
           </div>
 
@@ -23,8 +22,7 @@
                         <cq-card :is-in-hand="false" :is-disabled="false" :card=card :can-click="false"></cq-card>
                       </div>
                       <div class="back">
-                        <div class="w-48 h-72 p-2 m-2 border-2 bg-black">
-                        </div>
+                        <div class="w-48 h-72 p-2 m-2 border-4"></div>
                       </div>
                     </div>
 
@@ -39,7 +37,7 @@
           <div class="modal-footer">
             <slot name="footer">
               <button class="btn btn-green" @click="$emit('close')">
-                Ok
+                Close
               </button>
             </slot>
           </div>
@@ -113,7 +111,6 @@ export default {
 .modal-body {
   margin: 20px 0;
 }
-
 
 
 .modal-enter .modal-container,
