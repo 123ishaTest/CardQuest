@@ -13,6 +13,7 @@ import {CardRepository} from "@/card-quest/cards/CardRepository";
 import {LevelRepository} from "@/card-quest/adventure/LevelRepository";
 import {LevelId} from "@/card-quest/adventure/LevelId";
 import {Currency} from "@/ig-template/features/wallet/Currency";
+import {Level} from "@/card-quest/adventure/Level";
 
 export class Game {
     private _tickInterval: number = -1;
@@ -144,8 +145,9 @@ export class Game {
 
         this.features.adventure = Object.assign(this.features.adventure, newAdventure);
 
-        this.features.adventure.onWin.subscribe((level) => {
+        this.features.adventure.onWin.subscribe((level: Level) => {
             this.features.collection.openCardPack(level.rewardPack, 3);
+            this.features.wallet.gainCurrency(new Currency(level.moneyReward, CurrencyType.Money));
         })
 
         this.features.adventure.startAdventure();
