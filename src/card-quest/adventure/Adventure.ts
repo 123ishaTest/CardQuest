@@ -206,8 +206,11 @@ export class Adventure extends Feature {
     }
 
     private turnHasPassed(free: boolean = false) {
-        for (const card of this.field) {
-            card.turnHasPassed(this);
+        if (!free) {
+            for (const card of this.field) {
+                card.turnHasPassed(this);
+            }
+            this.currentTurn++;
         }
 
         // Remove cards queued for deletion
@@ -218,10 +221,6 @@ export class Adventure extends Feature {
             }
         }
 
-        if (!free) {
-            this.currentTurn++;
-
-        }
         this.checkForLevelCard();
         this.checkWinLoseConditions();
     }
@@ -263,6 +262,8 @@ export class Adventure extends Feature {
             return;
         }
         this._play(card);
+        this.turnHasPassed(true);
+
     }
 
     public canDraw() {
