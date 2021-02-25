@@ -11,6 +11,7 @@ import {Outcome} from "@/ig-template/tools/probability/Outcome";
 import {EmptyAdventure} from "@/card-quest/adventure/EmptyAdventure";
 import {SuperPowers} from "@/card-quest/adventure/super-powers/SuperPowers";
 import {EnumHelpers} from "@/ig-template/tools/EnumHelpers";
+import {Achievements} from "@/ig-template/features/achievements/Achievements";
 
 export class App {
 
@@ -87,6 +88,7 @@ export class App {
                     ])
                 ]),
                 superPowers: new SuperPowers(),
+                achievements: new Achievements(),
             }
         );
 

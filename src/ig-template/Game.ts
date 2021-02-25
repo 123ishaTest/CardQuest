@@ -122,6 +122,11 @@ export class Game {
         for (const feature of this.featureList) {
             feature.initialize(this.features);
         }
+
+        // TODO(Isha) move to UI component
+        this.features.achievements.onUnlock.subscribe(achievement => {
+            console.log("You gained the achievement", achievement.title);
+        })
     }
 
     public canStartAdventure(): boolean {
