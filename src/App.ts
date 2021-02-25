@@ -10,6 +10,7 @@ import {CardPackId} from "@/card-quest/features/card-collection/CardPackId";
 import {Outcome} from "@/ig-template/tools/probability/Outcome";
 import {EmptyAdventure} from "@/card-quest/adventure/EmptyAdventure";
 import {SuperPowers} from "@/card-quest/adventure/super-powers/SuperPowers";
+import {EnumHelpers} from "@/ig-template/tools/EnumHelpers";
 
 export class App {
 
@@ -99,6 +100,12 @@ export class App {
         game.features.collection.gainCard(CardId.MagicTouch, 3);
         game.features.collection.gainCard(CardId.Bread, 5);
         game.features.collection.gainCard(CardId.LoseTurnsSmall, 3);
+
+        // TODO (Isha) remove before release
+        const ids = EnumHelpers.getValues(CardId);
+        for (const id of ids) {
+            game.features.collection.gainCard(id, 5);
+        }
         return game;
     }
 }
