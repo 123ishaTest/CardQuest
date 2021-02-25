@@ -1,7 +1,9 @@
 <template>
   <div class="relative text-center text-white w-12">
-    <img :src="require(`@/assets/orbs/${svg}`)">
-    <div class="centered w-6 text-xl font-semibold stroke">{{ value }}</div>
+    <img :src="require(`@/assets/orbs/${svg}`)" :alt="svg">
+    <div class="centered text-2xl font-semibold stroke">
+      {{ formattedValue }}
+    </div>
   </div>
 </template>
 
@@ -18,6 +20,17 @@ export default {
       required: true,
     },
   },
+  computed: {
+    formattedValue() {
+      if (this.value === Infinity) {
+        return '∞';
+      }
+      if (this.value === -Infinity) {
+        return '-∞'
+      }
+      return this.value;
+    }
+  }
 
 }
 </script>
