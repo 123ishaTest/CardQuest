@@ -28,6 +28,7 @@ export enum CardId {
     InstantDamageMedium,
     InstantDamageLarge,
 
+    DiscardHand,
     ForestFire,
 
 

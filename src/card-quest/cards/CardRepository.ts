@@ -21,6 +21,7 @@ import {InstantDamageCard} from "@/card-quest/cards/content/action/InstantDamage
 import {LoseTurnsCard} from "@/card-quest/cards/content/action/LoseTurnsCard";
 import {ForestFire} from "@/card-quest/cards/content/action/ForestFire";
 import {LandMineCard} from "@/card-quest/cards/content/monster/LandMineCard";
+import {DiscardHand} from "@/card-quest/cards/content/action/DiscardHand";
 
 export class CardRepository {
 
@@ -71,6 +72,9 @@ export class CardRepository {
             case CardId.InstantDamageLarge:
                 return new InstantDamageCard(CardId.InstantDamageLarge, 'Mystic Surge', 'damage-purple.svg', 10)
 
+            case CardId.DiscardHand:
+                return new DiscardHand();
+
             case CardId.ForestFire:
                 return new ForestFire();
 
@@ -86,7 +90,7 @@ export class CardRepository {
             case CardId.Pig:
                 return new EnemyCard(CardId.Pig, 'Pig', 'Oink oink\nGain 1 soul on defeat', 'pig.svg', 3, 1, 2, 0, 2);
             case CardId.LandMine:
-                return new LandMineCard(CardId.LandMine, 'Land Mine',  'land-mine.svg', 2, 10);
+                return new LandMineCard(CardId.LandMine, 'Land Mine', 'land-mine.svg', 2, 10);
 
             // Tools
             case CardId.BronzeAxe:

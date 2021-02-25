@@ -22,7 +22,7 @@ export class LevelRepository {
                         [10, CardRepository.getCard(CardId.InstantDamageSmall)],
                         [15, CardRepository.getCard(CardId.InstantDamageSmall)],
                         [18, CardRepository.getCard(CardId.ForestFire)],
-                        [20, CardRepository.getCard(CardId.InstantDamageSmall)],
+                        [20, CardRepository.getCard(CardId.DiscardHand)],
                         [25, CardRepository.getCard(CardId.InstantDamageMedium)],
                         [32, CardRepository.getCard(CardId.InstantDamageMedium)],
                         [40, CardRepository.getCard(CardId.InstantDamageMedium)],
