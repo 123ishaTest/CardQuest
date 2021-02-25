@@ -19,7 +19,7 @@ export class Currency {
         if (isNaN(this.amount)) {
             return false;
         }
-        return this.amount > 0;
+        return this.amount >= 0;
     }
 
     public toString(): string {

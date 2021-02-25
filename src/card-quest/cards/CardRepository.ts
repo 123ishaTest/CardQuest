@@ -18,6 +18,7 @@ import {DrawCardsCard} from "@/card-quest/cards/content/action/DrawCardsCard";
 import {GrainCard} from "@/card-quest/cards/content/resource/GrainCard";
 import {HealingCard} from "@/card-quest/cards/content/action/HealingCard";
 import {InstantDamageCard} from "@/card-quest/cards/content/action/InstantDamageCard";
+import {LoseTurnsCard} from "@/card-quest/cards/content/action/LoseTurnsCard";
 
 export class CardRepository {
 
@@ -58,6 +59,15 @@ export class CardRepository {
                 return new InstantDamageCard(CardId.InstantDamageMedium, 'Flame Surge', 'damage-red.svg', 5)
             case CardId.InstantDamageLarge:
                 return new InstantDamageCard(CardId.InstantDamageLarge, 'Mystic Surge', 'damage-purple.svg', 10)
+
+            case CardId.LoseTurnsSmall:
+                return new LoseTurnsCard(CardId.LoseTurnsSmall,  'hourglass-yellow.svg', 5).setCosts([new Currency(1, CurrencyType.Souls)])
+            case CardId.LoseTurnsMedium:
+                return new LoseTurnsCard(CardId.LoseTurnsMedium, 'hourglass-red.svg', 10).setCosts([new Currency(2, CurrencyType.Souls)])
+            case CardId.LoseTurnsLarge:
+                return new LoseTurnsCard(CardId.LoseTurnsLarge, 'hourglass-purple.svg', 15).setCosts([new Currency(3, CurrencyType.Souls)])
+
+
 
             // Weapons
             case CardId.BasicSword:

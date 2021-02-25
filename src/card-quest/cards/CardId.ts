@@ -23,6 +23,10 @@ export enum CardId {
     InstantDamageMedium,
     InstantDamageLarge,
 
+    LoseTurnsSmall,
+    LoseTurnsMedium,
+    LoseTurnsLarge,
+
     // Healing
     Bread,
 
