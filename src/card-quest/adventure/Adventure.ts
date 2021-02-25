@@ -207,7 +207,7 @@ export class Adventure extends Feature {
         this.turnHasPassed();
     }
 
-    private turnHasPassed() {
+    private turnHasPassed(free: boolean = false) {
         for (const card of this.field) {
             card.turnHasPassed(this);
         }
@@ -220,7 +220,10 @@ export class Adventure extends Feature {
             }
         }
 
-        this.currentTurn++;
+        if (!free) {
+            this.currentTurn++;
+
+        }
         this.checkForLevelCard();
         this.checkWinLoseConditions();
     }
@@ -262,7 +265,7 @@ export class Adventure extends Feature {
             return;
         }
         this._play(card);
-        this.checkWinLoseConditions();
+        this.turnHasPassed(true);
     }
 
     public canDraw() {

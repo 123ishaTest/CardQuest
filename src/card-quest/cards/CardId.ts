@@ -19,13 +19,17 @@ export enum CardId {
 
     Draw3Card,
 
+    LoseTurnsSmall,
+    LoseTurnsMedium,
+    LoseTurnsLarge,
+
+    // Curses
     InstantDamageSmall,
     InstantDamageMedium,
     InstantDamageLarge,
 
-    LoseTurnsSmall,
-    LoseTurnsMedium,
-    LoseTurnsLarge,
+    ForestFire,
+
 
     // Healing
     Bread,

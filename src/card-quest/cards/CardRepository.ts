@@ -19,6 +19,7 @@ import {GrainCard} from "@/card-quest/cards/content/resource/GrainCard";
 import {HealingCard} from "@/card-quest/cards/content/action/HealingCard";
 import {InstantDamageCard} from "@/card-quest/cards/content/action/InstantDamageCard";
 import {LoseTurnsCard} from "@/card-quest/cards/content/action/LoseTurnsCard";
+import {ForestFire} from "@/card-quest/cards/content/action/ForestFire";
 
 export class CardRepository {
 
@@ -53,6 +54,15 @@ export class CardRepository {
             case CardId.Draw3Card:
                 return new DrawCardsCard(CardId.Draw3Card, 'draw-card.svg', 3).setCosts([new Currency(1, CurrencyType.Souls)]);
 
+
+            case CardId.LoseTurnsSmall:
+                return new LoseTurnsCard(CardId.LoseTurnsSmall, 'hourglass-yellow.svg', 5).setCosts([new Currency(1, CurrencyType.Souls)])
+            case CardId.LoseTurnsMedium:
+                return new LoseTurnsCard(CardId.LoseTurnsMedium, 'hourglass-red.svg', 10).setCosts([new Currency(2, CurrencyType.Souls)])
+            case CardId.LoseTurnsLarge:
+                return new LoseTurnsCard(CardId.LoseTurnsLarge, 'hourglass-purple.svg', 15).setCosts([new Currency(3, CurrencyType.Souls)])
+
+            // Curses
             case CardId.InstantDamageSmall:
                 return new InstantDamageCard(CardId.InstantDamageSmall, 'Energy Surge', 'damage-yellow.svg', 3)
             case CardId.InstantDamageMedium:
@@ -60,14 +70,8 @@ export class CardRepository {
             case CardId.InstantDamageLarge:
                 return new InstantDamageCard(CardId.InstantDamageLarge, 'Mystic Surge', 'damage-purple.svg', 10)
 
-            case CardId.LoseTurnsSmall:
-                return new LoseTurnsCard(CardId.LoseTurnsSmall,  'hourglass-yellow.svg', 5).setCosts([new Currency(1, CurrencyType.Souls)])
-            case CardId.LoseTurnsMedium:
-                return new LoseTurnsCard(CardId.LoseTurnsMedium, 'hourglass-red.svg', 10).setCosts([new Currency(2, CurrencyType.Souls)])
-            case CardId.LoseTurnsLarge:
-                return new LoseTurnsCard(CardId.LoseTurnsLarge, 'hourglass-purple.svg', 15).setCosts([new Currency(3, CurrencyType.Souls)])
-
-
+            case CardId.ForestFire:
+                return new ForestFire();
 
             // Weapons
             case CardId.BasicSword:
