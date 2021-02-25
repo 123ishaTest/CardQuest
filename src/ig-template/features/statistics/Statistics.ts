@@ -10,6 +10,8 @@ import {StatisticsValue} from "@/ig-template/features/statistics/StatisticsValue
 import {Features} from "@/ig-template/Features";
 import {Currency} from "@/ig-template/features/wallet/Currency";
 import {CurrencyType} from "@/ig-template/features/wallet/CurrencyType";
+import {Adventure} from "@/card-quest/adventure/Adventure";
+import {CardId} from "@/card-quest/cards/CardId";
 
 export class Statistics extends Feature {
 
@@ -29,6 +31,13 @@ export class Statistics extends Feature {
                 this.incrementNumberStatistic(StatisticId.TotalMoneyGained, currency.amount);
             }
         });
+        this.registerAdventureSubscribers(features.adventure);
+    }
+
+    registerAdventureSubscribers(adventure: Adventure) {
+        adventure.onCardPlayed.subscribe((id: CardId) => {
+            console.log("Card played", id);
+        })
     }
 
     incrementNumberStatistic(id: StatisticId, amount = 1): void {

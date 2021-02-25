@@ -11,6 +11,7 @@ import {CardType} from "@/card-quest/cards/CardType";
 import {KeyBind} from "@/ig-template/tools/hotkeys/KeyBind";
 import {HotKeys} from "@/ig-template/tools/hotkeys/HotKeys";
 import {EmptyCard} from "@/card-quest/cards/EmptyCard";
+import {CardId} from "@/card-quest/cards/CardId";
 
 export class Adventure extends Feature {
 
@@ -32,6 +33,7 @@ export class Adventure extends Feature {
 
     private _onWin = new SimpleEventDispatcher<Level>();
     private _onLose = new SimpleEventDispatcher<Level>();
+    private _onCardPlayed = new SimpleEventDispatcher<CardId>();
 
     /**
      * Emitted whenever the game is won
@@ -45,6 +47,13 @@ export class Adventure extends Feature {
      */
     public get onLose(): ISimpleEvent<Level> {
         return this._onLose.asEvent();
+    }
+
+    /**
+     * Emitted whenever a card is played
+     */
+    public get onCardPlayed(): ISimpleEvent<CardId> {
+        return this._onCardPlayed.asEvent();
     }
 
 
@@ -134,6 +143,8 @@ export class Adventure extends Feature {
 
 
         this.playerHand.splice(index, 1, new EmptyCard());
+
+        this._onCardPlayed.dispatch(card.id);
 
         this._play(card);
 

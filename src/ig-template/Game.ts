@@ -132,11 +132,14 @@ export class Game {
         if (!this.canStartAdventure()) {
             return;
         }
+
         const newAdventure = new Adventure(
             CardRepository.getDeckFromIdDeck(this.features.collection.currentDeck),
             LevelRepository.getLevel(levelId),
             this.features.superPowers.getPlayerStats()
         )
+
+        this.features.statistics.registerAdventureSubscribers(newAdventure);
 
         this.features.wallet.resetTemporaryCurrencies();
         newAdventure.wallet = this.features.wallet;
