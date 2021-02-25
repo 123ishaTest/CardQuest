@@ -86,7 +86,7 @@ export class CardRepository {
             case CardId.Pig:
                 return new EnemyCard(CardId.Pig, 'Pig', 'Oink oink\nGain 1 soul on defeat', 'pig.svg', 3, 1, 2, 0, 2);
             case CardId.LandMine:
-                return new LandMineCard(CardId.LandMine, 'Land Mine',  'land-mine.svg', 3, 10);
+                return new LandMineCard(CardId.LandMine, 'Land Mine',  'land-mine.svg', 2, 10);
 
             // Tools
             case CardId.BronzeAxe:
