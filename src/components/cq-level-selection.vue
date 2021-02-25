@@ -1,6 +1,6 @@
 <template>
-  <div class="m-4 p-4 border-2 bg-red-600">
-
+  <div class="m-4 p-4 border-2 bg-purple-300">
+    <p class="text-lg">Your money: {{game.features.wallet.money}}</p>
     <cq-super-powers :powers="superPowers"></cq-super-powers>
 
     <div class="flex flex-row flex-wrap">

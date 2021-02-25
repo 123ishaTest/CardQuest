@@ -10,9 +10,9 @@ import {DisplayField} from "@/ig-template/developer-panel/fields/DisplayField";
 import {ChoiceField} from "@/ig-template/developer-panel/fields/ChoiceField";
 import {Adventure} from "@/card-quest/adventure/Adventure";
 import {CardRepository} from "@/card-quest/cards/CardRepository";
-import {PlayerStats} from "@/card-quest/adventure/PlayerStats";
 import {LevelRepository} from "@/card-quest/adventure/LevelRepository";
 import {LevelId} from "@/card-quest/adventure/LevelId";
+import {Currency} from "@/ig-template/features/wallet/Currency";
 
 export class Game {
     private _tickInterval: number = -1;
@@ -124,7 +124,7 @@ export class Game {
     }
 
     public canStartAdventure(): boolean {
-        return this.features.collection.currentDeck.getSize() >= this.MINIMUM_DECK_SIZE
+        return this.features.collection.currentDeck.getSize() >= this.MINIMUM_DECK_SIZE && this.canAffordSuperPowers();
     }
 
     public goOnAnAdventure(levelId: LevelId) {
@@ -134,11 +134,13 @@ export class Game {
         const newAdventure = new Adventure(
             CardRepository.getDeckFromIdDeck(this.features.collection.currentDeck),
             LevelRepository.getLevel(levelId),
-            new PlayerStats(5, 20),
+            this.features.superPowers.getPlayerStats()
         )
 
         this.features.wallet.resetTemporaryCurrencies();
         newAdventure.wallet = this.features.wallet;
+
+        this.features.wallet.payIfPossible(new Currency(this.features.superPowers.getTotalCosts(), CurrencyType.Money));
 
         this.features.adventure = Object.assign(this.features.adventure, newAdventure);
 
@@ -256,4 +258,7 @@ export class Game {
         return Object.values(this.features)
     }
 
+    private canAffordSuperPowers() {
+        return this.features.wallet.hasCurrency(new Currency(this.features.superPowers.getTotalCosts(), CurrencyType.Money))
+    }
 }

@@ -1,8 +1,11 @@
 <template>
   <div class="color-purple-500">
-    <p class="text-lg"> Total costs: {{totalCosts}}</p>
+    <p class="text-lg"> Total costs: {{ totalCosts }}</p>
     <cq-super-power :power="powers.axe"></cq-super-power>
+    <cq-super-power :power="powers.pickaxe"></cq-super-power>
     <cq-super-power :power="powers.scythe"></cq-super-power>
+    <cq-super-power :power="powers.startingCards"></cq-super-power>
+    <cq-super-power :power="powers.health"></cq-super-power>
   </div>
 </template>
 
