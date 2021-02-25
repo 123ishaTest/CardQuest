@@ -17,6 +17,7 @@ import {Weapon} from "@/card-quest/adventure/Weapon";
 import {DrawCardsCard} from "@/card-quest/cards/content/action/DrawCardsCard";
 import {GrainCard} from "@/card-quest/cards/content/resource/GrainCard";
 import {HealingCard} from "@/card-quest/cards/content/action/HealingCard";
+import {InstantDamageCard} from "@/card-quest/cards/content/action/InstantDamageCard";
 
 export class CardRepository {
 
@@ -50,6 +51,14 @@ export class CardRepository {
                 return new MagicTouchCard().setCosts([new Currency(2, CurrencyType.Souls)]);
             case CardId.Draw3Card:
                 return new DrawCardsCard(CardId.Draw3Card, 'draw-card.svg', 3).setCosts([new Currency(1, CurrencyType.Souls)]);
+
+            case CardId.InstantDamageSmall:
+                return new InstantDamageCard(CardId.InstantDamageSmall, 'Energy Surge', 'damage-yellow.svg', 3)
+            case CardId.InstantDamageMedium:
+                return new InstantDamageCard(CardId.InstantDamageMedium, 'Flame Surge', 'damage-red.svg', 5)
+            case CardId.InstantDamageLarge:
+                return new InstantDamageCard(CardId.InstantDamageLarge, 'Mystic Surge', 'damage-purple.svg', 10)
+
             // Weapons
             case CardId.BasicSword:
                 return new WeaponCard(CardId.BasicSword, 'Basic Sword', "A bit stronger", 'sword.svg', new Weapon('Basic Sword', 2, 0)).setCosts([new Currency(2, CurrencyType.Wood), new Currency(1, CurrencyType.Bronze)])

@@ -19,6 +19,10 @@ export enum CardId {
 
     Draw3Card,
 
+    InstantDamageSmall,
+    InstantDamageMedium,
+    InstantDamageLarge,
+
     // Healing
     Bread,
 

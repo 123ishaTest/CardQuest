@@ -21,8 +21,10 @@ export class PlayerStats {
         this.activeWeapon = activeWeapon;
     }
 
-    public attackFor(amount: number) {
-        this.health -= amount - this.getDefense();
+    public attackFor(amount: number, ignoreDefense: boolean = false) {
+        const actualDefense = ignoreDefense ? 0 : this.getDefense();
+        const actualDamage = Math.max(0, amount - actualDefense);
+        this.health -= actualDamage;
     }
 
     public getWoodCuttingDamage() {

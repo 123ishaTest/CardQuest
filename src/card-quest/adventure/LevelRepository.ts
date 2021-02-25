@@ -9,15 +9,21 @@ export class LevelRepository {
     public static getLevel(id: LevelId): Level {
         switch (id) {
             case LevelId.TheFarm:
-                return new Level(LevelId.TheFarm, 'The farm', 'Not too difficult', CardPackId.BronzeToolPack, [
+                return new Level(LevelId.TheFarm, 'The farm', 'The scariest thing here is the smell', CardPackId.BronzeToolPack, [
                     [15, CardRepository.getCard(CardId.Chicken)],
-                    [20, CardRepository.getCard(CardId.Chicken)],
-                    [25, CardRepository.getCard(CardId.Pig)],
-                    [30, CardRepository.getCard(CardId.Pig)],
-                    [35, CardRepository.getCard(CardId.Cow)],
-                    [40, CardRepository.getCard(CardId.Cow)],
+                    [22, CardRepository.getCard(CardId.Pig)],
+                    [30, CardRepository.getCard(CardId.Cow)],
                 ]);
-
+            case LevelId.TheWizard:
+                return new Level(LevelId.TheWizard, 'The wizard', 'He will smite you down with his spells', CardPackId.VarietyPack, [
+                    [10, CardRepository.getCard(CardId.InstantDamageSmall)],
+                    [15, CardRepository.getCard(CardId.InstantDamageSmall)],
+                    [20, CardRepository.getCard(CardId.InstantDamageSmall)],
+                    [25, CardRepository.getCard(CardId.InstantDamageMedium)],
+                    [32, CardRepository.getCard(CardId.InstantDamageMedium)],
+                    [40, CardRepository.getCard(CardId.InstantDamageMedium)],
+                    [45, CardRepository.getCard(CardId.Chicken)],
+                ])
             default:
                 throw new Error(`Level with id ${id} not found.`)
         }
