@@ -1,8 +1,7 @@
 <template>
   <div class="m-4 p-4 bg-blue-700">
-    Card collection
-    <button id="show-modal" @click="showModal = true">Show Modal</button>
-
+    <p class="text-2xl font-semibold">Card collection</p>
+    <hr/>
     <igt-modal v-if="showModal" @close="showModal = false" :cards="gainedCards">
     </igt-modal>
 
