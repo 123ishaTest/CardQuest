@@ -11,22 +11,23 @@ export class LevelRepository {
             case LevelId.TheFarm:
                 return new Level(LevelId.TheFarm, 'The farm', 'The scariest thing here is the smell', CardPackId.BronzeToolPack,
                     100, [
-                    [15, CardRepository.getCard(CardId.Chicken)],
-                    [22, CardRepository.getCard(CardId.Pig)],
-                    [30, CardRepository.getCard(CardId.Cow)],
-                ]);
+                        [15, CardRepository.getCard(CardId.Chicken)],
+                        [22, CardRepository.getCard(CardId.Pig)],
+                        [30, CardRepository.getCard(CardId.Cow)],
+                    ]);
             case LevelId.TheWizard:
                 return new Level(LevelId.TheWizard, 'The wizard', 'He will smite you down with his spells', CardPackId.VarietyPack,
-                    200,[
-                    [10, CardRepository.getCard(CardId.InstantDamageSmall)],
-                    [15, CardRepository.getCard(CardId.InstantDamageSmall)],
-                    [18, CardRepository.getCard(CardId.ForestFire)],
-                    [20, CardRepository.getCard(CardId.InstantDamageSmall)],
-                    [25, CardRepository.getCard(CardId.InstantDamageMedium)],
-                    [32, CardRepository.getCard(CardId.InstantDamageMedium)],
-                    [40, CardRepository.getCard(CardId.InstantDamageMedium)],
-                    [45, CardRepository.getCard(CardId.Chicken)],
-                ])
+                    200, [
+                        [5, CardRepository.getCard(CardId.LandMine)],
+                        [10, CardRepository.getCard(CardId.InstantDamageSmall)],
+                        [15, CardRepository.getCard(CardId.InstantDamageSmall)],
+                        [18, CardRepository.getCard(CardId.ForestFire)],
+                        [20, CardRepository.getCard(CardId.InstantDamageSmall)],
+                        [25, CardRepository.getCard(CardId.InstantDamageMedium)],
+                        [32, CardRepository.getCard(CardId.InstantDamageMedium)],
+                        [40, CardRepository.getCard(CardId.InstantDamageMedium)],
+                        [45, CardRepository.getCard(CardId.Chicken)],
+                    ])
             default:
                 throw new Error(`Level with id ${id} not found.`)
         }

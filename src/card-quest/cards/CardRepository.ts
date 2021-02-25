@@ -20,6 +20,7 @@ import {HealingCard} from "@/card-quest/cards/content/action/HealingCard";
 import {InstantDamageCard} from "@/card-quest/cards/content/action/InstantDamageCard";
 import {LoseTurnsCard} from "@/card-quest/cards/content/action/LoseTurnsCard";
 import {ForestFire} from "@/card-quest/cards/content/action/ForestFire";
+import {LandMineCard} from "@/card-quest/cards/content/monster/LandMineCard";
 
 export class CardRepository {
 
@@ -77,14 +78,15 @@ export class CardRepository {
             case CardId.BasicSword:
                 return new WeaponCard(CardId.BasicSword, 'Basic Sword', "A bit stronger", 'sword.svg', new Weapon('Basic Sword', 2, 0)).setCosts([new Currency(2, CurrencyType.Wood), new Currency(1, CurrencyType.Bronze)])
 
-            // Enemies
+            // Monsters
             case CardId.Chicken:
                 return new EnemyCard(CardId.Chicken, 'Chicken', 'Cluck cluck.\nGain 1 soul on defeat', 'chicken.svg', 2, 1, 1, 0, 3);
             case CardId.Cow:
                 return new EnemyCard(CardId.Cow, 'Cow', 'Moo?\nGain 2 souls on defeat', 'cow.svg', 5, 2, 2, 0, 3);
             case CardId.Pig:
                 return new EnemyCard(CardId.Pig, 'Pig', 'Oink oink\nGain 1 soul on defeat', 'pig.svg', 3, 1, 2, 0, 2);
-
+            case CardId.LandMine:
+                return new LandMineCard(CardId.LandMine, 'Land Mine',  'land-mine.svg', 3, 10);
 
             // Tools
             case CardId.BronzeAxe:

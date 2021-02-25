@@ -54,7 +54,7 @@ export class EnemyCard extends HealthCard {
         }
     }
 
-    private performAttack(adventure: Adventure) {
+    protected performAttack(adventure: Adventure) {
         if (this.health <= 0) {
             return;
         }
