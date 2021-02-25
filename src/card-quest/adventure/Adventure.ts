@@ -150,7 +150,7 @@ export class Adventure extends Feature {
     }
 
 
-    private _play(card: PlayableCard) {
+    public _play(card: PlayableCard) {
         if (card.goesToField) {
             this.field.push(card);
             card.onDefeated.subscribe(() => {

@@ -46,6 +46,8 @@ export enum CardId {
     Cow,
     Pig,
     LandMine,
+    Skeleton,
+    SkeletonKing,
 
     // Tools
     BronzeAxe,

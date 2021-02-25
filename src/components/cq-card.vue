@@ -33,7 +33,7 @@
 
       <cq-orb v-if="card.health" svg="heart.svg" :value="card.health"></cq-orb>
       <cq-orb v-if="card.nextAttack" svg="clock.svg" :value="card.nextAttack"></cq-orb>
-      <cq-orb v-if="card.attack" svg="sword.svg" :value="card.attack +'/' + card.defense"></cq-orb>
+      <cq-orb v-if="card.attack || card.defense" svg="sword.svg" :value="card.attack +'/' + card.defense"></cq-orb>
 
     </div>
   </div>

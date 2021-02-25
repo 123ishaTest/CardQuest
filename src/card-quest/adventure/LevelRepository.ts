@@ -16,17 +16,25 @@ export class LevelRepository {
                         [30, CardRepository.getCard(CardId.Cow)],
                     ]);
             case LevelId.TheWizard:
-                return new Level(LevelId.TheWizard, 'The wizard', 'He will smite you down with his spells', CardPackId.VarietyPack,
+                return new Level(LevelId.TheWizard, 'The Wizard', 'He will smite you down with his spells', CardPackId.VarietyPack,
                     200, [
-                        [5, CardRepository.getCard(CardId.LandMine)],
                         [10, CardRepository.getCard(CardId.InstantDamageSmall)],
                         [15, CardRepository.getCard(CardId.InstantDamageSmall)],
-                        [18, CardRepository.getCard(CardId.ForestFire)],
-                        [20, CardRepository.getCard(CardId.DiscardHand)],
+                        [20, CardRepository.getCard(CardId.ForestFire)],
                         [25, CardRepository.getCard(CardId.InstantDamageMedium)],
                         [32, CardRepository.getCard(CardId.InstantDamageMedium)],
                         [40, CardRepository.getCard(CardId.InstantDamageMedium)],
                         [45, CardRepository.getCard(CardId.Chicken)],
+                    ]);
+            case LevelId.TheNecromancer:
+                return new Level(LevelId.TheNecromancer, 'The Necromancer', 'Has the ability to raise enemies from the dead', CardPackId.VarietyPack,
+                    400, [
+                        [5, CardRepository.getCard(CardId.Skeleton)],
+                        [10, CardRepository.getCard(CardId.LandMine)],
+                        [15, CardRepository.getCard(CardId.SkeletonKing)],
+                        [18, CardRepository.getCard(CardId.DiscardHand)],
+                        [31, CardRepository.getCard(CardId.SkeletonKing)],
+                        [33, CardRepository.getCard(CardId.InstantDamageMedium)],
                     ])
             default:
                 throw new Error(`Level with id ${id} not found.`)

@@ -22,6 +22,7 @@ import {LoseTurnsCard} from "@/card-quest/cards/content/action/LoseTurnsCard";
 import {ForestFire} from "@/card-quest/cards/content/action/ForestFire";
 import {LandMineCard} from "@/card-quest/cards/content/monster/LandMineCard";
 import {DiscardHand} from "@/card-quest/cards/content/action/DiscardHand";
+import {NecromancerCard} from "@/card-quest/cards/content/monster/NecromancerCard";
 
 export class CardRepository {
 
@@ -98,6 +99,10 @@ export class CardRepository {
                 return new EnemyCard(CardId.Pig, 'Pig', 'Oink oink\nGain 1 soul on defeat', 'pig.svg', 3, 1, 2, 0, 2);
             case CardId.LandMine:
                 return new LandMineCard(CardId.LandMine, 'Land Mine', 'land-mine.svg', 2, 10);
+            case CardId.Skeleton:
+                return new EnemyCard(CardId.Skeleton, 'Skeleton', 'Very spooky but moderately scary', 'skeleton.svg', 8, 1, 2, 1, 4);
+            case CardId.SkeletonKing:
+                return new NecromancerCard(CardId.SkeletonKing, 'Skeleton King', 'Has the power to raise skeletons from the dead', 'skeleton-king.svg', 20, 5, 1, 3, CardId.Skeleton);
 
             // Tools
             case CardId.BronzeAxe:
