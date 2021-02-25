@@ -146,7 +146,7 @@ export class Adventure extends Feature {
         if (!card) {
             return;
         }
-        this.playerHand.splice(index, 1);
+        this.playerHand.splice(index, 1, new EmptyCard());
     }
 
 
