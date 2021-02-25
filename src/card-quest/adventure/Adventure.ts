@@ -266,7 +266,17 @@ export class Adventure extends Feature {
     }
 
     public canDraw() {
-        return !this.playerDeck.isEmpty() && this.playerHand.length <= this.MAX_CARDS;
+        return !this.playerDeck.isEmpty() && this.handSpace > 0;
+    }
+
+    public get handSpace() {
+        let count = 0;
+        for (const card of this.playerHand) {
+            if (card.id === -1) {
+                count++;
+            }
+        }
+        return count;
     }
 
     load(): void {
