@@ -1,5 +1,6 @@
 <template>
   <div class="color-purple-500">
+    <p class="text-lg"> Total costs: {{totalCosts}}</p>
     <cq-super-power :power="powers.axe"></cq-super-power>
     <cq-super-power :power="powers.scythe"></cq-super-power>
   </div>
@@ -19,6 +20,11 @@ export default {
       required: true
     },
   },
+  computed: {
+    totalCosts() {
+      return this.powers.getTotalCosts();
+    }
+  }
 }
 </script>
 
