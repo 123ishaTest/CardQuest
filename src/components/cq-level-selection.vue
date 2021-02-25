@@ -1,6 +1,8 @@
 <template>
   <div class="m-4 p-4 border-2 bg-red-600">
 
+    <cq-super-powers :powers="superPowers"></cq-super-powers>
+
     <div class="flex flex-row flex-wrap">
       <div :key="level.id" v-for="level in levels" class="flex flex-col m-2 p-4 bg-yellow-100">
         <button class="btn btn-blue" @click="goOnAnAdventure(level.id)" :disabled="!canStartAdventure">
@@ -17,10 +19,11 @@
 <script>
 import {App} from "@/App.ts"
 import CqLevelProgress from "@/components/cg-level-progress";
+import CqSuperPowers from "@/components/cq-super-powers";
 
 export default {
   name: "cq-level-selection",
-  components: {CqLevelProgress},
+  components: {CqSuperPowers, CqLevelProgress},
   data() {
     return {
       game: App.game,
@@ -42,6 +45,9 @@ export default {
   computed: {
     canStartAdventure() {
       return this.game.canStartAdventure();
+    },
+    superPowers() {
+      return this.game.features.superPowers;
     }
   }
 

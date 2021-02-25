@@ -3,6 +3,7 @@ import {Settings} from "@/ig-template/features/settings/Settings";
 import {Statistics} from "@/ig-template/features/statistics/Statistics";
 import {Adventure} from "@/card-quest/adventure/Adventure";
 import {CardCollection} from "@/card-quest/features/card-collection/CardCollection";
+import {SuperPowers} from "@/card-quest/adventure/super-powers/SuperPowers";
 
 export interface Features {
     wallet: Wallet;
@@ -10,4 +11,5 @@ export interface Features {
     statistics: Statistics;
     adventure: Adventure;
     collection: CardCollection;
+    superPowers: SuperPowers;
 }

@@ -9,6 +9,7 @@ import {CardPack} from "@/card-quest/features/card-collection/CardPack";
 import {CardPackId} from "@/card-quest/features/card-collection/CardPackId";
 import {Outcome} from "@/ig-template/tools/probability/Outcome";
 import {EmptyAdventure} from "@/card-quest/adventure/EmptyAdventure";
+import {SuperPowers} from "@/card-quest/adventure/super-powers/SuperPowers";
 
 export class App {
 
@@ -84,6 +85,7 @@ export class App {
                         new Outcome<CardId>(CardId.GoldPickaxe, 1),
                     ])
                 ]),
+                superPowers: new SuperPowers(),
             }
         );
 
