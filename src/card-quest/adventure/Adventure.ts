@@ -121,7 +121,7 @@ export class Adventure extends Feature {
 
     }
 
-    play(index: number) {
+    play(index: number, free: boolean = false) {
         const card = this.playerHand[index];
         if (!card || !card.canPlay(this)) {
             console.warn(`Cannot play card at index ${index}`);
@@ -137,7 +137,7 @@ export class Adventure extends Feature {
 
         this._play(card);
 
-        this.turnHasPassed();
+        this.turnHasPassed(free);
     }
 
 
@@ -193,9 +193,7 @@ export class Adventure extends Feature {
             }
         }
 
-        if (!free) {
-            this.turnHasPassed();
-        }
+        this.turnHasPassed(free);
     }
 
     wait() {
@@ -265,7 +263,6 @@ export class Adventure extends Feature {
             return;
         }
         this._play(card);
-        this.turnHasPassed(true);
     }
 
     public canDraw() {
