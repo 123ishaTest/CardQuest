@@ -34,6 +34,9 @@ export enum CardId {
 
     // Healing
     Bread,
+    ChaliceSmall,
+    ChaliceMedium,
+    ChaliceLarge,
 
     // Weapons
     BasicSword,

@@ -47,8 +47,15 @@ export class CardRepository {
                 return new GrainCard(CardId.MediumGrain, 'Straw', 'Gain 5 grain when cut down', 'straw.svg', 6, new Currency(5, CurrencyType.Grain));
 
 
+            // Healing
             case CardId.Bread:
-                return new HealingCard(CardId.Bread, 'Bread', 'Heal 5 hitpoints', 'bread.svg', 5).setCosts([new Currency(3, CurrencyType.Grain)]);
+                return new HealingCard(CardId.Bread, 'Bread', 'Heal 5 hitpoints', 'bread.svg', 5).setCosts([new Currency(2, CurrencyType.Grain)]);
+            case CardId.ChaliceSmall:
+                return new HealingCard(CardId.ChaliceSmall, 'Goblet of Energy', 'Heal 5 hitpoints', 'chalice-yellow.svg', 5).setCosts([new Currency(4, CurrencyType.Souls)])
+            case CardId.ChaliceMedium:
+                return new HealingCard(CardId.ChaliceMedium, 'Goblet of Fire', 'Heal 10 hitpoints', 'chalice-red.svg', 10).setCosts([new Currency(8, CurrencyType.Souls)])
+            case CardId.ChaliceLarge:
+                return new HealingCard(CardId.ChaliceLarge, 'Goblet of Mystics', 'Heal 15 hitpoints', 'chalice-purple.svg', 15).setCosts([new Currency(12, CurrencyType.Souls)])
 
             // Actions
             case CardId.MagicTouch:
@@ -68,7 +75,7 @@ export class CardRepository {
             case CardId.InstantDamageSmall:
                 return new InstantDamageCard(CardId.InstantDamageSmall, 'Energy Surge', 'damage-yellow.svg', 3)
             case CardId.InstantDamageMedium:
-                return new InstantDamageCard(CardId.InstantDamageMedium, 'Flame Surge', 'damage-red.svg', 5)
+                return new InstantDamageCard(CardId.InstantDamageMedium, 'Fire Surge', 'damage-red.svg', 5)
             case CardId.InstantDamageLarge:
                 return new InstantDamageCard(CardId.InstantDamageLarge, 'Mystic Surge', 'damage-purple.svg', 10)
 
