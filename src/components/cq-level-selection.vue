@@ -6,7 +6,7 @@
         <button class="btn btn-blue" @click="goOnAnAdventure(level.id)" :disabled="!canStartAdventure">
           {{ level.name }}
         </button>
-
+        <p class="italic">{{ level.description }}</p>
         <cq-level-progress :show-current-turn=false :current-turn="0" :level="level"></cq-level-progress>
 
       </div>
