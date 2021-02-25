@@ -136,6 +136,10 @@ export class CardRepository {
         return EnumHelpers.getValues(CardId);
     }
 
+    public static getCardCount(): number {
+        return this.getAllCardsIds().length;
+    }
+
     public static getDeckFromString(deckString: string): Deck | null {
         try {
             const ids = deckString.split('.').map(string => {

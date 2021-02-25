@@ -12,6 +12,8 @@ import {Currency} from "@/ig-template/features/wallet/Currency";
 import {CurrencyType} from "@/ig-template/features/wallet/CurrencyType";
 import {Adventure} from "@/card-quest/adventure/Adventure";
 import {CardId} from "@/card-quest/cards/CardId";
+import {ArrayStatistic} from "@/ig-template/features/statistics/ArrayStatistic";
+import {CardRepository} from "@/card-quest/cards/CardRepository";
 
 export class Statistics extends Feature {
 
@@ -25,6 +27,7 @@ export class Statistics extends Feature {
 
     initialize(features: Features): void {
         this.registerStatistic(new NumberStatistic(StatisticId.TotalMoneyGained, 'Total money'))
+        this.registerStatistic(new ArrayStatistic(StatisticId.CardsPlayed, 'Cards played', Array(CardRepository.getCardCount()).fill(0)))
 
         features.wallet.onCurrencyGain.subscribe((currency: Currency) => {
             if (currency.type === CurrencyType.Money) {
@@ -36,7 +39,7 @@ export class Statistics extends Feature {
 
     registerAdventureSubscribers(adventure: Adventure) {
         adventure.onCardPlayed.subscribe((id: CardId) => {
-            console.log("Card played", id);
+            this.incrementArrayStatistic(StatisticId.CardsPlayed, id, 1);
         })
     }
 
@@ -45,7 +48,21 @@ export class Statistics extends Feature {
             console.warn(`Could not find statistic with id ${id}`)
             return;
         }
-        this.list[id].value += amount;
+        const statistic = this.list[id];
+        if (statistic instanceof NumberStatistic) {
+            statistic.value += amount;
+        }
+    }
+
+    incrementArrayStatistic(id: StatisticId, index: number, amount = 1): void {
+        if (!this.hasStatistic(id)) {
+            console.warn(`Could not find statistic with id ${id}`)
+            return;
+        }
+        const statistic = this.list[id];
+        if (statistic instanceof ArrayStatistic) {
+            statistic.value[index] += amount;
+        }
     }
 
     public getStatistic(id: StatisticId): AbstractStatistic | null {
