@@ -10,7 +10,8 @@ export default {
   name: "igt-tab",
   props: {
     name: {required: true},
-    selected: {default: false}
+    selected: {default: false},
+    canSelect: {default: true}
   },
 
   data() {

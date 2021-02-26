@@ -3,8 +3,13 @@
     <div class="tabs">
       <ul class="flex flex-row">
         <li class="p-2" :key="'tab'+index" v-for="(tab, index) in tabs" :class="{ 'text-green-500': tab.isActive }">
-          <a class="text-lg" :href="tab.href" @click="selectTab(tab)">{{ tab.name }}</a>
+          <a v-if="tab.canSelect" class="text-lg" :href="tab.href" @click="selectTab(tab)">{{ tab.name }}</a>
+          <span class="text-lg" v-else> {{ tab.name }}</span>
         </li>
+
+        <slot name="other">
+
+        </slot>
       </ul>
     </div>
     <hr/>
@@ -26,10 +31,14 @@ export default {
   created() {
 
     this.tabs = this.$children;
+    console.log(this.tabs);
 
   },
   methods: {
     selectTab(selectedTab) {
+      if(!selectedTab.canSelect) {
+        return;
+      }
       this.tabs.forEach(tab => {
         tab.isActive = (tab.name === selectedTab.name);
       });
