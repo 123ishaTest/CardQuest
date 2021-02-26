@@ -91,7 +91,7 @@ export default {
             {
               title: 'Game saved!',
               type: "success",
-              group: "top-left",
+              group: "top-right",
             },
             4000
         );

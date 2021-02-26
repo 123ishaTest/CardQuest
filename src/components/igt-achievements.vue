@@ -40,7 +40,7 @@ export default {
             title: achievement.title,
             text: achievement.description,
             type: "success",
-            group: "top-left",
+            group: "top-right",
           },
           4000
       );
