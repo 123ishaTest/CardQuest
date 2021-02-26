@@ -2,7 +2,6 @@
   <div>
     <p class="text-2xl font-semibold">Super Powers</p>
     <hr/>
-    <p class="text-lg"> Total costs: {{ totalCosts }}</p>
     <div class="flex flex-row">
       <cq-super-power :power="powers.axe"></cq-super-power>
       <cq-super-power :power="powers.pickaxe"></cq-super-power>

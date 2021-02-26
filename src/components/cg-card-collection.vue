@@ -4,6 +4,7 @@
 
     <div class="flex flex-row">
       <div class="flex-auto">
+        <div class="flex flex-row flex-wrap">
 
           <igt-tabs header-class="bg-cq-charcoal">
             <igt-tab name="All" :selected="true">
@@ -25,6 +26,7 @@
               <cq-card-selection-list :current-deck="currentDeck" :cards="curseCards"></cq-card-selection-list>
             </igt-tab>
           </igt-tabs>
+        </div>
 
       </div>
       <div class="flex-initial">
