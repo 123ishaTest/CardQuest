@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col w-48 m-2">
+  <div class="flex flex-col w-56 m-2">
     <button class="btn btn-red" @click="emptyCurrentDeck">Empty current Deck</button>
 
     <select class="input-primary" v-model="selection" @change="selectionChanged($event)">
