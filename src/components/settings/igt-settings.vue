@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-4 p-4 bg-gray-500">
+  <div class="feature-tab">
     <igt-boolean-setting :setting=saveSetting></igt-boolean-setting>
  </div>
 </template>

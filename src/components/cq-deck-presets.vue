@@ -35,7 +35,7 @@
              v-model="collection.deckPresets[selection].deckString">
     </div>
 
-    <div class="flex flex-col bg-red-100 m-1">
+    <div class="flex flex-col m-1">
       <div :key="index + '-' + amount" v-for="(amount, index) in idDeck.cards" class="has-tooltip">
         <div v-if="amount !== 0">
           <div class="flex flex-row justify-between items-center px-2">

@@ -1,5 +1,5 @@
 <template>
-  <div class="color-purple-500">
+  <div>
     <p class="text-2xl font-semibold">Super Powers</p>
     <hr/>
     <p class="text-lg"> Total costs: {{ totalCosts }}</p>

@@ -1,5 +1,5 @@
 <template>
-  <div class="m-4 p-4 border-2 bg-purple-300">
+  <div class="feature-tab">
     <cq-super-powers :powers="superPowers"></cq-super-powers>
 
     <div class="flex flex-row flex-wrap">

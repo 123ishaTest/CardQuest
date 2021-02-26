@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-green-300 m-4 p-4">
+  <div class="feature-tab">
     <p class="text-xl font-semibold">Achievements</p>
     <hr/>
     <div class="flex flex-row flex-wrap">

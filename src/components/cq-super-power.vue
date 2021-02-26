@@ -1,5 +1,5 @@
 <template>
-  <div class="color-gray-500 w-1/3">
+  <div class="w-1/3">
     <div class="flex flex-col items-center m-2">
       <p class="text-sm text-center mx-2">
         {{ power.valueText }} {{ power.description }}

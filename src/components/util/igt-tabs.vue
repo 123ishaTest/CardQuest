@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="tabs">
+    <div class="tabs" :class="headerClass">
       <ul class="flex flex-row">
-        <li class="p-2" :key="'tab'+index" v-for="(tab, index) in tabs" :class="{ 'text-green-500': tab.isActive }">
+        <li class="p-2 border-r-2" :key="'tab'+index" v-for="(tab, index) in tabs" :class="{ 'text-green-500': tab.isActive }">
           <a v-if="tab.canSelect" class="text-lg" :href="tab.href" @click="selectTab(tab)">{{ tab.name }}</a>
           <span class="text-lg" v-else> {{ tab.name }}</span>
         </li>
@@ -26,6 +26,13 @@ export default {
   name: "igt-tabs",
   data() {
     return {tabs: []};
+  },
+
+  props: {
+    headerClass: {
+      type: String,
+      default: ''
+    },
   },
 
   created() {

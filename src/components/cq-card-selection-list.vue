@@ -1,5 +1,5 @@
 <template>
-  <div class="m-4 p-4 bg-blue-700">
+  <div class="m-4 p-4">
     <igt-boolean-setting :setting="showUnobtainedCardsSetting"></igt-boolean-setting>
 
     <div class="flex flex-row">

@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-red-100 p-4">
+  <div class="bg-cq-slate p-4">
     <p v-if=showCurrentTurn class="text-lg">Turn {{ currentTurn }}</p>
     <hr/>
     <div class="flex flex-col">

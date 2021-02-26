@@ -2,7 +2,7 @@
   <div>
     <igt-notifications></igt-notifications>
 
-    <igt-tabs>
+    <igt-tabs :header-class="'bg-cq-slate'">
       <igt-tab name="Adventure" :selected="true">
         <cq-adventure v-if="game.features.adventure.isActive"></cq-adventure>
         <cq-level-selection v-else :levels="allLevels"></cq-level-selection>
