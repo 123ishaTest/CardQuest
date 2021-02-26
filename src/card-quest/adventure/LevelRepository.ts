@@ -13,8 +13,10 @@ export class LevelRepository {
                     CardPackId.BronzeToolPack, 2,
                     100, [
                         [15, CardRepository.getCard(CardId.Chicken)],
-                        [22, CardRepository.getCard(CardId.Pig)],
+                        [20, CardRepository.getCard(CardId.Chicken)],
+                        [25, CardRepository.getCard(CardId.Pig)],
                         [30, CardRepository.getCard(CardId.Cow)],
+                        [40, CardRepository.getCard(CardId.Farmer)],
                     ]);
             case LevelId.TheWizard:
                 return new Level(LevelId.TheWizard, 'The Wizard', 'He will smite you down with his spells',

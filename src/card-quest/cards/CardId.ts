@@ -43,6 +43,7 @@ export enum CardId {
     Chicken,
     Cow,
     Pig,
+    Farmer,
     LandMine,
     Skeleton,
     SkeletonKing,
