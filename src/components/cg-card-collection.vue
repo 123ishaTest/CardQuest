@@ -7,7 +7,7 @@
 
     <igt-boolean-setting :setting="showUnobtainedCardsSetting"></igt-boolean-setting>
 
-    <div class="flex flex-row flex-wrap">
+    <div class="flex flex-row">
       <div class="flex-auto">
         <button class="btn btn-green" @click="openCardPack(0)">Open example pack</button>
         <button class="btn btn-green" @click="openCardPack(1)">Open bronze tool pack</button>
