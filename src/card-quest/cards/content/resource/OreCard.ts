@@ -8,8 +8,8 @@ export class OreCard extends HealthCard {
     reward: Currency;
 
 
-    constructor(id: CardId, title: string, description: string, image: string, health: number, reward: Currency) {
-        super(id, title, description, CardType.Resource, image, health);
+    constructor(id: CardId, title: string, image: string, health: number, reward: Currency) {
+        super(id, title, `Gain ${reward} ore when mined`, CardType.Resource, image, health);
         this.reward = reward;
     }
 

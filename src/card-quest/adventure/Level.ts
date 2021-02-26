@@ -7,15 +7,17 @@ export class Level {
     name: string;
     description: string;
     rewardPack: CardPackId;
+    rewardCount: number
     moneyReward: number;
     cards: [number, PlayableCard][];
 
 
-    constructor(id: LevelId, name: string, description: string, rewardPack: CardPackId, moneyReward: number, cards: [number, PlayableCard][]) {
+    constructor(id: LevelId, name: string, description: string, rewardPack: CardPackId, rewardCount: number, moneyReward: number, cards: [number, PlayableCard][]) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.rewardPack = rewardPack;
+        this.rewardCount = rewardCount;
         this.moneyReward = moneyReward;
         this.cards = cards;
     }

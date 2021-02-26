@@ -8,8 +8,8 @@ export class GrainCard extends HealthCard {
     reward: Currency;
 
 
-    constructor(id: CardId, title: string, description: string, image: string, health: number, reward: Currency) {
-        super(id, title, description, CardType.Resource, image, health);
+    constructor(id: CardId, title: string, image: string, health: number, reward: Currency) {
+        super(id, title, `Gain ${reward} when cut down`, CardType.Resource, image, health);
         this.reward = reward;
     }
 

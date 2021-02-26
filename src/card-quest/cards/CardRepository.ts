@@ -29,34 +29,34 @@ export class CardRepository {
     public static getCard(id: CardId): PlayableCard {
         switch (id) {
             case CardId.LogCard:
-                return new WoodCard(CardId.LogCard, 'Log', 'Gain 2 wood when cut down', 'log.svg', 3, new Currency(2, CurrencyType.Wood));
+                return new WoodCard(CardId.LogCard, 'Log', 'log.svg', 3, new Currency(1, CurrencyType.Wood));
             case CardId.TreeCard:
-                return new WoodCard(CardId.TreeCard, 'Tree', 'Gain 5 wood when cut down', 'tree.svg', 6, new Currency(5, CurrencyType.Wood));
+                return new WoodCard(CardId.TreeCard, 'Tree', 'tree.svg', 6, new Currency(2, CurrencyType.Wood));
             case CardId.ForestCard:
-                return new WoodCard(CardId.ForestCard, 'Forest', 'Gain 10 wood when cut down', 'forest.svg', 15, new Currency(10, CurrencyType.Wood));
+                return new WoodCard(CardId.ForestCard, 'Forest', 'forest.svg', 15, new Currency(5, CurrencyType.Wood));
 
             case CardId.BronzeOre:
-                return new OreCard(CardId.BronzeOre, 'Bronze ore', 'Gain 1 bronze ore when mined', 'ore-bronze.svg', 3, new Currency(1, CurrencyType.Bronze));
+                return new OreCard(CardId.BronzeOre, 'Bronze ore', 'ore-bronze.svg', 3, new Currency(1, CurrencyType.Bronze));
             case CardId.SilverOre:
-                return new OreCard(CardId.BronzeOre, 'Silver ore', 'Gain 1 silver ore when mined', 'ore-silver.svg', 6, new Currency(1, CurrencyType.Silver));
+                return new OreCard(CardId.BronzeOre, 'Silver ore', 'ore-silver.svg', 6, new Currency(1, CurrencyType.Silver));
             case CardId.GoldOre:
-                return new OreCard(CardId.BronzeOre, 'Gold ore', 'Gain 1 gold ore when mined', 'ore-gold.svg', 15, new Currency(1, CurrencyType.Gold));
+                return new OreCard(CardId.BronzeOre, 'Gold ore', 'ore-gold.svg', 15, new Currency(1, CurrencyType.Gold));
 
             case CardId.SmallGrain:
-                return new GrainCard(CardId.SmallGrain, 'Grain', 'Gain 2 grain when cut down', 'grain.svg', 3, new Currency(2, CurrencyType.Grain));
+                return new GrainCard(CardId.SmallGrain, 'Grain', 'grain.svg', 3, new Currency(1, CurrencyType.Grain));
             case CardId.MediumGrain:
-                return new GrainCard(CardId.MediumGrain, 'Straw', 'Gain 5 grain when cut down', 'straw.svg', 6, new Currency(5, CurrencyType.Grain));
+                return new GrainCard(CardId.MediumGrain, 'Straw', 'straw.svg', 6, new Currency(3, CurrencyType.Grain));
 
 
             // Healing
             case CardId.Bread:
                 return new HealingCard(CardId.Bread, 'Bread', 'Heal 5 hitpoints', 'bread.svg', 5).setCosts([new Currency(2, CurrencyType.Grain)]);
             case CardId.ChaliceSmall:
-                return new HealingCard(CardId.ChaliceSmall, 'Goblet of Energy', 'Heal 5 hitpoints', 'chalice-yellow.svg', 5).setCosts([new Currency(4, CurrencyType.Souls)])
+                return new HealingCard(CardId.ChaliceSmall, 'Goblet of Energy', 'Heal 5 hitpoints', 'chalice-yellow.svg', 5).setCosts([new Currency(3, CurrencyType.Souls)])
             case CardId.ChaliceMedium:
-                return new HealingCard(CardId.ChaliceMedium, 'Goblet of Fire', 'Heal 10 hitpoints', 'chalice-red.svg', 10).setCosts([new Currency(8, CurrencyType.Souls)])
+                return new HealingCard(CardId.ChaliceMedium, 'Goblet of Fire', 'Heal 10 hitpoints', 'chalice-red.svg', 10).setCosts([new Currency(6, CurrencyType.Souls)])
             case CardId.ChaliceLarge:
-                return new HealingCard(CardId.ChaliceLarge, 'Goblet of Mystics', 'Heal 15 hitpoints', 'chalice-purple.svg', 15).setCosts([new Currency(12, CurrencyType.Souls)])
+                return new HealingCard(CardId.ChaliceLarge, 'Goblet of Mystics', 'Heal 15 hitpoints', 'chalice-purple.svg', 15).setCosts([new Currency(9, CurrencyType.Souls)])
 
             // Actions
             case CardId.MagicTouch:
@@ -106,25 +106,25 @@ export class CardRepository {
 
             // Tools
             case CardId.BronzeAxe:
-                return new ToolCard(CardId.BronzeAxe, 'Bronze axe', '+1 woodcutting damage', 'hatchet-bronze.svg', ToolType.Axe, ToolTier.Bronze).setCosts([new Currency(4, CurrencyType.Wood), new Currency(2, CurrencyType.Bronze)]);
+                return new ToolCard(CardId.BronzeAxe, 'Bronze axe', '2 woodcutting damage', 'hatchet-bronze.svg', ToolType.Axe, ToolTier.Bronze).setCosts([new Currency(1, CurrencyType.Wood), new Currency(1, CurrencyType.Bronze)]);
             case CardId.SilverAxe:
-                return new ToolCard(CardId.SilverAxe, 'Silver axe', '+2 woodcutting damage', 'hatchet-silver.svg', ToolType.Axe, ToolTier.Silver).setCosts([new Currency(10, CurrencyType.Wood), new Currency(3, CurrencyType.Silver)]);
+                return new ToolCard(CardId.SilverAxe, 'Silver axe', '3 woodcutting damage', 'hatchet-silver.svg', ToolType.Axe, ToolTier.Silver).setCosts([new Currency(2, CurrencyType.Wood), new Currency(1, CurrencyType.Silver)]);
             case CardId.GoldAxe:
-                return new ToolCard(CardId.GoldAxe, 'Gold axe', '+3 woodcutting damage', 'hatchet-gold.svg', ToolType.Axe, ToolTier.Gold).setCosts([new Currency(20, CurrencyType.Wood), new Currency(5, CurrencyType.Gold)]);
+                return new ToolCard(CardId.GoldAxe, 'Gold axe', '4 woodcutting damage', 'hatchet-gold.svg', ToolType.Axe, ToolTier.Gold).setCosts([new Currency(3, CurrencyType.Wood), new Currency(1, CurrencyType.Gold)]);
 
             case CardId.BronzePickaxe:
-                return new ToolCard(CardId.BronzePickaxe, 'Bronze Pickaxe', '+1 mining damage', 'pickaxe-bronze.svg', ToolType.Pickaxe, ToolTier.Bronze).setCosts([new Currency(4, CurrencyType.Wood), new Currency(2, CurrencyType.Bronze)]);
+                return new ToolCard(CardId.BronzePickaxe, 'Bronze Pickaxe', '2 mining damage', 'pickaxe-bronze.svg', ToolType.Pickaxe, ToolTier.Bronze).setCosts([new Currency(1, CurrencyType.Wood), new Currency(1, CurrencyType.Bronze)]);
             case CardId.SilverPickaxe:
-                return new ToolCard(CardId.SilverPickaxe, 'Silver Pickaxe', '+2 mining damage', 'pickaxe-silver.svg', ToolType.Pickaxe, ToolTier.Silver).setCosts([new Currency(4, CurrencyType.Wood), new Currency(3, CurrencyType.Silver)]);
+                return new ToolCard(CardId.SilverPickaxe, 'Silver Pickaxe', '3 mining damage', 'pickaxe-silver.svg', ToolType.Pickaxe, ToolTier.Silver).setCosts([new Currency(2, CurrencyType.Wood), new Currency(1, CurrencyType.Silver)]);
             case CardId.GoldPickaxe:
-                return new ToolCard(CardId.GoldPickaxe, 'Gold Pickaxe', '+3 mining damage', 'pickaxe-gold.svg', ToolType.Pickaxe, ToolTier.Gold).setCosts([new Currency(4, CurrencyType.Wood), new Currency(5, CurrencyType.Gold)]);
+                return new ToolCard(CardId.GoldPickaxe, 'Gold Pickaxe', '4 mining damage', 'pickaxe-gold.svg', ToolType.Pickaxe, ToolTier.Gold).setCosts([new Currency(3, CurrencyType.Wood), new Currency(1, CurrencyType.Gold)]);
 
             case CardId.BronzeScythe:
-                return new ToolCard(CardId.BronzeScythe, 'Bronze Scythe', '+1 foraging damage', 'scythe-bronze.svg', ToolType.Scythe, ToolTier.Bronze).setCosts([new Currency(4, CurrencyType.Wood), new Currency(2, CurrencyType.Bronze)]);
+                return new ToolCard(CardId.BronzeScythe, 'Bronze Scythe', '2 foraging damage', 'scythe-bronze.svg', ToolType.Scythe, ToolTier.Bronze).setCosts([new Currency(1, CurrencyType.Wood), new Currency(1, CurrencyType.Bronze)]);
             case CardId.SilverScythe:
-                return new ToolCard(CardId.SilverScythe, 'Silver Scythe', '+2 foraging damage', 'scythe-silver.svg', ToolType.Scythe, ToolTier.Silver).setCosts([new Currency(4, CurrencyType.Wood), new Currency(3, CurrencyType.Silver)]);
+                return new ToolCard(CardId.SilverScythe, 'Silver Scythe', '3 foraging damage', 'scythe-silver.svg', ToolType.Scythe, ToolTier.Silver).setCosts([new Currency(2, CurrencyType.Wood), new Currency(1, CurrencyType.Silver)]);
             case CardId.GoldScythe:
-                return new ToolCard(CardId.GoldScythe, 'Gold Scythe', '+3 foraging damage', 'scythe-gold.svg', ToolType.Scythe, ToolTier.Gold).setCosts([new Currency(4, CurrencyType.Wood), new Currency(5, CurrencyType.Gold)]);
+                return new ToolCard(CardId.GoldScythe, 'Gold Scythe', '4 foraging damage', 'scythe-gold.svg', ToolType.Scythe, ToolTier.Gold).setCosts([new Currency(3, CurrencyType.Wood), new Currency(1, CurrencyType.Gold)]);
 
 
             default:
