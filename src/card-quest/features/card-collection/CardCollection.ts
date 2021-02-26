@@ -8,6 +8,7 @@ import {CardPackId} from "@/card-quest/features/card-collection/CardPackId";
 import {IdDeck} from "@/card-quest/cards/IdDeck";
 import {DeckPreset} from "@/card-quest/features/card-collection/DeckPreset";
 import {ISimpleEvent, SimpleEventDispatcher} from "strongly-typed-events";
+import {CardType} from "@/card-quest/cards/CardType";
 
 
 export class CardCollection extends Feature {
@@ -48,7 +49,7 @@ export class CardCollection extends Feature {
             return;
         }
         const cardIds = [];
-        for(let i =0; i<amount; i++ ){
+        for (let i = 0; i < amount; i++) {
             cardIds.push(cardPack.draw());
         }
         this.gainCards(cardIds, true);
@@ -92,6 +93,17 @@ export class CardCollection extends Feature {
         return this.cards.map((amount, id) => {
             return [CardRepository.getCard(id as CardId), amount];
         });
+    }
+
+    getCardsWithAmountByType(type: CardType): [PlayableCard, number][] {
+        return this.cards.map((amount, id) => {
+            const card = CardRepository.getCard(id as CardId);
+            if (card.cardType === type) {
+                return [card, amount];
+            }
+        }).filter(entry => {
+            return entry != null;
+        }) as [PlayableCard, number][];
     }
 
     emptyCurrentDeck(): void {

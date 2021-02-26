@@ -1,43 +1,31 @@
 <template>
   <div class="m-4 p-4 bg-blue-700">
-    <p class="text-2xl font-semibold">Card collection</p>
-    <hr/>
-    <igt-modal v-if="showModal" @close="showModal = false" :cards="gainedCards">
-    </igt-modal>
-
-    <igt-boolean-setting :setting="showUnobtainedCardsSetting"></igt-boolean-setting>
+    <igt-modal v-if="showModal" @close="showModal = false" :cards="gainedCards"></igt-modal>
 
     <div class="flex flex-row">
       <div class="flex-auto">
-        <button class="btn btn-green" @click="openCardPack(0)">Open example pack</button>
-        <button class="btn btn-green" @click="openCardPack(1)">Open bronze tool pack</button>
-        <button class="btn btn-green" @click="openCardPack(2)">Open silver tool pack</button>
-        <button class="btn btn-green" @click="openCardPack(5)">Open variety pack</button>
         <div class="flex flex-row flex-wrap">
 
-          <div :key=card.amount v-for="(card, index) in displayableCards" class="flex flex-col">
-            <!-- TODO Fix showing of undiscovered cards-->
-            <div v-if="card[1] > 0 || showUnobtainedCardsSetting.value">
-              <div class="flex flex-row justify-between items-center m-2">
-                <button class="btn btn-red" @click="removeCard(index)"
-                        :disabled="currentDeck.getCountForCard(index) <= 0">
-                  -
-                </button>
-                <p class="text-lg text-center">
-                  {{ currentDeck.getCountForCard(index) }} / {{ card[1] }}
-                </p>
-                <button class="btn btn-green" @click="addCard(index)"
-                        :disabled="currentDeck.getCountForCard(index) >= card[1]">+
-                </button>
-
-              </div>
-              <div @click="addCard(index, currentDeck.getCountForCard(index) >= card[1])"
-                   :disabled="currentDeck.getCountForCard(index) >= card[1]">
-
-                <cq-card :show-front="true" :is-in-hand="false" :is-disabled="card[1] <= 0" :card="card[0]"></cq-card>
-              </div>
-            </div>
-          </div>
+          <igt-tabs>
+            <igt-tab name="All" :selected="true">
+              <cq-card-selection-list :current-deck="currentDeck" :cards="displayableCards"></cq-card-selection-list>
+            </igt-tab>
+            <igt-tab name="Actions">
+              <cq-card-selection-list :current-deck="currentDeck" :cards="actionCards"></cq-card-selection-list>
+            </igt-tab>
+            <igt-tab name="Resources">
+              <cq-card-selection-list :current-deck="currentDeck" :cards="resourceCards"></cq-card-selection-list>
+            </igt-tab>
+            <igt-tab name="Tools">
+              <cq-card-selection-list :current-deck="currentDeck" :cards="toolCards"></cq-card-selection-list>
+            </igt-tab>
+            <igt-tab name="Monsters">
+              <cq-card-selection-list :current-deck="currentDeck" :cards="monsterCards"></cq-card-selection-list>
+            </igt-tab>
+            <igt-tab name="Curses">
+              <cq-card-selection-list :current-deck="currentDeck" :cards="curseCards"></cq-card-selection-list>
+            </igt-tab>
+          </igt-tabs>
         </div>
 
       </div>
@@ -81,14 +69,16 @@
 <script>
 
 import {App} from "@/App.ts";
-import CqCard from "@/components/cq-card";
-import IgtBooleanSetting from "@/components/settings/igt-boolean-setting";
 import {SettingId} from "@/ig-template/features/settings/SettingId";
 import IgtModal from "@/components/util/igt-card-reveal-modal";
+import IgtTabs from "@/components/util/igt-tabs";
+import IgtTab from "@/components/util/igt-tab";
+import CqCardSelectionList from "@/components/cq-card-selection-list";
+import {CardType} from "@/card-quest/cards/CardType";
 
 export default {
   name: "cq-card-collection",
-  components: {IgtModal, IgtBooleanSetting, CqCard},
+  components: {CqCardSelectionList, IgtTab, IgtTabs, IgtModal},
   data() {
     return {
       showModal: false,
@@ -105,6 +95,22 @@ export default {
     displayableCards() {
       return this.collection.getCardsWithAmount();
     },
+    actionCards() {
+      return this.collection.getCardsWithAmountByType(CardType.Action);
+    },
+    resourceCards() {
+      return this.collection.getCardsWithAmountByType(CardType.Resource);
+    },
+    toolCards() {
+      return this.collection.getCardsWithAmountByType(CardType.Tool);
+    },
+    monsterCards() {
+      return this.collection.getCardsWithAmountByType(CardType.Monster);
+    },
+    curseCards() {
+      return this.collection.getCardsWithAmountByType(CardType.Curse);
+    },
+
     currentDeck() {
       return this.collection.currentDeck;
     },
@@ -114,20 +120,8 @@ export default {
 
   },
   methods: {
-    openCardPack(id) {
-      this.collection.openCardPack(id, 5);
-    },
-    addCard(id, atMax) {
-      if (atMax) {
-        return;
-      }
-      this.collection.currentDeck.addCard(id)
-    },
     emptyCurrentDeck() {
       this.collection.emptyCurrentDeck();
-    },
-    removeCard(id) {
-      this.collection.currentDeck.removeCard(id)
     },
     saveToPreset(index) {
       this.collection.saveToPreset(index);
