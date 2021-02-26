@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-row p-2 border-2 items-center">
+  <div class="flex flex-row p-2 items-center">
     <cq-orb title="When this reaches 0, you are defeated" class="m-2" svg="heart.svg" :value="health"></cq-orb>
     <p>{{ stats.activeWeapon.name }}</p>
     <cq-orb :title="'You have ' + attack +' attack and ' + defense + ' defense'" class="m-2" svg="sword.svg" :value="attack +'/' + defense"></cq-orb>

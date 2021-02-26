@@ -5,27 +5,21 @@
       <cq-level-progress class="w-64" :level="adventure.level" :current-turn="adventure.currentTurn"
                          :show-current-turn="true"></cq-level-progress>
 
-      <div class="flex-auto overflow-hidden">
+      <div class="flex-auto overflow-hidden items-center">
         <!-- The field -->
-        <div class="h-96 border-4 bg-red-400 p-4">
-          <div class="text-lg text-center">The field</div>
+        <div class="h-96 shadow-lg bg-cq-charcoal p-4 flex flex-row items-center">
           <div class="flex flex-row overflow-x-auto overflow-y-hidden">
             <div :key="'field-' + card.id + '-' + index"
                  v-for="(card, index) in field">
               <cq-card-placeholder v-if="card.id === -1"></cq-card-placeholder>
               <cq-card v-else :card=card :is-in-hand="false" @click.native="tap(index)"/>
             </div>
-
-            <div v-if="field.length === 0" class="h-64">
-              Play some cards!
-            </div>
           </div>
         </div>
 
         <cq-player-stats :stats="adventure.playerStats" :wallet="adventure.wallet"></cq-player-stats>
 
-        <div class="h-96 border-4 bg-yellow-400 p-4">
-          <div class="text-lg text-center">Your hand</div>
+        <div class="h-96 shadow-lg bg-cq-charcoal p-4 flex flex-row items-center">
           <div class="flex flex-row overflow-x-auto overflow-y-hidden">
             <cq-card :is-in-hand="true"
                      :can-afford="card.canAfford(adventure.wallet)"
@@ -34,9 +28,6 @@
                      :key="'hand-' + card.id + '-' + index"
                      v-for="(card, index) in hand"
                      :class="{'invisible': card.id === -1}"/>
-            <div v-if="hand.length === 0" class="h-64">
-              You have no cards
-            </div>
           </div>
         </div>
 
