@@ -2,15 +2,14 @@
   <div v-if="isActive" class="feature-tab">
     <div class="flex flex-row">
 
-      <div class="flex-initial">
-        <cq-level-progress :level="adventure.level" :current-turn="adventure.currentTurn" :show-current-turn="true"></cq-level-progress>
-      </div>
+      <cq-level-progress class="w-64" :level="adventure.level" :current-turn="adventure.currentTurn"
+                         :show-current-turn="true"></cq-level-progress>
 
-      <div class="flex-auto">
+      <div class="flex-auto overflow-hidden">
         <!-- The field -->
-        <div class="h-96 w-full border-4 bg-red-400 p-4">
+        <div class="h-96 border-4 bg-red-400 p-4">
           <div class="text-lg text-center">The field</div>
-          <div class="flex flex-row">
+          <div class="flex flex-row overflow-x-auto overflow-y-hidden">
             <div :key="'field-' + card.id + '-' + index"
                  v-for="(card, index) in field">
               <cq-card-placeholder v-if="card.id === -1"></cq-card-placeholder>
@@ -25,16 +24,16 @@
 
         <cq-player-stats :stats="adventure.playerStats" :wallet="adventure.wallet"></cq-player-stats>
 
-        <div class="h-96 w-full border-4 bg-yellow-400 p-4">
+        <div class="h-96 border-4 bg-yellow-400 p-4">
           <div class="text-lg text-center">Your hand</div>
-          <div class="flex flex-row">
+          <div class="flex flex-row overflow-x-auto overflow-y-hidden">
             <cq-card :is-in-hand="true"
                      :can-afford="card.canAfford(adventure.wallet)"
                      :is-disabled="!card.canPlay(adventure) || !card.canAfford(adventure.wallet)"
                      @click.native="play(index, $event)" :card=card
                      :key="'hand-' + card.id + '-' + index"
                      v-for="(card, index) in hand"
-                      :class="{'invisible': card.id === -1}"/>
+                     :class="{'invisible': card.id === -1}"/>
             <div v-if="hand.length === 0" class="h-64">
               You have no cards
             </div>
