@@ -109,7 +109,6 @@ export class CardCollection extends Feature {
     }
 
     saveToPreset(index: number): void {
-        console.log(index);
         this.deckPresets[index].deckString = this.currentDeck.toDeckString();
     }
 
