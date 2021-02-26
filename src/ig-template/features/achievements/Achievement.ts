@@ -38,8 +38,5 @@ export class Achievement {
         return this.requirement.progress;
     }
 
-    public isUnlocked(): boolean {
-        return this.requirement.isCompleted;
-    }
 
 }
