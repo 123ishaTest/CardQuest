@@ -32,9 +32,7 @@ export class CardCollection extends Feature {
             this.cards.push(0);
         }
 
-        for (let i = 0; i < this.MAX_DECK_PRESETS; i++) {
-            this.deckPresets.push(new DeckPreset('', ''));
-        }
+        this.deckPresets.push(new DeckPreset('First Deck', ''));
 
 
         this.cardPacks = cardPacks;
@@ -111,6 +109,7 @@ export class CardCollection extends Feature {
     }
 
     saveToPreset(index: number): void {
+        console.log(index);
         this.deckPresets[index].deckString = this.currentDeck.toDeckString();
     }
 
@@ -120,6 +119,15 @@ export class CardCollection extends Feature {
 
     initialize() {
         // Empty
+    }
+
+    get lowestEmptyPresetIndex() {
+        for (let i = this.deckPresets.length - 1; i >= 0; i--) {
+            if (this.deckPresets[i].deckString != "") {
+                return i;
+            }
+        }
+        return this.deckPresets.length;
     }
 
     get onCardsGain(): ISimpleEvent<PlayableCard[]> {

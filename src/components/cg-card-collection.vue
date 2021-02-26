@@ -30,36 +30,7 @@
 
       </div>
       <div class="flex-initial">
-        <button class="btn btn-red" @click="emptyCurrentDeck">Empty current Deck</button>
-
-        <table>
-          <tr>
-            <th></th>
-            <th>Name</th>
-            <th>Deck Code</th>
-            <th></th>
-          </tr>
-          <tr :key="index" v-for="(preset, index) in deckPresets">
-            <td>
-              <button :disabled="!preset.deckString" class="btn btn-green" @click="loadFromPreset(index)">
-                Load
-              </button>
-            </td>
-            <td>
-              <input class="m-2 w-32 input-primary"
-                     v-model="deckPresets[index].name">
-            </td>
-            <td>
-              <input class="m-2 w-32 input-primary" disabled="disabled"
-                     v-model="deckPresets[index].deckString">
-            </td>
-            <td>
-              <button class="btn btn-green" @click="saveToPreset(index)">
-                Save
-              </button>
-            </td>
-          </tr>
-        </table>
+        <cq-deck-presets class="mt-12" :collection="collection"></cq-deck-presets>
       </div>
     </div>
 
@@ -75,10 +46,11 @@ import IgtTabs from "@/components/util/igt-tabs";
 import IgtTab from "@/components/util/igt-tab";
 import CqCardSelectionList from "@/components/cq-card-selection-list";
 import {CardType} from "@/card-quest/cards/CardType";
+import CqDeckPresets from "@/components/cq-deck-presets";
 
 export default {
   name: "cq-card-collection",
-  components: {CqCardSelectionList, IgtTab, IgtTabs, IgtModal},
+  components: {CqDeckPresets, CqCardSelectionList, IgtTab, IgtTabs, IgtModal},
   data() {
     return {
       showModal: false,
@@ -114,21 +86,12 @@ export default {
     currentDeck() {
       return this.collection.currentDeck;
     },
-    deckPresets() {
-      return this.collection.deckPresets;
-    },
 
   },
   methods: {
     emptyCurrentDeck() {
       this.collection.emptyCurrentDeck();
     },
-    saveToPreset(index) {
-      this.collection.saveToPreset(index);
-    },
-    loadFromPreset(index) {
-      this.collection.loadFromPreset(index);
-    }
   },
 
   mounted() {

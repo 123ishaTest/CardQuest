@@ -67,13 +67,13 @@ export default {
       if (atMax) {
         return;
       }
-      this.collection.currentDeck.addCard(id)
+      this.currentDeck.addCard(id)
     },
     emptyCurrentDeck() {
-      this.collection.emptyCurrentDeck();
+      this.emptyCurrentDeck();
     },
     removeCard(id) {
-      this.collection.currentDeck.removeCard(id)
+      this.currentDeck.removeCard(id)
     },
   },
 

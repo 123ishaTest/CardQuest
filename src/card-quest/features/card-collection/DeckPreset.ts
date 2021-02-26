@@ -1,10 +1,18 @@
 export class DeckPreset {
-    name: string;
+    displayName: string;
     deckString: string;
 
 
-    constructor(name: string, deckString: string) {
-        this.name = name;
+    constructor(displayName: string, deckString: string) {
+        this.displayName = displayName;
         this.deckString = deckString;
+    }
+
+    get cardCount(): number {
+        const count = this.deckString.match(/\./g)?.length;
+        if (!count) {
+            return 0;
+        }
+        return (count + 1);
     }
 }

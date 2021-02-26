@@ -141,6 +141,9 @@ export class CardRepository {
     }
 
     public static getDeckFromString(deckString: string): Deck | null {
+        if (deckString === '') {
+            return new Deck();
+        }
         try {
             const ids = deckString.split('.').map(string => {
                 return parseInt(string);
@@ -157,6 +160,9 @@ export class CardRepository {
     }
 
     public static getIdDeckFromString(deckString: string): IdDeck | null {
+        if (deckString === '') {
+            return new IdDeck();
+        }
         try {
             const ids = deckString.split('.').map(string => {
                 return parseInt(string);
