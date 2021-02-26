@@ -95,8 +95,10 @@ export class CardRepository {
                 return new WeaponCard(CardId.SilverSword, 'Silver Sword', "It looks nice and shiny", 'sword-silver.svg', new Weapon('Silver Sword', 4, 2)).setCosts([new Currency(3, CurrencyType.Wood), new Currency(2, CurrencyType.Silver)])
             case CardId.GoldSword:
                 return new WeaponCard(CardId.GoldSword, 'Gold Sword', "Worth its weight in gold", 'sword-gold.svg', new Weapon('Gold Sword', 6, 2)).setCosts([new Currency(4, CurrencyType.Wood), new Currency(2, CurrencyType.Gold)])
+            case CardId.CrackedShield:
+                return new WeaponCard(CardId.CrackedShield, 'Cracked Shield', 'Better than nothing', 'shield-cracked.svg', new Weapon('Cracked Shield', 0, 1));
             case CardId.VikingShield:
-                return new WeaponCard(CardId.VikingShield, 'Viking Shield', 'Very good at blocking, but renders you unable to attack.', 'shield-viking.svg', new Weapon('Viking Shield', 0, 5)).setCosts([new Currency(2, CurrencyType.Wood), new Currency(2, CurrencyType.Silver)])
+                return new WeaponCard(CardId.VikingShield, 'Viking Shield', 'Very good at blocking, but renders you unable to attack', 'shield-viking.svg', new Weapon('Viking Shield', 0, 5)).setCosts([new Currency(2, CurrencyType.Wood), new Currency(2, CurrencyType.Silver)])
 
             // Monsters
             case CardId.Chicken:

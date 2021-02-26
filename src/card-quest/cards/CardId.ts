@@ -66,5 +66,6 @@ export enum CardId {
     SilverSword,
     GoldSword,
 
+    CrackedShield,
     VikingShield,
 }
