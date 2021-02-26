@@ -8,6 +8,9 @@ import {StatisticId} from "@/ig-template/features/statistics/StatisticId";
 import {CardId} from "@/card-quest/cards/CardId";
 import {ArrayStatistic} from "@/ig-template/features/statistics/ArrayStatistic";
 import {ISimpleEvent, SimpleEventDispatcher} from "strongly-typed-events";
+import {CustomAchievement} from "@/ig-template/features/achievements/CustomAchievement";
+import {NumberStatisticRequirement} from "@/ig-template/features/statistics/requirements/NumberStatisticRequirement";
+import {NumberStatistic} from "@/ig-template/features/statistics/NumberStatistic";
 
 export class Achievements extends Feature {
     name: string = "Achievements";
@@ -56,8 +59,42 @@ export class Achievements extends Feature {
                 )
             )
         );
+        this.registerAchievement(
+            new CustomAchievement(AchievementId.AtLeastOneSuperPower,
+                "I wonder what inspired this feature",
+                'Go on an Adventure with at least one bonus',
+                'cards/hatchet-bronze.svg',
+            )
+        );
+        this.registerAchievement(
+            new Achievement(AchievementId.TotalMoney100,
+                "It's something",
+                'Gain 100 money in total',
+                'coins.svg',
+                new NumberStatisticRequirement(features.statistics.getStatistic(StatisticId.TotalMoneyGained) as NumberStatistic, 100),
+            ),
+        );
+        this.registerAchievement(
+            new Achievement(AchievementId.TotalMoney1000,
+                "It's a bit more",
+                'Gain 1000 money in total',
+                'coins.svg',
+                new NumberStatisticRequirement(features.statistics.getStatistic(StatisticId.TotalMoneyGained) as NumberStatistic, 1000),
+            ),
+        );
+
+        this.registerAdventureSubscribers(features);
     }
 
+
+    registerAdventureSubscribers(features: Features) {
+        features.adventure.onStart.subscribe(() => {
+            if (features.superPowers.getTotalCosts() > 0) {
+                const achievement = this.getAchievement(AchievementId.AtLeastOneSuperPower);
+                (achievement as CustomAchievement).forceComplete();
+            }
+        })
+    }
 
     update(delta: number) {
         this.checkCounter += delta;

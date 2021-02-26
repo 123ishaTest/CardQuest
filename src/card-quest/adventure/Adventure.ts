@@ -33,8 +33,16 @@ export class Adventure extends Feature {
 
     private _onWin = new SimpleEventDispatcher<Level>();
     private _onLose = new SimpleEventDispatcher<Level>();
+    private _onStart = new SimpleEventDispatcher<Adventure>();
     private _onCardPlayed = new SimpleEventDispatcher<CardId>();
     private _onCardPlayedByLevel = new SimpleEventDispatcher<CardId>();
+
+    /**
+     * Emitted whenever a new adventure is started
+     */
+    public get onStart(): ISimpleEvent<Adventure> {
+        return this._onStart.asEvent();
+    }
 
     /**
      * Emitted whenever the game is won
@@ -84,7 +92,7 @@ export class Adventure extends Feature {
             console.warn("Tried to activate adventure that was already active");
         }
         this.isActive = true;
-
+        this._onStart.dispatch(this);
         for (let i = 0; i < this.playerStats.startingCards; i++) {
             this.draw(true);
         }
