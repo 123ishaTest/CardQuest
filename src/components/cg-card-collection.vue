@@ -1,7 +1,5 @@
 <template>
   <div class="feature-tab">
-    <igt-modal v-if="showModal" @close="showModal = false" :cards="gainedCards"></igt-modal>
-
     <div class="flex flex-row">
       <div class="flex-auto">
         <div class="flex flex-row flex-wrap">
@@ -41,7 +39,6 @@
 
 import {App} from "@/App.ts";
 import {SettingId} from "@/ig-template/features/settings/SettingId";
-import IgtModal from "@/components/util/igt-card-reveal-modal";
 import IgtTabs from "@/components/util/igt-tabs";
 import IgtTab from "@/components/util/igt-tab";
 import CqCardSelectionList from "@/components/cq-card-selection-list";
@@ -50,11 +47,9 @@ import CqDeckPresets from "@/components/cq-deck-presets";
 
 export default {
   name: "cq-card-collection",
-  components: {CqDeckPresets, CqCardSelectionList, IgtTab, IgtTabs, IgtModal},
+  components: {CqDeckPresets, CqCardSelectionList, IgtTab, IgtTabs},
   data() {
     return {
-      showModal: false,
-      gainedCards: [],
       collection: App.game.features.collection,
       showUnobtainedCardsSetting: App.game.features.settings.getSetting(SettingId.ShowUnobtainedCards),
     }
@@ -94,12 +89,6 @@ export default {
     },
   },
 
-  mounted() {
-    this.collection.onCardsGain.subscribe(cards => {
-      this.gainedCards = cards;
-      this.showModal = true;
-    })
-  }
 }
 </script>
 

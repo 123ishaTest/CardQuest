@@ -1,6 +1,13 @@
 <template>
   <div>
     <igt-notifications></igt-notifications>
+    <igt-modal v-if="showModal" @close="showModal = false" :cards="gainedCards">
+      <div slot="header">
+        <p class="text-2xl font-semibold">Level completed!</p>
+      </div>
+
+    </igt-modal>
+
 
     <igt-tabs :header-class="'bg-cq-slate'">
       <igt-tab name="Adventure" :selected="true">
@@ -55,9 +62,11 @@ import IgtTab from "@/components/util/igt-tab";
 import IgtTabs from "@/components/util/igt-tabs";
 import {SettingId} from "@/ig-template/features/settings/SettingId";
 import IgtSettings from "@/components/settings/igt-settings";
+import IgtModal from "@/components/util/igt-card-reveal-modal";
 
 export default {
   components: {
+    IgtModal,
     IgtSettings,
     IgtTabs,
     IgtTab,
@@ -66,6 +75,8 @@ export default {
   data() {
     return {
       game: App.game,
+      gainedCards: [],
+      showModal: false,
       LevelRepository: LevelRepository,
     }
   },
@@ -104,6 +115,12 @@ export default {
             4000
         );
       }
+    });
+
+
+    this.game.features.collection.onCardsGain.subscribe(cards => {
+      this.gainedCards = cards;
+      this.showModal = true;
     });
   }
 }

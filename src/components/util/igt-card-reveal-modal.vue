@@ -2,7 +2,7 @@
   <transition name="modal">
     <div class="modal-mask">
       <div class="modal-wrapper">
-        <div class="modal-container w-min mx-auto p-12">
+        <div class="modal-container w-min mx-auto p-4 bg-cq-slate shadow-xl">
 
           <div class="modal-header">
             <slot name="header">
@@ -12,7 +12,7 @@
           <div class="modal-body">
             <slot name="body">
 
-              <div class="flex flex-row w-full border-4 bg-white p-4">
+              <div class="flex flex-row w-full p-4">
 
                 <div :key="'hand-' + card.id + '-' + index" v-for="(card, index) in cards">
 
@@ -96,9 +96,6 @@ export default {
 }
 
 .modal-container {
-  background-color: #fff;
-  border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
   font-family: Helvetica, Arial, sans-serif;
 }
