@@ -5,7 +5,7 @@
         {{ power.valueText }} {{ power.description }}
       </p>
       <p class="text-sm text-center mx-2">
-      <div class="flex flex-row items-center" :title="'Activating this power costs' + power.cost + ' coins'">
+      <div class="flex flex-row items-center" :title="'Activating this power costs ' + power.cost + ' coins'">
         <p class="text-2xl p-2">{{ power.cost }}</p>
         <img class="h-6 w-6" :src="require(`@/assets/coins.svg`)" alt="coins.svg">
       </div>
