@@ -4,6 +4,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+    .filter-none {
+        filter: none;
+    }
+
+    .filter-grayscale {
+        filter: grayscale(100%);
+    }
+}
+
 .tooltip {
     @apply hidden absolute;
 }
@@ -19,6 +29,7 @@
 .card-image {
     @apply w-28 h-28 mx-auto m-2;
 }
+
 .input-primary {
     @apply border border-gray-300 p-2 my-2 mx-1 rounded-md focus:outline-none focus:ring-2 ring-blue-200;
 }
