@@ -1,5 +1,5 @@
 <template>
-  <div id="playable-card" class="w-48 h-72 p-2 m-2 border-2 flex flex-col"
+  <div id="playable-card" class="w-48 h-72 p-2 m-2 border-2 flex flex-col shadow-md"
        :class="[colorClass, {'opacity-50': isDisabled, 'cursor-pointer': canClick, 'transition duration-300 ease-out transform hover:-translate-y-1 hover:scale-110': canHover}]">
 
     <div class="flex-grow">
@@ -13,8 +13,6 @@
       </div>
       <div v-else>
         <img class="card-image" :src="require(`@/assets/cards/${card.image}`)" :alt="card.image">
-
-
         <p class="text-sm italic whitespace-pre-line">
           {{ card.description }}
         </p>
