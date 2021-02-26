@@ -21,9 +21,8 @@ export class Settings extends Feature {
     }
 
     initialize() {
-        this.add(
-            new BooleanSetting(SettingId.ShowUnobtainedCards, "Show unobtained cards", false),
-        )
+        this.add(new BooleanSetting(SettingId.ShowUnobtainedCards, "Show unobtained cards", false))
+        this.add(new BooleanSetting(SettingId.ShowSaveMessage, "Show save message", true))
     }
 
     setSetting<T>(id: SettingId, value: T) {

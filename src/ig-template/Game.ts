@@ -14,6 +14,7 @@ import {LevelRepository} from "@/card-quest/adventure/LevelRepository";
 import {LevelId} from "@/card-quest/adventure/LevelId";
 import {Currency} from "@/ig-template/features/wallet/Currency";
 import {Level} from "@/card-quest/adventure/Level";
+import {ISignal, SignalDispatcher} from "strongly-typed-events";
 
 export class Game {
     private _tickInterval: number = -1;
@@ -31,6 +32,15 @@ export class Game {
     private _lastUpdate: number = 0;
 
     readonly MINIMUM_DECK_SIZE = 5;
+
+    /**
+     * Emitted whenever the game saves
+     */
+    private _onSave = new SignalDispatcher();
+
+    public get onSave(): ISignal {
+        return this._onSave.asEvent();
+    }
 
     /**
      * Make sure this key is unique to your game.
@@ -229,6 +239,7 @@ export class Game {
             res[feature.saveKey] = feature.save()
         }
         LocalStorage.store(this.SAVE_KEY, res)
+        this._onSave.dispatch();
     }
 
     /**

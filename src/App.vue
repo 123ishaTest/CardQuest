@@ -18,6 +18,10 @@
         <igt-achievements :achievements-feature="game.features.achievements"></igt-achievements>
       </igt-tab>
 
+      <igt-tab name="Settings">
+        <igt-settings :settings="game.features.settings"></igt-settings>
+      </igt-tab>
+
       <igt-tab name="Developer Panel">
         <igt-developer-panel></igt-developer-panel>
       </igt-tab>
@@ -41,9 +45,12 @@ import IgtNotifications from "@/components/util/igt-notifications";
 import IgtAchievements from "@/components/igt-achievements";
 import IgtTab from "@/components/util/igt-tab";
 import IgtTabs from "@/components/util/igt-tabs";
+import {SettingId} from "@/ig-template/features/settings/SettingId";
+import IgtSettings from "@/components/settings/igt-settings";
 
 export default {
   components: {
+    IgtSettings,
     IgtTabs,
     IgtTab,
     IgtAchievements, IgtNotifications, CqLevelSelection, CqCardCollection, CqAdventure, IgtDeveloperPanel
@@ -76,6 +83,20 @@ export default {
     allLevels() {
       return LevelRepository.getAllLevels();
     }
+  },
+  mounted() {
+    this.game.onSave.subscribe(() => {
+      if (this.game.features.settings.getSetting(SettingId.ShowSaveMessage).value) {
+        this.$notify(
+            {
+              title: 'Game saved!',
+              type: "success",
+              group: "top-left",
+            },
+            4000
+        );
+      }
+    });
   }
 }
 </script>

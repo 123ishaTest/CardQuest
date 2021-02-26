@@ -1,3 +1,4 @@
 export enum SettingId {
-  ShowUnobtainedCards = "Show unobtained cards"
+  ShowSaveMessage = "Show save message",
+  ShowUnobtainedCards = "Show unobtained cards",
 }
