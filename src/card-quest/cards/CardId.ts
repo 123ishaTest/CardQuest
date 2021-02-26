@@ -38,8 +38,6 @@ export enum CardId {
     ChaliceMedium,
     ChaliceLarge,
 
-    // Weapons
-    BasicSword,
 
     // Monsters
     Chicken,
@@ -61,4 +59,12 @@ export enum CardId {
     BronzeScythe,
     SilverScythe,
     GoldScythe,
+
+    // Weapons
+    BasicSword,
+    BronzeSword,
+    SilverSword,
+    GoldSword,
+
+    VikingShield,
 }
