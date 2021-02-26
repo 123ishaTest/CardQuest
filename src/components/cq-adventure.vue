@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isActive" class="m-4 p-4 bg-gray-500">
+  <div v-if="isActive" class="mx-4 p-4 bg-gray-500">
     <div class="flex flex-row">
 
       <div class="flex-initial">

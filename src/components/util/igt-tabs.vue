@@ -8,7 +8,6 @@
       </ul>
     </div>
     <hr/>
-    <br>
 
     <div class="tabs-details">
       <slot></slot>

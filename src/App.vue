@@ -1,12 +1,29 @@
 <template>
   <div>
     <igt-notifications></igt-notifications>
-    <igt-achievements :achievements-feature="game.features.achievements"></igt-achievements>
-    <!--    <igt-wallet></igt-wallet>-->
-    <cq-adventure></cq-adventure>
-    <cq-level-selection :levels="allLevels"></cq-level-selection>
-    <cq-card-collection></cq-card-collection>
-    <igt-developer-panel></igt-developer-panel>
+
+    <igt-tabs class="">
+      <igt-tab name="Adventure" :selected="true">
+        <cq-adventure v-if="game.features.adventure.isActive"></cq-adventure>
+        <cq-level-selection v-else :levels="allLevels"></cq-level-selection>
+
+      </igt-tab>
+
+      <igt-tab name="Card Collection">
+        <cq-card-collection></cq-card-collection>
+      </igt-tab>
+
+
+      <igt-tab name="Achievements">
+        <igt-achievements :achievements-feature="game.features.achievements"></igt-achievements>
+      </igt-tab>
+
+      <igt-tab name="Developer Panel">
+        <igt-developer-panel></igt-developer-panel>
+      </igt-tab>
+
+    </igt-tabs>
+
 
   </div>
 
@@ -22,9 +39,15 @@ import CqLevelSelection from "@/components/cq-level-selection";
 import {LevelRepository} from '@/card-quest/adventure/LevelRepository';
 import IgtNotifications from "@/components/util/igt-notifications";
 import IgtAchievements from "@/components/igt-achievements";
+import IgtTab from "@/components/util/igt-tab";
+import IgtTabs from "@/components/util/igt-tabs";
 
 export default {
-  components: {IgtAchievements, IgtNotifications, CqLevelSelection, CqCardCollection, CqAdventure, IgtDeveloperPanel},
+  components: {
+    IgtTabs,
+    IgtTab,
+    IgtAchievements, IgtNotifications, CqLevelSelection, CqCardCollection, CqAdventure, IgtDeveloperPanel
+  },
   data() {
     return {
       game: App.game,
