@@ -36,8 +36,9 @@ export class Achievements extends Feature {
     initialize(features: Features): void {
         this.registerAchievement(
             new Achievement(AchievementId.PlayedGobletOfFire,
-                "Hey isn't that the thing from the name?",
+                "Dumbledore asked calmly",
                 'Play the Goblet of Fire card',
+                'cards/chalice-red.svg',
                 new ArrayStatisticRequirement(features.statistics.getStatistic(StatisticId.CardsPlayed) as ArrayStatistic,
                     CardId.ChaliceMedium,
                     1
@@ -48,6 +49,7 @@ export class Achievements extends Feature {
             new Achievement(AchievementId.EnemyPlayedForestFire,
                 "Boy or Girl?",
                 'Have your wood resources burned down',
+                'cards/forest-fire.svg',
                 new ArrayStatisticRequirement(features.statistics.getStatistic(StatisticId.CardsPlayedByLevel) as ArrayStatistic,
                     CardId.ForestFire,
                     1

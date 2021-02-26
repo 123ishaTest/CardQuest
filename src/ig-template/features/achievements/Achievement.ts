@@ -6,14 +6,16 @@ export class Achievement {
     public key: AchievementId;
     public title: string;
     public description: string;
+    public image: string;
     public requirement: Requirement;
 
     public unlocked: boolean
 
-    constructor(key: AchievementId, title: string, description: string, requirement: Requirement) {
+    constructor(key: AchievementId, title: string, description: string, image: string, requirement: Requirement) {
         this.key = key;
         this.title = title;
         this.description = description;
+        this.image = image;
         this.requirement = requirement;
         this.unlocked = false
     }

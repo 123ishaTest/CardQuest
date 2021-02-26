@@ -1,13 +1,17 @@
 <template>
   <div class="bg-green-300 m-4 p-4">
-    <p class="text-xl">Achievements</p>
+    <p class="text-xl font-semibold">Achievements</p>
     <hr/>
-    <div class="flex flex-row">
-      <div :key=achievement.id v-for="achievement in achievements">
-        <div class="flex flex-col border-2 m-2 p-2">
-          <p> {{ achievement.title }}</p>
-          <p> {{ achievement.description }}</p>
-          <p> Unlocked: {{ achievement.unlocked }}</p>
+    <div class="flex flex-row flex-wrap">
+      <div :key=achievement.id v-for="achievement in achievements" class="w-72">
+        <div class="flex flex-col border-2 m-2 p-2 h-72 justify-between">
+          <div>
+            <p class="text-lg font-semibold"> {{ achievement.title }}</p>
+            <hr>
+            <br>
+            <p class="italic"> {{ achievement.description }}</p>
+          </div>
+          <img class="card-image" :src="require(`@/assets/${achievement.image}`)" :alt="achievement.image">
         </div>
       </div>
     </div>
