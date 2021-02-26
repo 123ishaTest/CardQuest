@@ -4,8 +4,8 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                'cq-charcoal': '#264653',
-                'cq-slate': '#276868',
+                'cq-charcoal': '#222',
+                'cq-slate': '#264653',
                 'cq-green': '#2A9D8F',
                 'cq-yellow': '#E9C46A',
                 'cq-brown': '#F4A261',

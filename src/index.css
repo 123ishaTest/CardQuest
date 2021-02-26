@@ -15,7 +15,7 @@
 }
 
 .feature-tab {
-    @apply m-4 p-4 bg-cq-slate shadow-lg border;
+    @apply m-4 p-4 bg-cq-slate shadow-xl;
 }
 
 .tooltip {
