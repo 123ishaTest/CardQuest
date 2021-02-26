@@ -34,6 +34,7 @@ export class Adventure extends Feature {
     private _onWin = new SimpleEventDispatcher<Level>();
     private _onLose = new SimpleEventDispatcher<Level>();
     private _onCardPlayed = new SimpleEventDispatcher<CardId>();
+    private _onCardPlayedByLevel = new SimpleEventDispatcher<CardId>();
 
     /**
      * Emitted whenever the game is won
@@ -50,10 +51,17 @@ export class Adventure extends Feature {
     }
 
     /**
-     * Emitted whenever a card is played
+     * Emitted whenever a card is played by the player
      */
     public get onCardPlayed(): ISimpleEvent<CardId> {
         return this._onCardPlayed.asEvent();
+    }
+
+    /**
+     * Emitted whenever a card is played by the level
+     */
+    public get onCardPlayedByLevel(): ISimpleEvent<CardId> {
+        return this._onCardPlayedByLevel.asEvent();
     }
 
 
@@ -272,6 +280,8 @@ export class Adventure extends Feature {
         if (!card) {
             return;
         }
+
+        this._onCardPlayedByLevel.dispatch(card.id);
         this._play(card);
         this.turnHasPassed(true);
 

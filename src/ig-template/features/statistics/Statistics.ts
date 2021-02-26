@@ -28,6 +28,7 @@ export class Statistics extends Feature {
     initialize(features: Features): void {
         this.registerStatistic(new NumberStatistic(StatisticId.TotalMoneyGained, 'Total money'))
         this.registerStatistic(new ArrayStatistic(StatisticId.CardsPlayed, 'Cards played', Array(CardRepository.getCardCount()).fill(0)))
+        this.registerStatistic(new ArrayStatistic(StatisticId.CardsPlayedByLevel, 'Cards played against you', Array(CardRepository.getCardCount()).fill(0)))
 
         features.wallet.onCurrencyGain.subscribe((currency: Currency) => {
             if (currency.type === CurrencyType.Money) {
@@ -40,6 +41,9 @@ export class Statistics extends Feature {
     registerAdventureSubscribers(adventure: Adventure) {
         adventure.onCardPlayed.subscribe((id: CardId) => {
             this.incrementArrayStatistic(StatisticId.CardsPlayed, id, 1);
+        })
+        adventure.onCardPlayedByLevel.subscribe((id: CardId) => {
+            this.incrementArrayStatistic(StatisticId.CardsPlayedByLevel, id, 1);
         })
     }
 

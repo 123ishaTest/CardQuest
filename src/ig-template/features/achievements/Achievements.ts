@@ -43,7 +43,17 @@ export class Achievements extends Feature {
                     1
                 )
             )
-        )
+        );
+        this.registerAchievement(
+            new Achievement(AchievementId.EnemyPlayedForestFire,
+                "Boy or Girl?",
+                'Have your wood resources burned down',
+                new ArrayStatisticRequirement(features.statistics.getStatistic(StatisticId.CardsPlayedByLevel) as ArrayStatistic,
+                    CardId.ForestFire,
+                    1
+                )
+            )
+        );
     }
 
 
