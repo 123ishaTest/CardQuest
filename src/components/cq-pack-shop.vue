@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="my-4">
     <div class="flex flex-row flex-wrap">
 
       <button @click="buyPack(pack.id)" class="btn btn-blue flex flex-col justify-between items-center has-tooltip"
