@@ -45,7 +45,7 @@ export class App {
                 automation: new Automation(),
                 collection: new CardCollection([
                     new CardPack(CardPackId.BeginnerPack,
-                        new Currency(50, CurrencyType.Money),
+                        new Currency(100, CurrencyType.Money),
                         true,
                         [
                             new Outcome<CardId>(CardId.BronzeAxe, 1),
@@ -54,7 +54,7 @@ export class App {
                             new Outcome<CardId>(CardId.Bread, 2),
                         ]),
                     new CardPack(CardPackId.BronzeTierPack,
-                        new Currency(100, CurrencyType.Money),
+                        new Currency(200, CurrencyType.Money),
                         true,
                         [
                             new Outcome<CardId>(CardId.BronzeAxe, 1),
@@ -68,7 +68,7 @@ export class App {
                             new Outcome<CardId>(CardId.Bread, 3),
                         ]),
                     new CardPack(CardPackId.SilverTierPack,
-                        new Currency(250, CurrencyType.Money),
+                        new Currency(500, CurrencyType.Money),
                         true,
                         [
                             new Outcome<CardId>(CardId.SilverAxe, 1),
@@ -81,7 +81,7 @@ export class App {
                             new Outcome<CardId>(CardId.ChaliceSmall, 1),
                         ]),
                     new CardPack(CardPackId.GoldTierPack,
-                        new Currency(400, CurrencyType.Money),
+                        new Currency(800, CurrencyType.Money),
                         true,
                         [
                             new Outcome<CardId>(CardId.GoldAxe, 1),
@@ -94,7 +94,7 @@ export class App {
                             new Outcome<CardId>(CardId.ChaliceMedium, 1),
                         ]),
                     new CardPack(CardPackId.ActionCardPack,
-                        new Currency(150, CurrencyType.Money),
+                        new Currency(300, CurrencyType.Money),
                         true,
                         [
                             new Outcome<CardId>(CardId.MagicTouch, 1),
@@ -105,7 +105,7 @@ export class App {
                             new Outcome<CardId>(CardId.LoseTurnsLarge, 0.2),
                         ]),
                     new CardPack(CardPackId.FarmPack,
-                        new Currency(75, CurrencyType.Money),
+                        new Currency(150, CurrencyType.Money),
                         true,
                         [
                             new Outcome<CardId>(CardId.Pig, 1),
@@ -114,7 +114,7 @@ export class App {
                             new Outcome<CardId>(CardId.Farmer, 1),
                         ]),
                     new CardPack(CardPackId.MonsterPack,
-                        new Currency(80, CurrencyType.Money),
+                        new Currency(200, CurrencyType.Money),
                         true,
                         [
                             new Outcome<CardId>(CardId.Skeleton, 1),
