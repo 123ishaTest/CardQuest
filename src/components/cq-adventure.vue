@@ -3,7 +3,7 @@
     <div class="flex flex-row">
 
       <cq-level-progress class="w-64" :level="adventure.level" :current-turn="adventure.currentTurn"
-                         :show-current-turn="true"></cq-level-progress>
+                         :show-current-turn="true" :first-card-large="true"></cq-level-progress>
 
       <div class="flex-auto overflow-hidden items-center">
         <!-- The field -->
@@ -55,7 +55,7 @@ import CqCardPlaceholder from "@/components/cq-card-placeholder";
 
 export default {
   name: "cq-adventure",
-  components: {CqCardPlaceholder, CqLevelProgress, CqPlayerStats, CqCard},
+  components: {CqLevelProgress, CqCardPlaceholder, CqPlayerStats, CqCard},
   data() {
     return {
       adventure: App.game.features.adventure,

@@ -1,16 +1,24 @@
 <template>
   <div class="p-4">
-    <p v-if=showCurrentTurn class="text-lg">Turn {{ currentTurn }}</p>
+    <p v-if=showCurrentTurn class="text-lg text-white">Turn {{ currentTurn }}</p>
     <hr/>
     <div class="flex flex-col">
-      <div :key=futureCard[0] v-for="futureCard in futureCards" class="has-tooltip">
-        <div class="flex flex-row justify-between items-center">
+      <div :key=futureCard[0] v-for="(futureCard, index) in futureCards">
 
-          <div class="m-2">{{ futureCard[0] - currentTurn }} - {{ futureCard[1].title }}</div>
+
+        <div class="flex flex-row justify-between items-center has-tooltip">
+
+          <div class="m-2 text-white">{{ futureCard[0] - currentTurn }} - {{ futureCard[1].title }}</div>
           <img :title="futureCard[1].description" class="w-8 h-8 inline"
                :src="require(`@/assets/cards/${futureCard[1].image}`)">
         </div>
-        <cq-card :card="futureCard[1]" class="tooltip" :is-in-hand="false" :can-hover="false"></cq-card>
+        <cq-card :class="{'shake': futureCard[0] === currentTurn + 1}" v-if="index === 0 && firstCardLarge"
+                 :card="futureCard[1]" :is-in-hand="false"
+                 :can-hover="false"
+                 :can-click="false"></cq-card>
+
+        <cq-card :card="futureCard[1]" class="tooltip" :is-in-hand="false" :can-hover="false"
+                 :can-click="false"></cq-card>
 
       </div>
     </div>
@@ -40,6 +48,10 @@ export default {
       type: Number,
       required: true
     },
+    firstCardLarge: {
+      type: Boolean,
+      default: false,
+    }
   },
 
   computed: {
