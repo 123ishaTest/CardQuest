@@ -15,7 +15,6 @@ import {LevelId} from "@/card-quest/adventure/LevelId";
 import {Currency} from "@/ig-template/features/wallet/Currency";
 import {Level} from "@/card-quest/adventure/Level";
 import {ISignal, SignalDispatcher} from "strongly-typed-events";
-import {Deck} from "@/card-quest/cards/Deck";
 
 export class Game {
     private _tickInterval: number = -1;
@@ -152,9 +151,15 @@ export class Game {
             return;
         }
 
+        const newLevel = LevelRepository.getLevel(levelId);
+
+        if (!newLevel.canAccess()) {
+            return;
+        }
+
         const newAdventure = new Adventure(
             CardRepository.getDeckFromIdDeck(this.features.collection.currentDeck),
-            LevelRepository.getLevel(levelId),
+            newLevel,
             this.features.superPowers.getPlayerStats()
         )
 

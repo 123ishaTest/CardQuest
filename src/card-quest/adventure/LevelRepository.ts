@@ -4,6 +4,11 @@ import {Level} from "@/card-quest/adventure/Level";
 import {CardPackId} from "@/card-quest/features/card-collection/CardPackId";
 import {CardRepository} from "@/card-quest/cards/CardRepository";
 import {CardId} from "@/card-quest/cards/CardId";
+import {LevelRequirement} from "@/card-quest/LevelRequirement";
+import {NoRequirement} from "@/ig-template/tools/requirements/NoRequirement";
+import {StatisticId} from "@/ig-template/features/statistics/StatisticId";
+import {App} from "@/App";
+import {ArrayStatistic} from "@/ig-template/features/statistics/ArrayStatistic";
 
 export class LevelRepository {
     public static getLevel(id: LevelId): Level {
@@ -13,7 +18,9 @@ export class LevelRepository {
                     CardPackId.BronzeToolPack, 3,
                     50, [
                         [20, CardRepository.getCard(CardId.Chicken)],
-                    ]);
+                    ],
+                    new NoRequirement(),
+                );
             case LevelId.TheFarm:
                 return new Level(LevelId.TheFarm, 'The farm', 'The scariest thing here is the smell',
                     CardPackId.BronzeToolPack, 2,
@@ -23,7 +30,9 @@ export class LevelRepository {
                         [25, CardRepository.getCard(CardId.Pig)],
                         [30, CardRepository.getCard(CardId.Cow)],
                         [40, CardRepository.getCard(CardId.Farmer)],
-                    ]);
+                    ],
+                    new LevelRequirement(App.game.features.statistics.getStatistic(StatisticId.LevelsCompleted) as ArrayStatistic, LevelId.TutorialLevel, 1)
+                );
             case LevelId.TheWizard:
                 return new Level(LevelId.TheWizard, 'The Wizard', 'He will smite you down with his spells',
                     CardPackId.VarietyPack, 3,
@@ -35,9 +44,9 @@ export class LevelRepository {
                         [32, CardRepository.getCard(CardId.InstantDamageMedium)],
                         [40, CardRepository.getCard(CardId.InstantDamageMedium)],
                         [45, CardRepository.getCard(CardId.Chicken)],
-                    ]
-                )
-                    ;
+                    ],
+                    new LevelRequirement(App.game.features.statistics.getStatistic(StatisticId.LevelsCompleted) as ArrayStatistic, LevelId.TheFarm, 1)
+                );
             case LevelId.TheNecromancer:
                 return new Level(LevelId.TheNecromancer, 'The Necromancer', 'Has the ability to raise enemies from the dead',
                     CardPackId.VarietyPack, 3,
@@ -49,7 +58,9 @@ export class LevelRepository {
                         [24, CardRepository.getCard(CardId.RodOfAsclepius)],
                         [31, CardRepository.getCard(CardId.SkeletonKing)],
                         [33, CardRepository.getCard(CardId.InstantDamageMedium)],
-                    ])
+                    ],
+                    new LevelRequirement(App.game.features.statistics.getStatistic(StatisticId.LevelsCompleted) as ArrayStatistic, LevelId.TheWizard, 1)
+                )
             default:
                 throw new Error(`Level with id ${id} not found.`)
         }
