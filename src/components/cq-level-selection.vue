@@ -3,7 +3,7 @@
     <cq-super-powers :powers="superPowers"></cq-super-powers>
 
     <div class="flex flex-row flex-wrap">
-      <div :key="level.id" v-for="level in availableLevels" class="flex flex-col m-2 p-4 bg-yellow-100 w-72">
+      <div :key="level.id" v-for="level in availableLevels" class="flex flex-col m-2 p-4 bg-cq-brown w-72">
         <button class="btn btn-blue flex flex-row justify-between items-center has-tooltip"
                 @click="goOnAnAdventure(level.id)"
                 :disabled="!canStartAdventure">
