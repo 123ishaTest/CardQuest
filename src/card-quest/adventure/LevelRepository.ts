@@ -40,6 +40,7 @@ export class LevelRepository {
                         [10, CardRepository.getCard(CardId.LandMine)],
                         [15, CardRepository.getCard(CardId.SkeletonKing)],
                         [18, CardRepository.getCard(CardId.DiscardHand)],
+                        [24, CardRepository.getCard(CardId.RodOfAsclepius)],
                         [31, CardRepository.getCard(CardId.SkeletonKing)],
                         [33, CardRepository.getCard(CardId.InstantDamageMedium)],
                     ])

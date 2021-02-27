@@ -23,6 +23,7 @@ import {ForestFire} from "@/card-quest/cards/content/action/ForestFire";
 import {LandMineCard} from "@/card-quest/cards/content/monster/LandMineCard";
 import {DiscardHand} from "@/card-quest/cards/content/action/DiscardHand";
 import {NecromancerCard} from "@/card-quest/cards/content/monster/NecromancerCard";
+import {RodOfAsclepiusCard} from "@/card-quest/cards/content/action/RodOfAsclepiusCard";
 
 export class CardRepository {
 
@@ -85,6 +86,8 @@ export class CardRepository {
 
             case CardId.ForestFire:
                 return new ForestFire();
+            case CardId.RodOfAsclepius:
+                return new RodOfAsclepiusCard();
 
             // Weapons
             case CardId.BasicSword:

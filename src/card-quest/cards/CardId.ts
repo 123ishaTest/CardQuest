@@ -30,6 +30,7 @@ export enum CardId {
 
     DiscardHand,
     ForestFire,
+    RodOfAsclepius,
 
 
     // Healing
