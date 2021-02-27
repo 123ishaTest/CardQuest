@@ -46,6 +46,20 @@ export class CardCollection extends Feature {
         this._wallet = features.wallet;
     }
 
+    canBuyCardPack(id: CardPackId): boolean {
+        const cardPack = this.getCardPack(id);
+        if (cardPack === undefined) {
+            return false;
+        }
+        if (!cardPack.buyable) {
+            return false;
+        }
+        if (!this._wallet.hasCurrency(cardPack.cost)) {
+            return false;
+        }
+        return true;
+    }
+
     buyCardPack(id: CardPackId) {
         const cardPack = this.getCardPack(id);
         if (cardPack === undefined) {

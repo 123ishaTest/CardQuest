@@ -4,14 +4,15 @@
 
       <button @click="buyPack(pack.id)" class="btn btn-blue flex flex-col justify-between items-center has-tooltip"
               v-for="pack in buyablePacks"
-              :key="pack.id">
+              :key="pack.id"
+              :disabled="!canAfford(pack)">
         <span>{{ pack.id }}</span>
         <span class="flex flex-row mx-2">
           {{ -pack.cost.amount }}
             <img class="mx-1 h-6 w-6" :src="require(`@/assets/coins.svg`)" alt="coins.svg">
 
             </span>
-        <cq-card-pack-preview :pack-id="pack.id" class="tooltip mt-12"></cq-card-pack-preview>
+        <cq-card-pack-preview  :pack-id="pack.id" class="tooltip mt-12"></cq-card-pack-preview>
 
       </button>
     </div>
@@ -42,12 +43,15 @@ export default {
       return this.packs.filter(pack => {
         return pack.buyable;
       });
-    }
+    },
   },
 
   methods: {
     buyPack(id) {
       this.collection.buyCardPack(id);
+    },
+    canAfford(pack) {
+      return this.collection.canBuyCardPack(pack.id);
     }
   },
 
