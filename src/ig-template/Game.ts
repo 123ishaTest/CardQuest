@@ -146,8 +146,12 @@ export class Game {
         return this.features.collection.currentDeck.getSize() >= this.MINIMUM_DECK_SIZE
     }
 
+    public deckIsValid(): boolean {
+        return this.features.collection.currentDeckIsValid();
+    }
+
     public canStartAdventure(): boolean {
-        return this.hasEnoughCards() && this.canAffordSuperPowers();
+        return this.hasEnoughCards() && this.deckIsValid() && this.canAffordSuperPowers();
     }
 
     public goOnAnAdventure(levelId: LevelId) {

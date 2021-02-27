@@ -1,6 +1,10 @@
 <template>
   <div class="feature-tab">
     <cq-pack-shop :packs="collection.cardPacks" :collection="collection"></cq-pack-shop>
+
+    <p v-if="!deckIsValid" class="text-2xl font-semibold text-red-400">
+      Your current deck is invalid. Have you imported a deck with cards you do not have?
+    </p>
     <div class="flex flex-row">
       <div class="flex-auto">
         <div class="flex flex-row flex-wrap">
@@ -58,6 +62,9 @@ export default {
   },
 
   computed: {
+    deckIsValid() {
+      return this.collection.currentDeckIsValid();
+    },
     cards() {
       return this.collection.cards;
     },

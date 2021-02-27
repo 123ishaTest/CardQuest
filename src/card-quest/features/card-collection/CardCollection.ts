@@ -98,6 +98,15 @@ export class CardCollection extends Feature {
         })
     }
 
+    public currentDeckIsValid() {
+        for (let i = 0; i < this.cards.length; i++) {
+            if (this.currentDeck.cards[i] > this.cards[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public selectAllCards() {
         for (let i = 0; i < this.cards.length; i++) {
             this.currentDeck.cards[i] = this.cards[i];
