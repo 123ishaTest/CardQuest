@@ -15,7 +15,7 @@ export class Level {
     requirement: Requirement
     shuffleDeck: boolean;
 
-    constructor(id: LevelId, name: string, description: string, rewardPack: CardPackId, rewardCount: number, moneyReward: number, cards: [number, PlayableCard][], requirement: Requirement, shuffleDeck: boolean = true) {
+    constructor(id: LevelId, name: string, description: string, rewardPack: CardPackId, moneyReward: number, cards: [number, PlayableCard][], requirement: Requirement, rewardCount: number = 3, shuffleDeck: boolean = true) {
         this.id = id;
         this.name = name;
         this.description = description;

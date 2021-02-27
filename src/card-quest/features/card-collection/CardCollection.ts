@@ -9,6 +9,8 @@ import {IdDeck} from "@/card-quest/cards/IdDeck";
 import {DeckPreset} from "@/card-quest/features/card-collection/DeckPreset";
 import {ISimpleEvent, SimpleEventDispatcher} from "strongly-typed-events";
 import {CardType} from "@/card-quest/cards/CardType";
+import {Features} from "@/ig-template/Features";
+import {Wallet} from "@/ig-template/features/wallet/Wallet";
 
 
 export class CardCollection extends Feature {
@@ -20,7 +22,7 @@ export class CardCollection extends Feature {
     deckPresets: DeckPreset[] = [];
 
     private _onCardsGain = new SimpleEventDispatcher<PlayableCard[]>();
-
+    private _wallet: Wallet;
 
     constructor(cardPacks: CardPack[]) {
         super('card-collection');
@@ -34,7 +36,30 @@ export class CardCollection extends Feature {
 
         this.cardPacks = cardPacks;
 
+        // Dummy wallet, will be overridden in initialize.
+        this._wallet = new Wallet([]);
+
         this.currentDeck = new IdDeck();
+    }
+
+    initialize(features: Features) {
+        this._wallet = features.wallet;
+    }
+
+    buyCardPack(id: CardPackId) {
+        const cardPack = this.getCardPack(id);
+        if (cardPack === undefined) {
+            console.warn(`Cannot find card pack with id ${id}`);
+            return;
+        }
+        if (!cardPack.buyable) {
+            console.warn(`Card pack with id ${id} is not buyable`);
+            return;
+        }
+
+        if (this._wallet.payIfPossible(cardPack.cost)) {
+            this.openCardPack(id, 3);
+        }
     }
 
     openCardPack(id: CardPackId, amount: number = 1) {
@@ -119,9 +144,6 @@ export class CardCollection extends Feature {
         this.currentDeck = IdDeck.fromDeckString(this.deckPresets[index].deckString);
     }
 
-    initialize() {
-        // Empty
-    }
 
     get lowestEmptyPresetIndex() {
         for (let i = this.deckPresets.length - 1; i >= 0; i--) {

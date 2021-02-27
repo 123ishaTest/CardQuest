@@ -3,7 +3,7 @@
     <igt-notifications></igt-notifications>
     <igt-modal v-if="showModal" @close="showModal = false" :cards="gainedCards">
       <div slot="header">
-        <p class="text-2xl font-semibold">Level completed!</p>
+        <p class="text-2xl font-semibold text-white">Success!</p>
       </div>
 
     </igt-modal>

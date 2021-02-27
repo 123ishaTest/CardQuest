@@ -1,5 +1,6 @@
 <template>
   <div class="feature-tab">
+    <cq-pack-shop :packs="collection.cardPacks" :collection="collection"></cq-pack-shop>
     <div class="flex flex-row">
       <div class="flex-auto">
         <div class="flex flex-row flex-wrap">
@@ -44,10 +45,11 @@ import IgtTab from "@/components/util/igt-tab";
 import CqCardSelectionList from "@/components/cq-card-selection-list";
 import {CardType} from "@/card-quest/cards/CardType";
 import CqDeckPresets from "@/components/cq-deck-presets";
+import CqPackShop from "@/components/cq-pack-shop";
 
 export default {
   name: "cq-card-collection",
-  components: {CqDeckPresets, CqCardSelectionList, IgtTab, IgtTabs},
+  components: {CqPackShop, CqDeckPresets, CqCardSelectionList, IgtTab, IgtTabs},
   data() {
     return {
       collection: App.game.features.collection,
