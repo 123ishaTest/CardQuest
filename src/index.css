@@ -4,13 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-p {
-    color: white;
-}
-
-li {
-    color: white;
-}
 
 @layer utilities {
     .filter-none {
