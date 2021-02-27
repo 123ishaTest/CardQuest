@@ -12,6 +12,7 @@ export abstract class HealthCard extends PlayableCard {
     }
 
     takeDamage(amount: number) {
+        amount = Math.max(0, amount);
         this.health -= amount;
         if (this.health <= 0) {
             this.dispatchDefeat();
