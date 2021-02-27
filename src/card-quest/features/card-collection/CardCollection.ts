@@ -19,8 +19,6 @@ export class CardCollection extends Feature {
     currentDeck: IdDeck;
     deckPresets: DeckPreset[] = [];
 
-    readonly MAX_DECK_PRESETS = 10;
-
     private _onCardsGain = new SimpleEventDispatcher<PlayableCard[]>();
 
 
@@ -31,9 +29,6 @@ export class CardCollection extends Feature {
         for (let i = 0; i < ids.length; i++) {
             this.cards.push(0);
         }
-
-        this.deckPresets.push(new DeckPreset('First Deck', ''));
-
 
         this.cardPacks = cardPacks;
 
@@ -144,6 +139,16 @@ export class CardCollection extends Feature {
         for (const card of cards) {
             this.cards[card.id] = card.amount;
         }
+
+        if (data.presets?.length == 0) {
+            this.deckPresets.push(new DeckPreset('First Deck', ''));
+        } else {
+            for (const preset of data.presets) {
+                this.deckPresets.push(new DeckPreset(preset.displayName, preset.deckString));
+            }
+        }
+
+        this.currentDeck = CardRepository.getIdDeckFromString(data.currentDeck) ?? new IdDeck();
     }
 
     save(): CardCollectionSaveData {
@@ -158,8 +163,24 @@ export class CardCollection extends Feature {
                 'amount': amount
             });
         })
+
+        const presets: {
+            'displayName': string;
+            'deckString': string;
+        }[] = [];
+
+
+        this.deckPresets.forEach(preset => {
+            presets.push({
+                'displayName': preset.displayName,
+                'deckString': preset.deckString,
+            })
+        })
+
         return {
             'cards': cards,
+            'currentDeck': this.currentDeck.toDeckString(),
+            'presets': presets,
         }
     }
 

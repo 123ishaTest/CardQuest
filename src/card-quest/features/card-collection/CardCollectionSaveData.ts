@@ -6,4 +6,8 @@ export interface CardCollectionSaveData extends SaveData {
         'id': CardId;
         'amount': number;
     }[];
-}
+    currentDeck: string;
+    presets: {
+        'displayName': string;
+        'deckString': string;
+    }[];}
