@@ -4,7 +4,8 @@
 
     <div class="flex flex-row flex-wrap">
       <div :key="level.id" v-for="level in availableLevels" class="flex flex-col m-2 p-4 bg-yellow-100 w-72">
-        <button class="btn btn-blue flex flex-row justify-between items-center" @click="goOnAnAdventure(level.id)"
+        <button class="btn btn-blue flex flex-row justify-between items-center has-tooltip"
+                @click="goOnAnAdventure(level.id)"
                 :disabled="!canStartAdventure">
           <span>
           {{ level.name }}
@@ -15,7 +16,13 @@
           )
             </span>
         </button>
+        <div class="has-tooltip px-4 py-2">
+          <img class="h-8 w-8" :src="require(`@/assets/card-random.svg`)" alt="draw.svg">
+
+          <cq-card-pack-preview :pack-id="level.rewardPack" class="tooltip"></cq-card-pack-preview>
+        </div>
         <p class="italic">{{ level.description }}</p>
+
         <cq-level-progress :show-current-turn=false :current-turn="0" :level="level"></cq-level-progress>
 
       </div>
@@ -29,10 +36,11 @@ import CqLevelProgress from "@/components/cg-level-progress";
 import CqSuperPowers from "@/components/cq-super-powers";
 import {CurrencyType} from "@/ig-template/features/wallet/CurrencyType";
 import {Currency} from "@/ig-template/features/wallet/Currency";
+import CqCardPackPreview from "@/components/cq-card-pack-preview";
 
 export default {
   name: "cq-level-selection",
-  components: {CqSuperPowers, CqLevelProgress},
+  components: {CqCardPackPreview, CqSuperPowers, CqLevelProgress},
   data() {
     return {
       game: App.game,
