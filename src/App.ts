@@ -11,6 +11,7 @@ import {Outcome} from "@/ig-template/tools/probability/Outcome";
 import {EmptyAdventure} from "@/card-quest/adventure/EmptyAdventure";
 import {SuperPowers} from "@/card-quest/adventure/super-powers/SuperPowers";
 import {Achievements} from "@/ig-template/features/achievements/Achievements";
+import {Automation} from "@/card-quest/features/automation/Automation";
 
 export class App {
 
@@ -40,6 +41,7 @@ export class App {
                 settings: new Settings(),
                 statistics: new Statistics(),
                 adventure: new EmptyAdventure(),
+                automation: new Automation(),
                 collection: new CardCollection([
                     new CardPack(CardPackId.ExamplePack, [
                         new Outcome<CardId>(CardId.LogCard, 1),

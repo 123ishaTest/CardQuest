@@ -167,7 +167,7 @@ export class Game {
         this.features.adventure = Object.assign(this.features.adventure, newAdventure);
 
         this.features.achievements.registerAdventureSubscribers(this.features);
-
+        this.features.automation.registerAdventure(this.features.adventure);
 
         this.features.adventure.onWin.subscribe((level: Level) => {
             this.features.collection.openCardPack(level.rewardPack, level.rewardCount);
