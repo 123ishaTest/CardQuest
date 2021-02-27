@@ -8,17 +8,19 @@
 
         <div class="flex flex-row justify-between items-center has-tooltip">
 
-          <div class="m-2 text-white">{{ futureCard[0] - currentTurn }} - {{ futureCard[1].title }}</div>
+          <div class="m-2 text-white">{{ futureCard[0] - currentTurn }} - {{ futureCard[1].title }}
+            <cq-card :card="futureCard[1]" class="tooltip ml-48" :is-in-hand="false" :can-hover="false"
+                     :can-click="false"></cq-card></div>
           <img :title="futureCard[1].description" class="w-8 h-8 inline"
                :src="require(`@/assets/cards/${futureCard[1].image}`)">
+
         </div>
         <cq-card :class="{'shake': futureCard[0] === currentTurn + 1}" v-if="index === 0 && firstCardLarge"
                  :card="futureCard[1]" :is-in-hand="false"
                  :can-hover="false"
                  :can-click="false"></cq-card>
 
-        <cq-card :card="futureCard[1]" class="tooltip" :is-in-hand="false" :can-hover="false"
-                 :can-click="false"></cq-card>
+
 
       </div>
     </div>

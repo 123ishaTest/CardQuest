@@ -9,7 +9,7 @@ export class WeaponCard extends ActionCard {
 
 
     constructor(id: CardId, title: string, description: string, image: string, weapon: Weapon) {
-        super(id, title, description, CardType.Tool, image);
+        super(id, title, `${description}.\nReplaces current weapon`, CardType.Tool, image);
         this.weapon = weapon;
     }
 

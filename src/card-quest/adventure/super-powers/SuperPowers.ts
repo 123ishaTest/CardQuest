@@ -18,7 +18,7 @@ export class SuperPowers extends Feature {
         this.scythe = new SuperPower('Scythe', [0, 100, 500, 1000], [0, 1, 2, 3, 4], ['Stone', 'Bronze', 'Silver', 'Gold']);
         this.axe = new SuperPower('Axe', [0, 100, 500, 1000], [0, 1, 2, 3, 4], ['Stone', 'Bronze', 'Silver', 'Gold']);
         this.pickaxe = new SuperPower('Pick', [0, 100, 500, 1000], [0, 1, 2, 3, 4], ['Stone', 'Bronze', 'Silver', 'Gold']);
-        this.health = new SuperPower('Base health', [0, 100, 500, 1000], [20, 30, 40, 50], ['20', '30', '40', '50']);
+        this.health = new SuperPower('Base health', [0, 100, 500, 1000], [30, 40, 50, 60], ['30', '40', '50', '60']);
         this.startingCards = new SuperPower('Starting Cards', [0, 100, 500], [5, 6, 7], ['5', '6', '7']);
     }
 

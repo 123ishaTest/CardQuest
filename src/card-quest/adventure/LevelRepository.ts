@@ -22,7 +22,7 @@ export class LevelRepository {
                     new NoRequirement(),
                 );
             case LevelId.TheFarm:
-                return new Level(LevelId.TheFarm, 'The farm', 'The scariest thing here is the smell',
+                return new Level(LevelId.TheFarm, 'The farm', 'Watch out, the farmer has defense stats. You might need a stronger weapon!',
                     CardPackId.BronzeTierPack,
                     100, [
                         [15, CardRepository.getCard(CardId.Chicken)],
@@ -37,13 +37,13 @@ export class LevelRepository {
                 return new Level(LevelId.TheWizard, 'The Wizard', 'He will smite you down with his spells',
                     CardPackId.SilverTierPack,
                     200, [
-                        [10, CardRepository.getCard(CardId.InstantDamageSmall)],
-                        [15, CardRepository.getCard(CardId.InstantDamageSmall)],
-                        [20, CardRepository.getCard(CardId.ForestFire)],
-                        [25, CardRepository.getCard(CardId.InstantDamageMedium)],
-                        [32, CardRepository.getCard(CardId.InstantDamageMedium)],
-                        [40, CardRepository.getCard(CardId.InstantDamageMedium)],
-                        [45, CardRepository.getCard(CardId.Chicken)],
+                        [20, CardRepository.getCard(CardId.InstantDamageSmall)],
+                        [25, CardRepository.getCard(CardId.InstantDamageSmall)],
+                        [30, CardRepository.getCard(CardId.Skeleton)],
+                        [35, CardRepository.getCard(CardId.InstantDamageMedium)],
+                        [42, CardRepository.getCard(CardId.InstantDamageMedium)],
+                        [50, CardRepository.getCard(CardId.InstantDamageLarge)],
+                        [55, CardRepository.getCard(CardId.Skeleton)],
                     ],
                     new LevelRequirement(App.game.features.statistics.getStatistic(StatisticId.LevelsCompleted) as ArrayStatistic, LevelId.TheFarm, 1)
                 );
