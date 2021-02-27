@@ -30,6 +30,8 @@ export class CardCollection extends Feature {
             this.cards.push(0);
         }
 
+        this.deckPresets.push(new DeckPreset('First Deck', ''));
+
         this.cardPacks = cardPacks;
 
         this.currentDeck = new IdDeck();
@@ -140,6 +142,7 @@ export class CardCollection extends Feature {
             this.cards[card.id] = card.amount;
         }
 
+        this.deckPresets = [];
         if (data.presets?.length == 0) {
             this.deckPresets.push(new DeckPreset('First Deck', ''));
         } else {
