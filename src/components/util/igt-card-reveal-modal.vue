@@ -11,7 +11,7 @@
 
           <div class="modal-body">
             <slot name="body">
-
+              <p class="text-lg font-semibold">The following cards are added to your collection</p>
               <div class="flex flex-row w-full p-4">
 
                 <div :key="'hand-' + card.id + '-' + index" v-for="(card, index) in cards">
@@ -65,6 +65,10 @@ export default {
       type: Array,
       required: true
     },
+    moneyGained: {
+      type: Number,
+      required: true,
+    }
   },
 
   mounted() {
