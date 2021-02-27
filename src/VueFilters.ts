@@ -4,7 +4,8 @@ Vue.filter('numberFormat', function (value: number) {
     if (value == undefined) {
         return "";
     }
-    return value.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return Math.floor(value);
+    // return value.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 })
 
 Vue.filter('humanizeString', function (string: string) {

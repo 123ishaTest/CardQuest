@@ -39,7 +39,7 @@
 
       <li slot="other" class="ml-8">
         <div class="flex flex-row items-center" :title="'You have ' + game.features.wallet.money + ' coins'">
-          <p class="text-lg p-2">{{ game.features.wallet.money }}
+          <p class="text-lg p-2">{{ game.features.wallet.money | numberFormat }}
           </p>
           <img class="h-8 w-8" :src="require(`@/assets/coins.svg`)" alt="coins.svg">
         </div>
