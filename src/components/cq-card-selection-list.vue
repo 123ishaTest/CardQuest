@@ -5,23 +5,23 @@
     <div class="flex flex-row">
       <div class="flex flex-row flex-wrap">
 
-        <div :key=card.amount v-for="(card, index) in cards" class="flex flex-col">
+        <div :key=card.amount v-for="(card) in cards" class="flex flex-col">
           <div v-if="card[1] > 0 || showUnobtainedCardsSetting.value">
             <div class="flex flex-row justify-between items-center m-2">
-              <button class="btn btn-red" @click="removeCard(index)"
-                      :disabled="currentDeck.getCountForCard(index) <= 0">
+              <button class="btn btn-red" @click="removeCard(card[0].id)"
+                      :disabled="currentDeck.getCountForCard(card[0].id) <= 0">
                 -
               </button>
               <p class="text-lg text-center">
-                {{ currentDeck.getCountForCard(index) }} / {{ card[1] }}
+                {{ currentDeck.getCountForCard(card[0].id) }} / {{ card[1] }}
               </p>
-              <button class="btn btn-green" @click="addCard(index)"
-                      :disabled="currentDeck.getCountForCard(index) >= card[1]">+
+              <button class="btn btn-green" @click="addCard(card[0].id)"
+                      :disabled="currentDeck.getCountForCard(card[0].id) >= card[1]">+
               </button>
 
             </div>
-            <div @click="addCard(index, currentDeck.getCountForCard(index) >= card[1])"
-                 :disabled="currentDeck.getCountForCard(index) >= card[1]">
+            <div @click="addCard(card[0].id, currentDeck.getCountForCard(card[0].id) >= card[1])"
+                 :disabled="currentDeck.getCountForCard(card[0].id) >= card[1]">
 
               <cq-card :show-front="true" :is-in-hand="false" :is-disabled="card[1] <= 0" :card="card[0]"></cq-card>
             </div>
