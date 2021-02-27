@@ -61,6 +61,10 @@ export class LevelRepository {
         })
     }
 
+    public static getLevelCount(): number {
+        return this.getAllLevelsIds().length;
+    }
+
     public static getAllLevelsIds(): LevelId[] {
         return EnumHelpers.getValues(LevelId);
     }

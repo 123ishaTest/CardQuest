@@ -11,6 +11,7 @@ import {ISimpleEvent, SimpleEventDispatcher} from "strongly-typed-events";
 import {CustomAchievement} from "@/ig-template/features/achievements/CustomAchievement";
 import {NumberStatisticRequirement} from "@/ig-template/features/statistics/requirements/NumberStatisticRequirement";
 import {NumberStatistic} from "@/ig-template/features/statistics/NumberStatistic";
+import {LevelId} from "@/card-quest/adventure/LevelId";
 
 export class Achievements extends Feature {
     name: string = "Achievements";
@@ -82,6 +83,39 @@ export class Achievements extends Feature {
                 new NumberStatisticRequirement(features.statistics.getStatistic(StatisticId.TotalMoneyGained) as NumberStatistic, 1000),
             ),
         );
+        this.registerAchievement(
+            new Achievement(AchievementId.FirstLevelCompleted,
+                "That chicken didn't stand a chance",
+                'Complete the first level',
+                'cards/chicken.svg',
+                new ArrayStatisticRequirement(features.statistics.getStatistic(StatisticId.LevelsCompleted) as ArrayStatistic, LevelId.TutorialLevel, 1),
+            ),
+        );
+        this.registerAchievement(
+            new Achievement(AchievementId.FarmLevelCompleted,
+                "Won't somebody think of the animals?",
+                'Complete the The Farm level',
+                'cards/farmer.svg',
+                new ArrayStatisticRequirement(features.statistics.getStatistic(StatisticId.LevelsCompleted) as ArrayStatistic, LevelId.TheFarm, 1),
+            ),
+        );
+        this.registerAchievement(
+            new Achievement(AchievementId.WizardLevelCompleted,
+                "No thanks I'm stuffed",
+                'Complete the The Wizard level',
+                'cards/bread.svg',
+                new ArrayStatisticRequirement(features.statistics.getStatistic(StatisticId.LevelsCompleted) as ArrayStatistic, LevelId.TheWizard, 1),
+            ),
+        );
+        this.registerAchievement(
+            new Achievement(AchievementId.NecromancerLevelCompleted,
+                "Ah so it is possible",
+                'Complete the The Necromancer level',
+                'cards/skeleton-king.svg',
+                new ArrayStatisticRequirement(features.statistics.getStatistic(StatisticId.LevelsCompleted) as ArrayStatistic, LevelId.TheNecromancer, 1),
+            ),
+        );
+
 
         this.registerAdventureSubscribers(features);
     }

@@ -14,6 +14,8 @@ import {Adventure} from "@/card-quest/adventure/Adventure";
 import {CardId} from "@/card-quest/cards/CardId";
 import {ArrayStatistic} from "@/ig-template/features/statistics/ArrayStatistic";
 import {CardRepository} from "@/card-quest/cards/CardRepository";
+import {LevelRepository} from "@/card-quest/adventure/LevelRepository";
+import {Level} from "@/card-quest/adventure/Level";
 
 export class Statistics extends Feature {
 
@@ -29,6 +31,7 @@ export class Statistics extends Feature {
         this.registerStatistic(new NumberStatistic(StatisticId.TotalMoneyGained, 'Total money'))
         this.registerStatistic(new ArrayStatistic(StatisticId.CardsPlayed, 'Cards played', Array(CardRepository.getCardCount()).fill(0)))
         this.registerStatistic(new ArrayStatistic(StatisticId.CardsPlayedByLevel, 'Cards played against you', Array(CardRepository.getCardCount()).fill(0)))
+        this.registerStatistic(new ArrayStatistic(StatisticId.LevelsCompleted, 'Levels completed', Array(LevelRepository.getLevelCount()).fill(0)))
 
         features.wallet.onCurrencyGain.subscribe((currency: Currency) => {
             if (currency.type === CurrencyType.Money) {
@@ -41,9 +44,12 @@ export class Statistics extends Feature {
     registerAdventureSubscribers(adventure: Adventure) {
         adventure.onCardPlayed.subscribe((id: CardId) => {
             this.incrementArrayStatistic(StatisticId.CardsPlayed, id, 1);
-        })
+        });
         adventure.onCardPlayedByLevel.subscribe((id: CardId) => {
             this.incrementArrayStatistic(StatisticId.CardsPlayedByLevel, id, 1);
+        });
+        adventure.onWin.subscribe((level: Level) => {
+            this.incrementArrayStatistic(StatisticId.LevelsCompleted, level.id, 1);
         })
     }
 
