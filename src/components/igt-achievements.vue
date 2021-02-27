@@ -48,7 +48,7 @@ export default {
             type: "success",
             group: "top-right",
           },
-          4000
+          8000
       );
     })
   }
