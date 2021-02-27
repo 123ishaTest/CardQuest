@@ -11,16 +11,15 @@
 
     <igt-tabs :header-class="'bg-cq-slate'">
 
-      <igt-tab name="Card Collection">
+      <igt-tab name="Card Collection" :selected="true">
         <cq-card-collection></cq-card-collection>
       </igt-tab>
 
 
-      <igt-tab name="Adventure" :selected="true">
+      <igt-tab name="Adventure">
         <cq-adventure v-if="game.features.adventure.isActive"></cq-adventure>
         <cq-level-selection v-else :levels="allLevels"></cq-level-selection>
       </igt-tab>
-
 
 
       <igt-tab name="Achievements">

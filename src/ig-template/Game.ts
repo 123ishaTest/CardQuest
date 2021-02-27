@@ -15,6 +15,7 @@ import {LevelId} from "@/card-quest/adventure/LevelId";
 import {Currency} from "@/ig-template/features/wallet/Currency";
 import {Level} from "@/card-quest/adventure/Level";
 import {ISignal, SignalDispatcher} from "strongly-typed-events";
+import {Deck} from "@/card-quest/cards/Deck";
 
 export class Game {
     private _tickInterval: number = -1;
@@ -156,6 +157,10 @@ export class Game {
             LevelRepository.getLevel(levelId),
             this.features.superPowers.getPlayerStats()
         )
+
+        if (newAdventure.level.shuffleDeck) {
+            newAdventure.playerDeck.shuffle();
+        }
 
         this.features.statistics.registerAdventureSubscribers(newAdventure);
 

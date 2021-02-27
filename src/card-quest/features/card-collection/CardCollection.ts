@@ -59,6 +59,12 @@ export class CardCollection extends Feature {
         })
     }
 
+    public selectAllCards() {
+        for (let i = 0; i < this.cards.length; i++) {
+            this.currentDeck.cards[i] = this.cards[i];
+        }
+    }
+
     public gainCard(id: CardId, amount: number, notify: boolean = false) {
         const ids = Array(amount).fill(id);
         this.gainCards(ids, notify)

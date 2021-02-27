@@ -8,6 +8,12 @@ import {CardId} from "@/card-quest/cards/CardId";
 export class LevelRepository {
     public static getLevel(id: LevelId): Level {
         switch (id) {
+            case LevelId.TutorialLevel:
+                return new Level(LevelId.TutorialLevel, 'The Docks', 'A good place to start',
+                    CardPackId.BronzeToolPack, 3,
+                    50, [
+                        [20, CardRepository.getCard(CardId.Chicken)],
+                    ]);
             case LevelId.TheFarm:
                 return new Level(LevelId.TheFarm, 'The farm', 'The scariest thing here is the smell',
                     CardPackId.BronzeToolPack, 2,

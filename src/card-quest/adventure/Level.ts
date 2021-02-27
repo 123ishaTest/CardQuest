@@ -11,8 +11,9 @@ export class Level {
     moneyReward: number;
     cards: [number, PlayableCard][];
 
+    shuffleDeck: boolean;
 
-    constructor(id: LevelId, name: string, description: string, rewardPack: CardPackId, rewardCount: number, moneyReward: number, cards: [number, PlayableCard][]) {
+    constructor(id: LevelId, name: string, description: string, rewardPack: CardPackId, rewardCount: number, moneyReward: number, cards: [number, PlayableCard][], shuffleDeck: boolean = true) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -20,6 +21,7 @@ export class Level {
         this.rewardCount = rewardCount;
         this.moneyReward = moneyReward;
         this.cards = cards;
+        this.shuffleDeck = shuffleDeck;
     }
 
     getCardsLeftCount() {
