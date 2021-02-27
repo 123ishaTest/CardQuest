@@ -16,6 +16,7 @@ export enum CardId {
 
     // Actions
     MagicTouch,
+    SacrificeHand,
 
     Draw3Card,
 

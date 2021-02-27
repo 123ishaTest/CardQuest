@@ -24,6 +24,7 @@ import {LandMineCard} from "@/card-quest/cards/content/monster/LandMineCard";
 import {DiscardHand} from "@/card-quest/cards/content/action/DiscardHand";
 import {NecromancerCard} from "@/card-quest/cards/content/monster/NecromancerCard";
 import {RodOfAsclepiusCard} from "@/card-quest/cards/content/action/RodOfAsclepiusCard";
+import {SacrificeHandCard} from "@/card-quest/cards/content/action/SacrificeHandCard";
 
 export class CardRepository {
 
@@ -62,6 +63,8 @@ export class CardRepository {
             // Actions
             case CardId.MagicTouch:
                 return new MagicTouchCard().setCosts([new Currency(2, CurrencyType.Souls)]);
+            case CardId.SacrificeHand:
+                return new SacrificeHandCard();
             case CardId.Draw3Card:
                 return new DrawCardsCard(CardId.Draw3Card, 'draw-card.svg', 3).setCosts([new Currency(1, CurrencyType.Souls)]);
 
