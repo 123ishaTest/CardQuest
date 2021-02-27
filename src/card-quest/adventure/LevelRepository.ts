@@ -64,7 +64,7 @@ export class LevelRepository {
                         [70, CardRepository.getCard(CardId.InstantDamageLarge)],
                         [75, CardRepository.getCard(CardId.DiscardHand)],
                     ],
-                    new LevelRequirement(App.game.features.statistics.getStatistic(StatisticId.LevelsCompleted) as ArrayStatistic, LevelId.TheFarm, 1)
+                    new LevelRequirement(App.game.features.statistics.getStatistic(StatisticId.LevelsCompleted) as ArrayStatistic, LevelId.TheWizard, 1)
                 );
             case LevelId.TheNecromancer:
                 return new Level(LevelId.TheNecromancer, 'The Necromancer', 'Has the ability to raise enemies from the dead',
@@ -78,7 +78,7 @@ export class LevelRepository {
                         [31, CardRepository.getCard(CardId.SkeletonKing)],
                         [33, CardRepository.getCard(CardId.InstantDamageMedium)],
                     ],
-                    new LevelRequirement(App.game.features.statistics.getStatistic(StatisticId.LevelsCompleted) as ArrayStatistic, LevelId.TheWizard, 1)
+                    new LevelRequirement(App.game.features.statistics.getStatistic(StatisticId.LevelsCompleted) as ArrayStatistic, LevelId.TheTroll, 1)
                 )
             default:
                 throw new Error(`Level with id ${id} not found.`)
