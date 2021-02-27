@@ -51,7 +51,6 @@ export class LevelRepository {
                 return new Level(LevelId.TheTroll, 'The Troll', 'Prepare yourself for nonsense about to be thrown your way',
                     CardPackId.ActionCardPack,
                     300, [
-                        [20, CardRepository.getCard(CardId.DiscardHand)],
                         [25, CardRepository.getCard(CardId.ForestFire)],
                         [28, CardRepository.getCard(CardId.LandMine)],
                         [32, CardRepository.getCard(CardId.InstantDamageMedium)],
