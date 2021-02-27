@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex-1">
     <div class="flex flex-col items-center m-2">
       <p class="text-2xl text-center mx-2">
         {{ power.valueText }} {{ power.description }}
