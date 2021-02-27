@@ -2,6 +2,8 @@
   <div class="feature-tab">
     <cq-super-powers :powers="superPowers"></cq-super-powers>
 
+    <p v-if="!hasEnoughCards" class="text-2xl font-semibold text-red-400">You need at least {{ game.MINIMUM_DECK_SIZE }}
+      cards in your deck to start a level</p>
     <div class="flex flex-row flex-wrap">
       <div :key="level.id" v-for="level in availableLevels" class="flex flex-col m-2 p-4 bg-cq-brown w-72">
         <button class="btn btn-blue flex flex-row justify-between items-center has-tooltip"
@@ -69,6 +71,9 @@ export default {
       return this.levels.filter(level => {
         return level.canAccess();
       })
+    },
+    hasEnoughCards() {
+      return this.game.hasEnoughCards();
     },
     totalCosts() {
       return this.superPowers.getTotalCosts();

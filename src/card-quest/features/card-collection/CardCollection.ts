@@ -21,6 +21,9 @@ export class CardCollection extends Feature {
     currentDeck: IdDeck;
     deckPresets: DeckPreset[] = [];
 
+    // The max amount you can have of a single card
+    public readonly MAX_CARD_AMOUNT = 10;
+
     private _onCardsGain = new SimpleEventDispatcher<PlayableCard[]>();
     private _wallet: Wallet;
 
@@ -125,7 +128,7 @@ export class CardCollection extends Feature {
             console.warn(`Card with id ${id} does not exist`);
             return;
         }
-        const newAmount = this.cards[id] + amount
+        const newAmount = Math.min(this.cards[id] + amount, this.MAX_CARD_AMOUNT);
         this.cards.splice(id, 1, newAmount)
     }
 

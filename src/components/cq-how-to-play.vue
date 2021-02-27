@@ -31,6 +31,8 @@
     <p class="text-lg font-semibold">Card Collection</p>
     <p class="text-lg">Here you can view your collected Cards. Build your Decks and save them using the Deck
       Presets.</p>
+    <p class="text-lg">The max amount of a single card is 10. You need at least 15 cards in your deck to start a
+      level.</p>
     <p class="text-lg">You can share your Decks with other players by importing and exporting their codes!</p>
 
     <br>

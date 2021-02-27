@@ -34,7 +34,7 @@ export class Game {
     private gameSpeed = 1;
     private _lastUpdate: number = 0;
 
-    readonly MINIMUM_DECK_SIZE = 5;
+    readonly MINIMUM_DECK_SIZE = 15;
 
     /**
      * Emitted whenever the game saves
@@ -142,8 +142,12 @@ export class Game {
         }
     }
 
+    public hasEnoughCards(): boolean {
+        return this.features.collection.currentDeck.getSize() >= this.MINIMUM_DECK_SIZE
+    }
+
     public canStartAdventure(): boolean {
-        return this.features.collection.currentDeck.getSize() >= this.MINIMUM_DECK_SIZE && this.canAffordSuperPowers();
+        return this.hasEnoughCards() && this.canAffordSuperPowers();
     }
 
     public goOnAnAdventure(levelId: LevelId) {
