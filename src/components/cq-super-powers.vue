@@ -3,7 +3,7 @@
     <p class="text-2xl font-semibold">Starting stats</p>
     <p class="text-md">Spend your money on starting bonuses</p>
     <hr/>
-    <div class="flex flex-row">
+    <div class="flex flex-row flex-wrap">
       <cq-super-power :power="powers.axe"></cq-super-power>
       <cq-super-power :power="powers.pickaxe"></cq-super-power>
       <cq-super-power :power="powers.scythe"></cq-super-power>

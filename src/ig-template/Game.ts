@@ -181,7 +181,7 @@ export class Game {
 
         this.features.adventure.onWin.subscribe((level: Level) => {
             this.features.collection.openCardPack(level.rewardPack, level.rewardCount);
-            this.features.wallet.gainCurrency(new Currency(level.moneyReward, CurrencyType.Money));
+            this.features.wallet.gainCurrency(new Currency(level.getMoneyReward(), CurrencyType.Money));
         })
 
         this.features.adventure.startAdventure();

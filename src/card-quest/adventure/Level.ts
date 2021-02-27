@@ -2,6 +2,7 @@ import {PlayableCard} from "@/card-quest/cards/abstract/PlayableCard";
 import {CardPackId} from "@/card-quest/features/card-collection/CardPackId";
 import {LevelId} from "@/card-quest/adventure/LevelId";
 import {Requirement} from "@/ig-template/tools/requirements/Requirement";
+import {Random} from "@/ig-template/tools/probability/Random";
 
 export class Level {
     id: LevelId;
@@ -25,6 +26,10 @@ export class Level {
         this.cards = cards;
         this.requirement = requirement;
         this.shuffleDeck = shuffleDeck;
+    }
+
+    getMoneyReward() {
+        return Random.floatBetween(0.8, 1.2) * this.moneyReward;
     }
 
     getCardsLeftCount() {

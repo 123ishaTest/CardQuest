@@ -16,10 +16,15 @@
           )
             </span>
         </button>
-        <div class="has-tooltip px-4 py-2">
-          <img class="h-8 w-8" :src="require(`@/assets/card-random.svg`)" alt="draw.svg">
+        <div class="flex flex-row px-4 py-2 items-center">
 
-          <cq-card-pack-preview :pack-id="level.rewardPack" class="tooltip"></cq-card-pack-preview>
+          <div class="has-tooltip">
+            <img class="h-8 w-8" :src="require(`@/assets/card-random.svg`)" alt="draw.svg">
+
+            <cq-card-pack-preview :pack-id="level.rewardPack" class="tooltip"></cq-card-pack-preview>
+          </div>
+          <span class="ml-4">{{ level.moneyReward }}</span>
+          <img class="h-8 w-8" :src="require(`@/assets/coins.svg`)" alt="coins.svg">
         </div>
         <p class="italic">{{ level.description }}</p>
 
