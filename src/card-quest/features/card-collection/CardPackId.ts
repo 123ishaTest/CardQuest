@@ -1,8 +1,9 @@
 export enum CardPackId {
-    ExamplePack,
-    BronzeToolPack,
-    SilverToolPack,
-    GoldToolPack,
-    AllToolPack,
-    VarietyPack,
+    BeginnerPack = 'Beginner Pack',
+    BronzeTierPack = 'Bronze Tier Pack',
+    SilverTierPack = 'Silver Tier Pack',
+    GoldTierPack = 'Gold Tier Pack',
+    FarmPack = 'Farm Pack',
+    ActionCardPack = 'Action Card Pack',
+    MonsterPack = 'Monster Pack',
 }

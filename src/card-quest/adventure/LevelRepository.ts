@@ -15,7 +15,7 @@ export class LevelRepository {
         switch (id) {
             case LevelId.TutorialLevel:
                 return new Level(LevelId.TutorialLevel, 'The Docks', 'A good place to start',
-                    CardPackId.BronzeToolPack, 3,
+                    CardPackId.BeginnerPack, 3,
                     50, [
                         [20, CardRepository.getCard(CardId.Chicken)],
                     ],
@@ -23,7 +23,7 @@ export class LevelRepository {
                 );
             case LevelId.TheFarm:
                 return new Level(LevelId.TheFarm, 'The farm', 'The scariest thing here is the smell',
-                    CardPackId.BronzeToolPack, 2,
+                    CardPackId.BronzeTierPack, 2,
                     100, [
                         [15, CardRepository.getCard(CardId.Chicken)],
                         [20, CardRepository.getCard(CardId.Chicken)],
@@ -35,7 +35,7 @@ export class LevelRepository {
                 );
             case LevelId.TheWizard:
                 return new Level(LevelId.TheWizard, 'The Wizard', 'He will smite you down with his spells',
-                    CardPackId.VarietyPack, 3,
+                    CardPackId.SilverTierPack, 3,
                     200, [
                         [10, CardRepository.getCard(CardId.InstantDamageSmall)],
                         [15, CardRepository.getCard(CardId.InstantDamageSmall)],
@@ -49,7 +49,7 @@ export class LevelRepository {
                 );
             case LevelId.TheNecromancer:
                 return new Level(LevelId.TheNecromancer, 'The Necromancer', 'Has the ability to raise enemies from the dead',
-                    CardPackId.VarietyPack, 3,
+                    CardPackId.GoldTierPack, 3,
                     400, [
                         [5, CardRepository.getCard(CardId.Skeleton)],
                         [10, CardRepository.getCard(CardId.LandMine)],

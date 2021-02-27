@@ -9,6 +9,6 @@ import {ImpossibleRequirement} from "@/ig-template/tools/requirements/Impossible
 export class EmptyAdventure extends Adventure {
 
     constructor() {
-        super(new Deck(), new Level(-1 as LevelId, '', '', -1 as CardPackId, 0, 0, [], new ImpossibleRequirement()), new PlayerStats(5, 10));
+        super(new Deck(), new Level(-1 as LevelId, '', '', '' as CardPackId, 0, 0, [], new ImpossibleRequirement()), new PlayerStats(5, 10));
     }
 }
