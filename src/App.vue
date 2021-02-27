@@ -21,10 +21,14 @@
         <cq-level-selection v-else :levels="allLevels"></cq-level-selection>
       </igt-tab>
 
+      <igt-tab name="Automation">
+        <cq-automation :automation="game.features.automation"></cq-automation>
+      </igt-tab>
 
       <igt-tab name="Achievements">
         <igt-achievements :achievements-feature="game.features.achievements"></igt-achievements>
       </igt-tab>
+
 
       <igt-tab name="Settings">
         <igt-settings :settings="game.features.settings"></igt-settings>
@@ -69,9 +73,11 @@ import {SettingId} from "@/ig-template/features/settings/SettingId";
 import IgtSettings from "@/components/settings/igt-settings";
 import IgtModal from "@/components/util/igt-card-reveal-modal";
 import CqHowToPlay from "@/components/cq-how-to-play";
+import CqAutomation from "@/components/cq-automation";
 
 export default {
   components: {
+    CqAutomation,
     CqHowToPlay,
     IgtModal,
     IgtSettings,

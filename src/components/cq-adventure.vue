@@ -31,12 +31,18 @@
           </div>
         </div>
 
+        <div class="flex flex-row items-center">
         <button class="btn btn-green" @click="draw" :disabled="!canDraw">
           <span>Draw (D) ({{ deckSize }})</span>
         </button>
         <button class="btn btn-blue" @click="wait">Wait (W)</button>
         <button class="btn btn-red" @click="forfeit">Forfeit (Q)</button>
-
+        <div class="flex flex-row items-center">
+          <input class="input-primary w-4 h-4" v-model="automation.isActive" type="checkbox"/>
+          <p class="text-lg font-semibold ml-2" :class="automation.isActive ? 'text-green-500' : 'text-red-500'">
+            Automation {{ automation.isActive ? 'Active' : 'Inactive' }}</p>
+        </div>
+        </div>
 
       </div>
 
@@ -59,6 +65,7 @@ export default {
   data() {
     return {
       adventure: App.game.features.adventure,
+      automation: App.game.features.automation,
     }
   },
 
