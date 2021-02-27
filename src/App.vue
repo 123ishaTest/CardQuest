@@ -10,15 +10,17 @@
 
 
     <igt-tabs :header-class="'bg-cq-slate'">
-      <igt-tab name="Adventure" :selected="true">
-        <cq-adventure v-if="game.features.adventure.isActive"></cq-adventure>
-        <cq-level-selection v-else :levels="allLevels"></cq-level-selection>
-
-      </igt-tab>
 
       <igt-tab name="Card Collection">
         <cq-card-collection></cq-card-collection>
       </igt-tab>
+
+
+      <igt-tab name="Adventure" :selected="true">
+        <cq-adventure v-if="game.features.adventure.isActive"></cq-adventure>
+        <cq-level-selection v-else :levels="allLevels"></cq-level-selection>
+      </igt-tab>
+
 
 
       <igt-tab name="Achievements">
@@ -29,6 +31,9 @@
         <igt-settings :settings="game.features.settings"></igt-settings>
       </igt-tab>
 
+      <igt-tab name="How to play">
+        <cq-how-to-play></cq-how-to-play>
+      </igt-tab>
       <igt-tab name="Developer Panel">
         <igt-developer-panel></igt-developer-panel>
       </igt-tab>
@@ -64,9 +69,11 @@ import IgtTabs from "@/components/util/igt-tabs";
 import {SettingId} from "@/ig-template/features/settings/SettingId";
 import IgtSettings from "@/components/settings/igt-settings";
 import IgtModal from "@/components/util/igt-card-reveal-modal";
+import CqHowToPlay from "@/components/cq-how-to-play";
 
 export default {
   components: {
+    CqHowToPlay,
     IgtModal,
     IgtSettings,
     IgtTabs,
