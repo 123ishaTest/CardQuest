@@ -8,7 +8,7 @@
       <div class="flex-auto overflow-hidden items-center">
         <!-- The field -->
         <div class="h-96 shadow-lg bg-cq-charcoal p-4 flex flex-row items-center">
-          <div class="flex flex-row overflow-x-auto overflow-y-hidden">
+          <div class="flex flex-row">
             <div :key="'field-' + card.id + '-' + index"
                  v-for="(card, index) in field">
               <cq-card-placeholder v-if="card.id === -1"></cq-card-placeholder>
@@ -20,7 +20,7 @@
         <cq-player-stats :stats="adventure.playerStats" :wallet="adventure.wallet"></cq-player-stats>
 
         <div class="h-96 shadow-lg bg-cq-charcoal p-4 flex flex-row items-center">
-          <div class="flex flex-row overflow-x-auto overflow-y-hidden">
+          <div class="flex flex-row">
             <cq-card :is-in-hand="true"
                      :can-afford="card.canAfford(adventure.wallet)"
                      :is-disabled="!card.canPlay(adventure) || !card.canAfford(adventure.wallet)"
