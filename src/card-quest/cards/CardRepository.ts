@@ -40,9 +40,9 @@ export class CardRepository {
             case CardId.BronzeOre:
                 return new OreCard(CardId.BronzeOre, 'Bronze ore', 'ore-bronze.svg', 3, new Currency(1, CurrencyType.Bronze));
             case CardId.SilverOre:
-                return new OreCard(CardId.BronzeOre, 'Silver ore', 'ore-silver.svg', 6, new Currency(1, CurrencyType.Silver));
+                return new OreCard(CardId.SilverOre, 'Silver ore', 'ore-silver.svg', 6, new Currency(1, CurrencyType.Silver));
             case CardId.GoldOre:
-                return new OreCard(CardId.BronzeOre, 'Gold ore', 'ore-gold.svg', 15, new Currency(1, CurrencyType.Gold));
+                return new OreCard(CardId.GoldOre, 'Gold ore', 'ore-gold.svg', 15, new Currency(1, CurrencyType.Gold));
 
             case CardId.SmallGrain:
                 return new GrainCard(CardId.SmallGrain, 'Grain', 'grain.svg', 3, new Currency(1, CurrencyType.Grain));
