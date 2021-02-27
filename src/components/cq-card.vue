@@ -3,7 +3,7 @@
        :class="[colorClass, {'opacity-50': isDisabled, 'cursor-pointer': canClick, 'transition duration-300 ease-out transform hover:-translate-y-1 hover:scale-110': canHover}]">
 
     <div class="flex-grow">
-      <p>{{ card.title }}</p>
+      <p class="text-black">{{ card.title }}</p>
       <hr/>
 
       <div v-if="!showFront">
@@ -13,7 +13,7 @@
       </div>
       <div v-else>
         <img class="card-image" :src="require(`@/assets/cards/${card.image}`)" :alt="card.image">
-        <p class="text-sm italic whitespace-pre-line">
+        <p class="text-sm italic whitespace-pre-line text-black ">
           {{ card.description }}
         </p>
 
