@@ -47,10 +47,29 @@ export class LevelRepository {
                     ],
                     new LevelRequirement(App.game.features.statistics.getStatistic(StatisticId.LevelsCompleted) as ArrayStatistic, LevelId.TheFarm, 1)
                 );
+            case LevelId.TheTroll:
+                return new Level(LevelId.TheTroll, 'The Troll', 'Prepare yourself for nonsense about to be thrown your way',
+                    CardPackId.ActionCardPack,
+                    300, [
+                        [20, CardRepository.getCard(CardId.DiscardHand)],
+                        [25, CardRepository.getCard(CardId.ForestFire)],
+                        [28, CardRepository.getCard(CardId.LandMine)],
+                        [32, CardRepository.getCard(CardId.InstantDamageMedium)],
+                        [35, CardRepository.getCard(CardId.Skeleton)],
+                        [45, CardRepository.getCard(CardId.DiscardHand)],
+                        [50, CardRepository.getCard(CardId.BasicSword)],
+                        [53, CardRepository.getCard(CardId.InstantDamageMedium)],
+                        [60, CardRepository.getCard(CardId.Troll)],
+                        [62, CardRepository.getCard(CardId.RodOfAsclepius)],
+                        [70, CardRepository.getCard(CardId.InstantDamageLarge)],
+                        [75, CardRepository.getCard(CardId.DiscardHand)],
+                    ],
+                    new LevelRequirement(App.game.features.statistics.getStatistic(StatisticId.LevelsCompleted) as ArrayStatistic, LevelId.TheFarm, 1)
+                );
             case LevelId.TheNecromancer:
                 return new Level(LevelId.TheNecromancer, 'The Necromancer', 'Has the ability to raise enemies from the dead',
                     CardPackId.GoldTierPack,
-                    400, [
+                    600, [
                         [5, CardRepository.getCard(CardId.Skeleton)],
                         [10, CardRepository.getCard(CardId.LandMine)],
                         [15, CardRepository.getCard(CardId.SkeletonKing)],

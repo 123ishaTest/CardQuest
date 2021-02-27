@@ -100,6 +100,14 @@ export class Achievements extends Feature {
             ),
         );
         this.registerAchievement(
+            new Achievement(AchievementId.FarmLevelCompleted,
+                "And it wasn't even in the dungeon...",
+                'Complete the The Troll level',
+                'cards/troll.svg',
+                new ArrayStatisticRequirement(features.statistics.getStatistic(StatisticId.LevelsCompleted) as ArrayStatistic, LevelId.TheTroll, 1),
+            ),
+        );
+        this.registerAchievement(
             new Achievement(AchievementId.WizardLevelCompleted,
                 "No thanks I'm stuffed",
                 'Complete the The Wizard level',

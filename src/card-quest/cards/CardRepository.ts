@@ -108,11 +108,11 @@ export class CardRepository {
 
             // Monsters
             case CardId.Chicken:
-                return new EnemyCard(CardId.Chicken, 'Chicken', 'Cluck cluck.\nGain 1 soul on defeat', 'chicken.svg', 2, 1, 1, 0, 3);
+                return new EnemyCard(CardId.Chicken, 'Chicken', 'Cluck cluck.', 'chicken.svg', 2, 1, 1, 0, 3);
             case CardId.Cow:
-                return new EnemyCard(CardId.Cow, 'Cow', 'Moo?\nGain 2 souls on defeat', 'cow.svg', 5, 2, 2, 0, 3);
+                return new EnemyCard(CardId.Cow, 'Cow', 'Moo?', 'cow.svg', 5, 2, 2, 0, 3);
             case CardId.Pig:
-                return new EnemyCard(CardId.Pig, 'Pig', 'Oink oink\nGain 1 soul on defeat', 'pig.svg', 3, 1, 2, 0, 2);
+                return new EnemyCard(CardId.Pig, 'Pig', 'Oink oink', 'pig.svg', 3, 1, 2, 0, 2);
             case CardId.Farmer:
                 return new EnemyCard(CardId.Farmer, 'Master Farmer', 'Cor blimey mate, what are ye doing in me pockets?', 'farmer.svg', 9, 2, 1, 1, 4);
             case CardId.LandMine:
@@ -121,6 +121,8 @@ export class CardRepository {
                 return new EnemyCard(CardId.Skeleton, 'Skeleton', 'Very spooky but moderately scary', 'skeleton.svg', 8, 1, 2, 1, 4);
             case CardId.SkeletonKing:
                 return new NecromancerCard(CardId.SkeletonKing, 'Skeleton King', 'Has the power to raise skeletons from the dead', 'skeleton-king.svg', 20, 5, 1, 3, CardId.Skeleton);
+            case CardId.Troll:
+                return new EnemyCard(CardId.Troll, 'Troll', 'It does not smell good', 'troll.svg', 6, 2, 2, 2, 5);
 
             // Tools
             case CardId.BronzeAxe:

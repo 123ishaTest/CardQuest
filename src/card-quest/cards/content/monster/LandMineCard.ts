@@ -5,7 +5,7 @@ import {Adventure} from "@/card-quest/adventure/Adventure";
 export class LandMineCard extends EnemyCard {
 
     constructor(id: CardId, title: string, image: string, reward: number, countDown: number) {
-        super(id, title, `Explodes when tapped\nGain ${reward} souls when it disarms itself`, image, Infinity, reward, 10, 0, countDown);
+        super(id, title, `Explodes when tapped. Self-destructs.`, image, Infinity, reward, 10, 0, countDown);
     }
 
 

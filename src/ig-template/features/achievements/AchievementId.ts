@@ -8,5 +8,6 @@ export enum AchievementId {
     FirstLevelCompleted = "first-level-completed",
     WizardLevelCompleted = "farm-level-completed",
     FarmLevelCompleted = "wizard-level-completed",
+    TrollLevelCompleted = "troll-level-completed",
     NecromancerLevelCompleted = "necromancer-level-completed",
 }

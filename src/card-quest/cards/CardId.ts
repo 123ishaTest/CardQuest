@@ -49,6 +49,7 @@ export enum CardId {
     LandMine,
     Skeleton,
     SkeletonKing,
+    Troll,
 
     // Tools
     BronzeAxe,
