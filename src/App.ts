@@ -166,7 +166,7 @@ export class App {
         game.features.collection.gainCard(CardId.SmallGrain, 4);
         game.features.collection.gainCard(CardId.BasicSword, 1);
         game.features.collection.gainCard(CardId.BronzeSword, 1);
-        game.features.collection.gainCard(CardId.Chicken, 5);
+        game.features.collection.gainCard(CardId.Chicken, 1);
         game.features.collection.gainCard(CardId.FreezeMonstersSmall, 1);
         game.features.collection.gainCard(CardId.InstantDamagePlayerSmall, 1);
         game.features.collection.gainCard(CardId.Draw3Card, 3);
