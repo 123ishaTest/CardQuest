@@ -29,6 +29,9 @@
         <igt-achievements :achievements-feature="game.features.achievements"></igt-achievements>
       </igt-tab>
 
+      <igt-tab name="Level Editor">
+        <cq-level-editor :editor="game.features.editor"></cq-level-editor>
+      </igt-tab>
 
       <igt-tab name="Settings">
         <igt-settings :settings="game.features.settings"></igt-settings>
@@ -74,9 +77,11 @@ import IgtSettings from "@/components/settings/igt-settings";
 import IgtModal from "@/components/util/igt-card-reveal-modal";
 import CqHowToPlay from "@/components/cq-how-to-play";
 import CqAutomation from "@/components/cq-automation";
+import CqLevelEditor from "@/components/cq-level-editor";
 
 export default {
   components: {
+    CqLevelEditor,
     CqAutomation,
     CqHowToPlay,
     IgtModal,

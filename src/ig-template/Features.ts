@@ -6,6 +6,7 @@ import {CardCollection} from "@/card-quest/features/card-collection/CardCollecti
 import {SuperPowers} from "@/card-quest/adventure/super-powers/SuperPowers";
 import {Achievements} from "@/ig-template/features/achievements/Achievements";
 import {Automation} from "@/card-quest/features/automation/Automation";
+import {LevelEditor} from "@/card-quest/features/level-editor/LevelEditor";
 
 export interface Features {
     wallet: Wallet;
@@ -13,6 +14,7 @@ export interface Features {
     statistics: Statistics;
     adventure: Adventure;
     automation: Automation;
+    editor: LevelEditor;
     collection: CardCollection;
     superPowers: SuperPowers;
     achievements: Achievements;

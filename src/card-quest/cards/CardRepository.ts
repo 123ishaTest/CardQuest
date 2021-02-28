@@ -160,6 +160,12 @@ export class CardRepository {
         return EnumHelpers.getValues(CardId);
     }
 
+    public static getAllCards(): PlayableCard[] {
+        return this.getAllCardsIds().map(id => {
+            return this.getCard(id);
+        })
+    }
+
     public static getCardCount(): number {
         return this.getAllCardsIds().length;
     }

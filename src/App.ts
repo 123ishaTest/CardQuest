@@ -13,6 +13,7 @@ import {SuperPowers} from "@/card-quest/adventure/super-powers/SuperPowers";
 import {Achievements} from "@/ig-template/features/achievements/Achievements";
 import {Automation} from "@/card-quest/features/automation/Automation";
 import {Currency} from "@/ig-template/features/wallet/Currency";
+import {LevelEditor} from "@/card-quest/features/level-editor/LevelEditor";
 
 export class App {
 
@@ -123,6 +124,7 @@ export class App {
                             new Outcome<CardId>(CardId.Chicken, 1),
                         ])
                 ]),
+                editor: new LevelEditor(),
                 superPowers: new SuperPowers(),
                 achievements: new Achievements(),
             }
