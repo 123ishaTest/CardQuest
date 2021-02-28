@@ -22,6 +22,9 @@
       </div>
     </div>
     <button class="btn btn-green" @click="goOnCustomAdventure">Go on custom adventure!</button>
+    <button class="btn btn-blue" @click="exportLevel">Export Level</button>
+    <button class="btn btn-green" @click="importLevel">Import Level</button>
+    <button class="btn btn-red" @click="resetToDefault">Reset to default</button>
   </div>
 </template>
 
@@ -30,6 +33,7 @@
 import {App} from "@/App.ts";
 import {LevelEditor} from "@/card-quest/features/level-editor/LevelEditor";
 import {CardRepository} from "@/card-quest/cards/CardRepository";
+import {CardType} from "@/card-quest/cards/CardType";
 
 export default {
   name: "cq-level-editor",
@@ -48,11 +52,25 @@ export default {
         App.game.goOnCustomAdventure(level);
         document.getElementById('adventure-tab-button').click();
       }
+    },
+    exportLevel() {
+      alert(this.editor.toLevelString());
+    },
+    resetToDefault() {
+      this.editor.resetToDefault();
+    },
+    importLevel() {
+      const string = prompt("Enter the level code")
+      if (string) {
+        this.editor.fromLevelString(string);
+      }
     }
   },
   computed: {
     availableCards() {
-      return CardRepository.getAllCards()
+      return CardRepository.getAllCards().filter(card => {
+        return card.cardType === CardType.Monster || card.cardType === CardType.Curse
+      })
     },
     currentCards() {
       return this.editor.currentCards;

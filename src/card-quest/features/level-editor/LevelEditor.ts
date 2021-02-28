@@ -14,6 +14,7 @@ export class LevelEditor extends Feature {
 
     currentCards: [number, CardId][];
 
+    private readonly MAX_SIZE = 10;
 
     constructor() {
         super('level-editor');
@@ -21,18 +22,51 @@ export class LevelEditor extends Feature {
         this.name = '';
         this.description = '';
 
-        for (let i = 0; i < 10; i++) {
-            this.currentCards.push([(i + 1) * 5, -1 as CardId]);
+        this.currentCards = [];
+        this.resetToDefault()
+    }
+
+    resetToDefault() {
+        this.currentCards = [];
+        for (let i = 0; i < this.MAX_SIZE; i++) {
+            this.currentCards.push([0, -1 as CardId]);
         }
+    }
+
+    toLevelString(): string {
+        return this.getCleanLevel().map(entry => {
+            return `${entry[0]}:${entry[1]}`;
+        }).join(".");
+    }
+
+    fromLevelString(levelString: string) {
+        const split = levelString.split(".");
+        const cards = split.map(entry => {
+            const test = entry.split(":");
+            const turn = parseInt(test[0]);
+            const card = parseInt(test[1]);
+            return [turn, card]
+        })
+
+        for (let i = 0; i < this.MAX_SIZE; i++) {
+            if(cards[i]) {
+                this.currentCards.splice(i, 1, [cards[i][0], cards[i][1]]);
+            }
+        }
+
+    }
+
+    getCleanLevel() {
+        return this.currentCards.filter(entry => {
+            return entry[0] > 0 && entry[1] !== -1;
+        }).sort(function (a, b) {
+            return a[0] - b[0];
+        })
     }
 
     getLevel(): Level | null {
         try {
-            const cards = this.currentCards.filter(entry => {
-                return entry[0] > 0 && entry[1] !== -1;
-            }).sort(function (a, b) {
-                return a[0] - b[0];
-            }).map(entry => {
+            const cards = this.getCleanLevel().map(entry => {
                 return [entry[0], CardRepository.getCard(entry[1])] as [number, PlayableCard];
             })
             return new Level(
