@@ -75,11 +75,11 @@ export class Achievements extends Feature {
         this.registerAchievement(
             new Achievement(AchievementId.Played100Curses,
                 "Why, just why?",
-                'Play 100 Curse cards',
+                'Use a curse on yourself',
                 'cards/troll.svg',
                 new ArrayStatisticRequirement(features.statistics.getStatistic(StatisticId.CardsPlayedPerType) as ArrayStatistic,
                     CardType.Curse,
-                    100
+                    1
                 )
             )
         );
