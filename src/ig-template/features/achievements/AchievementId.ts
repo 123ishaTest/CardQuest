@@ -13,4 +13,9 @@ export enum AchievementId {
     SpiderLevelCompleted = "spider-level-completed",
     TrollLevelCompleted = "troll-level-completed",
     NecromancerLevelCompleted = "necromancer-level-completed",
+    Played100Resources = "played-100-resources",
+    Played100Monsters = "played-100-monsters",
+    Played100Actions = "played-100-actions",
+    Played100Curses = "played-100-curses",
+    Played100Tools = "played-100-tools",
 }

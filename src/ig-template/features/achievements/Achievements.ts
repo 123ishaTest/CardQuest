@@ -12,6 +12,7 @@ import {CustomAchievement} from "@/ig-template/features/achievements/CustomAchie
 import {NumberStatisticRequirement} from "@/ig-template/features/statistics/requirements/NumberStatisticRequirement";
 import {NumberStatistic} from "@/ig-template/features/statistics/NumberStatistic";
 import {LevelId} from "@/card-quest/adventure/LevelId";
+import {CardType} from "@/card-quest/cards/CardType";
 
 export class Achievements extends Feature {
     name: string = "Achievements";
@@ -38,6 +39,63 @@ export class Achievements extends Feature {
     }
 
     initialize(features: Features): void {
+        this.registerAchievement(
+            new Achievement(AchievementId.Played100Resources,
+                "As far as the eye can see",
+                'Play 100 Resource cards',
+                'cards/forest.svg',
+                new ArrayStatisticRequirement(features.statistics.getStatistic(StatisticId.CardsPlayedPerType) as ArrayStatistic,
+                    CardType.Resource,
+                    100
+                )
+            )
+        );
+        this.registerAchievement(
+            new Achievement(AchievementId.Played100Actions,
+                "So many souls wasted",
+                'Play 100 Action cards',
+                'orbs/souls.svg',
+                new ArrayStatisticRequirement(features.statistics.getStatistic(StatisticId.CardsPlayedPerType) as ArrayStatistic,
+                    CardType.Action,
+                    100
+                )
+            )
+        );
+        this.registerAchievement(
+            new Achievement(AchievementId.Played100Tools,
+                "Isn't it Iron Pick?",
+                'Play 100 Tool cards',
+                'cards/pickaxe-gold.svg',
+                new ArrayStatisticRequirement(features.statistics.getStatistic(StatisticId.CardsPlayedPerType) as ArrayStatistic,
+                    CardType.Tool,
+                    100
+                )
+            )
+        );
+        this.registerAchievement(
+            new Achievement(AchievementId.Played100Curses,
+                "Why, just why?",
+                'Play 100 Curse cards',
+                'cards/troll.svg',
+                new ArrayStatisticRequirement(features.statistics.getStatistic(StatisticId.CardsPlayedPerType) as ArrayStatistic,
+                    CardType.Curse,
+                    100
+                )
+            )
+        );
+
+        this.registerAchievement(
+            new Achievement(AchievementId.Played100Monsters,
+                "Straight to the slaughter",
+                'Play 100 Monster cards',
+                'cards/chicken.svg',
+                new ArrayStatisticRequirement(features.statistics.getStatistic(StatisticId.CardsPlayedPerType) as ArrayStatistic,
+                    CardType.Monster,
+                    100
+                )
+            )
+        );
+
         this.registerAchievement(
             new Achievement(AchievementId.PlayedGobletOfFire,
                 "Dumbledore asked calmly",

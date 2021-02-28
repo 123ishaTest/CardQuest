@@ -27,6 +27,7 @@ import {RodOfAsclepiusCard} from "@/card-quest/cards/content/action/RodOfAsclepi
 import {SacrificeHandCard} from "@/card-quest/cards/content/action/SacrificeHandCard";
 import {InstantDamagePlayerCard} from "@/card-quest/cards/content/action/InstantDamagePlayerCard";
 import {FreezeMonstersCard} from "@/card-quest/cards/content/action/FreezeMonstersCard";
+import {CardType} from "@/card-quest/cards/CardType";
 
 export class CardRepository {
 
@@ -174,6 +175,10 @@ export class CardRepository {
 
     public static getAllCardsIds(): CardId[] {
         return EnumHelpers.getValues(CardId);
+    }
+
+    public static getCardTypeCount() {
+        return EnumHelpers.getValues(CardType).length;
     }
 
     public static getAllCards(): PlayableCard[] {

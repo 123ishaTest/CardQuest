@@ -3,4 +3,5 @@ export enum StatisticId {
     CardsPlayed = "cards-played",
     CardsPlayedByLevel = "cards-played-by-level",
     LevelsCompleted = "levels-completed",
+    CardsPlayedPerType = "cards-played-by-type",
 }
