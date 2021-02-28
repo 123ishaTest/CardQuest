@@ -54,7 +54,7 @@ export class CardRepository {
 
             // Healing
             case CardId.Bread:
-                return new HealingCard(CardId.Bread, 'Bread', 'Heal 5 hitpoints', 'bread.svg', 5).setCosts([new Currency(2, CurrencyType.Grain)]);
+                return new HealingCard(CardId.Bread, 'Bread', 'Heal 10 hitpoints', 'bread.svg', 10).setCosts([new Currency(3, CurrencyType.Grain)]);
             case CardId.ChaliceSmall:
                 return new HealingCard(CardId.ChaliceSmall, 'Goblet of Energy', 'Heal 5 hitpoints', 'chalice-yellow.svg', 5).setCosts([new Currency(3, CurrencyType.Souls)])
             case CardId.ChaliceMedium:
