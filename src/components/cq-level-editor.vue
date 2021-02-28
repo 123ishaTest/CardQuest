@@ -43,8 +43,11 @@ export default {
 
   methods: {
     goOnCustomAdventure() {
-      App.game.goOnCustomAdventure(this.editor.getLevel());
-      document.getElementById('adventure-tab-button').click();
+      const level = this.editor.getLevel();
+      if (level) {
+        App.game.goOnCustomAdventure(level);
+        document.getElementById('adventure-tab-button').click();
+      }
     }
   },
   computed: {

@@ -30,6 +30,8 @@ export class LevelEditor extends Feature {
         try {
             const cards = this.currentCards.filter(entry => {
                 return entry[0] > 0 && entry[1] !== -1;
+            }).sort(function (a, b) {
+                return a[0] - b[0];
             }).map(entry => {
                 return [entry[0], CardRepository.getCard(entry[1])] as [number, PlayableCard];
             })
@@ -45,7 +47,6 @@ export class LevelEditor extends Feature {
         } catch (e) {
             return null
         }
-
     }
 
 
