@@ -2,7 +2,7 @@
   <div class="feature-tab">
     <cq-super-powers :powers="superPowers"></cq-super-powers>
 
-    <p v-if="!hasEnoughCards" class="text-2xl font-semibold text-red-400">You need at least {{ game.MINIMUM_DECK_SIZE }}
+    <p v-if="!hasEnoughCards" class="text-2xl font-semibold text-red-400">You need at least {{ game.features.collection.MIN_DECK_SIZE }}
       cards in your deck to start a level</p>
     <p v-if="!deckIsValid" class="text-2xl font-semibold text-red-400">
       Your current deck is invalid. Have you imported a deck with cards you do not have?

@@ -34,8 +34,6 @@ export class Game {
     private gameSpeed = 1;
     private _lastUpdate: number = 0;
 
-    readonly MINIMUM_DECK_SIZE = 15;
-
     /**
      * Emitted whenever the game saves
      */
@@ -143,7 +141,7 @@ export class Game {
     }
 
     public hasEnoughCards(): boolean {
-        return this.features.collection.currentDeck.getSize() >= this.MINIMUM_DECK_SIZE
+        return this.features.collection.hasEnoughCards();
     }
 
     public deckIsValid(): boolean {
