@@ -14,11 +14,11 @@ export class LevelRepository {
     public static getLevel(id: LevelId): Level {
         switch (id) {
             case LevelId.TutorialLevel:
-                return new Level(LevelId.TutorialLevel, 'Chicken Coop', 'A good place to start',
+                return new Level(LevelId.TutorialLevel, 'The Cellar', 'A good place to start',
                     CardPackId.BeginnerPack,
                     50, [
-                        [15, CardRepository.getCard(CardId.Chicken)],
-                        [30, CardRepository.getCard(CardId.Chicken)],
+                        [15, CardRepository.getCard(CardId.Rat)],
+                        [30, CardRepository.getCard(CardId.Rat)],
                     ],
                     new NoRequirement(),
                 );

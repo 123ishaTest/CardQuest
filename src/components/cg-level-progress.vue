@@ -1,5 +1,8 @@
 <template>
   <div class="p-4">
+    <div v-if="level.id === 0 && showCurrentTurn" class="bg-red-300 p-4">
+      Here you can see the cards that the enemy will play next. Prepare yourself!
+    </div>
     <p v-if=showCurrentTurn class="text-lg text-white">Turn {{ currentTurn }}</p>
     <hr/>
     <div class="flex flex-col">

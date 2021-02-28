@@ -122,6 +122,8 @@ export class CardRepository {
                 return new WeaponCard(CardId.VikingShield, 'Viking Shield', 'Very good at blocking, but renders you unable to attack', 'shield-viking.svg', new Weapon('Viking Shield', 0, 5)).setCosts([new Currency(2, CurrencyType.Wood), new Currency(2, CurrencyType.Silver)])
 
             // Monsters
+            case CardId.Rat:
+                return new EnemyCard(CardId.Rat, 'Rat', 'When the counter reaches 0, it attacks.', 'rat.svg', 2, 1, 1, 0, 3);
             case CardId.Chicken:
                 return new EnemyCard(CardId.Chicken, 'Chicken', 'Cluck cluck.', 'chicken.svg', 2, 1, 1, 0, 3);
             case CardId.Cow:

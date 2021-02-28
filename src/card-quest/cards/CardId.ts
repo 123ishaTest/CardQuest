@@ -49,6 +49,7 @@ export enum CardId {
 
 
     // Monsters
+    Rat,
     Chicken,
     Cow,
     Pig,
