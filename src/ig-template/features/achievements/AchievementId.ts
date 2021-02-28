@@ -6,6 +6,7 @@ export enum AchievementId {
     AllSuperPowers = "all-super-powers",
     TotalMoney100 = "100-total-money",
     TotalMoney1000 = "1000-total-money",
+    TotalMoney10000 = "10000-total-money",
     FirstLevelCompleted = "first-level-completed",
     WizardLevelCompleted = "farm-level-completed",
     FarmLevelCompleted = "wizard-level-completed",

@@ -108,7 +108,7 @@ export class Achievements extends Feature {
             )
         );
         this.registerAchievement(
-            new Achievement(AchievementId.PlayedGobletOfFire,
+            new Achievement(AchievementId.PlayedFrozen2,
                 "Just let it go",
                 'Play the Frozen 2 Blast card',
                 'cards/freeze-purple.svg',
@@ -153,6 +153,14 @@ export class Achievements extends Feature {
             ),
         );
         this.registerAchievement(
+            new Achievement(AchievementId.TotalMoney10000,
+                "This is where the fun begins",
+                'Gain 10000 money in total',
+                'coins.svg',
+                new NumberStatisticRequirement(features.statistics.getStatistic(StatisticId.TotalMoneyGained) as NumberStatistic, 10000),
+            ),
+        );
+        this.registerAchievement(
             new Achievement(AchievementId.FirstLevelCompleted,
                 "Nobody — calls me — chicken.",
                 'Complete the first level',
@@ -177,7 +185,7 @@ export class Achievements extends Feature {
             ),
         );
         this.registerAchievement(
-            new Achievement(AchievementId.FarmLevelCompleted,
+            new Achievement(AchievementId.TrollLevelCompleted,
                 "And it wasn't even in the dungeon...",
                 'Complete the The Troll level',
                 'cards/troll.svg',
