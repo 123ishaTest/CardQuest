@@ -71,7 +71,8 @@ export class Statistics extends Feature {
         }
         const statistic = this.list[id];
         if (statistic instanceof ArrayStatistic) {
-            statistic.value[index] += amount;
+            const newValue = statistic.value[index] + amount;
+            statistic.value.splice(index, 1, newValue)
         }
     }
 
