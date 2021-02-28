@@ -192,13 +192,13 @@ export class CardCollection extends Feature {
     }
 
     load(data: CardCollectionSaveData): void {
-        const cards = data.cards;
+        const cards = data.cards ?? [];
         for (const card of cards) {
             this.cards[card.id] = card.amount;
         }
 
         this.deckPresets = [];
-        if (data.presets?.length == 0) {
+        if (!data.presets || data.presets.length == 0) {
             this.deckPresets.push(new DeckPreset('First Deck', ''));
         } else {
             for (const preset of data.presets) {
