@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-row p-2 items-center">
     <cq-orb title="When this reaches 0, you are defeated" class="m-2" svg="heart.svg" :value="health"></cq-orb>
-    <p>{{ stats.activeWeapon.name }}</p>
+    <p class="text-white font-semibold">{{ stats.activeWeapon.name }}</p>
     <cq-orb :title="'You have ' + attack +' attack and ' + defense + ' defense'" class="m-2" svg="sword.svg" :value="attack +'/' + defense"></cq-orb>
     <img class="m-2 w-12 h-12" :title="ToolTier[stats.activeAxe] + ' Axe'"
          :src="require(`@/assets/cards/hatchet-${ToolTier[stats.activeAxe].toLowerCase()}.svg`)">
