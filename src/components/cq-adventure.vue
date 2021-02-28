@@ -10,7 +10,7 @@
         <div v-if="adventure.level.id === 0" class="bg-red-300 p-4">
           The field, monsters here will attack you. Click on a monster to attack it! Click on a resource to gather it!
         </div>
-        <div class="h-96 shadow-lg bg-cq-charcoal p-4 flex flex-row items-center">
+        <div class="h-80 shadow-lg bg-cq-charcoal p-4 flex flex-row items-center">
           <div class="flex flex-row">
             <div :key="'field-' + card.id + '-' + index"
                  v-for="(card, index) in field">
@@ -24,7 +24,7 @@
         <div v-if="adventure.level.id === 0" class="bg-red-300 p-4">
           Your hand, click on a card to play it. Shift+click to discard.
         </div>
-        <div class="h-96 shadow-lg bg-cq-charcoal p-4 flex flex-row items-center">
+        <div class="h-80 shadow-lg bg-cq-charcoal p-4 flex flex-row items-center">
           <div class="flex flex-row">
             <cq-card :is-in-hand="true"
                      :can-afford="card.canAfford(adventure.wallet)"
