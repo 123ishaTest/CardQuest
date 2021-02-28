@@ -123,7 +123,16 @@ export class App {
                             new Outcome<CardId>(CardId.LandMine, 0.5),
                             new Outcome<CardId>(CardId.Farmer, 1),
                             new Outcome<CardId>(CardId.Chicken, 1),
-                        ])
+                        ]),
+                    new CardPack(CardPackId.Legendary,
+                        new Currency(1000, CurrencyType.Money),
+                        true,
+                        [
+                            new Outcome<CardId>(CardId.VikingShield, 1),
+                            new Outcome<CardId>(CardId.SacrificeHand, 1),
+                            new Outcome<CardId>(CardId.ChaliceMedium, 1),
+                            new Outcome<CardId>(CardId.ChaliceLarge, 1),
+                        ]),
                 ]),
                 editor: new LevelEditor(),
                 superPowers: new SuperPowers(),

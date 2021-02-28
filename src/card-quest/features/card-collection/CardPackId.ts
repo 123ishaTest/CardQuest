@@ -6,4 +6,5 @@ export enum CardPackId {
     FarmPack = 'Farm Pack',
     ActionCardPack = 'Action Card Pack',
     MonsterPack = 'Monster Pack',
+    Legendary = "Legendary Pack"
 }
