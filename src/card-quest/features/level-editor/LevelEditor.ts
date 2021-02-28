@@ -44,7 +44,7 @@ export class LevelEditor extends Feature {
         const cards = split.map(entry => {
             const test = entry.split(":");
             const turn = parseInt(test[0]) || 0;
-            const card = parseInt(test[1]) || 0;
+            const card = parseInt(test[1]) || -1;
             return [turn, card]
         })
 
