@@ -85,7 +85,7 @@ export class Achievements extends Feature {
         );
         this.registerAchievement(
             new Achievement(AchievementId.FirstLevelCompleted,
-                "That chicken didn't stand a chance",
+                "Nobody — calls me — chicken.",
                 'Complete the first level',
                 'cards/chicken.svg',
                 new ArrayStatisticRequirement(features.statistics.getStatistic(StatisticId.LevelsCompleted) as ArrayStatistic, LevelId.TutorialLevel, 1),
@@ -121,6 +121,14 @@ export class Achievements extends Feature {
                 'Complete the The Wizard level',
                 'cards/bread.svg',
                 new ArrayStatisticRequirement(features.statistics.getStatistic(StatisticId.LevelsCompleted) as ArrayStatistic, LevelId.TheWizard, 1),
+            ),
+        );
+        this.registerAchievement(
+            new Achievement(AchievementId.DragonLevelCompleted,
+                "She wasn't a big negotiator",
+                'Complete the Dragons Den',
+                'cards/dragon.svg',
+                new ArrayStatisticRequirement(features.statistics.getStatistic(StatisticId.LevelsCompleted) as ArrayStatistic, LevelId.TheDragon, 1),
             ),
         );
         this.registerAchievement(

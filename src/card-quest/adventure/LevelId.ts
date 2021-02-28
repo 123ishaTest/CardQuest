@@ -4,5 +4,6 @@ export enum LevelId {
     SpidersDen,
     TheWizard,
     TheTroll,
+    TheDragon,
     TheNecromancer,
 }

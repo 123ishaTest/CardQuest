@@ -57,6 +57,22 @@ export class LevelRepository {
                     ],
                     new LevelRequirement(App.game.features.statistics.getStatistic(StatisticId.LevelsCompleted) as ArrayStatistic, LevelId.TheFarm, 1)
                 );
+            case LevelId.TheDragon:
+                return new Level(LevelId.TheDragon, 'Dragons Den', 'Can you defeat the Green Eyes Red Dragon?',
+                    CardPackId.GoldTierPack,
+                    400, [
+                        [5, CardRepository.getCard(CardId.Chicken)],
+                        [30, CardRepository.getCard(CardId.ForestFire)],
+                        [32, CardRepository.getCard(CardId.Dragon)],
+                        [40, CardRepository.getCard(CardId.Skeleton)],
+                        [50, CardRepository.getCard(CardId.InstantDamageMedium)],
+                        [60, CardRepository.getCard(CardId.Skeleton)],
+                        [61, CardRepository.getCard(CardId.RodOfAsclepius)],
+                        [70, CardRepository.getCard(CardId.InstantDamageLarge)],
+                    ],
+                    new LevelRequirement(App.game.features.statistics.getStatistic(StatisticId.LevelsCompleted) as ArrayStatistic, LevelId.TheWizard, 1)
+                );
+
             case LevelId.TheTroll:
                 return new Level(LevelId.TheTroll, 'The Troll', 'Prepare yourself for nonsense about to be thrown your way',
                     CardPackId.ActionCardPack,
@@ -77,7 +93,7 @@ export class LevelRepository {
                 );
             case LevelId.TheNecromancer:
                 return new Level(LevelId.TheNecromancer, 'The Necromancer', 'Has the ability to raise enemies from the dead',
-                    CardPackId.GoldTierPack,
+                    CardPackId.Legendary,
                     600, [
                         [5, CardRepository.getCard(CardId.Skeleton)],
                         [10, CardRepository.getCard(CardId.LandMine)],
@@ -87,7 +103,7 @@ export class LevelRepository {
                         [31, CardRepository.getCard(CardId.SkeletonKing)],
                         [33, CardRepository.getCard(CardId.InstantDamageMedium)],
                     ],
-                    new LevelRequirement(App.game.features.statistics.getStatistic(StatisticId.LevelsCompleted) as ArrayStatistic, LevelId.TheTroll, 1)
+                    new LevelRequirement(App.game.features.statistics.getStatistic(StatisticId.LevelsCompleted) as ArrayStatistic, LevelId.TheDragon, 1)
                 )
             default:
                 throw new Error(`Level with id ${id} not found.`)

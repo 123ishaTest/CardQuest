@@ -52,6 +52,7 @@ export enum CardId {
     Troll,
     Spider,
     Spiderling,
+    Dragon ,
 
     // Tools
     BronzeAxe,
