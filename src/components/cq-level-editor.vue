@@ -26,7 +26,7 @@
 
       </div>
     </div>
-    <button class="btn btn-green" @click="goOnCustomAdventure">Go on custom adventure!</button>
+    <button class="btn btn-green" @click="goOnCustomAdventure">Play custom level</button>
     <button class="btn btn-blue" @click="exportLevel">Export Level</button>
     <button class="btn btn-green" @click="importLevel">Import Level</button>
     <button class="btn btn-red" @click="resetToDefault">Reset to default</button>
