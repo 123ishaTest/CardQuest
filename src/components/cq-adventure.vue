@@ -10,12 +10,15 @@
         <div v-if="adventure.level.id === 0" class="bg-red-300 p-4">
           The field, monsters here will attack you. Click on a monster to attack it! Click on a resource to gather it!
         </div>
-        <div class="h-80 shadow-lg bg-cq-charcoal p-4 flex flex-row items-center">
-          <div class="flex flex-row">
-            <div :key="'field-' + card.id + '-' + index"
-                 v-for="(card, index) in field">
-              <cq-card-placeholder v-if="card.id === -1"></cq-card-placeholder>
-              <cq-card v-else :card=card :is-in-hand="false" @click.native="tap(index)"/>
+        <div class="overflow-x-auto bg-cq-charcoal">
+
+          <div class="h-80 shadow-lg p-4 flex flex-row items-center">
+            <div class="flex flex-row">
+              <div :key="'field-' + card.id + '-' + index"
+                   v-for="(card, index) in field">
+                <cq-card-placeholder v-if="card.id === -1"></cq-card-placeholder>
+                <cq-card v-else :card=card :is-in-hand="false" @click.native="tap(index)"/>
+              </div>
             </div>
           </div>
         </div>
@@ -24,29 +27,31 @@
         <div v-if="adventure.level.id === 0" class="bg-red-300 p-4">
           Your hand, click on a card to play it. Shift+click to discard.
         </div>
-        <div class="h-80 shadow-lg bg-cq-charcoal p-4 flex flex-row items-center">
-          <div class="flex flex-row">
-            <cq-card :is-in-hand="true"
-                     :can-afford="card.canAfford(adventure.wallet)"
-                     :is-disabled="!card.canPlay(adventure) || !card.canAfford(adventure.wallet)"
-                     @click.native="play(index, $event)" :card=card
-                     :key="'hand-' + card.id + '-' + index"
-                     v-for="(card, index) in hand"
-                     :class="{'invisible': card.id === -1}"/>
+        <div class="overflow-x-auto bg-cq-charcoal">
+          <div class="h-80 h-full shadow-lg p-4 flex flex-row items-center">
+            <div class="flex flex-row">
+              <cq-card :is-in-hand="true"
+                       :can-afford="card.canAfford(adventure.wallet)"
+                       :is-disabled="!card.canPlay(adventure) || !card.canAfford(adventure.wallet)"
+                       @click.native="play(index, $event)" :card=card
+                       :key="'hand-' + card.id + '-' + index"
+                       v-for="(card, index) in hand"
+                       :class="{'invisible': card.id === -1}"/>
+            </div>
           </div>
         </div>
 
         <div class="flex flex-row items-center">
-        <button class="btn btn-green" @click="draw" :disabled="!canDraw">
-          <span>Draw (D) ({{ deckSize }})</span>
-        </button>
-        <button class="btn btn-blue" @click="wait">Wait (W)</button>
-        <button class="btn btn-red" @click="forfeit">Forfeit (Q)</button>
-        <div class="flex flex-row items-center" v-if="automation.canAccess()">
-          <input class="input-primary w-4 h-4" v-model="automation.isActive" type="checkbox"/>
-          <p class="text-lg font-semibold ml-2" :class="automation.isActive ? 'text-green-500' : 'text-red-500'">
-            Automation {{ automation.isActive ? 'Active' : 'Inactive' }}</p>
-        </div>
+          <button class="btn btn-green" @click="draw" :disabled="!canDraw">
+            <span>Draw (D) ({{ deckSize }})</span>
+          </button>
+          <button class="btn btn-blue" @click="wait">Wait (W)</button>
+          <button class="btn btn-red" @click="forfeit">Forfeit (Q)</button>
+          <div class="flex flex-row items-center" v-if="automation.canAccess()">
+            <input class="input-primary w-4 h-4" v-model="automation.isActive" type="checkbox"/>
+            <p class="text-lg font-semibold ml-2" :class="automation.isActive ? 'text-green-500' : 'text-red-500'">
+              Automation {{ automation.isActive ? 'Active' : 'Inactive' }}</p>
+          </div>
         </div>
 
       </div>
