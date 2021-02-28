@@ -25,6 +25,7 @@ import {DiscardHand} from "@/card-quest/cards/content/action/DiscardHand";
 import {NecromancerCard} from "@/card-quest/cards/content/monster/NecromancerCard";
 import {RodOfAsclepiusCard} from "@/card-quest/cards/content/action/RodOfAsclepiusCard";
 import {SacrificeHandCard} from "@/card-quest/cards/content/action/SacrificeHandCard";
+import {InstantDamagePlayerCard} from "@/card-quest/cards/content/action/InstantDamagePlayerCard";
 
 export class CardRepository {
 
@@ -75,6 +76,13 @@ export class CardRepository {
                 return new LoseTurnsCard(CardId.LoseTurnsMedium, 'hourglass-red.svg', 10).setCosts([new Currency(2, CurrencyType.Souls)])
             case CardId.LoseTurnsLarge:
                 return new LoseTurnsCard(CardId.LoseTurnsLarge, 'hourglass-purple.svg', 15).setCosts([new Currency(3, CurrencyType.Souls)])
+
+            case CardId.InstantDamagePlayerSmall:
+                return new InstantDamagePlayerCard(CardId.InstantDamagePlayerSmall, 'Energy Strike', 'strike-yellow.svg', 3).setCosts([new Currency(3, CurrencyType.Souls)])
+            case CardId.InstantDamagePlayerMedium:
+                return new InstantDamagePlayerCard(CardId.InstantDamagePlayerMedium, 'Fire Strike', 'strike-red.svg', 5).setCosts([new Currency(4, CurrencyType.Souls)])
+            case CardId.InstantDamagePlayerLarge:
+                return new InstantDamagePlayerCard(CardId.InstantDamagePlayerLarge, 'Mystic Strike', 'strike-purple.svg', 7).setCosts([new Currency(5, CurrencyType.Souls)])
 
             // Curses
             case CardId.InstantDamageSmall:

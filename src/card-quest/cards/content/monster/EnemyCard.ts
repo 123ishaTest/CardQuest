@@ -43,7 +43,6 @@ export class EnemyCard extends HealthCard {
         const attack = adventure.playerStats.getAttack();
         const damage = attack - this.defense;
         this.takeDamage(damage);
-
     }
 
     turnHasPassed(adventure: Adventure): void {

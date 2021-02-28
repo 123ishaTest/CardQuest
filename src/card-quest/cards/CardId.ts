@@ -24,6 +24,10 @@ export enum CardId {
     LoseTurnsMedium,
     LoseTurnsLarge,
 
+    InstantDamagePlayerSmall,
+    InstantDamagePlayerMedium,
+    InstantDamagePlayerLarge,
+
     // Curses
     InstantDamageSmall,
     InstantDamageMedium,
