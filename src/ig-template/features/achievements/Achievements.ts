@@ -100,6 +100,14 @@ export class Achievements extends Feature {
             ),
         );
         this.registerAchievement(
+            new Achievement(AchievementId.SpiderLevelCompleted,
+                "Poor Aragog",
+                'Complete the The Spiders Den',
+                'cards/spider-large.svg',
+                new ArrayStatisticRequirement(features.statistics.getStatistic(StatisticId.LevelsCompleted) as ArrayStatistic, LevelId.SpidersDen, 1),
+            ),
+        );
+        this.registerAchievement(
             new Achievement(AchievementId.FarmLevelCompleted,
                 "And it wasn't even in the dungeon...",
                 'Complete the The Troll level',

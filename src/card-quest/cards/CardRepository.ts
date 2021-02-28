@@ -123,6 +123,10 @@ export class CardRepository {
                 return new NecromancerCard(CardId.SkeletonKing, 'Skeleton King', 'Has the power to raise skeletons from the dead', 'skeleton-king.svg', 20, 5, 1, 3, CardId.Skeleton);
             case CardId.Troll:
                 return new EnemyCard(CardId.Troll, 'Troll', 'It does not smell good', 'troll.svg', 6, 2, 2, 2, 5);
+            case CardId.Spider:
+                return new NecromancerCard(CardId.Spider, 'Spider', 'Kill it before it gives birth to spiderlings!', 'spider-large.svg', 20, 3, 0, 5, CardId.Spiderling);
+            case CardId.Spiderling:
+                return new EnemyCard(CardId.Spiderling, 'Spiderling', 'It looks kind of cute.', 'spider-small.svg', 3, 0, 2, 0, 3);
 
             // Tools
             case CardId.BronzeAxe:

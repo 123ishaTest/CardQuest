@@ -50,6 +50,8 @@ export enum CardId {
     Skeleton,
     SkeletonKing,
     Troll,
+    Spider,
+    Spiderling,
 
     // Tools
     BronzeAxe,

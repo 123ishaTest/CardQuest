@@ -24,6 +24,9 @@ export class CardCollection extends Feature {
     // The max amount you can have of a single card
     public readonly MAX_CARD_AMOUNT = 10;
 
+    // The min amount of cards needed to start
+    public readonly MIN_DECK_SIZE = 15;
+
     private _onCardsGain = new SimpleEventDispatcher<PlayableCard[]>();
     private _wallet: Wallet;
 
@@ -96,6 +99,10 @@ export class CardCollection extends Feature {
         return this.cardPacks.find(pack => {
             return pack.id === id;
         })
+    }
+
+    public hasEnoughCards(): boolean {
+        return this.currentDeck.getSize() >= this.MIN_DECK_SIZE;
     }
 
     public currentDeckIsValid() {

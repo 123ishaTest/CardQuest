@@ -14,10 +14,11 @@ export class LevelRepository {
     public static getLevel(id: LevelId): Level {
         switch (id) {
             case LevelId.TutorialLevel:
-                return new Level(LevelId.TutorialLevel, 'The Docks', 'A good place to start',
+                return new Level(LevelId.TutorialLevel, 'Chicken Coop', 'A good place to start',
                     CardPackId.BeginnerPack,
                     50, [
-                        [20, CardRepository.getCard(CardId.Chicken)],
+                        [15, CardRepository.getCard(CardId.Chicken)],
+                        [30, CardRepository.getCard(CardId.Chicken)],
                     ],
                     new NoRequirement(),
                 );
@@ -33,6 +34,15 @@ export class LevelRepository {
                     ],
                     new LevelRequirement(App.game.features.statistics.getStatistic(StatisticId.LevelsCompleted) as ArrayStatistic, LevelId.TutorialLevel, 1)
                 );
+            case LevelId.SpidersDen:
+                return new Level(LevelId.SpidersDen, 'Spiders Den', 'The Spider can spawn Spiderlings, be careful!',
+                    CardPackId.BronzeTierPack, 150,
+                    [
+                        [5, CardRepository.getCard(CardId.Spiderling)],
+                        [10, CardRepository.getCard(CardId.Spider)],
+                    ],
+                    new LevelRequirement(App.game.features.statistics.getStatistic(StatisticId.LevelsCompleted) as ArrayStatistic, LevelId.TheFarm, 1)
+                )
             case LevelId.TheWizard:
                 return new Level(LevelId.TheWizard, 'The Wizard', 'He will smite you down with his spells',
                     CardPackId.SilverTierPack,
