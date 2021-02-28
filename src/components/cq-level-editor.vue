@@ -15,11 +15,13 @@
 
       </div>
     </div>
+    <button class="btn btn-green" @click="goOnCustomAdventure">Go on custom adventure!</button>
   </div>
 </template>
 
 <script>
 
+import {App} from "@/App.ts";
 import {LevelEditor} from "@/card-quest/features/level-editor/LevelEditor";
 import {CardRepository} from "@/card-quest/cards/CardRepository";
 
@@ -33,13 +35,18 @@ export default {
     },
   },
 
+  methods: {
+    goOnCustomAdventure() {
+      App.game.goOnCustomAdventure(this.editor.getLevel());
+    }
+  },
   computed: {
     availableCards() {
       return CardRepository.getAllCards()
     },
     currentCards() {
       return this.editor.currentCards;
-    }
+    },
   },
 }
 </script>

@@ -152,6 +152,10 @@ export class Game {
         return this.hasEnoughCards() && this.deckIsValid() && this.canAffordSuperPowers();
     }
 
+    public goOnCustomAdventure(level: Level) {
+        this._goOnAnAdventure(level);
+    }
+
     public goOnAnAdventure(levelId: LevelId) {
         if (!this.canStartAdventure()) {
             return;
@@ -163,9 +167,12 @@ export class Game {
             return;
         }
 
+    }
+
+    private _goOnAnAdventure(level: Level) {
         const newAdventure = new Adventure(
             CardRepository.getDeckFromIdDeck(this.features.collection.currentDeck),
-            newLevel,
+            level,
             this.features.superPowers.getPlayerStats()
         )
 
