@@ -77,6 +77,7 @@ export class App {
                             new Outcome<CardId>(CardId.SilverScythe, 1),
                             new Outcome<CardId>(CardId.TreeCard, 3),
                             new Outcome<CardId>(CardId.SilverOre, 3),
+                            new Outcome<CardId>(CardId.MediumGrain, 3),
                             new Outcome<CardId>(CardId.SilverSword, 3),
                             new Outcome<CardId>(CardId.CrackedShield, 1),
                             new Outcome<CardId>(CardId.ChaliceSmall, 1),

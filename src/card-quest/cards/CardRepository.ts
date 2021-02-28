@@ -33,16 +33,16 @@ export class CardRepository {
             case CardId.LogCard:
                 return new WoodCard(CardId.LogCard, 'Log', 'log.svg', 3, new Currency(1, CurrencyType.Wood));
             case CardId.TreeCard:
-                return new WoodCard(CardId.TreeCard, 'Tree', 'tree.svg', 6, new Currency(2, CurrencyType.Wood));
+                return new WoodCard(CardId.TreeCard, 'Tree', 'tree.svg', 6, new Currency(3, CurrencyType.Wood));
             case CardId.ForestCard:
-                return new WoodCard(CardId.ForestCard, 'Forest', 'forest.svg', 15, new Currency(5, CurrencyType.Wood));
+                return new WoodCard(CardId.ForestCard, 'Forest', 'forest.svg', 10, new Currency(5, CurrencyType.Wood));
 
             case CardId.BronzeOre:
                 return new OreCard(CardId.BronzeOre, 'Bronze ore', 'ore-bronze.svg', 3, new Currency(1, CurrencyType.Bronze));
             case CardId.SilverOre:
                 return new OreCard(CardId.SilverOre, 'Silver ore', 'ore-silver.svg', 6, new Currency(1, CurrencyType.Silver));
             case CardId.GoldOre:
-                return new OreCard(CardId.GoldOre, 'Gold ore', 'ore-gold.svg', 15, new Currency(1, CurrencyType.Gold));
+                return new OreCard(CardId.GoldOre, 'Gold ore', 'ore-gold.svg', 10, new Currency(1, CurrencyType.Gold));
 
             case CardId.SmallGrain:
                 return new GrainCard(CardId.SmallGrain, 'Grain', 'grain.svg', 3, new Currency(1, CurrencyType.Grain));
