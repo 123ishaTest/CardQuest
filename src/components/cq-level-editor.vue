@@ -1,5 +1,10 @@
 <template>
   <div class="feature-tab">
+
+    <p class="text-2xl text-white font-semibold">Level Editor</p>
+    <hr>
+    <p class="text-2xl text-white">Create custom levels to challenge your friends!</p>
+
     <div class="flex flex-col m-4 p-4">
       <div class="flex flex-row flex-initial justify-between">
         <p class="text-2xl font-semibold text-white">Turn</p>
