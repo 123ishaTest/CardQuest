@@ -50,6 +50,17 @@ export class Achievements extends Feature {
             )
         );
         this.registerAchievement(
+            new Achievement(AchievementId.PlayedGobletOfFire,
+                "Just let it go",
+                'Play the Frozen 2 Blast card',
+                'cards/freeze-purple.svg',
+                new ArrayStatisticRequirement(features.statistics.getStatistic(StatisticId.CardsPlayed) as ArrayStatistic,
+                    CardId.FreezeMonstersMedium,
+                    1
+                )
+            )
+        );
+        this.registerAchievement(
             new Achievement(AchievementId.EnemyPlayedForestFire,
                 "Boy or Girl?",
                 'Have your wood resources burned down',

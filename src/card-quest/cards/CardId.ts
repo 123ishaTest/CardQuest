@@ -28,8 +28,8 @@ export enum CardId {
     InstantDamagePlayerMedium,
     InstantDamagePlayerLarge,
 
-    FreezeMonstersMedium,
     FreezeMonstersSmall,
+    FreezeMonstersMedium,
 
     // Curses
     InstantDamageSmall,
