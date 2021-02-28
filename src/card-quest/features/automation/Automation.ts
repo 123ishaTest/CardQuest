@@ -6,6 +6,12 @@ import {AutomationStrategy} from "@/card-quest/features/automation/AutomationStr
 import {DummyStrategy} from "@/card-quest/features/automation/DummyStrategy";
 import {AutomationStrategyId} from "@/card-quest/features/automation/AutomationStrategyId";
 import {App} from "@/App";
+import {Requirement} from "@/ig-template/tools/requirements/Requirement";
+import {NoRequirement} from "@/ig-template/tools/requirements/NoRequirement";
+import {Features} from "@/ig-template/Features";
+import {LevelRequirement} from "@/card-quest/LevelRequirement";
+import {StatisticId} from "@/ig-template/features/statistics/StatisticId";
+import {ArrayStatistic} from "@/ig-template/features/statistics/ArrayStatistic";
 
 export class Automation extends Feature {
 
@@ -20,6 +26,8 @@ export class Automation extends Feature {
 
     public isActive: boolean = false;
 
+    public requirement: Requirement;
+
     constructor() {
         super('automation');
         this.strategies = [
@@ -27,10 +35,21 @@ export class Automation extends Feature {
         ];
         this.selectedStrategy = AutomationStrategyId.Dummy;
         this.selectedLevel = LevelId.TutorialLevel;
+
+        this.requirement = new NoRequirement();
     }
 
     registerAdventure(adventure: Adventure) {
         this._adventure = adventure;
+    }
+
+
+    initialize(features: Features) {
+        this.requirement = new LevelRequirement(features.statistics.getStatistic(StatisticId.LevelsCompleted) as ArrayStatistic, LevelId.TheWizard, 1)
+    }
+
+    canAccess(): boolean {
+        return this.requirement.isCompleted;
     }
 
     update(delta: number) {
