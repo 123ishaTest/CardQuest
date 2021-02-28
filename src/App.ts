@@ -78,6 +78,7 @@ export class App {
                             new Outcome<CardId>(CardId.InstantDamagePlayerMedium, 1),
                             new Outcome<CardId>(CardId.SilverScythe, 1),
                             new Outcome<CardId>(CardId.TreeCard, 3),
+                            new Outcome<CardId>(CardId.FreezeMonstersSmall, 1),
                             new Outcome<CardId>(CardId.SilverOre, 3),
                             new Outcome<CardId>(CardId.MediumGrain, 3),
                             new Outcome<CardId>(CardId.SilverSword, 3),
@@ -95,6 +96,7 @@ export class App {
                             new Outcome<CardId>(CardId.ForestCard, 3),
                             new Outcome<CardId>(CardId.GoldOre, 3),
                             new Outcome<CardId>(CardId.GoldSword, 1),
+                            new Outcome<CardId>(CardId.FreezeMonstersMedium, 1),
                             new Outcome<CardId>(CardId.VikingShield, 1),
                             new Outcome<CardId>(CardId.ChaliceMedium, 1),
                         ]),
@@ -108,6 +110,7 @@ export class App {
                             new Outcome<CardId>(CardId.LoseTurnsSmall, 0.6),
                             new Outcome<CardId>(CardId.LoseTurnsMedium, 0.3),
                             new Outcome<CardId>(CardId.LoseTurnsLarge, 0.2),
+                            new Outcome<CardId>(CardId.FreezeMonstersSmall, 0.2),
                             new Outcome<CardId>(CardId.InstantDamagePlayerSmall, 0.4),
                             new Outcome<CardId>(CardId.InstantDamagePlayerMedium, 0.4),
                         ]),
@@ -153,6 +156,8 @@ export class App {
         game.features.collection.gainCard(CardId.BasicSword, 1);
         game.features.collection.gainCard(CardId.BronzeSword, 1);
         game.features.collection.gainCard(CardId.Chicken, 5);
+        game.features.collection.gainCard(CardId.FreezeMonstersSmall, 1);
+        game.features.collection.gainCard(CardId.InstantDamagePlayerSmall, 1);
         game.features.collection.gainCard(CardId.Draw3Card, 3);
         game.features.collection.gainCard(CardId.MagicTouch, 3);
         game.features.collection.gainCard(CardId.Bread, 2);

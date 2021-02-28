@@ -26,6 +26,7 @@ import {NecromancerCard} from "@/card-quest/cards/content/monster/NecromancerCar
 import {RodOfAsclepiusCard} from "@/card-quest/cards/content/action/RodOfAsclepiusCard";
 import {SacrificeHandCard} from "@/card-quest/cards/content/action/SacrificeHandCard";
 import {InstantDamagePlayerCard} from "@/card-quest/cards/content/action/InstantDamagePlayerCard";
+import {FreezeMonstersCard} from "@/card-quest/cards/content/action/FreezeMonstersCard";
 
 export class CardRepository {
 
@@ -83,6 +84,11 @@ export class CardRepository {
                 return new InstantDamagePlayerCard(CardId.InstantDamagePlayerMedium, 'Fire Strike', 'strike-red.svg', 5).setCosts([new Currency(4, CurrencyType.Souls)])
             case CardId.InstantDamagePlayerLarge:
                 return new InstantDamagePlayerCard(CardId.InstantDamagePlayerLarge, 'Mystic Strike', 'strike-purple.svg', 7).setCosts([new Currency(5, CurrencyType.Souls)])
+
+            case CardId.FreezeMonstersSmall:
+                return new FreezeMonstersCard(CardId.FreezeMonstersSmall, 'Frozen Blast', 'freeze-blue.svg', 5).setCosts([new Currency(2, CurrencyType.Souls)]);
+            case CardId.FreezeMonstersMedium:
+                return new FreezeMonstersCard(CardId.FreezeMonstersMedium, 'Frozen 2 Blast', 'freeze-purple.svg', 10).setCosts([new Currency(3, CurrencyType.Souls)]);
 
             // Curses
             case CardId.InstantDamageSmall:

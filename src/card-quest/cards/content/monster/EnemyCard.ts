@@ -15,6 +15,8 @@ export class EnemyCard extends HealthCard {
     attackInterval: number;
     nextAttack: number;
 
+    frozenCooldown: number = 0;
+
     private _onAttack = new SignalDispatcher();
 
     constructor(id: CardId, title: string, description: string, image: string, health: number, reward: number, attack: number, defense: number, attackInterval: number) {
@@ -46,6 +48,11 @@ export class EnemyCard extends HealthCard {
     }
 
     turnHasPassed(adventure: Adventure): void {
+        if (this.frozenCooldown > 0) {
+            this.frozenCooldown--;
+            return;
+        }
+
         this.nextAttack--;
         if (this.nextAttack <= 0) {
             this.performAttack(adventure);
