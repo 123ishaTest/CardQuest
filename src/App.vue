@@ -40,9 +40,6 @@
       <igt-tab name="How to play">
         <cq-how-to-play></cq-how-to-play>
       </igt-tab>
-      <igt-tab name="Developer Panel">
-        <igt-developer-panel></igt-developer-panel>
-      </igt-tab>
 
       <li slot="other" class="ml-8">
         <div class="flex flex-row items-center" :title="'You have ' + game.features.wallet.money + ' coins'">
@@ -62,7 +59,6 @@
 
 <script>
 import {App} from "@/App.ts"
-import IgtDeveloperPanel from "@/components/developer-panel/igt-developer-panel";
 import CqAdventure from "@/components/cq-adventure";
 import CqCardCollection from "@/components/cg-card-collection";
 import CqLevelSelection from "@/components/cq-level-selection";
@@ -88,7 +84,7 @@ export default {
     IgtSettings,
     IgtTabs,
     IgtTab,
-    IgtAchievements, IgtNotifications, CqLevelSelection, CqCardCollection, CqAdventure, IgtDeveloperPanel
+    IgtAchievements, IgtNotifications, CqLevelSelection, CqCardCollection, CqAdventure
   },
   data() {
     return {
