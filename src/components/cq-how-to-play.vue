@@ -4,7 +4,8 @@
     <hr>
 
     <br>
-    <p class="text-lg font-semibold">Introduction</p>
+    <div class="p-4">
+    <p class="text-2xl font-semibold">Introduction</p>
     <p class="text-lg">Card Quest is a Card Collection Game!</p>
     <p class="text-lg">Collect Cards, build your Deck, and go on Adventures!</p>
     <p class="text-lg">In this game you don't play against another player, or an AI. You play against the Level.</p>
@@ -12,7 +13,7 @@
       your deck around it.</p>
 
     <br>
-    <p class="text-lg font-semibold">Adventure</p>
+    <p class="text-2xl font-semibold">Adventure</p>
     <p class="text-lg">Take your Deck and go on an Adventure.</p>
     <p class="text-lg">Battle your way through different Levels and defeat your enemies!</p>
     <br>
@@ -28,7 +29,7 @@
     <p class="text-lg">More difficult Levels award rarer and better Cards.</p>
 
     <br>
-    <p class="text-lg font-semibold">Card Collection</p>
+    <p class="text-2xl font-semibold">Card Collection</p>
     <p class="text-lg">Here you can view your collected Cards. Build your Decks and save them using the Deck
       Presets.</p>
     <p class="text-lg">The max amount of a single card is 10. You need at least 15 cards in your deck to start a
@@ -36,17 +37,17 @@
     <p class="text-lg">You can share your Decks with other players by importing and exporting their codes!</p>
 
     <br>
-    <p class="text-lg font-semibold">Achievements</p>
+    <p class="text-2xl font-semibold">Achievements</p>
     <p class="text-lg">If you've done impressive things, they will show up here.</p>
 
     <br>
-    <p class="text-lg font-semibold">Quick tips</p>
+    <p class="text-2xl font-semibold">Quick tips</p>
     <p class="text-lg">Check the settings for things you want to toggle.</p>
     <p class="text-lg">Preview the Adventure before taking it on to see which cards will be played.</p>
     <p class="text-lg">Spend your money on starting stats to skip the early game (if you can afford it).</p>
 
     <br>
-    <p class="text-lg font-semibold">Hotkeys</p>
+    <p class="text-2xl font-semibold">Hotkeys</p>
     <p class="text-lg">Shift + Click Cards to discard them</p>
     <p class="text-lg">1-9 to Play Cards</p>
     <p class="text-lg">Ctrl + 1-9 to Tap Cards</p>
@@ -54,7 +55,7 @@
     <p class="text-lg">D to Draw</p>
     <p class="text-lg">W to Wait a turn</p>
     <p class="text-lg">Q to instantly forfeit</p>
-
+    </div>
   </div>
 </template>
 
@@ -67,5 +68,7 @@ export default {
 </script>
 
 <style scoped>
-
+p {
+  @apply text-white;
+}
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="feature-tab">
-    <p class="text-xl font-semibold">Achievements</p>
+    <p class="text-2xl font-semibold text-white">Achievements</p>
     <hr/>
     <div class="flex flex-row flex-wrap">
       <div :key=achievement.id v-for="achievement in achievements" class="w-72">

@@ -7,7 +7,7 @@
 
         <div :key=card.amount v-for="(card) in cards" class="flex flex-col">
           <div v-if="card[1] > 0 || showUnobtainedCardsSetting.value">
-            <div class="flex flex-row justify-between items-center m-2">
+            <div class="flex flex-row justify-between items-center m-2 text-white">
               <button class="btn btn-red" @click="removeCard(card[0].id)"
                       :disabled="currentDeck.getCountForCard(card[0].id) <= 0">
                 -

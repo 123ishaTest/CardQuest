@@ -2,7 +2,7 @@
   <div>
     <div class="tabs" :class="headerClass">
       <ul class="flex flex-row">
-        <li class="p-2 border-r-2" :key="'tab'+index" v-for="(tab, index) in tabs" :class="{ 'text-green-500': tab.isActive }">
+        <li class="p-2 border-r-2" :key="'tab'+index" v-for="(tab, index) in tabs" :class="[tab.isActive ?'text-green-500': 'text-white']">
           <a v-if="tab.canSelect" class="text-lg cursor-pointer" @click="selectTab(tab)" :id="tab.id">{{ tab.name }}</a>
           <span class="text-lg" v-else> {{ tab.name }}</span>
         </li>

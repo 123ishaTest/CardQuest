@@ -9,7 +9,7 @@ export class DummyStrategy extends AutomationStrategy {
     constructor() {
         super(AutomationStrategyId.Dummy, 'Dummy Strategy', 'A basic algorithm I coded up, it tries its best.\n' +
             'It Taps monsters if they exist, and draws when its hand is empty\n' +
-            'You can view the code <a class="text-white" target="_blank" href="https://github.com/123ishaTest/CardQuest/blob/master/src/card-quest/features/automation/DummyStrategy.ts"/>Here!</a>', 0);
+            'You can view the code <a class="text-blue-500" target="_blank" href="https://github.com/123ishaTest/CardQuest/blob/master/src/card-quest/features/automation/DummyStrategy.ts"/>Here!</a>', 0);
     }
 
     performAction(adventure: Adventure): void {

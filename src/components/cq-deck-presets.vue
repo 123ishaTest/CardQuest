@@ -39,7 +39,7 @@
       <div :key="index + '-' + amount" v-for="(amount, index) in idDeck.cards" class="has-tooltip">
         <div v-if="amount !== 0">
           <div class="flex flex-row justify-between items-center px-2">
-            <div class="m-2">{{ CardRepository.getCard(index).title }} ({{ amount }})</div>
+            <div class="m-2 text-white">{{ CardRepository.getCard(index).title }} ({{ amount }})</div>
             <img :title="CardRepository.getCard(index).description" class="w-8 h-8 inline"
                  :src="require(`@/assets/cards/${CardRepository.getCard(index).image}`)">
           </div>

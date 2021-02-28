@@ -1,7 +1,7 @@
 <template>
   <div>
-    <p class="text-2xl font-semibold">Starting stats</p>
-    <p class="text-md">Spend your money on starting bonuses</p>
+    <p class="text-2xl font-semibold text-white">Starting stats</p>
+    <p class="text-md text-white">Spend your money on starting bonuses</p>
     <hr/>
     <div class="flex flex-row flex-wrap justify-center">
       <cq-super-power :power="powers.axe"></cq-super-power>
