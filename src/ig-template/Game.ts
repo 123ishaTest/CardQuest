@@ -14,7 +14,7 @@ import {LevelRepository} from "@/card-quest/adventure/LevelRepository";
 import {LevelId} from "@/card-quest/adventure/LevelId";
 import {Currency} from "@/ig-template/features/wallet/Currency";
 import {Level} from "@/card-quest/adventure/Level";
-import {ISignal, SignalDispatcher} from "strongly-typed-events";
+import {ISignal, ISimpleEvent, SignalDispatcher, SimpleEventDispatcher} from "strongly-typed-events";
 
 export class Game {
     private _tickInterval: number = -1;
@@ -42,6 +42,15 @@ export class Game {
     public get onSave(): ISignal {
         return this._onSave.asEvent();
     }
+
+    private _onLose = new SimpleEventDispatcher<Level>();
+    /**
+     * Emitted whenever the game is lost
+     */
+    public get onLose(): ISimpleEvent<Level> {
+        return this._onLose.asEvent();
+    }
+
 
     /**
      * Make sure this key is unique to your game.
@@ -196,6 +205,10 @@ export class Game {
         this.features.adventure.onWin.subscribe((level: Level) => {
             this.features.collection.openCardPack(level.rewardPack, level.rewardCount);
             this.features.wallet.gainCurrency(new Currency(level.getMoneyReward(), CurrencyType.Money));
+        })
+
+        this.features.adventure.onLose.subscribe(level => {
+            this._onLose.dispatch(level);
         })
 
         this.features.adventure.startAdventure();

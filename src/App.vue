@@ -5,9 +5,13 @@
       <div slot="header">
         <p class="text-2xl font-semibold text-white">Success!</p>
       </div>
-
     </igt-modal>
 
+    <cq-lose-modal v-if="showLoseModal" @close="showLoseModal = false">
+      <div slot="header">
+        <p class="text-2xl font-semibold text-white">Failure!</p>
+      </div>
+    </cq-lose-modal>
 
     <igt-tabs :header-class="'bg-cq-slate'">
 
@@ -74,9 +78,11 @@ import IgtModal from "@/components/util/igt-card-reveal-modal";
 import CqHowToPlay from "@/components/cq-how-to-play";
 import CqAutomation from "@/components/cq-automation";
 import CqLevelEditor from "@/components/cq-level-editor";
+import CqLoseModal from "@/components/cq-lose-modal";
 
 export default {
   components: {
+    CqLoseModal,
     CqLevelEditor,
     CqAutomation,
     CqHowToPlay,
@@ -91,6 +97,7 @@ export default {
       game: App.game,
       gainedCards: [],
       showModal: false,
+      showLoseModal: false,
       LevelRepository: LevelRepository,
     }
   },
@@ -136,6 +143,10 @@ export default {
       this.gainedCards = cards;
       this.showModal = true;
     });
+
+    this.game.onLose.subscribe(() => {
+      this.showLoseModal = true;
+    })
   }
 }
 </script>
