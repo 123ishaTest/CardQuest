@@ -167,6 +167,7 @@ export class Game {
             return;
         }
 
+        this._goOnAnAdventure(newLevel);
     }
 
     private _goOnAnAdventure(level: Level) {
