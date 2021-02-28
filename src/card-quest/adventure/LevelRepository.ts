@@ -38,8 +38,8 @@ export class LevelRepository {
                 return new Level(LevelId.SpidersDen, 'Spiders Den', 'The Spider can spawn Spiderlings, be careful!',
                     CardPackId.BronzeTierPack, 150,
                     [
-                        [5, CardRepository.getCard(CardId.Spiderling)],
-                        [10, CardRepository.getCard(CardId.Spider)],
+                        [10, CardRepository.getCard(CardId.Spiderling)],
+                        [12, CardRepository.getCard(CardId.Spider)],
                     ],
                     new LevelRequirement(App.game.features.statistics.getStatistic(StatisticId.LevelsCompleted) as ArrayStatistic, LevelId.TheFarm, 1)
                 )
@@ -47,13 +47,13 @@ export class LevelRepository {
                 return new Level(LevelId.TheWizard, 'The Wizard', 'He will smite you down with his spells',
                     CardPackId.SilverTierPack,
                     200, [
-                        [20, CardRepository.getCard(CardId.InstantDamageSmall)],
                         [25, CardRepository.getCard(CardId.InstantDamageSmall)],
-                        [30, CardRepository.getCard(CardId.Skeleton)],
-                        [35, CardRepository.getCard(CardId.InstantDamageMedium)],
-                        [42, CardRepository.getCard(CardId.InstantDamageMedium)],
-                        [50, CardRepository.getCard(CardId.InstantDamageLarge)],
-                        [55, CardRepository.getCard(CardId.Skeleton)],
+                        [30, CardRepository.getCard(CardId.InstantDamageSmall)],
+                        [35, CardRepository.getCard(CardId.Skeleton)],
+                        [40, CardRepository.getCard(CardId.InstantDamageMedium)],
+                        [47, CardRepository.getCard(CardId.InstantDamageMedium)],
+                        [55, CardRepository.getCard(CardId.InstantDamageLarge)],
+                        [60, CardRepository.getCard(CardId.Skeleton)],
                     ],
                     new LevelRequirement(App.game.features.statistics.getStatistic(StatisticId.LevelsCompleted) as ArrayStatistic, LevelId.TheFarm, 1)
                 );
@@ -95,13 +95,13 @@ export class LevelRepository {
                 return new Level(LevelId.TheNecromancer, 'The Necromancer', 'Has the ability to raise enemies from the dead',
                     CardPackId.Legendary,
                     600, [
-                        [5, CardRepository.getCard(CardId.Skeleton)],
-                        [10, CardRepository.getCard(CardId.LandMine)],
-                        [15, CardRepository.getCard(CardId.SkeletonKing)],
-                        [18, CardRepository.getCard(CardId.DiscardHand)],
-                        [24, CardRepository.getCard(CardId.RodOfAsclepius)],
-                        [31, CardRepository.getCard(CardId.SkeletonKing)],
-                        [33, CardRepository.getCard(CardId.InstantDamageMedium)],
+                        [25, CardRepository.getCard(CardId.Skeleton)],
+                        [30, CardRepository.getCard(CardId.LandMine)],
+                        [35, CardRepository.getCard(CardId.SkeletonKing)],
+                        [38, CardRepository.getCard(CardId.DiscardHand)],
+                        [44, CardRepository.getCard(CardId.RodOfAsclepius)],
+                        [51, CardRepository.getCard(CardId.SkeletonKing)],
+                        [53, CardRepository.getCard(CardId.InstantDamageMedium)],
                     ],
                     new LevelRequirement(App.game.features.statistics.getStatistic(StatisticId.LevelsCompleted) as ArrayStatistic, LevelId.TheDragon, 1)
                 )
