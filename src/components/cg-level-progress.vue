@@ -5,24 +5,25 @@
     </div>
     <p v-if=showCurrentTurn class="text-lg text-white">Turn {{ currentTurn }}</p>
     <hr/>
-    <div class="flex flex-col">
+    <div class="flex flex-col mt-2">
       <div :key=futureCard[0] v-for="(futureCard, index) in futureCards">
 
 
         <div class="flex flex-row justify-between items-center has-tooltip">
 
-          <div class="m-2 text-white">{{ futureCard[0] - currentTurn }} - {{ futureCard[1].title }}
-            <cq-card :card="futureCard[1]" class="tooltip ml-48" :is-in-hand="false" :can-hover="false"
-                     :can-click="false"></cq-card></div>
+          <cq-orb :value="futureCard[0] - currentTurn" svg="clock.svg"></cq-orb>
+
+          <div class="m-2 text-white">{{ futureCard[1].title }}
+          </div>
           <img :title="futureCard[1].description" class="w-8 h-8 inline"
                :src="require(`@/assets/cards/${futureCard[1].image}`)">
-
+          <cq-card :card="futureCard[1]" class="tooltip ml-48" :is-in-hand="false" :can-hover="false"
+                   :can-click="false"></cq-card>
         </div>
         <cq-card :class="{'shake': futureCard[0] === currentTurn + 1}" v-if="index === 0 && firstCardLarge"
                  :card="futureCard[1]" :is-in-hand="false"
                  :can-hover="false"
                  :can-click="false"></cq-card>
-
 
 
       </div>
@@ -35,10 +36,11 @@
 
 import {Level} from "@/card-quest/adventure/Level";
 import CqCard from "@/components/cq-card";
+import CqOrb from "@/components/orbs/cq-orb";
 
 export default {
   name: "cq-level-progress",
-  components: {CqCard},
+  components: {CqOrb, CqCard},
   // components: {CqCard},
   props: {
     level: {
