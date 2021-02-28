@@ -22,13 +22,15 @@ export class LevelEditor extends Feature {
         this.description = '';
 
         for (let i = 0; i < 10; i++) {
-            this.currentCards.push([(i + 1) * 5, CardId.Spiderling]);
+            this.currentCards.push([(i + 1) * 5, -1 as CardId]);
         }
     }
 
     getLevel(): Level | null {
         try {
-            const cards = this.currentCards.map(entry => {
+            const cards = this.currentCards.filter(entry => {
+                return entry[0] > 0 && entry[1] !== -1;
+            }).map(entry => {
                 return [entry[0], CardRepository.getCard(entry[1])] as [number, PlayableCard];
             })
             return new Level(

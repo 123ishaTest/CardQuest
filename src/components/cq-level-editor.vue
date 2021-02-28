@@ -8,9 +8,15 @@
         <input class="input-primary" type="text" v-model="entry[0]">
 
         <select class="input-primary" v-model="entry[1]">
+
+          <option :value="-1">
+            None
+          </option>
+
           <option :key="card.id" v-for="card in availableCards" :value="card.id">
             {{ card.title }}
           </option>
+
         </select>
 
       </div>
@@ -38,6 +44,7 @@ export default {
   methods: {
     goOnCustomAdventure() {
       App.game.goOnCustomAdventure(this.editor.getLevel());
+      document.getElementById('adventure-tab-button').click();
     }
   },
   computed: {

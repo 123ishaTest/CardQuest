@@ -16,7 +16,7 @@
       </igt-tab>
 
 
-      <igt-tab name="Adventure">
+      <igt-tab name="Adventure" id="adventure-tab-button">
         <cq-adventure v-if="game.features.adventure.isActive"></cq-adventure>
         <cq-level-selection v-else :levels="allLevels"></cq-level-selection>
       </igt-tab>
