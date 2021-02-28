@@ -45,6 +45,10 @@
         <cq-how-to-play></cq-how-to-play>
       </igt-tab>
 
+      <igt-tab name="Credits">
+        <cq-credits></cq-credits>
+      </igt-tab>
+
       <li slot="other" class="ml-8">
         <div class="flex flex-row items-center" :title="'You have ' + game.features.wallet.money + ' coins'">
           <p class="text-lg text-white p-2">{{ game.features.wallet.money | numberFormat }}
@@ -79,9 +83,11 @@ import CqHowToPlay from "@/components/cq-how-to-play";
 import CqAutomation from "@/components/cq-automation";
 import CqLevelEditor from "@/components/cq-level-editor";
 import CqLoseModal from "@/components/cq-lose-modal";
+import CqCredits from "@/components/cq-credits";
 
 export default {
   components: {
+    CqCredits,
     CqLoseModal,
     CqLevelEditor,
     CqAutomation,
